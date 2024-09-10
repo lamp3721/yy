@@ -1,6 +1,6 @@
 package org.example.URL.impl;
 
-import org.example.URL.YiYan;
+import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,12 +12,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Component
 @PropertySource("classpath:url.properties")
-public class Eleven_11  implements YiYan {
+public class Eleven_11  implements YiYanApi {
 
     public int id = 11;
     
@@ -29,6 +27,7 @@ public class Eleven_11  implements YiYan {
     public Y conn() {
         y.clear(); // 清空y
         y.setUrId(id);
+        y.setUrl(apiUrl);
         try {
             URL url = new URL(apiUrl);
 

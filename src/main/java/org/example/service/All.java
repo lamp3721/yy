@@ -1,7 +1,6 @@
 package org.example.service;
 
-import org.example.URL.YiYan;
-import org.example.pojo.Y;
+import org.example.URL.YiYanApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -17,28 +16,30 @@ public class All {
     @Autowired
     private ApplicationContext applicationContext;
 
-    ArrayList<YiYan> ys = new ArrayList<>();
+    ArrayList<YiYanApi> ys = new ArrayList<>();
 
     SecureRandom sr = new SecureRandom();
     
     @PostConstruct
-    public void getY(){
-        // 获取所有 YiYan 接口的实现类，返回的是一个 Map<String, YiYan>
-        Collection<YiYan> yiYanBeans = applicationContext.getBeansOfType(YiYan.class).values();
+    public void setAll(){
+        // 获取所有 YiYanApi 接口的实现类，返回的是一个 Map<String, YiYanApi>
+        Collection<YiYanApi> yiYanApiBeans = applicationContext.getBeansOfType(YiYanApi.class).values();
 
         // 将 Collection 转换为数组
-        YiYan[] yiYanArray = yiYanBeans.toArray(new YiYan[0]);
+        YiYanApi[] yiYanApiArray = yiYanApiBeans.toArray(new YiYanApi[0]);
 
         // 输出数组中的每个实现类对象的 say() 方法
-        for (YiYan yiYan : yiYanArray) {
-            yiYan.conn();
-            ys.add(yiYan);
+        for (YiYanApi yiYanApi : yiYanApiArray) {
+            yiYanApi.conn();
+            ys.add(yiYanApi);
         }
+        System.out.println("------------测试完毕------------");
     }
     
     //随机返回一个YiYan接口的实现类
-    public YiYan get(){
-        int i = (int) Math.random() * ys.size();
+    public YiYanApi getY(){
+        //生成随机数
+        int i = sr.nextInt(ys.size());
         return ys.get(i);
     }
 }

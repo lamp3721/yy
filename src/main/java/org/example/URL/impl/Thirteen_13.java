@@ -1,6 +1,6 @@
 package org.example.URL.impl;
 
-import org.example.URL.YiYan;
+import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 
 @Component
 @PropertySource("classpath:url.properties")
-public class Thirteen_13 implements YiYan {
+public class Thirteen_13 implements YiYanApi {
 
     private int id = 13;
     
@@ -30,6 +30,7 @@ public class Thirteen_13 implements YiYan {
     public Y conn() {
         y.clear(); // 清空y
         y.setUrId(id);
+        y.setUrl(apiUrl);
         try {
             URL url = new URL(apiUrl);
 

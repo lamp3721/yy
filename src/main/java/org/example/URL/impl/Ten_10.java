@@ -1,6 +1,6 @@
 package org.example.URL.impl;
 
-import org.example.URL.YiYan;
+import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -15,7 +15,7 @@ import java.net.URL;
 
 @Component
 @PropertySource("classpath:url.properties")
-public class Ten_10 implements YiYan {
+public class Ten_10 implements YiYanApi {
     public int id = 10;
     @Value("${api10}")
     public String apiUrl ;
@@ -27,6 +27,7 @@ public class Ten_10 implements YiYan {
     public Y conn() {
         y.clear(); // 清空y
         y.setUrId(id);
+        y.setUrl(apiUrl);
         try {
             URL url = new URL(apiUrl);
 

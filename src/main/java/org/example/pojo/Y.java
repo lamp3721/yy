@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class Y {
     private int  status; //状态码
     private int urId;
+    private String url;
     private String msg;
     private String author;
 
@@ -41,10 +42,19 @@ public class Y {
         this.urId = urId;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     //清除bean中数据
     public void clear() {
         this.status = 0;
         this.urId = 100;
+        this.url = "";
         this.msg = "";
         this.author = "";
     }
@@ -55,6 +65,7 @@ public class Y {
                 "author='" + author + '\'' +
                 ", status=" + status +
                 ", urId=" + urId +
+                ", url='" + url + '\'' +
                 ", msg='" + msg + '\'' +
                 '}';
     }
