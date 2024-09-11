@@ -20,6 +20,10 @@ public class Window {
     
     public Font font;
 
+    public JPopupMenu popupMenu = new JPopupMenu();
+    public JMenuItem menuItem = new JMenuItem("刷新");
+    public JMenuItem menuAuthor = new JMenuItem("作者");
+
 
     @PostConstruct
     public void window() {
@@ -57,7 +61,19 @@ public class Window {
         frame.addMouseListener(mouseAdapter);
         frame.addMouseMotionListener(mouseAdapter);
 
-
+        // frame添加右键菜单
+        frame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    popupMenu.show(frame, e.getX(), e.getY());
+                }
+            }
+        });
+        // 菜单添加菜单选项
+        popupMenu.add(menuItem);
+        popupMenu.add(menuAuthor);
+        
         frame.setVisible(true);
         
     }

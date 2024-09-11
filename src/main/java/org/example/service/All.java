@@ -1,5 +1,6 @@
 package org.example.service;
 
+
 import org.example.URL.YiYanApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
+
 
 @Service
 public class All {

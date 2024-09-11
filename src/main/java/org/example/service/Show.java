@@ -20,22 +20,28 @@ public class Show {
     public JLabel label;
     public Font font;
     
+    //刷新按钮的菜单项
+    public JMenuItem menuItem ;
+    //作者菜单项
+    public JMenuItem menuAuthor ;
+    
     public boolean isCentered = true;
 
     private Timer fadeInTimer;
     private Timer fadeOutTimer;
     private float alpha = 1.0f; // 初始为不透明
     
-    private String newMsg; // 新消息内容
+    private Y y; // 新消息内容
+    private boolean openAuthor = true;  // 是否显示作者，默认显示
     
+    public void updateShow(Y y){
+        this.y = y;
+        //淡出 并 更新
+        fadeOut();
+    }
     
-    public void show(Y y){
-        
-        if(y.getAuthor().length() == 0){
-            newMsg = y.getMsg();
-        }else{
-            newMsg = y.getMsg()+" -- "+y.getAuthor();
-        }
+    //刷新
+    public void refresh(){
         //淡出
         fadeOut();
     }
@@ -46,8 +52,32 @@ public class Show {
         frame = window.frame;
         label = window.label;
         font = window.font;
+        
+        // 菜单项
+        menuItem = window.menuItem;
+        menuAuthor = window.menuAuthor;
         //淡出定时器
         initTimers();
+        
+        
+        //刷新按钮
+        menuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refresh();
+            }
+        });
+        
+        //作者菜单项
+        menuAuthor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openAuthor = !openAuthor;
+                refresh();
+            }
+        });
+        
+        
     }
     
     
@@ -105,6 +135,12 @@ public class Show {
 
                 if (alpha <= 0.0f) {
                     fadeOutTimer.stop(); // 停止淡出
+                    String newMsg;
+                    if(openAuthor && y.getAuthor().length() > 0){
+                        newMsg = y.getMsg() + " -- " + y.getAuthor();
+                    }else{
+                        newMsg = y.getMsg();
+                    }
                     label.setText(newMsg);
                     // 重新计算窗口大小
                     frame.pack();
