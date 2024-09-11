@@ -56,6 +56,19 @@
             <version>1.18.28</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!--桌面句柄-->
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.8.0</version> <!-- 版本号可以调整 -->
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>5.8.0</version> <!-- 版本号可以调整 -->
+        </dependency>
+
 
 
 

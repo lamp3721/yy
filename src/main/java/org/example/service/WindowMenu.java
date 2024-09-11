@@ -13,10 +13,10 @@ import java.awt.event.MouseEvent;
 
 @Component
 public class WindowMenu {
-    
+
     @Resource
     Window window;
-    
+
     @Resource
     Show show;
 
@@ -27,15 +27,15 @@ public class WindowMenu {
     public Font font;
 
     public JPopupMenu popupMenu = new JPopupMenu();
-    
+
     public JMenuItem menuItem = new JMenuItem("刷新");
     public JMenuItem menuAuthor = new JMenuItem("作者");
-    public JMenuItem menuCentered = new JMenuItem("居中");
-    
+    public JMenuItem menuCentered = new JMenuItem("左右居中");
+    public JMenuItem menuFixed = new JMenuItem("固定");
 
 
     @PostConstruct
-    public void init(){
+    public void init() {
         frame = window.frame;
         label = window.label;
         window.font = font;
@@ -44,7 +44,7 @@ public class WindowMenu {
         popupMenu.add(menuItem);
         popupMenu.add(menuAuthor);
         popupMenu.add(menuCentered);
-
+        popupMenu.add(menuFixed);
 
 
         // frame添加右键菜单
@@ -57,13 +57,14 @@ public class WindowMenu {
             }
         });
 
-        //刷新按钮
+        //刷新
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 show.fadeOut();
             }
         });
+        
 
         //作者菜单项
         menuAuthor.addActionListener(new ActionListener() {
@@ -73,13 +74,21 @@ public class WindowMenu {
                 show.fadeOut();
             }
         });
-        
+
         //居中
         menuCentered.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                show.isCentered = !show.isCentered;
+                window.isCentered = !window.isCentered;
                 show.fadeOut();
+            }
+        });
+
+        //固定
+        menuFixed.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                window.fixed = !window.fixed;
             }
         });
 

@@ -44,9 +44,10 @@ public class Switch {
                         log.info(y.toString());
                     }
                     y.setMsg(y.getUrId()+":出错了！");
+                    y.setStatus(0);
                     show.updateShow(y);
-                    // 网络错误或数据无效，等待 5 秒后重新尝试
-                    Thread.sleep(5000);
+                    // 网络错误或数据无效，等待 10 秒后重新尝试
+                    Thread.sleep(10000);
                     continue; // 重新尝试
                 }
 
