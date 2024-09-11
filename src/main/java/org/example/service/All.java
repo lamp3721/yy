@@ -3,12 +3,14 @@ package org.example.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
+import org.example.URL.impl.*;
 import org.example.pojo.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,24 +27,55 @@ public class All {
 
     SecureRandom sr = new SecureRandom();
     
+    @Autowired
+    private Zero_0 zero_0;
+    @Autowired
+    private One_1 one_1;
+    @Autowired
+    private Two_2 two_2;
+    @Autowired
+    private Four_4 four_4;
+    @Autowired
+    private Six_6 six_6;
+    @Autowired
+    private Seven_7 seven_7;
+    @Autowired
+    private Eight_8 eight_8;
+    @Autowired
+    private Ten_10 ten_10;
+    @Autowired
+    private Eleven_11 eleven_11;
+    @Autowired
+    private Twelve_12 twelve_12 ;
+    @Autowired
+    private Fourteen_14 fourteen_14 ;
+
+
+    
     @PostConstruct
     public void setAll(){
-        // 获取所有 YiYanApi 接口的实现类，返回的是一个 Map<String, YiYanApi>
-        Collection<YiYanApi> yiYanApiBeans = applicationContext.getBeansOfType(YiYanApi.class).values();
-
-        // 将 Collection 转换为数组
-        YiYanApi[] yiYanApiArray = yiYanApiBeans.toArray(new YiYanApi[0]);
+        ys.add(zero_0);
+        ys.add(one_1);
+        ys.add(two_2);
+        ys.add(four_4);
+        ys.add(six_6);
+        ys.add(seven_7);
+        ys.add(eight_8);
+        ys.add(ten_10);
+        ys.add(eleven_11);
+        ys.add(twelve_12);
+        ys.add(fourteen_14);
+        
 
         // 输出数组中的每个实现类对象的 say() 方法
-        for (YiYanApi yiYanApi : yiYanApiArray) {
+        for (YiYanApi yiYanApi : ys) {
             //测试连接
             Y y = yiYanApi.conn();
             if(y.getStatus() == 0){
                 log.info(y.toString());
             }
-            ys.add(yiYanApi);
         }
-        System.out.println("------------测试完毕------------");
+        System.out.println("------------测试完毕------------"+ys.size());
     }
     
     //随机返回一个YiYan接口的实现类

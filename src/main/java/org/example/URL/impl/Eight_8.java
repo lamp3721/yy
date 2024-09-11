@@ -2,76 +2,49 @@ package org.example.URL.impl;
 
 import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
+import org.example.util.Http;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 @Component
 public class Eight_8 implements YiYanApi {
-    
+
     public int id = 8;
-    
+
     @Value("${api8}")
-    private String apiUrl ;
-    
+    private String apiUrl;
+
     @Resource
     private Y y;
-    
+
 
     public Y conn() {
         
         y.clear(); // 清空y
         y.setUrId(id);
         y.setUrl(apiUrl);
-        
+
+        String body = Http.get(apiUrl);
+
+        if (body.equals("404")) {
+            //出错了
+            y.setStatus(0);
+            return y;
+        }
+
         try {
-            URL url = new URL(apiUrl);
+            JSONObject jsonObject = new JSONObject(body);
+            String cn = jsonObject.getString("cn");
+            y.setStatus(1);
+            y.setMsg(cn);
+        } catch (Exception e) {
+            y.setStatus(0);
+        }
 
-            // 打开连接
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            // 设置请求方法为 
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000);
-
-
-            // 获取响应状态码
-            int responseCode = connection.getResponseCode();
-
-
-            // 如果响应状态码为 200，表示请求成功
-            if (responseCode == 200) {
-                // 读取响应数据
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-                //关闭流
-                reader.close();
-                //关闭连接
-                connection.disconnect();
-                
-                JSONObject jsonObject = new JSONObject(response.toString());
-                String cn = jsonObject.getString("cn");
-
-                System.out.println(id + ":" + apiUrl + ":" + cn);
-                
-                y.setStatus(1);
-                y.setMsg(cn);
-
-                return y;
-            }
-        } catch (Exception e) {}
-        y.setStatus(0);
         return y;
 
     }
