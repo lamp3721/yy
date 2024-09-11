@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 
 // 定时刷新
@@ -41,6 +43,8 @@ public class Switch {
                     if (y.getMsg().length() <= 60) {
                         log.info(y.toString());
                     }
+                    y.setMsg(y.getUrId()+":出错了！");
+                    show.updateShow(y);
                     // 网络错误或数据无效，等待 5 秒后重新尝试
                     Thread.sleep(5000);
                     continue; // 重新尝试
@@ -68,15 +72,20 @@ public class Switch {
 
     //成功记录
     private void record(Y y) throws IOException {
-        yYText = new File("一言.txt");
-        FileWriter fileWriter = new FileWriter(yYText, true);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        if(y.getAuthor().length() > 0){
-            bufferedWriter.write("*"+":" + y.getMsg() +" -- "+ y.getAuthor() + "\n");
-        }else{
-            bufferedWriter.write("*"+":" + y.getMsg() + "\n");
+        File yYText = new File("一言.txt");
+
+        // 指定字符编码为 UTF-8
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(yYText, true), "UTF-8");
+        BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
+
+        if (y.getAuthor().length() > 0) {
+            bufferedWriter.write("*" + ":" + y.getMsg() + " -- " + y.getAuthor() + "\n");
+        } else {
+            bufferedWriter.write("*" + ":" + y.getMsg() + "\n");
         }
+
         bufferedWriter.flush();
+        bufferedWriter.close();  // 关闭资源以确保数据写入文件
     }
 
 }

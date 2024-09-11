@@ -143,7 +143,7 @@ public class Show {
                     }else{
                         newMsg = y.getMsg();
                     }
-                    label.setText(newMsg);
+                    label.setText(" "+newMsg+" ");
                     // 重新计算窗口大小
                     frame.pack();
                     // 重新居中
