@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+// 显示
 @Service
 public class Show {
     
@@ -25,7 +27,7 @@ public class Show {
     //作者菜单项
     public JMenuItem menuAuthor ;
     
-    public boolean isCentered = true;
+    public boolean isCentered = true;  // 是否居中
 
     private Timer fadeInTimer;
     private Timer fadeOutTimer;

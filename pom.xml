@@ -29,7 +29,19 @@
             <version>20210307</version>
         </dependency>
 
-        
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+        <!-- Logback 经典模块，SLF4J 的实现 -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -38,17 +50,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <optional>true</optional>
-        </dependency>
+
 
     </dependencies>
 

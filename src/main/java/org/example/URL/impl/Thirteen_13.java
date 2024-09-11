@@ -3,7 +3,6 @@ package org.example.URL.impl;
 import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -16,7 +15,6 @@ import java.util.regex.Pattern;
 
 
 @Component
-@PropertySource("classpath:url.properties")
 public class Thirteen_13 implements YiYanApi {
 
     private int id = 13;

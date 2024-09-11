@@ -4,9 +4,7 @@ import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-
 
 import javax.annotation.Resource;
 import java.io.BufferedReader;
@@ -16,7 +14,6 @@ import java.net.URL;
 
 
 @Component
-@PropertySource("classpath:url.properties")
 public class Eight_8 implements YiYanApi {
     
     public int id = 8;

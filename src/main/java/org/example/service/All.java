@@ -1,7 +1,9 @@
 package org.example.service;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
+import org.example.pojo.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -11,8 +13,9 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
+// 获取所有实现类
 @Service
+@Slf4j
 public class All {
 
     @Autowired
@@ -32,7 +35,11 @@ public class All {
 
         // 输出数组中的每个实现类对象的 say() 方法
         for (YiYanApi yiYanApi : yiYanApiArray) {
-            yiYanApi.conn();
+            //测试连接
+            Y y = yiYanApi.conn();
+            if(y.getStatus() == 0){
+                log.info(y.toString());
+            }
             ys.add(yiYanApi);
         }
         System.out.println("------------测试完毕------------");
