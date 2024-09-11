@@ -27,8 +27,10 @@ public class WindowMenu {
     public Font font;
 
     public JPopupMenu popupMenu = new JPopupMenu();
+    
     public JMenuItem menuItem = new JMenuItem("刷新");
     public JMenuItem menuAuthor = new JMenuItem("作者");
+    public JMenuItem menuCentered = new JMenuItem("居中");
     
 
 
@@ -37,6 +39,12 @@ public class WindowMenu {
         frame = window.frame;
         label = window.label;
         window.font = font;
+
+        // 菜单添加菜单选项
+        popupMenu.add(menuItem);
+        popupMenu.add(menuAuthor);
+        popupMenu.add(menuCentered);
+
 
 
         // frame添加右键菜单
@@ -48,15 +56,12 @@ public class WindowMenu {
                 }
             }
         });
-        // 菜单添加菜单选项
-        popupMenu.add(menuItem);
-        popupMenu.add(menuAuthor);
 
         //刷新按钮
         menuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                show.refresh();
+                show.fadeOut();
             }
         });
 
@@ -65,7 +70,16 @@ public class WindowMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 show.openAuthor = !show.openAuthor;
-                show.refresh();
+                show.fadeOut();
+            }
+        });
+        
+        //居中
+        menuCentered.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                show.isCentered = !show.isCentered;
+                show.fadeOut();
             }
         });
 

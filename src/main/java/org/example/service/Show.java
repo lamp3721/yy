@@ -17,8 +17,8 @@ public class Show {
     
     @Resource
     Window window;
-
-    public JFrame frame;
+    
+    public JFrame frame;//设置透明度数
     public JLabel label;
     
     public boolean isCentered = true;  // 是否居中
@@ -28,7 +28,7 @@ public class Show {
     private float alpha = 1.0f; // 初始为不透明
     
     private Y y; // 新消息内容
-    public boolean openAuthor = true;  // 是否显示作者，默认显示
+    public boolean openAuthor = true;  // 是否显示作者，默认显示  //更改这个状态再淡出一下即可
     
     public void updateShow(Y y){
         this.y = y;
@@ -36,12 +36,6 @@ public class Show {
         fadeOut();
     }
     
-    //刷新
-    public void refresh(){
-        //淡出
-        fadeOut();
-    }
-
 
     @PostConstruct
     public void init(){
@@ -116,7 +110,8 @@ public class Show {
                     label.setText(" "+newMsg+" ");
                     // 重新计算窗口大小
                     frame.pack();
-                    // 重新居中
+                    
+                    // 重新居中 如果可以
                     setCenter();
                     // 淡入
                     fadeIn();
@@ -133,7 +128,7 @@ public class Show {
     }
 
     // 淡出
-    private void fadeOut() {
+    public void fadeOut() {
         alpha = 1.0f; // 从不透明开始
         fadeOutTimer.start(); // 启动淡出定时器
     }

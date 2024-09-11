@@ -74,7 +74,7 @@ public class Window {
             }
             // 从资源流中加载字体
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, is);
-            font = customFont.deriveFont(Font.PLAIN, 32);  // 设置字体样式和大小
+            font = customFont.deriveFont(Font.PLAIN, 30);  // 设置字体样式和大小
 
             // 在这里可以使用 customFont 进行绘制
             System.out.println("自定义字体加载成功！");
