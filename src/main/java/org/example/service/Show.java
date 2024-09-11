@@ -20,12 +20,6 @@ public class Show {
 
     public JFrame frame;
     public JLabel label;
-    public Font font;
-    
-    //刷新按钮的菜单项
-    public JMenuItem menuItem ;
-    //作者菜单项
-    public JMenuItem menuAuthor ;
     
     public boolean isCentered = true;  // 是否居中
 
@@ -34,7 +28,7 @@ public class Show {
     private float alpha = 1.0f; // 初始为不透明
     
     private Y y; // 新消息内容
-    private boolean openAuthor = true;  // 是否显示作者，默认显示
+    public boolean openAuthor = true;  // 是否显示作者，默认显示
     
     public void updateShow(Y y){
         this.y = y;
@@ -53,36 +47,12 @@ public class Show {
     public void init(){
         frame = window.frame;
         label = window.label;
-        font = window.font;
         
-        // 菜单项
-        menuItem = window.menuItem;
-        menuAuthor = window.menuAuthor;
         //淡出定时器
         initTimers();
-        
-        
-        //刷新按钮
-        menuItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                refresh();
-            }
-        });
-        
-        //作者菜单项
-        menuAuthor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                openAuthor = !openAuthor;
-                refresh();
-            }
-        });
-        
-        
     }
     
-    
+    // 设置居中
     private void setCenter(){
         if (isCentered) {
             //窗口
