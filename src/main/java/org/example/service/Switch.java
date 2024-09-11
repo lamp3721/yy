@@ -53,7 +53,7 @@ public class Switch {
                 // 显示内容
                 show.updateShow(y);
 
-                // 成功记录
+                // 成功持久记录
                 record(y);
 
                 // 成功后退出循环
