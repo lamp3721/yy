@@ -10,10 +10,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Collection;
 
 // 获取所有实现类
 @Service

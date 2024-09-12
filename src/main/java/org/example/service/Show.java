@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.pojo.Y;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +19,7 @@ public class Show {
     @Resource
     Window window;
     
-    @Resource
+    @Autowired
     Window2 window2;
 
     private Timer fadeInTimer;  // 淡入定时器
@@ -87,7 +88,10 @@ public class Show {
                     
                     window.label.setText(" " + newMsg + " ");
                     window.frame.pack();
-                    window.setCenter();//尝试左右居中
+                    if(window.isCentered){
+                        window.setCenter();
+                    }
+                    
 
                     fadeIn();//淡入
                 }

@@ -1,9 +1,5 @@
 package org.example.service;
 
-import com.sun.jna.Native;
-import com.sun.jna.Pointer;
-import com.sun.jna.platform.win32.User32;
-import com.sun.jna.platform.win32.WinDef;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -11,13 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static com.sun.jna.platform.win32.WinUser.SWP_NOMOVE;
-import static com.sun.jna.platform.win32.WinUser.SWP_NOSIZE;
 
 
 @Service
@@ -28,6 +19,9 @@ public class Window2 {
     public JLabel label;
 
     public Font font;
+    
+    
+    public boolean isOpen = true;
 
 
     private Timer fadeInTimer;  // 淡入定时器
@@ -82,12 +76,15 @@ public class Window2 {
     }
     
     // 显示大文字
-    public void big(String msg){
-        
+    public  void big(String msg){
+        if(!isOpen){
+            return;
+        }
         label.setText(msg);
         frame.setAlwaysOnTop(true);
         frame.pack();
         frame.setLocationRelativeTo(null); // 居中显示
+        
         fadeIn();
         frame.setVisible(true);
     }
@@ -113,15 +110,7 @@ public class Window2 {
         }
     }
     
-    //立即置底
-    public void bottom() {
-        frame.setAlwaysOnTop(false);
-        // 获取窗口句柄
-        WinDef.HWND hwnd = new WinDef.HWND();
-        hwnd.setPointer(Native.getComponentPointer(frame));
-        // 调用 Windows API，将窗口置于底层
-        User32.INSTANCE.SetWindowPos(hwnd, new WinDef.HWND(Pointer.createConstant(1)), 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
-    }
+
 
 
     // 淡入
@@ -138,6 +127,24 @@ public class Window2 {
 
 
     private void initTimers() {
+
+
+        // 淡入定时器
+        fadeInTimer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                alpha += 0.02f; // 增加透明度
+                alpha = Math.min(1.0f, alpha); // 最大为1
+
+                label.setForeground(new Color(0, 255, 191, Math.round(alpha * 255)));
+
+                if (alpha >= 1.0f) {
+                    fadeInTimer.stop(); // 停止淡入
+                    try {Thread.sleep(3000);} catch (InterruptedException ex) {throw new RuntimeException(ex);}
+                    fadeOut();// 开始淡出
+                }
+            }
+        });
 
         // 淡出定时器
         fadeOutTimer = new Timer(50, new ActionListener() {
@@ -157,21 +164,6 @@ public class Window2 {
 
         });
 
-        // 淡入定时器
-        fadeInTimer = new Timer(50, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                alpha += 0.02f; // 增加透明度
-                alpha = Math.min(1.0f, alpha); // 最大为1
-
-                label.setForeground(new Color(0, 255, 191, Math.round(alpha * 255)));
-
-                if (alpha >= 1.0f) {
-                    fadeInTimer.stop(); // 停止淡入
-                    try {Thread.sleep(3000);} catch (InterruptedException ex) {throw new RuntimeException(ex);}
-                    fadeOut();// 开始淡出
-                }
-            }
-        });
+        
     }
 }
