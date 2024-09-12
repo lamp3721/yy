@@ -125,3 +125,14 @@
 2024-09-12 12:02:37 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
 2024-09-12 12:07:44 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
 2024-09-12 12:07:45 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:24:15 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-09-12 19:24:17 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:24:18 INFO  [pool-2-thread-1] org.example.service.Switch - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:25:45 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-09-12 19:25:46 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:28:47 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-09-12 19:28:48 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:32:45 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-09-12 19:32:46 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:32:46 INFO  [pool-2-thread-1] org.example.service.Switch - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}
+2024-09-12 19:32:57 INFO  [pool-2-thread-1] org.example.service.Switch - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiyan.php', msg=''}

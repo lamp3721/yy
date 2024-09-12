@@ -28,8 +28,7 @@ public class Show {
 
     Y y;
     
-
-    public boolean openAuthor = true;  // 是否显示作者，默认显示  //更改这个状态再淡出一下即可
+    public boolean openAuthor = false;  // 是否显示作者
 
     public void updateShow(Y y) {
         this.y = y;

@@ -71,7 +71,9 @@ public class All {
             Y y = yiYanApi.conn();
             if(y.getStatus() == 0){
                 log.info(y.toString());
+                continue;
             }
+            System.out.println(y.getUrId()+" 成功: "+y.getMsg());
         }
         System.out.println("------------测试完毕------------"+ys.size());
     }

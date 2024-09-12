@@ -27,8 +27,8 @@ public class Switch {
     Show show;
     
     private File yYText;
-    
-    @Scheduled(fixedDelayString = "#{T(java.lang.Math).round(T(java.lang.Math).random() * 5000 + 300000)}")
+
+    @Scheduled(fixedDelayString = "#{T(java.lang.Math).round(T(java.lang.Math).random() * 1500000 + 300000)}")
     public void execute() {
         while (true) { // 无限循环
             System.gc();
