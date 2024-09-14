@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 // 获取所有实现类
 @Service
@@ -22,8 +23,8 @@ public class All {
     private ApplicationContext applicationContext;
 
     ArrayList<YiYanApi> ys = new ArrayList<>();
-
-    SecureRandom sr = new SecureRandom();
+    
+    private final SecureRandom secureRandom = new SecureRandom();
     
     @Autowired
     private Zero_0 zero_0;
@@ -32,7 +33,11 @@ public class All {
     @Autowired
     private Two_2 two_2;
     @Autowired
+    private Three_3 three_3;
+    @Autowired
     private Four_4 four_4;
+    @Autowired
+    private Five_5 five_5;
     @Autowired
     private Six_6 six_6;
     @Autowired
@@ -46,6 +51,8 @@ public class All {
     @Autowired
     private Twelve_12 twelve_12 ;
     @Autowired
+    private Thirteen_13 thirteen_13;
+    @Autowired
     private Fourteen_14 fourteen_14 ;
     
     
@@ -54,13 +61,16 @@ public class All {
         ys.add(zero_0);
         ys.add(one_1);
         ys.add(two_2);
+        ys.add(three_3);
         ys.add(four_4);
+        ys.add(five_5);
         ys.add(six_6);
         ys.add(seven_7);
         ys.add(eight_8);
         ys.add(ten_10);
         ys.add(eleven_11);
         ys.add(twelve_12);
+        ys.add(thirteen_13);
         ys.add(fourteen_14);
         
         // 输出数组中的每个实现类对象的 say() 方法
@@ -78,9 +88,8 @@ public class All {
     }
     
     //随机返回一个YiYan接口的实现类
-    public YiYanApi getY(){
-        //生成随机数
-        int i = sr.nextInt(ys.size());
-        return ys.get(i);
+    public YiYanApi getY() {
+        int index = ThreadLocalRandom.current().nextInt(ys.size());
+        return ys.get(index);
     }
 }

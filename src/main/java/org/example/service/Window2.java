@@ -140,7 +140,7 @@ public class Window2 {
 
                 if (alpha >= 1.0f) {
                     fadeInTimer.stop(); // 停止淡入
-                    try {Thread.sleep(2500);} catch (InterruptedException ex) {throw new RuntimeException(ex);}
+                    try {Thread.sleep(2000);} catch (InterruptedException ex) {throw new RuntimeException(ex);}
                     fadeOut();// 开始淡出
                 }
             }

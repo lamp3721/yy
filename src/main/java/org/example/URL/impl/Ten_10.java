@@ -36,6 +36,4 @@ public class Ten_10 implements YiYanApi {
 
         return y;
     }
-
-
 }

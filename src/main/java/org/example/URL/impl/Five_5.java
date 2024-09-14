@@ -11,21 +11,23 @@ import javax.annotation.Resource;
 
 
 @Component
-public class Fourteen_14 implements YiYanApi {
-    int id = 14;
+public class Five_5 implements YiYanApi {
 
-    @Value("${api14}")
-    String apiUrl;
+    public int id = 5;
+
+    @Value("${api5}")
+    public String apiUrl;
 
     @Resource
     private Y y;
-
-
+    
+    
     @Override
     public Y conn() {
         y.clear(); // 清空y
         y.setUrId(id);
         y.setUrl(apiUrl);
+
         String body = Http.get(apiUrl);
 
         if (body.equals("404")) {
@@ -33,19 +35,19 @@ public class Fourteen_14 implements YiYanApi {
             y.setStatus(0);
             return y;
         }
+
         try {
             JSONObject jsonObject = new JSONObject(body);
-            String content = jsonObject.getString("content");
-            String from = jsonObject.getString("from");
+            JSONObject result = jsonObject.getJSONObject("result");
+            String content = result.getString("content");
+            String source = result.getString("source");
             
             y.setStatus(1);
             y.setMsg(content);
-            y.setAuthor(from);
+            y.setAuthor(source);
         } catch (Exception e) {
             y.setStatus(0);
         }
         return y;
     }
-
-
 }
