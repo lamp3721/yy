@@ -47,11 +47,10 @@ public class All {
     private Twelve_12 twelve_12 ;
     @Autowired
     private Fourteen_14 fourteen_14 ;
-
-
+    
     
     @PostConstruct
-    public void setAll(){
+    public boolean setAll(){
         ys.add(zero_0);
         ys.add(one_1);
         ys.add(two_2);
@@ -64,7 +63,6 @@ public class All {
         ys.add(twelve_12);
         ys.add(fourteen_14);
         
-
         // 输出数组中的每个实现类对象的 say() 方法
         for (YiYanApi yiYanApi : ys) {
             //测试连接
@@ -76,6 +74,7 @@ public class All {
             System.out.println(y.getUrId()+" 成功: "+y.getMsg());
         }
         System.out.println("------------测试完毕------------"+ys.size());
+        return true;
     }
     
     //随机返回一个YiYan接口的实现类

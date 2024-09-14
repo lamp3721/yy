@@ -37,7 +37,7 @@ public class Fourteen_14 implements YiYanApi {
             JSONObject jsonObject = new JSONObject(body);
             String content = jsonObject.getString("content");
             String from = jsonObject.getString("from");
-
+            System.out.println(jsonObject.toString());
             y.setStatus(1);
             y.setMsg(content);
             y.setAuthor(from);

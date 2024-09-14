@@ -1,6 +1,6 @@
 package org.example;
 
-
+import org.example.service.*;
 import org.example.URL.impl.Eight_8;
 import org.example.URL.impl.Eleven_11;
 import org.example.URL.impl.Four_4;
@@ -14,8 +14,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(JavaConfiguration.class);  //配置类
 
-        Four_4 bean = applicationContext.getBean(Four_4.class);
-        //System.out.println(bean.conn());
+        Start bean = applicationContext.getBean(Start.class);
+        //bean.execute();
         
     }
 }

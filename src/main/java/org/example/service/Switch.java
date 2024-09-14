@@ -4,6 +4,7 @@ package org.example.service;
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
 import org.example.pojo.Y;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,7 @@ public class Switch {
     Show show;
     
     private File yYText;
-
-    @Scheduled(fixedDelayString = "#{T(java.lang.Math).round(T(java.lang.Math).random() * 1500000 + 300000)}")
+    
     public void execute() {
         while (true) { // 无限循环
             System.gc();

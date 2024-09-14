@@ -150,7 +150,7 @@ public class Window2 {
         fadeOutTimer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                alpha -= 0.016f; // 减少透明度
+                alpha -= 0.018f; // 减少透明度
                 alpha = Math.max(0.0f, alpha); // 最小为0
 
                 label.setForeground(new Color(0, 255, 191, Math.round(alpha * 255)));
