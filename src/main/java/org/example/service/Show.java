@@ -1,7 +1,8 @@
 package org.example.service;
 
-import org.example.pojo.Y;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.google.common.eventbus.Subscribe;
+import org.example.entity.Y;
+import org.example.event.YEvent;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -18,9 +19,6 @@ public class Show {
 
     @Resource
     Window window;
-    
-    @Autowired
-    Window2 window2;
 
     private Timer fadeInTimer;  // 淡入定时器
     private Timer fadeOutTimer;  // 淡出定时器
@@ -30,8 +28,10 @@ public class Show {
     
     public boolean openAuthor = false;  // 是否显示作者
 
-    public void updateShow(Y y) {
-        this.y = y;
+    // 监听事件
+    @Subscribe
+    public void handleStringEvent(YEvent yEvent) {
+        this.y = yEvent.getY();
         fadeOut();//淡出
     }
 
@@ -78,11 +78,6 @@ public class Show {
                         newMsg = y.getMsg() + " -- " + y.getAuthor();
                     } else {
                         newMsg = y.getMsg();
-                    }
-                    
-                    // 大字
-                    if (y.getStatus() == 1) {
-                        window2.big(y.getMsg());
                     }
                     
                     window.label.setText(" " + newMsg + " ");

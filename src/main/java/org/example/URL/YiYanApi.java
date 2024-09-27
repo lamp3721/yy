@@ -1,6 +1,6 @@
 package org.example.URL;
 
-import org.example.pojo.Y;
+import org.example.entity.Y;
 
 public interface YiYanApi {
     Y conn();

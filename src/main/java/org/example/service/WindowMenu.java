@@ -17,8 +17,6 @@ public class WindowMenu {
     @Resource
     Window window;
     
-    @Resource
-    Window2 window2;
 
     @Resource
     Show show;
@@ -35,7 +33,6 @@ public class WindowMenu {
     public JMenuItem menuAuthor = new JMenuItem("作者");
     public JMenuItem menuCentered = new JMenuItem("左右居中");
     public JMenuItem menuFixed = new JMenuItem("固定");
-    public JMenuItem menuBig = new JMenuItem("big");
 
 
     @PostConstruct
@@ -49,7 +46,6 @@ public class WindowMenu {
         popupMenu.add(menuAuthor);
         popupMenu.add(menuCentered);
         popupMenu.add(menuFixed);
-        popupMenu.add(menuBig);
 
 
         // frame添加右键菜单
@@ -99,13 +95,6 @@ public class WindowMenu {
             }
         });
         
-        menuBig.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                window2.isOpen = !window2.isOpen;
-                window2.big(""+window2.isOpen);
-            }
-        });
 
     }
 }

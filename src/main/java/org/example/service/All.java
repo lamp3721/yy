@@ -4,7 +4,7 @@ package org.example.service;
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
 import org.example.URL.impl.*;
-import org.example.pojo.Y;
+import org.example.entity.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;

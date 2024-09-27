@@ -1,19 +1,22 @@
 package org.example.service;
 
 
+import com.google.common.eventbus.EventBus;
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
-import org.example.pojo.Y;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.example.entity.Y;
+import org.example.event.YEvent;
 import org.springframework.stereotype.Service;
 
+
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.concurrent.SubmissionPublisher;
 
 
 // 定时刷新
@@ -21,13 +24,30 @@ import java.io.OutputStreamWriter;
 @Slf4j
 public class Switch {
     
+    
     @Resource
     All all;
-    
+
     @Resource
     Show show;
+
+    // 事件总线
+    EventBus eventBus = new EventBus();
+    // 事件对象
+    YEvent yEvent = new YEvent();
+    
     
     private File yYText;
+    
+    
+    @PostConstruct
+    public void init() {
+        // 注册事件监听器
+        eventBus.register(show);
+    }
+
+    
+    
     
     public void execute() {
         while (true) { // 无限循环
@@ -44,14 +64,21 @@ public class Switch {
                     }
                     y.setMsg(y.getUrId()+":出错了！");
                     y.setStatus(0);
-                    show.updateShow(y);
+
+                    // 发送事件
+                    yEvent.setY(y);
+                    eventBus.post(yEvent);
                     // 网络错误或数据无效，等待 10 秒后重新尝试
                     Thread.sleep(10000);
                     continue; // 重新尝试
                 }
 
-                // 显示内容
-                show.updateShow(y);
+
+                
+
+                // 将数据发送到事件总线
+                yEvent.setY(y);
+                eventBus.post(yEvent);
 
                 // 成功持久记录
                 record(y);

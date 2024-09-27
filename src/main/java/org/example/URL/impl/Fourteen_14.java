@@ -1,7 +1,7 @@
 package org.example.URL.impl;
 
 import org.example.URL.YiYanApi;
-import org.example.pojo.Y;
+import org.example.entity.Y;
 import org.example.util.Http;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
