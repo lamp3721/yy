@@ -38,13 +38,10 @@ public class Five_5 implements YiYanApi {
 
         try {
             JSONObject jsonObject = new JSONObject(body);
-            JSONObject result = jsonObject.getJSONObject("result");
-            String content = result.getString("content");
-            String source = result.getString("source");
+            String result = jsonObject.getString("data");
             
             y.setStatus(1);
-            y.setMsg(content);
-            y.setAuthor(source);
+            y.setMsg(result);
         } catch (Exception e) {
             y.setStatus(0);
         }

@@ -2,6 +2,7 @@ package org.example.service;
 
 
 import com.google.common.eventbus.EventBus;
+import com.google.common.eventbus.Subscribe;
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
 import org.example.entity.Y;
@@ -44,6 +45,7 @@ public class Switch {
     public void init() {
         // 注册事件监听器
         eventBus.register(show);
+        eventBus.register(this);
     }
 
     
@@ -72,18 +74,12 @@ public class Switch {
                     Thread.sleep(10000);
                     continue; // 重新尝试
                 }
-
-
                 
 
                 // 将数据发送到事件总线
                 yEvent.setY(y);
                 eventBus.post(yEvent);
-
-                // 成功持久记录
-                record(y);
-
-                // 成功后退出循环
+                
                 break;
 
             } catch (Exception e) {
@@ -96,9 +92,15 @@ public class Switch {
         }
         
 }
-
+        
     //成功记录
-    private void record(Y y) throws IOException {
+    // 监听事件
+    @Subscribe
+    private void record(YEvent yEvent) throws IOException {
+        Y y = yEvent.getY();
+        if(y.getStatus() != 1){
+            return;
+        }
         File yYText = new File("一言.txt");
 
         // 指定字符编码为 UTF-8

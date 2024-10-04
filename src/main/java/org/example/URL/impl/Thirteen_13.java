@@ -37,9 +37,9 @@ public class Thirteen_13 implements YiYanApi {
 
         try {
             JSONObject jsonObject = new JSONObject(body);
-            JSONObject result = jsonObject.getJSONObject("result");
-            String content = result.getString("dialogue");
-            String source = result.getString("source");
+            JSONObject data = jsonObject.getJSONObject("data");
+            String content = data.getString("content");
+            String source = data.getString("title");
 
             y.setStatus(1);
             y.setMsg(content);

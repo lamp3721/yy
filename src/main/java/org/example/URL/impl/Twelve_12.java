@@ -32,13 +32,10 @@ public class Twelve_12 implements YiYanApi {
         }
         try {
             JSONObject jsonObject = new JSONObject(body);
-            JSONObject data = jsonObject.getJSONObject("data");
-            String content = data.getString("content");
-            String origin = data.getString("origin");
+            String pyq = jsonObject.getString("pyq");
 
             y.setStatus(1);
-            y.setMsg(content);
-            y.setAuthor(origin);
+            y.setMsg(pyq);
         } catch (Exception e) {
             y.setStatus(0);
         }
