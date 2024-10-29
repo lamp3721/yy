@@ -9,21 +9,25 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-
 @Component
-public class Six_6 implements YiYanApi {
-    
-    public int id = 6;
-    @Value("${api6}")
-    public String apiUrl;
+public class Eighteen_18 implements YiYanApi {
+
+    public int id = 18;
+
+    @Value("${api18}")
+    private String apiUrl;
+
     @Resource
     private Y y;
 
 
+
+    @Override
     public Y conn() {
         y.clear(); // 清空y
         y.setUrId(id);
         y.setUrl(apiUrl);
+
         String body = Http.get(apiUrl);
 
         if (body.equals("404")) {
@@ -31,19 +35,17 @@ public class Six_6 implements YiYanApi {
             y.setStatus(0);
             return y;
         }
+
         try {
             JSONObject jsonObject = new JSONObject(body);
-            String msg = jsonObject.getString("msg");
-
+            String msg = jsonObject.getString("data");
 
             y.setStatus(1);
             y.setMsg(msg);
         } catch (Exception e) {
             y.setStatus(0);
         }
-
         return y;
+
     }
-
-
 }

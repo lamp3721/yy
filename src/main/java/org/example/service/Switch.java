@@ -67,7 +67,7 @@ public class Switch {
                     y.setMsg(y.getUrId()+":出错了！");
                     y.setStatus(0);
 
-                    // 发送事件
+                    // 发送错误事件
                     yEvent.setY(y);
                     eventBus.post(yEvent);
                     // 网络错误或数据无效，等待 10 秒后重新尝试

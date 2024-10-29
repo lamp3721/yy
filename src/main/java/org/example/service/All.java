@@ -58,6 +58,14 @@ public class All {
     private Fifteen_15 fifteen_15;
     @Autowired
     private Sixteen_16 sixteen_16;
+    @Autowired
+    private Seventeen_17 seventeen_17;
+    @Autowired
+    private Eighteen_18 eighteen_18;
+    @Autowired
+    private Nineteen_19 nineteen_19;
+    @Autowired
+    private Twenty_20 twenty_20;
     
     
     @PostConstruct
@@ -78,6 +86,10 @@ public class All {
         ys.add(fourteen_14);
         ys.add(fifteen_15);
         ys.add(sixteen_16);
+        ys.add(seventeen_17);
+        ys.add(eighteen_18);
+        ys.add(nineteen_19);
+        ys.add(twenty_20);
         
         // 输出数组中的每个实现类对象的 say() 方法
         for (YiYanApi yiYanApi : ys) {
