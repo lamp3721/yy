@@ -20,7 +20,7 @@ public class Seventeen_17 implements YiYanApi {
 
     @Override
     public Y conn() {
-        y.clear(); // 清空y
+
         y.setUrId(id);
         y.setUrl(apiUrl);
         String body = Http.get(apiUrl);

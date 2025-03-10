@@ -21,7 +21,7 @@ public class Six_6 implements YiYanApi {
 
 
     public Y conn() {
-        y.clear(); // 清空y
+
         y.setUrId(id);
         y.setUrl(apiUrl);
         String body = Http.get(apiUrl);

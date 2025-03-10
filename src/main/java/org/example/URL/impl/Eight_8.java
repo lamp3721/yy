@@ -23,8 +23,7 @@ public class Eight_8 implements YiYanApi {
 
 
     public Y conn() {
-        
-        y.clear(); // 清空y
+
         y.setUrId(id);
         y.setUrl(apiUrl);
 

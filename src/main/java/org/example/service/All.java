@@ -1,54 +1,80 @@
 package org.example.service;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
-import org.example.URL.impl.*;
 import org.example.entity.Y;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.security.SecureRandom;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
-
-// 获取所有实现类
+import java.util.concurrent.TimeUnit;
 @Service
 @Slf4j
 public class All {
 
     @Autowired
-    private ApplicationContext applicationContext;
+    private List<YiYanApi> ys;
 
-    @Autowired
-    List<YiYanApi> ys = new ArrayList<>();
+    // 创建线程池，假设最大并发数为5
+    private static final ExecutorService EXECUTOR = Executors.newFixedThreadPool(5);
 
     @PostConstruct
-    public boolean setAll(){
+    public void setAll() {
+        // 遍历每个YiYanApi实例并提交任务到线程池
+        ys.forEach(y -> {
+            EXECUTOR.submit(() -> {
+                try {
+                    if (y == null) {
+                        System.out.println("YiYanApi 实例为空！");
+                        return;
+                    }
 
-        // 获取所有实现类Bean
-//        ys.addAll(applicationContext.getBeansOfType(YiYanApi.class).values());
-        
-        // 输出数组中的每个实现类对象的 say() 方法
-        for (YiYanApi yiYanApi : ys) {
-            //测试连接
-            Y y = yiYanApi.conn();
-            if(y.getStatus() == 0){
-                log.info(y.toString());
-                continue;
-            }
-            System.out.println(y.getUrId()+" 成功: "+y.getMsg());
-        }
-        System.out.println("------------测试完毕------------"+ys.size());
-        return true;
+                    // 获取连接
+                    Y conn = y.conn();
+                    if (conn == null) {
+                        System.out.println("连接为空："+y);
+                        return;
+                    }
+
+                    // 判断连接状态
+                    if (conn.getStatus() == 0) {
+                        System.out.println(conn.getUrId()+" 连接失败："+ conn);
+                    } else {
+                        System.out.println(conn.getUrId()+" 成功:" + conn.getMsg());
+                    }
+                } catch (Exception e) {
+                    log.error("执行任务时出错", e);
+                }
+            });
+        });
+
+        // 关闭线程池，等待所有任务完成
+        cleanUp();
     }
-    
-    //随机返回一个YiYan接口的实现类
+
+    // 获取随机的YiYanApi实例
     public YiYanApi getY() {
+        if (ys == null || ys.isEmpty()) {
+            throw new IllegalStateException("没有任何 YiYanApi 实现类可用");
+        }
         int index = ThreadLocalRandom.current().nextInt(ys.size());
         return ys.get(index);
+    }
+
+    // 清理线程池资源
+    private void cleanUp() {
+        try {
+            EXECUTOR.shutdown();  // 启动平缓关闭
+            if (!EXECUTOR.awaitTermination(60, TimeUnit.SECONDS)) {
+                EXECUTOR.shutdownNow();  // 强制关闭线程池
+            }
+        } catch (InterruptedException e) {
+            EXECUTOR.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
 }

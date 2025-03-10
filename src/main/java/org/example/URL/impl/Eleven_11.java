@@ -21,7 +21,7 @@ public class Eleven_11 implements YiYanApi {
     private Y y;
 
     public Y conn() {
-        y.clear(); // 清空y
+
         y.setUrId(id);
         y.setUrl(apiUrl);
 

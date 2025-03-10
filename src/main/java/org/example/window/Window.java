@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.window;
 
 
 
@@ -24,15 +24,31 @@ import static com.sun.jna.platform.win32.WinUser.SWP_NOSIZE;
 @Service
 public class Window {
 
-    public JFrame frame;
+    private JFrame frame;
 
-    public JLabel label;
+    private JLabel label;
 
-    public Font font;
+    private Font font;
 
-    public boolean isCentered = true;  // 是否居中
+    private boolean isCentered = true;  // 是否居中
 
-    boolean fixed;//是否固定
+    private boolean fixed = false;//是否固定
+
+    //设置文字
+    public void setText(String text) {
+        label.setText(text);
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public JLabel getLabel() {
+        return label;
+    }
+
+
+
 
 
     @PostConstruct

@@ -24,7 +24,7 @@ public class Five_5 implements YiYanApi {
     
     @Override
     public Y conn() {
-        y.clear(); // 清空y
+
         y.setUrId(id);
         y.setUrl(apiUrl);
 
