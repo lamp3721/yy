@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 // 获取所有实现类
@@ -22,13 +23,14 @@ public class All {
     @Autowired
     private ApplicationContext applicationContext;
 
-    ArrayList<YiYanApi> ys = new ArrayList<>();
+    @Autowired
+    List<YiYanApi> ys = new ArrayList<>();
 
     @PostConstruct
     public boolean setAll(){
 
         // 获取所有实现类Bean
-        ys.addAll(applicationContext.getBeansOfType(YiYanApi.class).values());
+//        ys.addAll(applicationContext.getBeansOfType(YiYanApi.class).values());
         
         // 输出数组中的每个实现类对象的 say() 方法
         for (YiYanApi yiYanApi : ys) {
