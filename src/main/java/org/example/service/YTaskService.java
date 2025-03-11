@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
 import org.example.entity.Y;
 import org.example.event.YEventPublisher;
+import org.example.pool.YPool;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,7 +23,6 @@ public class YTaskService {
      * 主任务执行方法：获取数据、校验并发布事件
      */
     public void executeTask() {
-        System.out.println("执行主任务");
         while (true) {
             try {
                 YiYanApi api = all.getY();         // 获取 API 接口实例
@@ -36,6 +36,7 @@ public class YTaskService {
                 log.info("无效返回数据: {}", y);
                 handleInvalidData(y);
                 yEventPublisher.publish(y);
+                YPool.returnY(y);  // 归还连接
                 Thread.sleep(10000); // 10 秒后重试
 
 

@@ -3,6 +3,7 @@ package org.example.service;
 import lombok.extern.slf4j.Slf4j;
 import org.example.URL.YiYanApi;
 import org.example.entity.Y;
+import org.example.pool.YPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,8 @@ public class All {
                     } else {
                         System.out.println(conn.getUrId()+" 成功:" + conn.getMsg());
                     }
+
+                    YPool.returnY(conn);  // 归还连接
                 } catch (Exception e) {
                     log.error("执行任务时出错", e);
                 }

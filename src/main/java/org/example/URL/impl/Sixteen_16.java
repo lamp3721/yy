@@ -3,6 +3,7 @@ package org.example.URL.impl;
 
 import org.example.URL.YiYanApi;
 import org.example.entity.Y;
+import org.example.pool.YPool;
 import org.example.util.Http;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,8 +23,8 @@ public class Sixteen_16 implements YiYanApi {
     private Y y;
 
     @Override
-    public Y conn() {
-
+    public Y conn() throws Exception {
+Y y = YPool.borrowY();
         y.setUrId(id);
         y.setUrl(apiUrl);
         String body = Http.get(apiUrl);
