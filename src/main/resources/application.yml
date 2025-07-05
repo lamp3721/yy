@@ -35,6 +35,7 @@ logging:
 
 # 一言 API 端点配置
 yiyan:
+  max-text-length: 60 # "一言"文本的最大长度，超过则丢弃
   endpoints:
     - name: "tenapi.cn"
       url: "https://tenapi.cn/v2/yiyan?format=json"

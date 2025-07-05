@@ -63,33 +63,29 @@ public class HttpSentenceRepository implements SentenceRepository {
                 .collect(Collectors.toList());
 
         if (availableEndpoints.isEmpty()) {
-            log.warn("所有API端点当前都处于熔断状态，无法获取数据。");
+            log.warn("⛔ 所有API端点当前都处于熔断状态，无法获取数据。");
             return Optional.empty();
         }
 
-        // 将可用端点随机排序，以确保每次尝试都是随机的
         Collections.shuffle(availableEndpoints);
 
-        // 尝试最多N个不同的端点
         for (int i = 0; i < Math.min(FIND_ATTEMPTS_PER_CYCLE, availableEndpoints.size()); i++) {
             ApiProperties.ApiEndpoint endpoint = availableEndpoints.get(i);
-            log.info("尝试从API [{}] 获取数据 (尝试 {}/{})", endpoint.getName(), i + 1, FIND_ATTEMPTS_PER_CYCLE);
+            log.info("⏳ 尝试从API [{}] 获取数据 (尝试 {}/{})", endpoint.getName(), i + 1, FIND_ATTEMPTS_PER_CYCLE);
 
             try {
                 Optional<Sentence> sentence = attemptFetch(endpoint);
                 if (sentence.isPresent()) {
-                    log.info("成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
-                    return sentence; // 成功获取，立即返回
+                    log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
+                    return sentence;
                 }
-                // 如果返回空Optional，意味着本次尝试失败，循环将继续尝试下一个端点
             } catch (Exception e) {
-                // 记录意外的解析或请求错误，然后继续尝试下一个
                 handleFailure(endpoint, "执行请求或解析时发生意外错误: " + e.getMessage());
             }
         }
 
-        log.warn("在当前任务周期内尝试了 {} 个API后，仍未能获取到有效的一言。", FIND_ATTEMPTS_PER_CYCLE);
-        return Optional.empty(); // 所有尝试都失败了
+        log.warn("🤷 在当前任务周期内尝试了 {} 个API后，仍未能获取到有效的一言。", FIND_ATTEMPTS_PER_CYCLE);
+        return Optional.empty();
     }
 
     private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint) throws IOException {
@@ -105,59 +101,88 @@ public class HttpSentenceRepository implements SentenceRepository {
             }
 
             ResponseBody body = response.body();
-            String responseBody = (body != null) ? body.string() : "";
-            if (responseBody.trim().isEmpty()) {
-                handleFailure(endpoint, "响应体为空");
+            if (body == null) {
+                handleFailure(endpoint, "响应体为 null");
                 return Optional.empty();
             }
-            
-            endpoint.recordSuccess(); // 请求成功，重置失败计数器
 
-            return parseSentence(responseBody, endpoint);
+            String contentType = response.header("Content-Type", ""); // Default to empty string if null
+            String responseBody = body.string();
+
+            if (responseBody.trim().isEmpty()) {
+                handleFailure(endpoint, "响应体为空白");
+                return Optional.empty();
+            }
+
+            endpoint.recordSuccess();
+
+            return parseSentence(responseBody, contentType, endpoint);
 
         } catch (IOException e) {
             handleFailure(endpoint, "网络错误: " + e.getMessage());
-            // 对于仓库层，不向上抛出IO异常，而是返回空Optional，由服务层决定如何处理
             return Optional.empty();
         }
     }
 
-    private Optional<Sentence> parseSentence(String responseBody, ApiProperties.ApiEndpoint endpoint) {
+    private Optional<Sentence> parseSentence(String responseBody, String contentType, ApiProperties.ApiEndpoint endpoint) {
         ApiProperties.ParserConfig parserConfig = endpoint.getParser();
         try {
-            if ("plain_text".equalsIgnoreCase(parserConfig.getType())) {
-                if (responseBody.length() > 2000) {
-                    log.warn("API [{}] 返回的纯文本响应过长 ({} chars)，可能非预期内容。", endpoint.getName(), responseBody.length());
-                }
-                return Optional.of(Sentence.of(responseBody));
-            }
-
+            // --- JSON Parser Logic ---
             if ("json".equalsIgnoreCase(parserConfig.getType())) {
+                // 1. Content-Type validation for JSON
+                if (contentType == null || !contentType.toLowerCase().contains("application/json")) {
+                    log.warn("⚠️ API [{}] 期望JSON(application/json)但收到了'{}'类型, 将丢弃. Body: {}",
+                            endpoint.getName(), contentType, getBodySnippet(responseBody));
+                    return Optional.empty();
+                }
+
                 JsonNode root = objectMapper.readTree(responseBody);
                 Map<String, String> mappings = parserConfig.getMappings();
 
-                // "text" 字段是必需的
                 String textPath = mappings.get("text");
                 if (!StringUtils.hasText(textPath)) {
                     log.error("API [{}] 的解析器配置缺少必需的 'text' 字段映射。", endpoint.getName());
                     return Optional.empty();
                 }
-
                 String text = getNodeText(root, textPath);
                 if (!StringUtils.hasText(text)) {
-                    log.warn("API [{}] 的JSON响应中, 路径 '{}' 未找到或内容为空. Body: {}",
+                    log.warn("⚠️ API [{}] 的JSON响应中, 路径 '{}' 未找到或内容为空. Body: {}",
                             endpoint.getName(), textPath, getBodySnippet(responseBody));
                     return Optional.empty();
                 }
 
-                // "author" 字段是可选的
+                if (text.length() > apiProperties.getMaxTextLength()) {
+                    log.warn("⚠️ API [{}] 返回的文本过长 ({} > {}), 将被丢弃. 内容: '{}'",
+                            endpoint.getName(), text.length(), apiProperties.getMaxTextLength(), text);
+                    return Optional.empty();
+                }
+
                 String authorPath = mappings.get("author");
                 String author = StringUtils.hasText(authorPath) ? getNodeText(root, authorPath) : null;
-
                 return Optional.of(Sentence.of(text, author));
             }
-        } catch (IOException e) { // 包括 JsonProcessingException
-            log.error("API [{}] 的响应无法解析为JSON. Body: {}. 错误: {}",
+
+            // --- Plain Text Parser Logic ---
+            if ("plain_text".equalsIgnoreCase(parserConfig.getType())) {
+                String trimmedBody = responseBody.trim();
+                // 1. Heuristic check for HTML content
+                if (trimmedBody.toLowerCase().matches("(?s)^<(!doctype|html).*")) {
+                    log.warn("⚠️ API [{}] 期望纯文本但返回了HTML页面, 将丢弃. Body: {}", endpoint.getName(), getBodySnippet(responseBody));
+                    return Optional.empty();
+                }
+
+                // 2. Length validation
+                if (trimmedBody.length() > apiProperties.getMaxTextLength()) {
+                    log.warn("⚠️ API [{}] 返回的纯文本过长 ({} > {}), 将被丢弃. 内容: '{}'",
+                            endpoint.getName(), trimmedBody.length(), apiProperties.getMaxTextLength(), getBodySnippet(trimmedBody));
+                    return Optional.empty();
+                }
+
+                return Optional.of(Sentence.of(trimmedBody));
+            }
+
+        } catch (IOException e) { // Covers JsonProcessingException
+            log.error("❌ API [{}] 的响应无法解析. Body: {}. 错误: {}",
                     endpoint.getName(), getBodySnippet(responseBody), e.getMessage());
         }
         return Optional.empty();
@@ -190,12 +215,12 @@ public class HttpSentenceRepository implements SentenceRepository {
      */
     private void handleFailure(ApiProperties.ApiEndpoint endpoint, String reason) {
         endpoint.recordFailure();
-        log.warn("API [{}] 请求失败 (URL: {}), 失败次数: {}, 原因: {}",
+        log.warn("❌ API [{}] 请求失败 (URL: {}), 失败次数: {}, 原因: {}",
                 endpoint.getName(), endpoint.getUrl(), endpoint.getFailureCount(), reason);
 
         if (endpoint.getFailureCount() >= FAILURE_THRESHOLD) {
             endpoint.setDisabledUntil(Instant.now().plus(DISABLED_DURATION));
-            log.error("API [{}] (URL: {}) 已连续失败 {} 次，将被禁用 {} 分钟。",
+            log.error("⛔ API [{}] (URL: {}) 已连续失败 {} 次，将被禁用 {} 分钟。",
                     endpoint.getName(), endpoint.getUrl(), FAILURE_THRESHOLD, DISABLED_DURATION.toMinutes());
         }
     }

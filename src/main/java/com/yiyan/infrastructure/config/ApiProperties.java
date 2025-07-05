@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * API端点配置类，通过 @ConfigurationProperties 从 application.yml/properties 文件中加载配置。
@@ -24,9 +25,14 @@ import java.util.HashMap;
 public class ApiProperties {
 
     /**
+     * "一言"文本的最大允许长度。超过此长度的将被丢弃。
+     */
+    private int maxTextLength = 60;
+
+    /**
      * 存储所有API端点配置的列表
      */
-    private List<ApiEndpoint> endpoints;
+    private List<ApiEndpoint> endpoints = new ArrayList<>();
 
     /**
      * 定义单个API端点的配置
@@ -145,5 +151,17 @@ public class ApiProperties {
                 this.mappings.put("text", textPath);
             }
         }
+    }
+
+    public int getMaxTextLength() {
+        return maxTextLength;
+    }
+
+    public void setMaxTextLength(int maxTextLength) {
+        this.maxTextLength = maxTextLength;
+    }
+
+    public List<ApiEndpoint> getEndpoints() {
+        return endpoints;
     }
 } 

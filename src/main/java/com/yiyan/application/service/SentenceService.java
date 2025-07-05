@@ -31,17 +31,17 @@ public class SentenceService {
      * @throws RuntimeException 如果获取"一言"时发生任何错误。
      */
     public void fetchNewSentence() {
-        log.info("开始尝试获取新的一言...");
+        log.info("🚀 开始尝试获取新的一言...");
         Optional<Sentence> sentenceOpt = sentenceRepository.findRandomSentence();
 
         if (sentenceOpt.isPresent()) {
             Sentence sentence = sentenceOpt.get();
-            log.info("成功获取到新的一言: {}", sentence);
+            log.info("✨ 成功获取到封装后的一言对象: {}", sentence);
             eventPublisher.publishEvent(new SentenceFetchedEvent(this, sentence));
         } else {
             // 如果仓库层返回一个空的Optional，意味着没有获取到有效数据。
             // 抛出异常，以便调度器知道本次尝试失败。
-            log.warn("本次未能获取到有效的一言数据。");
+            log.warn("🤷‍ 本次未能从任何API获取到有效的一言数据。");
             throw new IllegalStateException("未能从任何数据源获取到有效的一言。");
         }
     }

@@ -42,7 +42,7 @@ public class DynamicScheduler {
             sentenceService.fetchNewSentence();
         } catch (Exception e) {
             // 捕获所有异常，记录错误，但确保不中断调度循环
-            log.error("执行一言获取任务时发生错误: {}", e.getMessage());
+            log.error("❌ 任务周期执行失败: {}", e.getMessage());
         } finally {
             // 无论成功还是失败，都安排下一次执行
             scheduleNext();
@@ -67,7 +67,7 @@ public class DynamicScheduler {
         );
         Instant nextExecutionTime = Instant.now().plusMillis(delayMillis);
 
-        log.info("任务完成，下一次执行将在 {} 秒后。", Duration.ofMillis(delayMillis).getSeconds());
+        log.info("🕒 任务周期结束，下一次执行将在 {} 秒后。", Duration.ofMillis(delayMillis).getSeconds());
 
         taskScheduler.schedule(this::runAndReschedule, nextExecutionTime);
     }
