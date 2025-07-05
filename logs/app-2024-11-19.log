@@ -1,0 +1,8 @@
+2024-11-19 12:57:20 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-11-19 12:57:30 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-11-19 12:57:32 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-11-19 13:02:35 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-11-19 13:02:36 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-11-19 13:02:48 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-11-19 13:03:14 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-11-19 13:03:17 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}

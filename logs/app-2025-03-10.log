@@ -1,0 +1,640 @@
+2025-03-10 20:27:52 WARN  [main] o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'all': Unsatisfied dependency expressed through field 'ys'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'java.util.ArrayList<org.example.URL.YiYanApi>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-03-10 20:28:56 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2025-03-10 20:41:24 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2025-03-10 20:41:36 INFO  [main] org.example.service.All - Y{author='', status=0, urId=16, url='https://api.7585.net.cn/yan/api.php', msg=''}
+2025-03-10 20:41:36 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2025-03-10 20:41:39 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2025-03-10 20:41:42 INFO  [main] org.example.service.All - Y{author='', status=0, urId=0, url='https://tenapi.cn/v2/yiyan?format=json', msg=''}
+2025-03-10 21:07:15 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:07:27 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:07:27 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:07:31 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:07:36 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 21:07:36 INFO  [main] org.example.service.Switch - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:15:59 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:16:12 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:16:12 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:16:14 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:16:17 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 21:22:57 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:23:09 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:23:09 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:23:11 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:23:14 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 21:25:30 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:25:42 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:25:42 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:25:44 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:25:47 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 21:26:07 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:26:20 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:26:20 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:26:23 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:26:26 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 21:41:58 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 21:42:10 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 21:42:10 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 21:42:11 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 21:42:15 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:06:00 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:06:05 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:06:17 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:06:17 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:06:19 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:06:22 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:09:11 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:09:15 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:09:27 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:09:27 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:09:31 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:09:33 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:11:31 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:11:36 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:11:40 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:11:51 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:11:51 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:11:55 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:11:57 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:13:09 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:13:09 INFO  [main] org.example.service.All - 开始异步并发测试 YiYanApi 实现类连接情况...
+2025-03-10 22:13:09 WARN  [pool-1-thread-14] org.example.service.All - [测试失败] [Ten_10] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:13:09 INFO  [pool-1-thread-12] org.example.service.All - [测试成功] [Six_6] -> 0: 有些爱给了你很多机会，却不在意、不在乎，想重视的时候已经没机会爱了。
+2025-03-10 22:13:10 INFO  [pool-1-thread-10] org.example.service.All - [测试成功] [Seven_7] -> 0: 你现在的气质里，藏着你走过的路，读过的书和爱过的人。
+2025-03-10 22:13:10 INFO  [pool-1-thread-15] org.example.service.All - [测试成功] [Thirteen_13] -> 0: 重嘶匹马吟红叶，却听疏钟忆翠微。
+2025-03-10 22:13:10 INFO  [pool-1-thread-20] org.example.service.All - [测试成功] [Two_2] -> 0: 昨天是最后一天在学校见到她
+面无表情的擦肩而过都是装的
+经过她的时候 内心都是颤抖的
+以后再也不用下课到她的楼层乱逛
+放学时故意走的慢一点
+就能在后面偷偷看着她啊
+如今呢 就当她没来过吧
+2025-03-10 22:13:10 INFO  [pool-1-thread-4] org.example.service.All - [测试成功] [Fifteen_15] -> 0: 飞絮飞花何处是，层冰积雪摧残，疏疏一树五更寒。
+2025-03-10 22:13:10 INFO  [pool-1-thread-2] org.example.service.All - [测试成功] [Eighteen_18] -> 0: 人间的真话本就不多，一个女子的脸红胜过一大片情话。可后来有了胭脂，便分不清是真情还是假意。但现在又有了腮红，更遑论谁是有意无意。————出自散文集《我在人间凑数的日子》
+2025-03-10 22:13:10 INFO  [pool-1-thread-11] org.example.service.All - [测试成功] [Seventeen_17] -> 0: 我家也有矿，门框、窗框、眼镜框，你要不要考虑和我在一起呢？
+2025-03-10 22:13:10 WARN  [pool-1-thread-17] org.example.service.All - [测试失败] [Twelve_12] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=我家也有矿，门框、窗框、眼镜框，你要不要考虑和我在一起呢？, author=Wanune)
+2025-03-10 22:13:10 INFO  [pool-1-thread-9] org.example.service.All - [测试成功] [One_1] -> 0: 一辈子，能坚持做好一件事就很伟大了！
+2025-03-10 22:13:10 INFO  [pool-1-thread-6] org.example.service.All - [测试成功] [Four_4] -> 0: 无论世界如何改变，我们都将永不分离。
+2025-03-10 22:13:10 INFO  [pool-1-thread-18] org.example.service.All - [测试成功] [TwentyOne_21] -> 0: 这几天你的微信里，充满了廉价的复制粘贴。
+2025-03-10 22:13:10 INFO  [pool-1-thread-5] org.example.service.All - [测试成功] [Five_5] -> 0: 糊口就像海洋，只有意志坚强的人，才能到达彼岸。
+2025-03-10 22:13:10 INFO  [pool-1-thread-8] org.example.service.All - [测试成功] [Nineteen_19] -> 0: 在这个热闹的世界里，寻一个安静的位置，做自己真正想做的事情！学会在阳光中微笑，学会在沉默中思索，学会在一个安静的位置上，去看世界的热闹，去看热闹背后的美丽的无限的广袤的世界！
+2025-03-10 22:13:10 INFO  [pool-1-thread-19] org.example.service.All - [测试成功] [Twenty_20] -> 0: 父兮生我，母兮鞠我。《蓼莪》 — 佚名
+2025-03-10 22:13:10 INFO  [pool-1-thread-1] org.example.service.All - [测试成功] [Eight_8] -> 0: 静静地听，我的心呀，听那“世界”的低语，这是他对你的爱的表示呀。
+2025-03-10 22:13:10 INFO  [pool-1-thread-3] org.example.service.All - [测试成功] [Eleven_11] -> 0: 今天的早餐是：早苗的面包、秋子的果酱和观铃的果汁~
+2025-03-10 22:13:10 INFO  [pool-1-thread-16] org.example.service.All - [测试成功] [Three_3] -> 0: 某处的某人说着愚蠢的人类，那些人类当然也包括说话人自己。要是想了解人类的话，只看着人类是远远不够的。必须将注意力放在人类究竟在看什么上，你们在看什么呢？
+2025-03-10 22:13:10 WARN  [pool-1-thread-7] org.example.service.All - [测试失败] [Fourteen_14] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=某处的某人说着愚蠢的人类，那些人类当然也包括说话人自己。要是想了解人类的话，只看着人类是远远不够的。必须将注意力放在人类究竟在看什么上，你们在看什么呢？, author=collin)
+2025-03-10 22:13:11 WARN  [pool-1-thread-21] org.example.service.All - [测试失败] [Zero_0] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=某处的某人说着愚蠢的人类，那些人类当然也包括说话人自己。要是想了解人类的话，只看着人类是远远不够的。必须将注意力放在人类究竟在看什么上，你们在看什么呢？, author=collin)
+2025-03-10 22:13:19 WARN  [pool-1-thread-13] org.example.service.All - [测试失败] [Sixteen_16] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=某处的某人说着愚蠢的人类，那些人类当然也包括说话人自己。要是想了解人类的话，只看着人类是远远不够的。必须将注意力放在人类究竟在看什么上，你们在看什么呢？, author=collin)
+2025-03-10 22:13:19 INFO  [main] org.example.service.All - ------------所有 YiYanApi 实现类测试完毕，数量: 21------------
+2025-03-10 22:13:30 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:13:30 INFO  [main] org.example.service.All - 开始异步并发测试 YiYanApi 实现类连接情况...
+2025-03-10 22:13:30 WARN  [pool-1-thread-14] org.example.service.All - [测试失败] [Ten_10] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:13:31 INFO  [pool-1-thread-12] org.example.service.All - [测试成功] [Six_6] -> 0: 快乐和幸福那么相似，可是快乐就是幸福吗？
+2025-03-10 22:13:31 INFO  [pool-1-thread-11] org.example.service.All - [测试成功] [Seventeen_17] -> 0: 不要总拿自己跟别人比，你羡慕别人瘦，别人还羡慕你肠胃好，你羡慕别人有钱，别人还羡慕没人找你借钱
+2025-03-10 22:13:31 INFO  [pool-1-thread-1] org.example.service.All - [测试成功] [Eight_8] -> 0: 他们点了他们自己的灯，在他们的寺院内，吟唱他们自己的话语。但是小鸟们却在你的晨光中，唱着你的名字，——因为你的名字便是快乐。
+2025-03-10 22:13:31 INFO  [pool-1-thread-2] org.example.service.All - [测试成功] [Eighteen_18] -> 0: 心想事成的诀窍是，只想能成的事。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:13:31 INFO  [pool-1-thread-8] org.example.service.All - [测试成功] [Nineteen_19] -> 0: 有些人的通病是，容易看清楚别人，不容易看清楚自己。在别人的问题上可以斟酌到锱铢必较，而在自己的问题上却可以粗略到走马观花。一颗自私的心，自然会豢养出一双自私的眼睛，一种计较的活法，以及，一腔热衷于背后说人是非的态度。一辈子看不上别人，换一种说法就是，从来没看清过自己。
+2025-03-10 22:13:31 INFO  [pool-1-thread-19] org.example.service.All - [测试成功] [Twenty_20] -> 0: 行人夜宿金陵渚，试听沙边有雁声。《送刘昱》 — 李颀
+2025-03-10 22:13:31 INFO  [pool-1-thread-9] org.example.service.All - [测试成功] [One_1] -> 0: 光明，制造瞎子。
+2025-03-10 22:13:31 INFO  [pool-1-thread-18] org.example.service.All - [测试成功] [TwentyOne_21] -> 0: 跟你在一起，苦一点我也愿意，苦很多就算了吧。
+2025-03-10 22:13:31 INFO  [pool-1-thread-4] org.example.service.All - [测试成功] [Fifteen_15] -> 0: 鸿羽难凭芳信短，长安犹近归期远。
+2025-03-10 22:13:31 INFO  [pool-1-thread-3] org.example.service.All - [测试成功] [Eleven_11] -> 0: 我们会死很久，所以活着的时候一定要开心。
+2025-03-10 22:13:31 INFO  [pool-1-thread-5] org.example.service.All - [测试成功] [Five_5] -> 0: 不要被任何人打乱自的脚步，因为没有谁会像你一样清楚和在乎自己梦想。
+2025-03-10 22:13:31 INFO  [pool-1-thread-20] org.example.service.All - [测试成功] [Two_2] -> 0: 努力可是要默默藏起来的。
+2025-03-10 22:13:31 INFO  [pool-1-thread-15] org.example.service.All - [测试成功] [Thirteen_13] -> 0: 塞花飘客泪，边柳挂乡愁。
+2025-03-10 22:13:31 WARN  [pool-1-thread-17] org.example.service.All - [测试失败] [Twelve_12] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=塞花飘客泪，边柳挂乡愁。, author=武威春暮闻宇文判官西使还已到晋昌)
+2025-03-10 22:13:31 INFO  [pool-1-thread-6] org.example.service.All - [测试成功] [Four_4] -> 0: 活下去的意志是最强的力量！
+2025-03-10 22:13:31 INFO  [pool-1-thread-10] org.example.service.All - [测试成功] [Seven_7] -> 0: 再深的感情终是黄粱一梦。
+2025-03-10 22:13:32 WARN  [pool-1-thread-7] org.example.service.All - [测试失败] [Fourteen_14] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=再深的感情终是黄粱一梦。, author=蓝麓)
+2025-03-10 22:13:32 WARN  [pool-1-thread-21] org.example.service.All - [测试失败] [Zero_0] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=再深的感情终是黄粱一梦。, author=蓝麓)
+2025-03-10 22:13:36 INFO  [pool-1-thread-16] org.example.service.All - [测试成功] [Three_3] -> 0: 王冠会让戴上它的人高人一头，是地位的象征。但王冠真正的意义是：当灾难从天而降时，我会为你们抵挡一切，永远让你们只看到金色的希望。
+2025-03-10 22:13:40 WARN  [pool-1-thread-13] org.example.service.All - [测试失败] [Sixteen_16] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=王冠会让戴上它的人高人一头，是地位的象征。但王冠真正的意义是：当灾难从天而降时，我会为你们抵挡一切，永远让你们只看到金色的希望。, author=蓝麓)
+2025-03-10 22:13:40 INFO  [main] org.example.service.All - ------------所有 YiYanApi 实现类测试完毕，数量: 21------------
+2025-03-10 22:14:30 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:14:30 INFO  [main] org.example.service.All - 开始异步并发测试 YiYanApi 实现类连接情况...
+2025-03-10 22:14:30 WARN  [pool-1-thread-14] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:14:31 INFO  [pool-1-thread-12] org.example.service.All - [测试成功] -> 0: 很多人与同事都是泛泛之交，每天却有三分之一的时间与他们共同渡过；而最重要的亲人，每年只有几个节日能与其同聚。人总是不能完满如意：生活里的人，往往都不在你心里；在你心里的人，往往都不在生活里。
+2025-03-10 22:14:31 INFO  [pool-1-thread-20] org.example.service.All - [测试成功] -> 0: 要让一群人团结起来，需要的不是英明的领导，而是共同的敌人。
+2025-03-10 22:14:31 INFO  [pool-1-thread-1] org.example.service.All - [测试成功] -> 0: 我有群星在天上，但是，唉，我屋里的小灯却没有点亮。
+2025-03-10 22:14:31 INFO  [pool-1-thread-8] org.example.service.All - [测试成功] -> 0: 生活的故事，有曲折，但不渲染，每个人都在活着自己生活状态的原版，生活的活泼就在于裹挟着那些欢笑和泪水，把对生活的提点都隐藏在故事背后，对人生的认识，更需要把那些困扰生活的负面情绪，原谅或者放手，清醒的告诉自己，那些曾经为自己的固执和烦恼而流的泪水，权做是以前脑子进的雨水。
+2025-03-10 22:14:31 INFO  [pool-1-thread-9] org.example.service.All - [测试成功] -> 0: 人们生于信仰，毁于信仰。人们在信仰的灰烬重生。
+2025-03-10 22:14:31 INFO  [pool-1-thread-11] org.example.service.All - [测试成功] -> 0: 不要总拿自己跟别人比，你羡慕别人瘦，别人还羡慕你肠胃好，你羡慕别人有钱，别人还羡慕没人找你借钱
+2025-03-10 22:14:31 INFO  [pool-1-thread-19] org.example.service.All - [测试成功] -> 0: 玉容寂寞泪阑干，梨花一枝春带雨。《长恨歌》 — 白居易
+2025-03-10 22:14:31 INFO  [pool-1-thread-3] org.example.service.All - [测试成功] -> 0: 我每次读完一本书的时候，也会有种从梦中醒来一般的哀伤感觉呢。
+2025-03-10 22:14:31 INFO  [pool-1-thread-2] org.example.service.All - [测试成功] -> 0: 希望在水滴筹看到她.---散文集《你希望前任过得好吗》
+2025-03-10 22:14:31 WARN  [pool-1-thread-17] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=希望在水滴筹看到她.---散文集《你希望前任过得好吗》, author=C712)
+2025-03-10 22:14:31 INFO  [pool-1-thread-15] org.example.service.All - [测试成功] -> 0: 世路廓悠悠，杨朱所以止。
+2025-03-10 22:14:31 INFO  [pool-1-thread-18] org.example.service.All - [测试成功] -> 0: 相亲最大的好处是，如果以后婚姻出问题，你可以把责任推给媒人。
+2025-03-10 22:14:31 INFO  [pool-1-thread-5] org.example.service.All - [测试成功] -> 0: 不妄求，则心安，不妄做，则身安。
+2025-03-10 22:14:31 INFO  [pool-1-thread-10] org.example.service.All - [测试成功] -> 0: 暴雨中前进，伞是倒划天空的船。
+2025-03-10 22:14:31 INFO  [pool-1-thread-4] org.example.service.All - [测试成功] -> 0: 荷尽已无擎雨盖，菊残犹有傲霜枝。
+2025-03-10 22:14:31 INFO  [pool-1-thread-6] org.example.service.All - [测试成功] -> 0: 和我定下契约，成为魔法少女吧！
+2025-03-10 22:14:32 INFO  [pool-1-thread-16] org.example.service.All - [测试成功] -> 0: 纵然如斯，亦候永世。
+2025-03-10 22:14:32 WARN  [pool-1-thread-7] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=纵然如斯，亦候永世。, author=弱智吧)
+2025-03-10 22:14:32 WARN  [pool-1-thread-21] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=纵然如斯，亦候永世。, author=弱智吧)
+2025-03-10 22:14:40 WARN  [pool-1-thread-13] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=纵然如斯，亦候永世。, author=弱智吧)
+2025-03-10 22:14:40 INFO  [main] org.example.service.All - ------------所有 YiYanApi 实现类测试完毕，数量: 21------------
+2025-03-10 22:15:45 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:15:45 INFO  [main] org.example.service.All - 开始异步并发测试 YiYanApi 实现类连接情况...
+2025-03-10 22:15:45 WARN  [pool-1-thread-14] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:15:45 INFO  [pool-1-thread-12] org.example.service.All - [测试成功] -> 0: 温山软水繁星万千都不及你半分眉眼。
+2025-03-10 22:15:45 INFO  [pool-1-thread-20] org.example.service.All - [测试成功] -> 0: 踏长风破万里浪
+2025-03-10 22:15:45 INFO  [pool-1-thread-8] org.example.service.All - [测试成功] -> 0: 人活着也就是一种心情，穷也是好，富也是好，得也好，失也好，一切都是过眼云烟，只要心情好，一切都好。几许年华，留下几许无奈，总会失去一些人，不舍得，只是因为念旧的原因。其实，每一个人的不可取代，只是你的一种心理暗示，远去的背影，怎么比得上迎面而来的笑脸。
+2025-03-10 22:15:45 INFO  [pool-1-thread-11] org.example.service.All - [测试成功] -> 0: 你瘦的时候在我心里，后来胖了，卡在里面出不来了
+2025-03-10 22:15:45 INFO  [pool-1-thread-9] org.example.service.All - [测试成功] -> 0: 风月折断杨柳枝，琴瑟朝露挥掷成诗。
+2025-03-10 22:15:45 INFO  [pool-1-thread-4] org.example.service.All - [测试成功] -> 0: 力田已告成，计日宜收藏。
+2025-03-10 22:15:45 INFO  [pool-1-thread-2] org.example.service.All - [测试成功] -> 0: 他说:"我对这世间唯一的不满就是这世间总是让更懂事的人承受更多." ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:15:45 INFO  [pool-1-thread-10] org.example.service.All - [测试成功] -> 0: 我的回合，抽卡！
+2025-03-10 22:15:45 INFO  [pool-1-thread-19] org.example.service.All - [测试成功] -> 0: 细草软沙溪路、马蹄轻。《南歌子·寓意》 — 苏轼
+2025-03-10 22:15:45 WARN  [pool-1-thread-17] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=细草软沙溪路、马蹄轻。《南歌子·寓意》 — 苏轼, author=游戏王)
+2025-03-10 22:15:46 INFO  [pool-1-thread-15] org.example.service.All - [测试成功] -> 0: 禅室从来尘外赏，香台岂是世中情。
+2025-03-10 22:15:46 INFO  [pool-1-thread-5] org.example.service.All - [测试成功] -> 0: 你若想要得到，就别只是期望。人生短暂，经不起等待。
+2025-03-10 22:15:46 INFO  [pool-1-thread-1] org.example.service.All - [测试成功] -> 0: 假如您愿意，您就熄了灯吧。我将明白您的黑暗，而且将喜爱它。
+2025-03-10 22:15:46 INFO  [pool-1-thread-18] org.example.service.All - [测试成功] -> 0: 还没来得及去沾花惹草，就被人拔光了。
+2025-03-10 22:15:46 INFO  [pool-1-thread-3] org.example.service.All - [测试成功] -> 0: 一息尚存,不容稍懈。
+2025-03-10 22:15:46 INFO  [pool-1-thread-6] org.example.service.All - [测试成功] -> 0: 无论乌云有多浓厚，星星也一定还在，只是暂时看不到了而已。
+2025-03-10 22:15:46 INFO  [pool-1-thread-16] org.example.service.All - [测试成功] -> 0: 这一路上有你的陪伴，我不再孤单。
+2025-03-10 22:15:46 WARN  [pool-1-thread-7] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=这一路上有你的陪伴，我不再孤单。, author=灉湖山寺)
+2025-03-10 22:15:46 WARN  [pool-1-thread-21] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=这一路上有你的陪伴，我不再孤单。, author=灉湖山寺)
+2025-03-10 22:15:55 WARN  [pool-1-thread-13] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=这一路上有你的陪伴，我不再孤单。, author=灉湖山寺)
+2025-03-10 22:15:55 INFO  [main] org.example.service.All - ------------所有 YiYanApi 实现类测试完毕，数量: 21------------
+2025-03-10 22:16:22 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:16:22 INFO  [main] org.example.service.All - 开始异步并发测试 YiYanApi 实现类连接情况...
+2025-03-10 22:16:22 WARN  [pool-1-thread-14] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:16:22 INFO  [pool-1-thread-12] org.example.service.All - [测试成功] -> 0: 所谓的一见钟情，不过是见色起意。所谓日久生情，不过权衡利弊；就连白头偕老，都不过习惯使然。
+2025-03-10 22:16:22 INFO  [pool-1-thread-11] org.example.service.All - [测试成功] -> 0: 这个世界上,充满了许多我们不知道的生物
+2025-03-10 22:16:22 INFO  [pool-1-thread-5] org.example.service.All - [测试成功] -> 0: 若无其事，原来是最好的报复。生活得更好，是为了自己。
+2025-03-10 22:16:22 INFO  [pool-1-thread-15] org.example.service.All - [测试成功] -> 0: 人谁不顾老，老去有谁怜。
+2025-03-10 22:16:22 INFO  [pool-1-thread-2] org.example.service.All - [测试成功] -> 0: 已经七天没人见到他了，没有人想起他，他失踪了，不对，他存在吗，我存在吗？ ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:16:22 INFO  [pool-1-thread-19] org.example.service.All - [测试成功] -> 0: 十二楼中尽晓妆，望仙楼上望君王。《宫词》 — 薛逢
+2025-03-10 22:16:22 INFO  [pool-1-thread-4] org.example.service.All - [测试成功] -> 0: 雌雄空中鸣，声尽呼不归。
+2025-03-10 22:16:22 INFO  [pool-1-thread-9] org.example.service.All - [测试成功] -> 0: 幸福破灭之时，总是伴随着血腥味。
+2025-03-10 22:16:22 INFO  [pool-1-thread-18] org.example.service.All - [测试成功] -> 0: 可不可以跟世界请个假，我想暂时离开下.
+2025-03-10 22:16:22 INFO  [pool-1-thread-8] org.example.service.All - [测试成功] -> 0: 人生，有很多时候，需要的不仅仅是执着，更是回眸一笑的洒脱。人生只有一次，真爱只有一场，目的只有一个：与心爱的人，走进婚姻的殿堂。别再率性，要真爱，就要敢于低头；别再固执，要真爱，就不要轻言分手；别再抉剔，要真爱，就要包容；要坚守，一直走，就可以白头。爱她吗？那就直到天长地久。
+2025-03-10 22:16:23 INFO  [pool-1-thread-1] org.example.service.All - [测试成功] -> 0: 权力认为牺牲者的痛苦是忘恩负义。
+2025-03-10 22:16:23 INFO  [pool-1-thread-20] org.example.service.All - [测试成功] -> 0: 我只是个兴趣使然的英雄。
+2025-03-10 22:16:23 INFO  [pool-1-thread-3] org.example.service.All - [测试成功] -> 0: 去死两次！
+2025-03-10 22:16:23 INFO  [pool-1-thread-6] org.example.service.All - [测试成功] -> 0: 如果真是这样， 就由我来把彭格列毁灭！
+2025-03-10 22:16:23 WARN  [pool-1-thread-17] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=如果真是这样， 就由我来把彭格列毁灭！, author=《一拳超人》)
+2025-03-10 22:16:23 WARN  [pool-1-thread-21] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=如果真是这样， 就由我来把彭格列毁灭！, author=《一拳超人》)
+2025-03-10 22:16:23 WARN  [pool-1-thread-7] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=如果真是这样， 就由我来把彭格列毁灭！, author=《一拳超人》)
+2025-03-10 22:16:24 INFO  [pool-1-thread-10] org.example.service.All - [测试成功] -> 0: 如果你仲记得我，就返转头啦。
+2025-03-10 22:16:24 INFO  [pool-1-thread-16] org.example.service.All - [测试成功] -> 0: 想打的话就握紧你的拳头，不想打的话就别挡路啊，别用这种半吊子的态度来践踏别人的决心啊！
+2025-03-10 22:16:32 WARN  [pool-1-thread-13] org.example.service.All - [测试失败] -> Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=想打的话就握紧你的拳头，不想打的话就别挡路啊，别用这种半吊子的态度来践踏别人的决心啊！, author=刑事侦缉档案)
+2025-03-10 22:16:32 INFO  [main] org.example.service.All - ------------所有 YiYanApi 实现类测试完毕，数量: 21------------
+2025-03-10 22:17:49 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:17:53 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:18:49 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:18:49 INFO  [main] org.example.service.All - 开始异步测试YiYanApi实现类...
+2025-03-10 22:18:49 INFO  [pool-1-thread-14] org.example.service.All - 接口测试失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=, author=)
+2025-03-10 22:18:49 INFO  [pool-1-thread-12] org.example.service.All - 接口[0] 成功: 在灰暗的日子中，不要让冷酷的命运窃喜；命运既然来凌辱我们，就应该用处之泰然的态度予以报复。
+2025-03-10 22:18:50 INFO  [pool-1-thread-20] org.example.service.All - 接口[0] 成功: 美国嘻哈现在 大部分 的词都涵盖着暴力和毒品。在中国现在的社会背景下，这些东西不会被国人所接受，所以中国说唱歌手必须有一套自己的说唱体系鬼卞独特风格和他愈发有深度的词，这个男人他已经在探讨生命 我想这就是他能权衡好老师和歌手的原因
+2025-03-10 22:18:50 INFO  [pool-1-thread-10] org.example.service.All - 接口[0] 成功: 只有当不幸真的到来时，我们才会怀念和渴望那些逝去的美好时光。
+2025-03-10 22:18:50 INFO  [pool-1-thread-15] org.example.service.All - 接口[0] 成功: 莫向东轩春野望，花开日出雉皆飞。
+2025-03-10 22:18:50 INFO  [pool-1-thread-5] org.example.service.All - 接口[0] 成功: 自然界没有风风雨雨，大地就不会春华秋实。
+2025-03-10 22:18:50 INFO  [pool-1-thread-8] org.example.service.All - 接口[0] 成功: 不知道是因为越来越独立。还是越来越心虚。对于重要的人，不要信口开河；对于重要的事，不要头脑发热。有一天，一定会放下一切，去远方。世上或许有一段不可替代的感情，却没有一个人是不可替代的。过度的紧张，一点碰不得，惹不起，它可能源于不自信。
+2025-03-10 22:18:50 INFO  [pool-1-thread-4] org.example.service.All - 接口[0] 成功: 宣和旧日，临安南渡，芳景犹自如故。
+2025-03-10 22:18:50 INFO  [pool-1-thread-19] org.example.service.All - 接口[0] 成功: 阿香秋梦起娇啼，玉女传幽素。《烛影摇红·越上霖雨应祷》 — 吴文英
+2025-03-10 22:18:50 INFO  [pool-1-thread-2] org.example.service.All - 接口[0] 成功: 如果晚几年遇到就好了，我有出息了，你也准备好了. ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:18:50 INFO  [pool-1-thread-11] org.example.service.All - 接口[0] 成功: 像我这么单纯的孩子，从来不分析尔虞我诈的历史问题，更不会做那么有心机的数学题！
+2025-03-10 22:18:50 INFO  [pool-1-thread-1] org.example.service.All - 接口[0] 成功: 人走进喧哗的群众里去，为的是要淹没他自己的沉默的呼号。
+2025-03-10 22:18:50 INFO  [pool-1-thread-18] org.example.service.All - 接口[0] 成功: 我已经闲到，开始学习了……
+2025-03-10 22:18:50 INFO  [pool-1-thread-17] org.example.service.All - 接口测试失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=我已经闲到，开始学习了……, author=戏题石门长老东轩)
+2025-03-10 22:18:50 INFO  [pool-1-thread-9] org.example.service.All - 接口[0] 成功: 如何得与凉风约，不共尘沙一并来！
+2025-03-10 22:18:50 INFO  [pool-1-thread-3] org.example.service.All - 接口[0] 成功: 即使作为代价要夺走我什么，即使接下来等待我的是什么，即使那样，我无论如何都不想失去他。
+2025-03-10 22:18:50 INFO  [pool-1-thread-6] org.example.service.All - 接口[0] 成功: 呐，我们好像是，被宇宙和地球拆散的恋人似的。
+2025-03-10 22:18:50 INFO  [pool-1-thread-7] org.example.service.All - 接口测试失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=呐，我们好像是，被宇宙和地球拆散的恋人似的。, author=hitokoto)
+2025-03-10 22:18:51 INFO  [pool-1-thread-16] org.example.service.All - 接口[0] 成功: 要不得谦词是废话
+2025-03-10 22:18:51 INFO  [pool-1-thread-14] org.example.service.All - 接口测试失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=要不得谦词是废话, author=hitokoto)
+2025-03-10 22:18:59 INFO  [pool-1-thread-13] org.example.service.All - 接口测试失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=要不得谦词是废话, author=hitokoto)
+2025-03-10 22:18:59 INFO  [main] org.example.service.All - ------------测试完毕，共有 21 个实现类------------
+2025-03-10 22:20:05 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:20:05 INFO  [pool-1-thread-14] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:20:06 INFO  [pool-1-thread-7] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=我怕失去了你，我的世界就没有了光明, author=富平少侯)
+2025-03-10 22:20:07 INFO  [pool-1-thread-17] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=伤口一定会有愈合的一天，所以不要隐藏重要的伤口，有我在你身边。, author=富平少侯)
+2025-03-10 22:20:08 INFO  [pool-1-thread-14] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=伤口一定会有愈合的一天，所以不要隐藏重要的伤口，有我在你身边。, author=富平少侯)
+2025-03-10 22:20:15 INFO  [pool-1-thread-13] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=在这个艰难的世界里啊，与众不同都会被人瞧不起，但如果你与众不同，又何必怕孤独，艰难路，只好艰难着行走。, author=富平少侯)
+2025-03-10 22:21:22 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:21:25 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:21:37 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:21:37 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:21:42 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:21:44 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:23:21 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:23:24 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:23:36 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:23:36 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:23:40 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:23:42 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:24:23 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:24:26 INFO  [main] org.example.service.All - Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:24:38 INFO  [main] org.example.service.All - Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:24:38 INFO  [main] org.example.service.All - Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:24:40 INFO  [main] org.example.service.All - Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:24:42 INFO  [main] org.example.service.All - Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:24:42 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=1, urId=6, url=http://zj.v.api.aa1.cn/api/wenan-wm/?type=json, msg=没有一个人，不是在相交中慢慢理解的，没有一份情，不是在相处中渐渐认同的。相交就要比心，相处就要凭情，情始于交往，心在于认同，好不好在来往中体现，行不行在相处间感受。真心付出，即使没有得到真情，也不要伤心。这个世界上，没有什么能够糊弄到最后，谁好谁坏，早晚都会明白。只要你问心无愧，就算什么也没有得到，也不必太过看重。人生，在心重情，活着自会安宁。, author=)
+2025-03-10 22:24:53 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:29:43 INFO  [pool-3-thread-5] org.example.service.All - 7 成功: 人不一定要生得漂亮，但却一定要活得漂亮。
+2025-03-10 22:29:43 INFO  [pool-3-thread-4] org.example.service.All - 17 成功: 新竹高于旧竹枝，全凭老干为扶持。
+2025-03-10 22:29:43 INFO  [pool-3-thread-9] org.example.service.All - 6 成功: 或许人和人之间的缘分，都是注定的。
+2025-03-10 22:29:43 INFO  [pool-3-thread-4] org.example.service.All - 16 成功: 我们懂了很多没有必要懂的东西，原来我们的世界不在那么的开心，却让痛成为了永远。那些唯美的画面，犹如茫茫夜空中的一缕烟火，转瞬间灰飞烟灭。
+2025-03-10 22:29:43 INFO  [pool-3-thread-6] org.example.service.All - 10 成功: 即使我弱了，也并不代表你强了
+2025-03-10 22:29:43 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=13, url=https://www.iamwawa.cn/home/shici/ajax, msg=, author=)
+2025-03-10 22:29:43 INFO  [pool-3-thread-1] org.example.service.All - 3 成功: 太忙于做好事的人，反而找不到时间去做好事。
+2025-03-10 22:29:43 INFO  [pool-3-thread-3] org.example.service.All - 12 成功: 你利用价值越高，人缘越好。
+2025-03-10 22:29:43 INFO  [pool-3-thread-5] org.example.service.All - 21 成功: 当我讨厌一个人的时候，如果这个人突然说喜欢我，那我就一点也不讨厌他了我就是这么有原则，因为我无法讨厌一个有眼光的人
+2025-03-10 22:29:43 INFO  [pool-3-thread-8] org.example.service.All - 20 成功: 我们无望可及的人生。人生很多时候，已经写下了岁月的最初模样，只是我们不愿意去承认这所有的所有。最终，欺骗的还是自己最为无助的自尊。或许是，在微笑里朝着曾经所有的岁月败笔挥手，那也是人生的一种极致。
+2025-03-10 22:29:43 INFO  [pool-3-thread-2] org.example.service.All - 2 成功: 以前我觉得是兄弟就能抛开一切，两肋插刀！现在明白了维系情义也要大家实力相当 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:29:44 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 折来喜作新年看，忘却今晨是季冬。
+2025-03-10 22:29:44 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 楼船夜雪瓜洲渡，铁马秋风大散关。《书愤五首·其一》 — 陆游
+2025-03-10 22:29:44 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 哪有顷刻之间的心灰意冷，有的，只是日积月累的看透罢了。
+2025-03-10 22:29:44 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=哪有顷刻之间的心灰意冷，有的，只是日积月累的看透罢了。, author=觅楽-语录)
+2025-03-10 22:29:44 INFO  [pool-3-thread-3] org.example.service.All - 0 成功: 我明明是个老师，病毒把我变成主播。
+2025-03-10 22:29:44 INFO  [pool-3-thread-8] org.example.service.All - 0 成功: 我们人是需要吃饭、工作和休息的生物，只要满足了其中一项，其他两项也会逐渐满足，而当这三项都满足后，就会得到强烈的存在感。
+2025-03-10 22:29:44 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=我们人是需要吃饭、工作和休息的生物，只要满足了其中一项，其他两项也会逐渐满足，而当这三项都满足后，就会得到强烈的存在感。, author=《银魂》)
+2025-03-10 22:29:44 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 请为你我仍活在世上举杯痛饮,请在逝去的亲人的坟头献上一杯甜甜的美酒,请为在世的亲人献上一个真诚的拥抱,请为珍视你我所拥有的一切,当死神的歌谣轻轻的响起在你我的耳边时，请微笑的迎接她。
+2025-03-10 22:29:45 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=请为你我仍活在世上举杯痛饮,请在逝去的亲人的坟头献上一杯甜甜的美酒,请为在世的亲人献上一个真诚的拥抱,请为珍视你我所拥有的一切,当死神的歌谣轻轻的响起在你我的耳边时，请微笑的迎接她。, author=《银魂》)
+2025-03-10 22:29:53 INFO  [pool-3-thread-9] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=请为你我仍活在世上举杯痛饮,请在逝去的亲人的坟头献上一杯甜甜的美酒,请为在世的亲人献上一个真诚的拥抱,请为珍视你我所拥有的一切,当死神的歌谣轻轻的响起在你我的耳边时，请微笑的迎接她。, author=《银魂》)
+2025-03-10 22:29:53 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:29:54 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:31:25 INFO  [pool-3-thread-5] org.example.service.All - 1 成功: 如果努力就可以做到的事情，为什么不去做。
+2025-03-10 22:31:25 INFO  [pool-3-thread-1] org.example.service.All - 1 成功: 萤火对天上的星道：“学者说你的光明，总有一天会消灭的。”天上的星不回答他。
+2025-03-10 22:31:25 INFO  [pool-3-thread-8] org.example.service.All - 1 成功: 人生不能迷路。其实人生有好多路，哪条路都可以好好走的，就是别走斜路，别钻绝路。每条路都有坎坷荒漠，风雨险恶，也都有蓝天白云，鲜花坦途，只要坚持走，就是一条自己的路。在路上，不一定怕迷路，就怕错过了沿途景致，或误跌了陷坑。人生一路是需要用心发现的……用心看路，用心看景。--王亚非
+2025-03-10 22:31:25 INFO  [pool-3-thread-2] org.example.service.All - 1 成功: 一件事想通了是天堂，想不通就是地狱——选自散文《我在人间凑数的日子》
+2025-03-10 22:31:25 INFO  [pool-3-thread-9] org.example.service.All - 10 成功: 无次数的沉沦就是为了苏醒。
+2025-03-10 22:31:25 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=13, url=https://www.iamwawa.cn/home/shici/ajax, msg=, author=)
+2025-03-10 22:31:25 INFO  [pool-3-thread-1] org.example.service.All - 3 成功: 别等到明天再努力，只有努力过完今天的人，才会有明天。
+2025-03-10 22:31:25 INFO  [pool-3-thread-9] org.example.service.All - 12 成功: 双双愁泪沾马毛，飒飒胡沙迸人面。
+2025-03-10 22:31:25 INFO  [pool-3-thread-4] org.example.service.All - 21 成功: 镜湖三百里，菡萏发荷花。
+2025-03-10 22:31:25 INFO  [pool-3-thread-4] org.example.service.All - 20 成功: 六曲阑干偎碧树，杨柳风轻，展尽黄金缕。《鹊踏枝·清明》 — 冯延巳
+2025-03-10 22:31:25 INFO  [pool-3-thread-3] org.example.service.All - 2 成功: 过去是过去，你就是你。
+2025-03-10 22:31:25 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 忘记本身就是一件不可能的事。
+2025-03-10 22:31:25 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 沉舟侧畔千帆过，病树前头万木春。
+2025-03-10 22:31:25 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 无论谁的心中,都有自己的歌
+2025-03-10 22:31:25 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 人在直面恐惧的时候，自身的灵魂将会受到考验。降生于这世界，究竟有何所求，要成何事，其本性会暴露无遗。
+2025-03-10 22:31:25 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 和学校，头衔什么的无关，无论出于清流中还是污泥中，只要激流勇进，鱼就能坚强美丽地成长。
+2025-03-10 22:31:26 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=和学校，头衔什么的无关，无论出于清流中还是污泥中，只要激流勇进，鱼就能坚强美丽地成长。, author=《PSYCHO-PASS》)
+2025-03-10 22:31:26 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=和学校，头衔什么的无关，无论出于清流中还是污泥中，只要激流勇进，鱼就能坚强美丽地成长。, author=《PSYCHO-PASS》)
+2025-03-10 22:31:27 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=和学校，头衔什么的无关，无论出于清流中还是污泥中，只要激流勇进，鱼就能坚强美丽地成长。, author=《PSYCHO-PASS》)
+2025-03-10 22:32:14 INFO  [pool-3-thread-4] org.example.service.All - 1 成功: 朔方三度重阳节，河曲干旌岁岁忙。
+2025-03-10 22:32:14 INFO  [pool-3-thread-1] org.example.service.All - 1 成功: 歌声在空中感得无限，图画在地上感得无限，诗呢，无论在空中，在地上都是如此；因为诗的词句含有能走动的意义与能飞翔的音乐。
+2025-03-10 22:32:14 INFO  [pool-3-thread-5] org.example.service.All - 1 成功: 培育能力的事必须继续不断地去做，又必须随时改善学习方法，提高学习效率，才会成功。
+2025-03-10 22:32:14 INFO  [pool-3-thread-2] org.example.service.All - 16 成功: 前夜迷雾遮月，总有人期待阴云流转，雾散月明；旧梦泉竭尽水涸，总有人期待一泓清泉，澄澈透灵。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:32:14 INFO  [pool-3-thread-8] org.example.service.All - 10 成功: 每个人的每一段路，都会有一些领悟，只是有些人会简单随时，随时而悟，是坎坷，悟磨砺；是顺境，悟生活；是心境简约随意，悟人生尘缘随意；有所悟，也有所得，是忙碌，得充实于心；是慰藉，得安于生活；是悠闲，得幽雅修身；时间的永恒向前，决定我们每个人都在前行的路上，没有后路，也是一次领悟。
+2025-03-10 22:32:14 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=13, url=https://www.iamwawa.cn/home/shici/ajax, msg=, author=)
+2025-03-10 22:32:14 INFO  [pool-3-thread-1] org.example.service.All - 3 成功: 一个人爱你的时候，你的任性你的缺点都是可爱。一个人不爱你的时候，你说话是错，不说话是错，连呼吸都是错。这是人性，习惯就好。所以永远不要为了迁就谁而改变自己，爱的时候勇敢爱，散的时候大步走，别回头。
+2025-03-10 22:32:14 INFO  [pool-3-thread-9] org.example.service.All - 12 成功: 从你的前前前世开始，我就一直在寻找你的踪迹。
+2025-03-10 22:32:14 INFO  [pool-3-thread-8] org.example.service.All - 21 成功: 门外沧浪水，可以濯吾缨。
+2025-03-10 22:32:14 INFO  [pool-3-thread-3] org.example.service.All - 20 成功: 究竟是我们太执着于所谓的自尊，还是我们都已经习惯了口是心非。
+2025-03-10 22:32:14 INFO  [pool-3-thread-10] org.example.service.All - 2 成功: 人于浮世，独来独往，独生独死，苦乐自当，无有代者。
+2025-03-10 22:32:14 INFO  [pool-3-thread-8] org.example.service.All - 0 成功: 残雪楼台，迟日园林。《高阳台·除夜》 — 韩疁
+2025-03-10 22:32:14 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 真正重要的东西，永远都是非常简单的。
+2025-03-10 22:32:14 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 也许你最最喜欢的人已经不存在了,但最最喜欢你的人不是还在吗?这样正负一抵消不就等于了吗？
+2025-03-10 22:32:14 INFO  [pool-3-thread-3] org.example.service.All - 0 成功: 孙悟空等了唐僧500年
+风晴雪等了屠苏900年
+宇文拓等了宁珂500年
+龙葵等了龙阳1000年
+易小川等了玉漱2000年
+夕瑶等了飞蓬几千年
+紫萱等了长卿三生三世
+而我还要等你多长时间[口罩]
+2025-03-10 22:32:14 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 肺炎带走春节，坠机带走青春。
+2025-03-10 22:32:14 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=肺炎带走春节，坠机带走青春。, author=请你务必爱万智敏)
+2025-03-10 22:32:15 INFO  [pool-3-thread-10] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=肺炎带走春节，坠机带走青春。, author=请你务必爱万智敏)
+2025-03-10 22:32:15 INFO  [pool-3-thread-2] org.example.service.All - 0 成功: 如果你愿意的话，让我带您去吧，这座小镇，愿望实现的地方⋯⋯
+2025-03-10 22:32:15 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=如果你愿意的话，让我带您去吧，这座小镇，愿望实现的地方⋯⋯, author=请你务必爱万智敏)
+2025-03-10 22:38:36 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:38:36 INFO  [pool-3-thread-15] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:38:36 INFO  [pool-3-thread-11] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:38:36 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:38:36 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:38:36 INFO  [pool-3-thread-20] org.example.service.All - 10 成功: 可是就算我们通一千次短信，我们各自的心，大概也只会相互靠近一厘米吧。
+2025-03-10 22:38:36 INFO  [pool-3-thread-1] org.example.service.All - 10 成功: 太忙于做好事的人，反而找不到时间去做好事。
+2025-03-10 22:38:36 INFO  [pool-3-thread-12] org.example.service.All - 10 成功: 我想在这里改变我自己
+2025-03-10 22:38:36 INFO  [pool-3-thread-2] org.example.service.All - 10 成功: 为了已经失去的东西而自暴自弃就是一个错误的决定。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:38:36 INFO  [pool-3-thread-14] org.example.service.All - 10 成功: 须臾日射胭脂颊，一朵红苏旋欲融。
+2025-03-10 22:38:36 INFO  [pool-3-thread-5] org.example.service.All - 10 成功: (」・ω・)」うー！(／・ω・)／にゃー！
+2025-03-10 22:38:36 INFO  [pool-3-thread-18] org.example.service.All - 10 成功: 这就是我，和中学的同学一个人也没联系过……这不叫reset，叫delete，呵呵。
+2025-03-10 22:38:36 INFO  [pool-3-thread-4] org.example.service.All - 10 成功: 碰到低潮，自己鼓励自己。千万别乞求，依靠别人来鼓励你。
+2025-03-10 22:38:36 INFO  [pool-3-thread-9] org.example.service.All - 10 成功: 来吧，南无三！
+2025-03-10 22:38:36 INFO  [pool-3-thread-6] org.example.service.All - 10 成功: 你就赌我会死吧，因为你逢赌必输。
+2025-03-10 22:38:37 INFO  [pool-3-thread-17] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=你就赌我会死吧，因为你逢赌必输。, author=h2o)
+2025-03-10 22:38:37 INFO  [pool-3-thread-3] org.example.service.All - 10 成功: 越是想忘记，就越是记得。越是想放弃，就越舍不得。许多事情都是这样，当你心里最为痛苦的时候，就恰恰是最深爱，最不可放手的时候。
+2025-03-10 22:38:37 INFO  [pool-3-thread-19] org.example.service.All - 10 成功: 静夜沉沉，浮光霭霭，冷浸溶溶月。《无俗念·灵虚宫梨花词》 — 丘处机
+2025-03-10 22:38:37 INFO  [pool-3-thread-7] org.example.service.All - 10 成功: 昔我往矣，杨柳依依。
+2025-03-10 22:38:37 INFO  [pool-3-thread-10] org.example.service.All - 10 成功: 猫是可爱的，狼是很帅的。就是说，孤独又可爱又帅。
+2025-03-10 22:38:37 INFO  [pool-3-thread-8] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=猫是可爱的，狼是很帅的。就是说，孤独又可爱又帅。, author=我的青春恋爱物语果然有问题)
+2025-03-10 22:38:38 INFO  [pool-3-thread-16] org.example.service.All - 10 成功: 不管有多痛多受伤，真正受伤的人一定不是你自己。
+2025-03-10 22:38:46 INFO  [pool-3-thread-13] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=不管有多痛多受伤，真正受伤的人一定不是你自己。, author=我的青春恋爱物语果然有问题)
+2025-03-10 22:38:48 INFO  [pool-3-thread-21] org.example.service.All - 连接失败：Y(status=0, urId=15, url=https://v1.jinrishici.com/all, msg=黄河西来决昆仑，咆哮万里触龙门。, author=)
+2025-03-10 22:40:02 INFO  [pool-3-thread-13] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:40:02 INFO  [pool-3-thread-12] org.example.service.All - 0 成功: 喜欢你到什么程度，喜欢到全世界森林里的老虎都融化成黄油。
+2025-03-10 22:40:03 INFO  [pool-3-thread-2] org.example.service.All - 0 成功: 如果我有什么意外，我一定会把我有用的器官全部捐献，遗体捐赠，这样我就会一直陪着你们了。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:40:03 INFO  [pool-3-thread-8] org.example.service.All - 0 成功: 躲在时光的一隅，看尘世的功名利禄，不过云烟。钞票再多，也只不过活上几十年，人死之后，钞票不会牵挂你，牵挂你的只有你的亲人和最亲的朋友；官职再高，也终有下来的一天，居高位时不为百姓不为员工谋利益，等到下来的时候，人走茶凉的命运，终是会让自己的心中生出许多的感慨和悲戚。
+2025-03-10 22:40:03 INFO  [pool-3-thread-19] org.example.service.All - 0 成功: 长杨跨武骑，细柳接戎轩 ——郑愔《奉和幸望春宫送朔方大总管张仁亶》
+2025-03-10 22:40:03 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 惟有团团节，坚贞大小同。
+2025-03-10 22:40:03 INFO  [pool-3-thread-14] org.example.service.All - 0 成功: 未期之遇，不告而别。闻所闻而来，见所见即去。
+2025-03-10 22:40:03 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 夜阑卧听风吹雨，铁马冰河入梦来。
+2025-03-10 22:40:03 INFO  [pool-3-thread-7] org.example.service.All - 0 成功: 让我们将事前的忧虑，换为事前的思考和计划吧!
+2025-03-10 22:40:03 INFO  [pool-3-thread-18] org.example.service.All - 0 成功: 我们所过的每个平凡的日常,也许就是连续发生的奇迹
+2025-03-10 22:40:03 INFO  [pool-3-thread-15] org.example.service.All - 0 成功: 精准与否就是屠宰和手术的区别。
+2025-03-10 22:40:03 INFO  [pool-3-thread-1] org.example.service.All - 0 成功: 真理穿了衣裳觉得事实太拘束了，在想像中，她却转动得很舒畅。
+2025-03-10 22:40:03 INFO  [pool-3-thread-3] org.example.service.All - 0 成功: 失败的人只有一种。就是在抵达成功之前放弃的人
+2025-03-10 22:40:03 INFO  [pool-3-thread-11] org.example.service.All - 0 成功: 春风十里，不如睡你。
+2025-03-10 22:40:03 INFO  [pool-3-thread-17] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=春风十里，不如睡你。, author=风尘散人)
+2025-03-10 22:40:03 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 黑白谁能用入玄，千回生死体方圆。
+2025-03-10 22:40:03 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 回首前尘，尽是可耻的过往
+2025-03-10 22:40:04 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=回首前尘，尽是可耻的过往, author=咏棋子赠弈僧)
+2025-03-10 22:40:04 INFO  [pool-3-thread-16] org.example.service.All - 0 成功: 狮子神子，高神剑巫，诚心祷祝，破魔曙光，雪霞神狼。以钢之神威，助我讨尽恶神百鬼。
+2025-03-10 22:40:12 INFO  [pool-3-thread-20] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=狮子神子，高神剑巫，诚心祷祝，破魔曙光，雪霞神狼。以钢之神威，助我讨尽恶神百鬼。, author=咏棋子赠弈僧)
+2025-03-10 22:40:15 INFO  [pool-3-thread-21] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=狮子神子，高神剑巫，诚心祷祝，破魔曙光，雪霞神狼。以钢之神威，助我讨尽恶神百鬼。, author=咏棋子赠弈僧)
+2025-03-10 22:40:15 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:40:15 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:40:24 INFO  [pool-3-thread-14] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:40:24 INFO  [pool-3-thread-11] org.example.service.All - 0 成功: 我想先生大概是江洋大盗吧，只轻轻一笑，小女子整颗心就都落在先生那儿。
+2025-03-10 22:40:24 INFO  [pool-3-thread-20] org.example.service.All - 0 成功: 因为无法再见面，所以要笑着说再见。
+2025-03-10 22:40:24 INFO  [pool-3-thread-1] org.example.service.All - 0 成功: 当我到这里，到那里地旅行着时，路呀，我厌倦了你了，但是现在，当你引导我到各处去时，我便爱上你，与你结婚了。
+2025-03-10 22:40:24 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 荆州坏，尽焚其书，今在者一篇，知名之士咸重之，见虎一毛，不知其斑。
+2025-03-10 22:40:24 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 成功是一种观念，成功是一种思想，成功是一种习惯，成功是一种心态。
+2025-03-10 22:40:24 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 昨夜秋风入汉关，朔云边月满西山。
+2025-03-10 22:40:24 INFO  [pool-3-thread-8] org.example.service.All - 0 成功: 对小人一定要忍让，退一步海阔天空，实在不行把属于自己的空间也送给他们，让他们如莺歌燕舞般陶醉吧。俗话说大人大度量，不把俗事放在心里，小人鼠肚鸡肠，惹着小人就等与惹了麻烦，天底下顶数小人惹不起。直到现在我也没想出更好的办法战胜小人，不知道敬而远之是否可行。
+2025-03-10 22:40:24 INFO  [pool-3-thread-3] org.example.service.All - 0 成功: 你的一句想我啦！让我觉得我做对的一件事就是喜欢你。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:40:24 INFO  [pool-3-thread-19] org.example.service.All - 0 成功: 愿君多采撷，此物最相思。《相思》 — 王维
+2025-03-10 22:40:24 INFO  [pool-3-thread-17] org.example.service.All - 0 成功: 多希望我的脂肪，能像朋友一样，不知不觉就没了。
+2025-03-10 22:40:24 INFO  [pool-3-thread-13] org.example.service.All - 0 成功: 今天起床之后跟老公说：我要化妆了这二货来了句：那不是化妆，是变身
+2025-03-10 22:40:24 INFO  [pool-3-thread-15] org.example.service.All - 0 成功: 我觉得世界无聊，是因为我的世界本身已经足够有趣了。
+2025-03-10 22:40:24 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 一代锤子一代皇，代代锤子教做人！
+2025-03-10 22:40:24 INFO  [pool-3-thread-2] org.example.service.All - 0 成功: 最好打起精神做好该做的事，不然的话你一生都会后悔的。
+2025-03-10 22:40:24 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 出来吧，刻刻帝！
+2025-03-10 22:40:24 INFO  [pool-3-thread-16] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=出来吧，刻刻帝！, author=斗罗大陆)
+2025-03-10 22:40:25 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=出来吧，刻刻帝！, author=斗罗大陆)
+2025-03-10 22:40:25 INFO  [pool-3-thread-18] org.example.service.All - 0 成功: 这个世上没有无用的齿轮，也只有齿轮本身能决定自己的用途。
+2025-03-10 22:40:34 INFO  [pool-3-thread-12] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=这个世上没有无用的齿轮，也只有齿轮本身能决定自己的用途。, author=斗罗大陆)
+2025-03-10 22:40:36 INFO  [pool-3-thread-21] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=这个世上没有无用的齿轮，也只有齿轮本身能决定自己的用途。, author=斗罗大陆)
+2025-03-10 22:40:36 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:40:36 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:40:46 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:40:52 INFO  [pool-3-thread-14] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:40:52 INFO  [pool-3-thread-12] org.example.service.All - 0 成功: 若我是白日，你便是那山，依你起，依你落。朝朝暮暮，千秋万代。
+2025-03-10 22:40:52 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 努力到无能为力，拼搏到感动自己。
+2025-03-10 22:40:52 INFO  [pool-3-thread-20] org.example.service.All - 0 成功: 生命的长度我是拓展不了了，但是我可以试着把它拉宽一点，这样子就能印出彩虹了。
+2025-03-10 22:40:52 INFO  [pool-3-thread-2] org.example.service.All - 0 成功: 你眼中的星河烂漫是我不曾见过的世外桃源———选自散文集《我再人间凑数的日子》
+2025-03-10 22:40:52 INFO  [pool-3-thread-15] org.example.service.All - 0 成功: 遂用洗心饰视，发挥幽郁。
+2025-03-10 22:40:52 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 旌旆夹两山，黄河当中流。
+2025-03-10 22:40:52 INFO  [pool-3-thread-3] org.example.service.All - 0 成功: 有志者，事竟成。
+2025-03-10 22:40:52 INFO  [pool-3-thread-11] org.example.service.All - 0 成功: 所谓的人类,可是连短短的十分钟也等不起的
+2025-03-10 22:40:52 INFO  [pool-3-thread-8] org.example.service.All - 0 成功: 愚者常懊悔过去，忧愁未来，而无视于现在，活得枯槁焦灼；智者不懊悔过去，不忧愁未来，而安然于现在，活得精彩从容。学会倾听，因为这是对他人的尊重，也是对他人的一种安慰；学会快乐，因为只有开心度过每一天，活得才精彩！
+2025-03-10 22:40:52 INFO  [pool-3-thread-19] org.example.service.All - 0 成功: 马上离魂衣上泪。各自个、供憔悴 ——程垓《酷相思·月挂霜林寒欲坠》
+2025-03-10 22:40:52 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 他们的挽歌，应该唱我的名字。
+2025-03-10 22:40:52 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 奋斗只为了以后更好的生活。
+2025-03-10 22:40:52 INFO  [pool-3-thread-17] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=奋斗只为了以后更好的生活。, author=焚天炼日)
+2025-03-10 22:40:52 INFO  [pool-3-thread-18] org.example.service.All - 0 成功: 不要太秀，后起之秀很多。
+2025-03-10 22:40:52 INFO  [pool-3-thread-1] org.example.service.All - 0 成功: 让我真真实实地活着吧，我的上帝，这样，死对于我也就成了真实的了。
+2025-03-10 22:40:52 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 没问题，绝对没问题
+2025-03-10 22:40:53 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=没问题，绝对没问题, author=焚天炼日)
+2025-03-10 22:40:53 INFO  [pool-3-thread-16] org.example.service.All - 0 成功: 塞翁失马，祸兮福倚。得丧荣辱，奚足介意
+2025-03-10 22:41:29 INFO  [pool-3-thread-14] org.example.service.All - 连接失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=, author=)
+2025-03-10 22:41:29 INFO  [pool-3-thread-12] org.example.service.All - 2 成功: 有的路，你必须一个人走，这不是孤独，而是选择……
+2025-03-10 22:41:29 INFO  [pool-3-thread-8] org.example.service.All - 2 成功: 我们怀念过去，并非放不下当初的人与事，而是怀想曾经的自己。人生是一次单边行程，很多东西都是唯一的，错过了就不可能再遇到。世界变化如此的快，我们一路行色匆匆，却怎么也跟不上它的脚步，丢失的东西越来越多，等到再回头看，已经找不回原来的自己。所以，保持一个本真的自我，是多么难的一件事。
+2025-03-10 22:41:29 INFO  [pool-3-thread-4] org.example.service.All - 2 成功: 只要一个人的起点够高，那么他就可以，用一辈子来走下坡路。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:41:29 INFO  [pool-3-thread-19] org.example.service.All - 2 成功: 有熊有罴，有猫有虎，庆既令居，韩姞燕誉。《韩奕》 — 佚名
+2025-03-10 22:41:29 INFO  [pool-3-thread-21] org.example.service.All - 2 成功: 封面海马的金属头盔 ，银制翅膀以及螺旋桨三叶草小尾巴 ，无一不彰显我在这海里束起的防护！
+到最后“颠倒光亮也抑不住飞扬的尘埃”
+2025-03-10 22:41:29 INFO  [pool-3-thread-11] org.example.service.All - 2 成功: 不要以为爸爸说的都是正确的
+2025-03-10 22:41:29 INFO  [pool-3-thread-5] org.example.service.All - 2 成功: 纱厨藤簟，玉人罗扇轻缣。
+2025-03-10 22:41:29 INFO  [pool-3-thread-3] org.example.service.All - 2 成功: 年时间可以是一瞬，也可以是永远。
+2025-03-10 22:41:29 INFO  [pool-3-thread-9] org.example.service.All - 2 成功: 金钱和女人，是人生犯错的根源。
+2025-03-10 22:41:29 INFO  [pool-3-thread-2] org.example.service.All - 2 成功: 山路不象坦途那样匍匐在人们足下。
+2025-03-10 22:41:30 INFO  [pool-3-thread-20] org.example.service.All - 2 成功: 游子乍闻征袖湿，佳人才唱翠眉低。
+2025-03-10 22:41:30 INFO  [pool-3-thread-17] org.example.service.All - 连接失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=游子乍闻征袖湿，佳人才唱翠眉低。, author=鹧鸪)
+2025-03-10 22:41:30 INFO  [pool-3-thread-18] org.example.service.All - 2 成功: 大丈夫说言而无信就言而无信！
+2025-03-10 22:41:30 INFO  [pool-3-thread-7] org.example.service.All - 2 成功: 人类的赞歌就是勇气的赞歌
+2025-03-10 22:41:30 INFO  [pool-3-thread-1] org.example.service.All - 2 成功: 我把我的心之碗轻轻浸入这沉默之时刻中；它充满了爱了。
+2025-03-10 22:41:30 INFO  [pool-3-thread-10] org.example.service.All - 2 成功: 热情中的冷静让你镇定谦虚，冷静中的热情使你执着不懈。
+2025-03-10 22:41:30 INFO  [pool-3-thread-6] org.example.service.All - 连接失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=热情中的冷静让你镇定谦虚，冷静中的热情使你执着不懈。, author=佚名)
+2025-03-10 22:41:31 INFO  [pool-3-thread-16] org.example.service.All - 2 成功: 这段无法倒退的时光，却教会了我它的含义。
+2025-03-10 22:41:39 INFO  [pool-3-thread-13] org.example.service.All - 连接失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=这段无法倒退的时光，却教会了我它的含义。, author=佚名)
+2025-03-10 22:41:51 INFO  [pool-3-thread-15] org.example.service.All - 连接失败：Y(status=0, urId=2, url=https://api.xygeng.cn/one, msg=这段无法倒退的时光，却教会了我它的含义。, author=佚名)
+2025-03-10 22:41:51 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:41:51 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:41:52 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:46:25 INFO  [pool-3-thread-8] org.example.service.All - 7 成功: 人生最大的痛苦就是心灵没有归属，不管你知不知觉，承不承认。同一件事，想开了就是天堂，想不开就是地狱。其实，我们喜欢上学，只是不喜欢上课，怀念那些曾经一起闹，一起笑的时光。
+2025-03-10 22:46:25 INFO  [pool-3-thread-4] org.example.service.All - 17 成功: 慈母手中线，游子身上衣。
+2025-03-10 22:46:25 INFO  [pool-3-thread-1] org.example.service.All - 6 成功: 人是一个初生的孩子，他的力量，就是生长的力量。
+2025-03-10 22:46:25 INFO  [pool-3-thread-5] org.example.service.All - 16 成功: 有人在等我，我也不会再回头，就这样吧。
+2025-03-10 22:46:26 INFO  [pool-3-thread-9] org.example.service.All - 10 成功: 少女祈祷中…
+2025-03-10 22:46:26 INFO  [pool-3-thread-5] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:46:26 INFO  [pool-3-thread-3] org.example.service.All - 3 成功: 人们往往会否定无法理解，无法掌握的事，不合乎自己所期盼世界的事物，就会被认定为不好的，实事求是的说不知道，明明是那么简单的事。
+2025-03-10 22:46:26 INFO  [pool-3-thread-4] org.example.service.All - 12 成功: 等下次再见，我会用积攒了不知道多少天的温暖拥抱你。
+2025-03-10 22:46:26 INFO  [pool-3-thread-9] org.example.service.All - 21 成功: 雨暗初疑夜，风回忽报晴。
+2025-03-10 22:46:26 INFO  [pool-3-thread-6] org.example.service.All - 20 成功: リア充死ね！
+2025-03-10 22:46:26 INFO  [pool-3-thread-8] org.example.service.All - 2 成功: 没钱的日子来找我，我来告诉你一个馒头，怎么分两天吃？
+2025-03-10 22:46:26 INFO  [pool-3-thread-10] org.example.service.All - 0 成功: 弱冠年华最是好，轻蹄快马，看尽天涯花。
+2025-03-10 22:46:26 INFO  [pool-3-thread-6] org.example.service.All - 0 成功: 此心光明，亦复何言
+2025-03-10 22:46:26 INFO  [pool-3-thread-9] org.example.service.All - 0 成功: 一声画角谯门，丰庭新月黄昏，雪里山前水滨 ——白朴《天净沙·冬》
+2025-03-10 22:46:26 INFO  [pool-3-thread-4] org.example.service.All - 0 成功: 知道什么叫历史吗？生长于真相之下，明白过去，预感未来，知道那就叫历史。
+2025-03-10 22:46:26 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=知道什么叫历史吗？生长于真相之下，明白过去，预感未来，知道那就叫历史。, author=王阳明)
+2025-03-10 22:46:26 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=知道什么叫历史吗？生长于真相之下，明白过去，预感未来，知道那就叫历史。, author=王阳明)
+2025-03-10 22:46:26 INFO  [pool-3-thread-5] org.example.service.All - 0 成功: 你不能等待别人来安排你的人生，自己想要的，自己争取。
+2025-03-10 22:46:26 INFO  [pool-3-thread-2] org.example.service.All - 0 成功: 他说:"我对这世间唯一的不满就是这世间总是让更懂事的人承受更多." ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:46:35 INFO  [pool-3-thread-8] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=他说:"我对这世间唯一的不满就是这世间总是让更懂事的人承受更多." ——选自散文集《我在人间凑数的日子》, author=王阳明)
+2025-03-10 22:46:35 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=他说:"我对这世间唯一的不满就是这世间总是让更懂事的人承受更多." ——选自散文集《我在人间凑数的日子》, author=王阳明)
+2025-03-10 22:46:35 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:46:36 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:48:12 INFO  [main] org.example.service.All - 8 成功: 世界以它的痛苦同我接吻，而要求歌声做报酬。
+2025-03-10 22:48:12 INFO  [main] org.example.service.All - 18 成功: 我把那条头绳做成了手链，戴到了现在，心里也一直没放下。在最错的时间遇到了一个差一点就对了的人，可能这才是最单纯也最忘不了的爱情吧，只是现在，两个人的愿望只能靠我一个人实现了。　　那天我走出医院，也走回了这场生活，才发现这个城市里好像从来没有过星星，只有闪耀的路灯。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:48:12 INFO  [main] org.example.service.All - 11 成功: 亏本王还是对同是半神的你抱有期待，没想到竟愚蠢至此。
+2025-03-10 22:48:13 INFO  [main] org.example.service.All - 15 成功: 愁云淡淡雨潇潇。暮暮复朝朝。
+2025-03-10 22:48:13 INFO  [main] org.example.service.All - 5 成功: 只有当过牲口的人，才有机会把别人当牲口。
+2025-03-10 22:48:13 INFO  [main] org.example.service.All - 4 成功: 在排练的休息时间里要好好补充水分和盐分哦！
+2025-03-10 22:48:15 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:48:15 INFO  [main] org.example.service.All - 19 成功: 人生如梦，梦如人生。属于我们的还有多少光阴？时光匆匆流逝，还有多少时光等待我们去浪费。珍惜每一份光阴，珍惜每一份感情，珍惜每一份经历，珍惜每一份友情。缘分让我们相遇，空间让我们相识。文字让我们交流。荧屏让我们相交。真诚让我们相知。真情让我们相牵。在网络的空间里，相遇是缘分，相识是天意。交流是情谊，祝福是真情。也许我们永不会相见。但是我们的心永远相连。悲欢离合是红尘，坎坎坷坷是人生。这就是我们的生活之根本。
+2025-03-10 22:48:15 INFO  [main] org.example.service.All - 1 成功: 乾坤琉璃色，碧宇凝清光。
+2025-03-10 22:48:16 INFO  [main] org.example.service.All - 7 成功: 痴情的妖怪啊,请再等一世吧。
+2025-03-10 22:48:16 INFO  [main] org.example.service.All - 17 成功: 人类才是这个世界上最神秘有不可思议的生物
+2025-03-10 22:48:16 INFO  [main] org.example.service.All - 6 成功: 一个懂你的人，能带来一段彼此舒服的爱。一个不懂你的人，最终会让你懂得一个道理：人生中，懂比爱更重要。真正的爱情，不是一见钟情，而是日久生情；真正的缘份，不是上天的安排，而是你的主动。相爱莫相弃，且行且珍惜。
+2025-03-10 22:48:26 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:48:26 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:48:27 INFO  [main] org.example.service.All - 13 成功: 犹有两行闲泪、宝筝前。
+2025-03-10 22:48:28 INFO  [main] org.example.service.All - 3 成功: 有人曾说，那里是可以吞噬一切的黑暗，但却并不是说没有一点光亮。
+2025-03-10 22:48:28 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:48:29 INFO  [main] org.example.service.All - 21 成功: 单身脱发又没钱，跑步进入中老年。
+2025-03-10 22:48:29 INFO  [main] org.example.service.All - 20 成功: 九州生气恃风雷，万马齐喑究可哀 ——龚自珍《己亥杂诗·其二百二十》
+2025-03-10 22:48:29 INFO  [main] org.example.service.All - 2 成功: 未经审视的人生不值得过。未曾融入你生命的时代，于你而言又何曾存在？
+2025-03-10 22:48:36 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:48:36 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:48:36 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:49:01 INFO  [main] org.example.service.All - 8 成功: 我的心冲激着她的波浪在“世界”的海岸上，蘸着眼泪在上边写着她的题记：“我爱你。”
+2025-03-10 22:49:01 INFO  [main] org.example.service.All - 18 成功: 当你遇到心动的那个女生时你会发现你所有的理论和道理在面对她时都是苍白的——出自散文集《在人间凑数的日子。》
+2025-03-10 22:49:02 INFO  [main] org.example.service.All - 11 成功: 你们触到了我的逆鳞 
+2025-03-10 22:49:02 INFO  [main] org.example.service.All - 15 成功: 二月春花厌落梅。仙源归路碧桃催。渭城丝雨劝离杯。
+2025-03-10 22:49:02 INFO  [main] org.example.service.All - 5 成功: 失败的人只有一种，就是在抵达成功之前放弃的人。
+2025-03-10 22:49:03 INFO  [main] org.example.service.All - 4 成功: 这东西是越嚼越有味哦~
+2025-03-10 22:49:04 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=, author=)
+2025-03-10 22:49:04 INFO  [main] org.example.service.All - 19 成功: 人生的许多平凡、平淡、平庸，常归因于一个字：怕。怕得到的会失去，怕转身了就是永别，怕摔跤后再也起不来，在怕中畏首畏尾，终究裹足不前。人生就是一条路，走一步有一步的景观。上帝不会眷顾谁，你有勇气放弃，才有机会得到。华丽的跌倒，胜过无谓的徘徊；哪怕败得彻底，就当赶上了命运的另一盛宴。
+2025-03-10 22:49:04 INFO  [main] org.example.service.All - 1 成功: 当遇到你时，大脑连上CSGO都会掉帧。
+2025-03-10 22:49:05 INFO  [main] org.example.service.All - 7 成功: 毋意，毋必，毋固，毋我。
+2025-03-10 22:49:05 INFO  [main] org.example.service.All - 17 成功: 某处的某人说着愚蠢的人类,那些人类当然也包括说话人自己要是想了解人类的话,只看着人类是远远不够的必须将注意力放在人类究竟在看什么上,你们在看什么呢？
+2025-03-10 22:49:05 INFO  [main] org.example.service.All - 6 成功: 最幸福的状态大概就是，你喜欢粘着的那个人永远都不嫌你烦。
+2025-03-10 22:49:15 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=, author=)
+2025-03-10 22:49:15 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=, author=)
+2025-03-10 22:49:15 INFO  [main] org.example.service.All - 13 成功: 日暮嘉陵江水东，梨花万片逐江风。
+2025-03-10 22:49:16 INFO  [main] org.example.service.All - 3 成功: 如果不强行抢夺，安稳的日子就不会造访，如果不加以保护，幸福的生活就无法延续。
+2025-03-10 22:49:17 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
+2025-03-10 22:49:18 INFO  [main] org.example.service.All - 21 成功: 我改造造纸技术是为让你们多学习，不是让你们拿去撸。--蔡伦
+2025-03-10 22:49:18 INFO  [main] org.example.service.All - 20 成功: 吏呼一何怒，妇啼一何苦。《石壕吏》 — 杜甫
+2025-03-10 22:49:18 INFO  [main] org.example.service.All - 2 成功: 开心的时候能听出开心，难过的时候能听出难过。忘不了的调。
+2025-03-10 22:49:25 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:49:25 INFO  [main] org.example.service.All - ------------测试完毕------------ 共 21 个 YiYanApi 实现类
+2025-03-10 22:49:25 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:49:33 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=, author=)
+2025-03-10 22:54:30 INFO  [main] org.example.service.All - 8 成功: 光如一个裸体的孩子，快快活活地在绿叶当中游戏，他不知道人是会欺诈的。
+2025-03-10 22:54:30 INFO  [main] org.example.service.All - 18 成功: 当你所做的一切都没有顺势而成的时候，他所说的一切都是空谈.- ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:54:31 INFO  [main] org.example.service.All - 11 成功: 即使从梦中醒来，还会有回忆留下。
+2025-03-10 22:54:31 INFO  [main] org.example.service.All - 15 成功: 高田如楼梯，平田如棋局。
+2025-03-10 22:54:31 INFO  [main] org.example.service.All - 5 成功: 当你跌到谷底时，那正表示，你只能往上，不能往下！
+2025-03-10 22:54:32 INFO  [main] org.example.service.All - 4 成功: 都是时辰的错！
+2025-03-10 22:54:33 INFO  [main] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 22:54:33 INFO  [main] org.example.service.All - 19 成功: 走过风，经过雨，看尽了人生聚散分离，感知了人心太多的凉薄与变故，就连一份单纯的情谊，因了在乎，都怕生出淡漠与疏离。
+2025-03-10 22:54:34 INFO  [main] org.example.service.All - 1 成功: “像你这样的白痴是怎么活过来的？”“因为我很自信。“
+2025-03-10 22:54:34 INFO  [main] org.example.service.All - 7 成功: 起来！歌唱！我们走向胜利！
+2025-03-10 22:54:35 INFO  [main] org.example.service.All - 17 成功: 找不到对象，不要老是怨天尤人，要多想想自己的原因，也许是因为你太优秀而没人配得上你呢
+2025-03-10 22:54:35 INFO  [main] org.example.service.All - 6 成功: 我从来没有招惹你，你为什么要来招惹我？既然招惹了，为什么半途而废？
+2025-03-10 22:58:59 INFO  [pool-3-thread-14] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 22:58:59 INFO  [pool-3-thread-12] org.example.service.All - 6 成功: 不知不觉，总以为还很年轻的我们，在年龄栏选择出生日期时，却发现，那个熟悉的年份你怎么跑得那么远。
+2025-03-10 22:58:59 INFO  [pool-3-thread-10] org.example.service.All - 7 成功: 人生三大错觉，我能反杀，下一发能出金，她喜欢我。
+2025-03-10 22:58:59 INFO  [pool-3-thread-19] org.example.service.All - 2 成功: 同桌看我歌单的时候尴尬症都犯了，我不讲话。刚进高一那会班上有女生放许嵩的歌，同宿舍的就一直说非主流，我不讲话，默默戴上mp。这样的事情真的是太多了，有时自己还会觉得听这些歌会丢人，现在想想只觉得我真是个煞笔。不懂我也没关系，我也没兴趣挤进你们的圈子。
+2025-03-10 22:58:59 INFO  [pool-3-thread-3] org.example.service.All - 18 成功: 人家在体会美丽的人生，我在体会人间的冷暖。 ——选自散文集《我在人间凑数的日子》
+2025-03-10 22:58:59 INFO  [pool-3-thread-20] org.example.service.All - 20 成功: 北斗七星高，哥舒夜带刀。《哥舒歌》 — 西鄙人
+2025-03-10 22:58:59 INFO  [pool-3-thread-4] org.example.service.All - 15 成功: 阴阴溪曲绿交加，小雨翻萍上浅沙。
+2025-03-10 22:58:59 INFO  [pool-3-thread-8] org.example.service.All - 17 成功: 今天同学聚会朋友问我专业是什么，我笑了，这么跟你说吧，将来的北京协和医院，记住！是整个医院！……都是我来扫
+2025-03-10 22:58:59 INFO  [pool-3-thread-13] org.example.service.All - 1 成功: 天街小雨润如酥，草色遥看近却无。
+2025-03-10 22:58:59 INFO  [pool-3-thread-5] org.example.service.All - 5 成功: 勤奋是你生命的密码，能译出你一部壮丽的史诗。
+2025-03-10 22:58:59 INFO  [pool-3-thread-15] org.example.service.All - 13 成功: 明月几时有？把酒问青天。
+2025-03-10 22:58:59 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 22:58:59 INFO  [pool-3-thread-1] org.example.service.All - 8 成功: 说爱情会失去的那句话，乃是我们不能够当作真理来接受的一个事实。
+2025-03-10 22:58:59 INFO  [pool-3-thread-11] org.example.service.All - 19 成功: 一个预感到有美好前途的人，当他在艰苦的人生大道上前进时，就像一个无辜的囚徒走向刑场，一点也用不着羞愧。
+2025-03-10 22:58:59 INFO  [pool-3-thread-2] org.example.service.All - 11 成功: 内心让一个人真实地了解自己，一旦了解了自己也就了解了世界
+2025-03-10 22:58:59 INFO  [pool-3-thread-18] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 22:58:59 INFO  [pool-3-thread-17] org.example.service.All - 21 成功: 学习使我快乐，快乐是短暂的，不要去追求短暂的快乐。
+2025-03-10 22:59:00 INFO  [pool-3-thread-6] org.example.service.All - 4 成功: 如果可以，愿来生你不要忘记我，我也不要忘记你那熟悉的温柔。
+2025-03-10 22:59:00 INFO  [pool-3-thread-7] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 22:59:01 INFO  [pool-3-thread-16] org.example.service.All - 3 成功: 愚昧总是会先压着真理。
+2025-03-10 22:59:07 INFO  [pool-3-thread-21] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 22:59:09 INFO  [pool-3-thread-9] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:03:01 INFO  [pool-3-thread-2] org.example.service.All - 18 成功: 已经七天没人见到他了，没有人想起他，他失踪了，不对，他存在吗，我存在吗？ ——选自散文集《我在人间凑数的日子》
+2025-03-10 23:03:01 INFO  [pool-3-thread-2] org.example.service.All - 当前线程：pool-3-thread-2
+2025-03-10 23:03:01 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:03:01 INFO  [pool-3-thread-4] org.example.service.All - 15 成功: 不用思量今古，俯仰昔人非。
+2025-03-10 23:03:01 INFO  [pool-3-thread-4] org.example.service.All - 当前线程：pool-3-thread-4
+2025-03-10 23:03:01 INFO  [pool-3-thread-1] org.example.service.All - 8 成功: 权威以它的恶行自夸；落下的黄叶与浮游过的云片都在笑它。
+2025-03-10 23:03:01 INFO  [pool-3-thread-1] org.example.service.All - 当前线程：pool-3-thread-1
+2025-03-10 23:03:01 INFO  [pool-3-thread-5] org.example.service.All - 5 成功: 做人要抬头有勇气，面对现实。低头有底气，面对自己。做事要有骨气，据理力争。做人要有志气，铮铮铁骨。凡事要争气。
+2025-03-10 23:03:01 INFO  [pool-3-thread-5] org.example.service.All - 当前线程：pool-3-thread-5
+2025-03-10 23:03:01 INFO  [pool-3-thread-1] org.example.service.All - 19 成功: 我们要学会经营自己的生活，不是天天混日子，也不是天天熬日子，而是天天享受日子。心境简单了，就有心思经营生活；生活简单了，就有时间享受人生。活得简单不难，只需懂得为自己而活，为美好而生，为幸福而做。
+2025-03-10 23:03:01 INFO  [pool-3-thread-1] org.example.service.All - 当前线程：pool-3-thread-1
+2025-03-10 23:03:01 INFO  [pool-3-thread-5] org.example.service.All - 1 成功: 是你赢了...哲...
+2025-03-10 23:03:01 INFO  [pool-3-thread-5] org.example.service.All - 当前线程：pool-3-thread-5
+2025-03-10 23:03:02 INFO  [pool-3-thread-2] org.example.service.All - 4 成功: 我们不是狼，我们只是长着獠牙的羊......
+2025-03-10 23:03:02 INFO  [pool-3-thread-2] org.example.service.All - 当前线程：pool-3-thread-2
+2025-03-10 23:03:02 INFO  [pool-3-thread-2] org.example.service.All - 6 成功: 如果还记得，也请你忘记。生活里的负担足以让你彻夜难眠。记得那些善良和感动，就足够一生去回味。人生是为了能够偿还前生的约定，小荷才露尖尖角，何苦再结烦恼缘，万千心事无处诉，不如就此忘了好。
+2025-03-10 23:03:02 INFO  [pool-3-thread-2] org.example.service.All - 当前线程：pool-3-thread-2
+2025-03-10 23:03:02 INFO  [pool-3-thread-3] org.example.service.All - 11 成功: 当一个人真正觉悟的一刻，他放弃追寻外在世界的财富，而开始追寻他内心世界的真正财富。
+2025-03-10 23:03:02 INFO  [pool-3-thread-3] org.example.service.All - 当前线程：pool-3-thread-3
+2025-03-10 23:03:02 INFO  [pool-3-thread-5] org.example.service.All - 17 成功: 人的成长,就是战胜自己不成熟的过去
+2025-03-10 23:03:02 INFO  [pool-3-thread-5] org.example.service.All - 当前线程：pool-3-thread-5
+2025-03-10 23:03:02 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:03:02 INFO  [pool-3-thread-3] org.example.service.All - 当前线程：pool-3-thread-3
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 7 成功: 为难当前，唯有责任。
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 当前线程：pool-3-thread-1
+2025-03-10 23:03:02 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:03:02 INFO  [pool-3-thread-4] org.example.service.All - 当前线程：pool-3-thread-4
+2025-03-10 23:03:02 INFO  [pool-3-thread-5] org.example.service.All - 13 成功: 君知此处花何似？
+2025-03-10 23:03:02 INFO  [pool-3-thread-5] org.example.service.All - 当前线程：pool-3-thread-5
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 当前线程：pool-3-thread-1
+2025-03-10 23:03:02 INFO  [pool-3-thread-4] org.example.service.All - 21 成功: 我为什么总是一个人？因为我怕，我半个人出来吓死你。
+2025-03-10 23:03:02 INFO  [pool-3-thread-4] org.example.service.All - 当前线程：pool-3-thread-4
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 2 成功: 竟有如此美丽的结构存在
+2025-03-10 23:03:02 INFO  [pool-3-thread-1] org.example.service.All - 当前线程：pool-3-thread-1
+2025-03-10 23:03:03 INFO  [pool-3-thread-3] org.example.service.All - 3 成功: 人类总是给自己那么多束缚，连自己至亲都不能相容，反而为妖族所悦纳，也真是奇特啊。
+2025-03-10 23:03:03 INFO  [pool-3-thread-3] org.example.service.All - 当前线程：pool-3-thread-3
+2025-03-10 23:03:03 INFO  [pool-3-thread-5] org.example.service.All - 20 成功: 风雨端阳生晦冥，汨罗无处吊英灵。《已酉端午》 — 贝琼
+2025-03-10 23:03:03 INFO  [pool-3-thread-5] org.example.service.All - 当前线程：pool-3-thread-5
+2025-03-10 23:03:04 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:03:04 INFO  [pool-3-thread-4] org.example.service.All - 当前线程：pool-3-thread-4
+2025-03-10 23:03:12 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:03:12 INFO  [pool-3-thread-2] org.example.service.All - 当前线程：pool-3-thread-2
+2025-03-10 23:03:50 INFO  [pool-3-thread-4] org.example.service.All - 15 成功: 梅须逊雪三分白，雪却输梅一段香。
+2025-03-10 23:03:50 INFO  [pool-3-thread-5] org.example.service.All - 5 成功: 毅力和耐性在某种程度上将决定一个人会成为什么样的人。
+2025-03-10 23:03:50 INFO  [pool-3-thread-1] org.example.service.All - 8 成功: 不要从你自己的袋里掏出勋绩借给你的朋友，这是污辱他的。
+2025-03-10 23:03:50 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:03:50 INFO  [pool-3-thread-3] org.example.service.All - 11 成功: 现世为梦，夜梦为真。
+2025-03-10 23:03:50 INFO  [pool-3-thread-1] org.example.service.All - 19 成功: 我们喜欢仰望喜欢比较。仰望别人的成功，感觉自己的卑微；仰望别人的幸福，慨叹自己的不幸；比较别人的得志，愤然自己的失意；比较别人的快乐，放大自己的苦痛。有些东西是无法比的，只要你成功了，你无须比别人更成功；只要你快乐了，你不用比别人更快乐。
+2025-03-10 23:03:50 INFO  [pool-3-thread-2] org.example.service.All - 18 成功: "故事不长，也不难讲"相识一场，脸红相遇，眼红而离去，或是爱而不得.- ——选自散文集《我在人间凑数的日子》
+2025-03-10 23:03:50 INFO  [pool-3-thread-3] org.example.service.All - 1 成功: 一切已失去，不可以再追。
+2025-03-10 23:03:50 INFO  [pool-3-thread-3] org.example.service.All - 6 成功: 你从不担心自己配不上优秀的人，你只会担心自己配不上喜欢的人。
+2025-03-10 23:03:50 INFO  [pool-3-thread-2] org.example.service.All - 17 成功: 做坏事早晚都会被发现，深思熟虑之后，我都改中午做
+2025-03-10 23:03:50 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:03:50 INFO  [pool-3-thread-4] org.example.service.All - 4 成功: 别低下头  排球是一门积极向上的运动！
+2025-03-10 23:03:50 INFO  [pool-3-thread-1] org.example.service.All - 7 成功: 此时此刻一切都是静寂的，只剩下我与你的世界，这就是爱？
+2025-03-10 23:03:50 INFO  [pool-3-thread-2] org.example.service.All - 13 成功: 如何此时恨，噭噭夜猿鸣。
+2025-03-10 23:03:50 INFO  [pool-3-thread-5] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:03:51 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:03:51 INFO  [pool-3-thread-2] org.example.service.All - 21 成功: 有股强烈的学习欲望，幸好我自制力强，压下去了。
+2025-03-10 23:03:51 INFO  [pool-3-thread-5] org.example.service.All - 20 成功: 斜风细雨作春寒。对尊前。《江城子·赏春》 — 朱淑真
+2025-03-10 23:03:51 INFO  [pool-3-thread-1] org.example.service.All - 2 成功: 2019年的情人节，有太一有乙太，很满足。“戳完之后逃命”会逃去哪里呢？一起奔向月亮
+2025-03-10 23:03:52 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:03:52 INFO  [pool-3-thread-4] org.example.service.All - 3 成功: 让你觉得我看起来像笨蛋，真是抱歉！
+2025-03-10 23:04:00 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:05:01 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:05:02 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=1, url=https://v1.hitokoto.cn/, msg=null, author=null)
+2025-03-10 23:05:02 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:05:03 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:05:03 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:05:03 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=1, urId=3, url=https://uapis.cn/api/say, msg=对与错，应该由历史来决定。我们能做的，就是相信自己认为是对的事，然后为此战斗……不过我认为那个强者生，弱者死的……弱肉强食时代，绝对是错的！绝对错！, author=null)
+2025-03-10 23:05:05 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:05:12 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:05:13 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:08:42 INFO  [main] org.example.service.All - 正在关闭线程池...
+2025-03-10 23:08:43 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:08:43 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:08:43 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:08:45 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:08:53 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:08:53 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:10:00 INFO  [main] org.example.service.All - 正在关闭线程池...
+2025-03-10 23:10:01 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:10:02 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:10:02 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:10:04 INFO  [pool-3-thread-1] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:10:11 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:10:11 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:12:15 INFO  [pool-3-thread-4] org.example.service.All - 15 成功: 父老得书知我在，小轩临水为君开。
+2025-03-10 23:12:15 INFO  [pool-3-thread-2] org.example.service.All - 18 成功: 我曾夜间行走，却不见尽头。我曾笑容灿烂，却满眼忧愁.” ——选自散文集《我在人间凑数的日子》
+2025-03-10 23:12:15 INFO  [pool-3-thread-5] org.example.service.All - 5 成功: 永不言败是追究者的最佳品格。
+2025-03-10 23:12:15 INFO  [pool-3-thread-3] org.example.service.All - 11 成功: 人生在世何其痛苦，所以咖啡至少该甜一点。
+2025-03-10 23:12:15 INFO  [pool-3-thread-1] org.example.service.All - 8 成功: 你的微笑是你自己田园里的花，你的谈吐是你自己山上的松林的萧萧，但是你的心呀，却是那个女人，那个我们全都认识的女人。
+2025-03-10 23:12:15 INFO  [pool-3-thread-5] org.example.service.All - 19 成功: 给自己一个简单的岁月，如花般默默绽放，不为娇容不为称羡，只为美好的情愫在心中；给自己一条河流，让生命里的轮回来来去去。若生命是一场漫长的旅行，请予我一路星光，照亮这暗淡长途。若守望是一份心灵的相约，请予我一个千年不变的承诺。
+2025-03-10 23:12:15 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=1, url=https://v1.hitokoto.cn/, msg=null, author=null)
+2025-03-10 23:12:15 INFO  [pool-3-thread-3] org.example.service.All - 6 成功: 伤口就像我一样，是个倔强的孩子，不肯愈合，因为内心是温暖潮湿的地方，适合任何东西生长。
+2025-03-10 23:12:16 INFO  [pool-3-thread-5] org.example.service.All - 17 成功: 两个人能否长久在一起，三观很重要，但对于吃货来说，三餐更重要
+2025-03-10 23:12:16 INFO  [pool-3-thread-5] org.example.service.All - 连接失败：Y(status=0, urId=10, url=http://api.treason.cn/API/yiyan.php, msg=null, author=null)
+2025-03-10 23:12:16 INFO  [pool-3-thread-1] org.example.service.All - 7 成功: 如此生活30年，直到大厦崩塌。
+2025-03-10 23:12:16 INFO  [pool-3-thread-4] org.example.service.All - 4 成功: All for one，one for all.
+2025-03-10 23:12:16 INFO  [pool-3-thread-5] org.example.service.All - 13 成功: 乘彼白鹿，手翳芝草。
+2025-03-10 23:12:16 INFO  [pool-3-thread-4] org.example.service.All - 连接失败：Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:12:16 INFO  [pool-3-thread-5] org.example.service.All - 21 成功: 朋友失败你难过，朋友成功，你更难过。
+2025-03-10 23:12:16 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:12:16 INFO  [pool-3-thread-5] org.example.service.All - 2 成功: 人生没有彩排，只有现场直播，所以做最好的自己。
+2025-03-10 23:12:16 INFO  [pool-3-thread-4] org.example.service.All - 20 成功: 残灯孤枕梦，轻浪五更风。《临江仙·饮散离亭西去》 — 徐昌图
+2025-03-10 23:12:17 INFO  [pool-3-thread-1] org.example.service.All - 3 成功: 我每天都在数着你的笑，可是你连笑的时候，都好寂寞。他们说你的笑容，又漂亮又落拓。
+2025-03-10 23:12:17 INFO  [pool-3-thread-2] org.example.service.All - 连接失败：Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
+2025-03-10 23:12:25 INFO  [pool-3-thread-3] org.example.service.All - 连接失败：Y(status=0, urId=16, url=https://api.7585.net.cn/yan/api.php, msg=null, author=null)
+2025-03-10 23:12:26 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:17:12 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:18:44 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:18:45 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=14, url=http://api.nnxv.cn/api/yiFyan.php, msg=null, author=null)
+2025-03-10 23:19:30 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:20:23 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-03-10 23:20:24 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=null, author=null)
+2025-03-10 23:20:34 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=1, urId=18, url=https://v2.api-m.com/api/renjian, msg=我们每个人的底线都不一样，有些事无法原谅，就是无法原谅，跟这件事的大小是没关系，或许你觉得无所谓的事，我就是接受不了。 ——选自散文集《我在人间凑数的日子》, author=null)

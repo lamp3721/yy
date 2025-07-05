@@ -1,198 +1,28 @@
-2025-03-11 08:35:45 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
-2025-03-11 08:35:46 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=null, author=null)
-2025-03-11 08:35:56 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=0, url=https://tenapi.cn/v2/yiyan?format=json, msg=0: 出错了！, author=null)
-2025-03-11 09:00:37 ERROR [pool-3-thread-5] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-3] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-4] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-5] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-3] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-2] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-3] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:37 ERROR [pool-3-thread-5] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-3] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-4] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-5] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-4] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-1] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-1] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-4] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:38 ERROR [pool-3-thread-3] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:39 ERROR [pool-3-thread-5] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:43 ERROR [pool-3-thread-1] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:47 ERROR [pool-3-thread-2] org.example.service.All - 执行任务时出错
-java.lang.IllegalStateException: Returned object not currently part of this pool
-	at org.apache.commons.pool2.impl.GenericObjectPool.returnObject(GenericObjectPool.java:1023)
-	at org.example.pool.YPool.returnY(YPool.java:40)
-	at org.example.service.All.lambda$setAll$0(All.java:51)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:842)
-2025-03-11 09:00:48 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
-2025-03-11 09:03:15 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
-2025-03-11 09:03:15 INFO  [main] org.example.service.YTaskService - 无效返回数据: Y(status=0, urId=12, url=https://v.api.aa1.cn/api/pyq/index.php?aa1=json, msg=, author=)
-2025-03-11 09:03:33 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
-2025-03-11 09:40:57 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-07-05 23:04:58 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
+2025-07-05 23:18:09 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 24336 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-05 23:18:09 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-05 23:18:10 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
+2025-07-05 23:18:10 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [International Quotations] 获取数据，URL: https://international.v1.hitokoto.cn/
+2025-07-05 23:18:10 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.283 seconds (JVM running for 1.78)
+2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '若我们并肩作战，你要照顾好自己哦？' — 飞小RAN
+2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '若我们并肩作战，你要照顾好自己哦？' — 飞小RAN
+2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 26 分钟后。
+2025-07-05 23:18:12 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-05 23:24:04 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 35804 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-05 23:24:04 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-05 23:24:04 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
+2025-07-05 23:24:04 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [wudada.online] 获取数据，URL: http://www.wudada.online/Api/MrYy
+2025-07-05 23:24:05 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.334 seconds (JVM running for 1.813)
+2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '' — 未知来源
+2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '' — 未知来源
+2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 20 分钟后。
+2025-07-05 23:24:06 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-05 23:26:48 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 16728 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-05 23:26:48 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-05 23:26:49 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
+2025-07-05 23:26:49 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [tenapi.cn] 获取数据，URL: https://tenapi.cn/v2/yiyan?format=json
+2025-07-05 23:26:49 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.11 seconds (JVM running for 1.542)
+2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '' — 未知来源
+2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '' — 未知来源
+2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 5 分钟后。
+2025-07-05 23:26:51 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。

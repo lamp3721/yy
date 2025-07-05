@@ -1,0 +1,100 @@
+# 应用主端口（对于非web应用，此配置不起作用，但保留是好习惯）
+server:
+  port: 8081
+
+# Spring 应用配置
+spring:
+  application:
+    name: Yiyan-Desktop
+  main:
+    banner-mode: "off" # 关闭启动时的 Banner
+
+# 一言 API 端点配置
+yiyan:
+  endpoints:
+    - name: "tenapi.cn"
+      url: "https://tenapi.cn/v2/yiyan?format=json"
+      parserType: "tenapi"
+    - name: "hitokoto.cn"
+      url: "https://v1.hitokoto.cn/"
+      parserType: "hitokoto"
+    - name: "api.xygeng.cn"
+      url: "https://api.xygeng.cn/one"
+      parserType: "xygeng"
+    - name: "uapis.cn"
+      url: "https://uapis.cn/api/say"
+      parserType: "text_only"
+    - name: "oddfar.com"
+      url: "https://api.oddfar.com/yl/q.php"
+      parserType: "plain_text"
+    - name: "iamwawa.cn-lizhi"
+      url: "https://www.iamwawa.cn/home/lizhi/ajax"
+      parserType: "iamwawa"
+    - name: "aa1.cn-wenan"
+      url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
+      parserType: "msg_only"
+    - name: "wudada.online"
+      url: "http://www.wudada.online/Api/MrYy"
+      parserType: "data_text_only"
+    - name: "mu-jie.cc-stray-birds"
+      url: "https://api.mu-jie.cc/stray-birds/range?type=json"
+      parserType: "stray_birds"
+    - name: "songzixian.com"
+      url: "https://api.songzixian.com/api/daily-word?dataSource=LOCAL_DAILY_WORD"
+      parserType: "content_author"
+    - name: "treason.cn"
+      url: "http://api.treason.cn/API/yiyan.php"
+      parserType: "text_only"
+    - name: "apihz.cn"
+      url: "https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888"
+      parserType: "plain_text"
+    - name: "aa1.cn-pyq"
+      url: "https://v.api.aa1.cn/api/pyq/index.php?aa1=json"
+      parserType: "msg_only"
+    - name: "iamwawa.cn-shici"
+      url: "https://www.iamwawa.cn/home/shici/ajax"
+      parserType: "iamwawa"
+    - name: "nnxv.cn"
+      url: "http://api.nnxv.cn/api/yiFyan.php"
+      parserType: "plain_text"
+    - name: "jinrishici.com"
+      url: "https://v1.jinrishici.com/all"
+      parserType: "content_origin"
+    - name: "7585.net.cn"
+      url: "https://api.7585.net.cn/yan/api.php"
+      parserType: "plain_text"
+    - name: "dwo.cc"
+      url: "https://api.dwo.cc/api/yi?api=yan"
+      parserType: "result_only"
+    - name: "api-m.com-renjian"
+      url: "https://v2.api-m.com/api/renjian"
+      parserType: "data_only"
+    - name: "api-m.com-hitokoto"
+      url: "https://v2.api-m.com/api/yiyan?type=hitokoto"
+      parserType: "data_only"
+    - name: "api-m.com-poetry"
+      url: "https://v2.api-m.com/api/yiyan?type=poetry"
+      parserType: "data_only"
+    - name: "hhlqilongzhu.cn"
+      url: "https://www.hhlqilongzhu.cn/api/yiyan.php"
+      parserType: "plain_text"
+
+# 日志配置
+logging:
+  level:
+    # 设置根日志级别为 info
+    root: info
+    # 您可以为特定的包设置不同的级别，例如：
+    # com.yiyan: debug
+  pattern:
+    # 控制台输出格式
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+    # 文件输出格式
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+  file:
+    # 日志文件路径和名称
+    name: logs/app.log
+    # 保留归档日志文件的最大数量
+    max-history: 30
+    #单个日志文件的最大大小，默认为10MB
+    max-size: 10MB 

@@ -1,0 +1,13 @@
+2024-10-29 15:58:33 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-10-29 15:58:33 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-10-29 15:58:34 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-10-29 15:59:33 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-10-29 15:59:43 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-10-29 15:59:44 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-10-29 16:01:02 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-10-29 16:01:13 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-10-29 16:01:13 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
+2024-10-29 16:07:19 WARN  [main] o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'all': Unsatisfied dependency expressed through field 'nineteen_19'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.example.URL.impl.Nineteen_19' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-10-29 16:08:07 INFO  [main] org.example.service.All - Y{author='', status=0, urId=10, url='http://api.treason.cn/API/yiyan.php', msg=''}
+2024-10-29 16:08:17 INFO  [main] org.example.service.All - Y{author='', status=0, urId=12, url='https://v.api.aa1.cn/api/pyq/index.php?aa1=json', msg=''}
+2024-10-29 16:08:18 INFO  [main] org.example.service.All - Y{author='', status=0, urId=14, url='http://api.nnxv.cn/api/yiFyan.php', msg=''}
