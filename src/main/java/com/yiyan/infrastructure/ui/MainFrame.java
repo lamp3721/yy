@@ -111,13 +111,14 @@ public class MainFrame extends JFrame {
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                // 只更新Y轴（垂直）位置
-                int newY = e.getYOnScreen() - offset.y;
-                
-                // 保持X轴（水平）位置始终居中
+                // 根据鼠标拖动更新窗口位置（只允许Y轴移动）
+                Point newPoint = e.getLocationOnScreen();
+                int newY = newPoint.y - offset.y;
+
+                // 保持X轴始终居中
                 int currentX = getX();
                 setLocation(currentX, newY);
-                centerOnScreen(); // 强制居中
+                centerOnScreen(); // 拖动时也强制水平居中
             }
         };
         addMouseListener(adapter);

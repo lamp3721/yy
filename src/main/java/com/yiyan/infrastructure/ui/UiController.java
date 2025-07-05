@@ -44,8 +44,7 @@ public class UiController {
             desktopManager.sendToBottom(mainFrame);
             // 更新文本内容
             mainFrame.updateText(sentence.getText());
-            // 重新定位窗口
-            mainFrame.positionOnThirdOfScreen();
+            // 水平居中，但保持Y轴位置不变
             mainFrame.centerOnScreen();
         };
 
