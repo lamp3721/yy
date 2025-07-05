@@ -43,7 +43,8 @@ public class DynamicScheduler {
             // 执行核心业务逻辑
             sentenceService.fetchNewSentence();
         } catch (Exception e) {
-            log.error("执行定时任务时发生未捕获的异常", e);
+            // 捕获所有异常，记录错误，但确保不中断调度循环
+            log.error("执行一言获取任务时发生错误: {}", e.getMessage());
         } finally {
             // 无论成功还是失败，都安排下一次执行
             scheduleNext();

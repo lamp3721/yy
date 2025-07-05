@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -41,66 +42,85 @@ public class ApiProperties {
         private String url;
 
         /**
-         * 解析器的类型，对应 parsers 映射中的键。
-         * 用于指定如何从该API的JSON响应中提取"一言"数据。
+         * 解析器的配置
          */
-        private String parserType;
+        private ParserConfig parser;
 
         /**
          * 请求头，用于模拟浏览器或其他客户端
          */
         private Map<String, String> headers;
+
+        // --- 熔断机制所需的状态字段 ---
+        /**
+         * 瞬态的失败计数器，不从配置文件读取。
+         */
+        private transient int failureCount = 0;
+
+        /**
+         * 瞬态的禁用截止时间，不从配置文件读取。
+         */
+        private transient Instant disabledUntil = Instant.EPOCH;
+
+        /**
+         * 判断此端点当前是否处于禁用（熔断）状态。
+         *
+         * @return 如果当前时间晚于禁用截止时间，则返回 false（可用）。
+         */
+        public boolean isDisabled() {
+            return Instant.now().isBefore(disabledUntil);
+        }
+
+        /**
+         * 记录一次失败。
+         * 如果达到失败阈值，则设置禁用时间。
+         */
+        public void recordFailure() {
+            this.failureCount++;
+        }
+
+        /**
+         * 记录一次成功，重置失败计数器。
+         */
+        public void recordSuccess() {
+            this.failureCount = 0;
+            this.disabledUntil = Instant.EPOCH; // 如果之前被禁用了，则解除
+        }
+
+        /**
+         * 获取当前失败次数。
+         */
+        public int getFailureCount() {
+            return failureCount;
+        }
+
+        /**
+         * 设置此端点的禁用截止时间。
+         * @param disabledUntil 禁用到的时刻。
+         */
+        public void setDisabledUntil(Instant disabledUntil) {
+            this.disabledUntil = disabledUntil;
+        }
     }
 
     /**
-     * JSON解析器注册表，定义了如何从不同结构的JSON中提取Sentence。
-     * 这是一个静态映射，键是解析器类型，值是一个函数，
-     * 该函数接收一个JsonNode并返回一个Sentence。
+     * 新增的内部类，用于定义解析规则
      */
-    public static final Map<String, Function<JsonNode, Sentence>> PARSERS = Map.ofEntries(
-            // 适用于 'hitokoto.cn' API 的解析器: { "hitokoto": "...", "creator": "..." }
-            Map.entry("hitokoto", json -> Sentence.of(
-                    json.path("hitokoto").asText(),
-                    json.path("creator").asText()
-            )),
-            // 适用于 tenapi.cn: { "data": { "hitokoto": "...", "from": "..." } }
-            Map.entry("tenapi", json -> Sentence.of(
-                    json.at("/data/hitokoto").asText(),
-                    json.at("/data/from").asText()
-            )),
-            // 适用于 api.xygeng.cn: { "data": { "name": "...", "origin": "..." } }
-            Map.entry("xygeng", json -> Sentence.of(
-                    json.at("/data/name").asText(),
-                    json.at("/data/origin").asText()
-            )),
-            // 适用于 iamwawa.cn: { "msg": "...", "title": "..." }
-            Map.entry("iamwawa", json -> Sentence.of(
-                    json.path("msg").asText(),
-                    json.path("title").asText()
-            )),
-            // 适用于 api.songzixian.com: { "content": "...", "author": "..." }
-            Map.entry("content_author", json -> Sentence.of(
-                    json.path("content").asText(),
-                    json.path("author").asText()
-            )),
-            // 适用于 v1.jinrishici.com: { "content": "...", "origin": "..." }
-            Map.entry("content_origin", json -> Sentence.of(
-                    json.path("content").asText(),
-                    json.path("origin").asText()
-            )),
-            // 适用于 api.mu-jie.cc (Stray Birds): [ { "zw": "...", "source": "..." } ]
-            Map.entry("stray_birds", json -> {
-                if (json.isArray() && json.size() > 0) {
-                    JsonNode first = json.get(0);
-                    return Sentence.of(first.path("zw").asText(), first.path("source").asText());
-                }
-                return null; // or return a default sentence
-            }),
-            // 通用解析器：只有文本，没有作者
-            Map.entry("text_only", json -> Sentence.of(json.path("text").asText())),
-            Map.entry("msg_only", json -> Sentence.of(json.path("msg").asText())),
-            Map.entry("data_text_only", json -> Sentence.of(json.at("/data/text").asText())),
-            Map.entry("result_only", json -> Sentence.of(json.path("Result").asText())),
-            Map.entry("data_only", json -> Sentence.of(json.path("data").asText()))
-    );
+    @Data
+    public static class ParserConfig {
+        /**
+         * 解析类型, "json" 或 "plain_text"
+         */
+        private String type = "json"; // 默认为 json
+
+        /**
+         * "一言"文本的JSON路径 (可以是简单key或JSON Pointer)
+         */
+        private String textPath;
+
+        /**
+         * 作者的JSON路径 (可选)
+         */
+        private String authorPath;
+    }
 } 

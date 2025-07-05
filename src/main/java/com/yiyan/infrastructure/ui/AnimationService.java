@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.function.Consumer;
 
 /**
  * UI动画服务，专门负责处理组件的淡入淡出效果。

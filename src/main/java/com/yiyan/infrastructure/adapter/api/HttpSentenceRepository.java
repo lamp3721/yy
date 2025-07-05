@@ -1,21 +1,26 @@
 package com.yiyan.infrastructure.adapter.api;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.core.repository.SentenceRepository;
 import com.yiyan.infrastructure.config.ApiProperties;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * SentenceRepository 的HTTP实现，负责从外部API获取"一言"数据。
@@ -31,10 +36,15 @@ public class HttpSentenceRepository implements SentenceRepository {
     private final OkHttpClient httpClient;
     private final ObjectMapper objectMapper;
 
+    // 熔断机制参数
+    private static final int FAILURE_THRESHOLD = 3; // 失败3次后熔断
+    private static final Duration DISABLED_DURATION = Duration.ofMinutes(15); // 熔断15分钟
+    private static final int FIND_ATTEMPTS_PER_CYCLE = 3; // 在单个任务周期内，最多尝试3个不同的API
+
     // 通过构造函数注入依赖
-    public HttpSentenceRepository(ApiProperties apiProperties) {
+    public HttpSentenceRepository(ApiProperties apiProperties, OkHttpClient httpClient) {
         this.apiProperties = apiProperties;
-        this.httpClient = new OkHttpClient(); // 在实际生产中，建议使用共享的Client Bean
+        this.httpClient = httpClient;
         this.objectMapper = new ObjectMapper();
     }
 
@@ -47,63 +57,113 @@ public class HttpSentenceRepository implements SentenceRepository {
      */
     @Override
     public Optional<Sentence> findRandomSentence() {
-        if (apiProperties.getEndpoints() == null || apiProperties.getEndpoints().isEmpty()) {
-            throw new IllegalStateException("未配置任何API端点。");
+        List<ApiProperties.ApiEndpoint> availableEndpoints = apiProperties.getEndpoints().stream()
+                .filter(e -> !e.isDisabled())
+                .collect(Collectors.toList());
+
+        if (availableEndpoints.isEmpty()) {
+            log.warn("所有API端点当前都处于熔断状态，无法获取数据。");
+            return Optional.empty();
         }
 
-        // 随机选择一个API端点
-        ApiProperties.ApiEndpoint endpoint = apiProperties.getEndpoints().get(
-                ThreadLocalRandom.current().nextInt(apiProperties.getEndpoints().size())
-        );
+        // 将可用端点随机排序，以确保每次尝试都是随机的
+        Collections.shuffle(availableEndpoints);
 
-        log.info("尝试从API [{}] 获取数据，URL: {}", endpoint.getName(), endpoint.getUrl());
+        // 尝试最多N个不同的端点
+        for (int i = 0; i < Math.min(FIND_ATTEMPTS_PER_CYCLE, availableEndpoints.size()); i++) {
+            ApiProperties.ApiEndpoint endpoint = availableEndpoints.get(i);
+            log.info("尝试从API [{}] 获取数据 (尝试 {}/{})", endpoint.getName(), i + 1, FIND_ATTEMPTS_PER_CYCLE);
 
-        // 构建HTTP请求
-        Request.Builder requestBuilder = new Request.Builder().url(endpoint.getUrl());
-        if (endpoint.getHeaders() != null) {
-            endpoint.getHeaders().forEach(requestBuilder::header);
+            try {
+                Optional<Sentence> sentence = attemptFetch(endpoint);
+                if (sentence.isPresent()) {
+                    return sentence; // 成功获取，立即返回
+                }
+                // 如果返回空Optional，意味着本次尝试失败，循环将继续尝试下一个端点
+            } catch (Exception e) {
+                // 记录意外的解析或请求错误，然后继续尝试下一个
+                handleFailure(endpoint, "执行请求或解析时发生意外错误: " + e.getMessage());
+            }
         }
-        Request request = requestBuilder.build();
 
-        // 执行请求并处理响应
+        log.warn("在当前任务周期内尝试了 {} 个API后，仍未能获取到有效的一言。", FIND_ATTEMPTS_PER_CYCLE);
+        return Optional.empty(); // 所有尝试都失败了
+    }
+
+    private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint) throws IOException {
+        Request request = new Request.Builder()
+                .url(endpoint.getUrl())
+                .headers(okhttp3.Headers.of(endpoint.getHeaders() != null ? endpoint.getHeaders() : new java.util.HashMap<>()))
+                .build();
+
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                log.warn("API [{}] 请求失败，状态码: {}", endpoint.getName(), response.code());
+                handleFailure(endpoint, "HTTP状态码: " + response.code());
                 return Optional.empty();
             }
 
             ResponseBody body = response.body();
-            if (body == null) {
-                log.warn("API [{}] 响应体为空。", endpoint.getName());
-                return Optional.empty();
-            }
-
-            String responseBody = body.string();
+            String responseBody = (body != null) ? body.string() : "";
             if (responseBody.trim().isEmpty()) {
-                log.warn("API [{}] 响应体内容为空。", endpoint.getName());
+                handleFailure(endpoint, "响应体为空");
                 return Optional.empty();
             }
+            
+            endpoint.recordSuccess(); // 请求成功，重置失败计数器
 
-            // 为纯文本响应类型增加特殊处理
-            if ("plain_text".equals(endpoint.getParserType())) {
+            return parseSentence(responseBody, endpoint.getParser());
+
+        } catch (IOException e) {
+            handleFailure(endpoint, "网络错误: " + e.getMessage());
+            // 对于仓库层，不向上抛出IO异常，而是返回空Optional，由服务层决定如何处理
+            return Optional.empty();
+        }
+    }
+
+    private Optional<Sentence> parseSentence(String responseBody, ApiProperties.ParserConfig parserConfig) {
+        try {
+            if ("plain_text".equalsIgnoreCase(parserConfig.getType())) {
                 return Optional.of(Sentence.of(responseBody));
             }
 
-            // 解析JSON并转换为Sentence对象
-            Function<JsonNode, Sentence> parser = ApiProperties.PARSERS.get(endpoint.getParserType());
-            if (parser == null) {
-                log.error("未找到API [{}] 指定的解析器类型: {}", endpoint.getName(), endpoint.getParserType());
-                return Optional.empty();
+            if ("json".equalsIgnoreCase(parserConfig.getType())) {
+                JsonNode root = objectMapper.readTree(responseBody);
+                String text = getNodeText(root, parserConfig.getTextPath());
+                String author = getNodeText(root, parserConfig.getAuthorPath());
+
+                if (StringUtils.hasText(text)) {
+                    return Optional.of(Sentence.of(text, author));
+                }
             }
-
-            JsonNode jsonNode = objectMapper.readTree(responseBody);
-            // 使用 ofNullable 避免在解析函数返回 null 时抛出异常
-            return Optional.ofNullable(parser.apply(jsonNode));
-
         } catch (IOException e) {
-            log.error("访问API [{}] 时发生网络错误: {}", endpoint.getName(), e.getMessage());
-            // 将受检异常包装成运行时异常向上抛出，由应用服务层统一处理
-            throw new RuntimeException("API请求失败", e);
+            log.error("解析响应体失败: {}", e.getMessage());
+        }
+        return Optional.empty();
+    }
+
+    private String getNodeText(JsonNode root, String path) {
+        if (root == null || !StringUtils.hasText(path)) {
+            return null;
+        }
+        // 如果路径以'/'开头，则使用JSON Pointer的at()方法；否则，使用常规的path()方法。
+        // 这使得解析器能同时支持 "key" 和 "/pointer/to/key" 两种格式。
+        JsonNode node = path.startsWith("/") ? root.at(path) : root.path(path);
+        return node.isMissingNode() ? null : node.asText();
+    }
+
+    /**
+     * 处理API请求失败的逻辑。
+     * @param endpoint 失败的端点
+     * @param reason   失败原因
+     */
+    private void handleFailure(ApiProperties.ApiEndpoint endpoint, String reason) {
+        endpoint.recordFailure();
+        log.warn("API [{}] 请求失败 (第 {} 次): {}", endpoint.getName(), endpoint.getFailureCount(), reason);
+
+        if (endpoint.getFailureCount() >= FAILURE_THRESHOLD) {
+            endpoint.setDisabledUntil(Instant.now().plus(DISABLED_DURATION));
+            log.error("API [{}] 已连续失败 {} 次，将被禁用 {} 分钟。",
+                    endpoint.getName(), FAILURE_THRESHOLD, DISABLED_DURATION.toMinutes());
         }
     }
 } 

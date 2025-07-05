@@ -14,70 +14,100 @@ yiyan:
   endpoints:
     - name: "tenapi.cn"
       url: "https://tenapi.cn/v2/yiyan?format=json"
-      parserType: "tenapi"
+      parser:
+        textPath: "/data/hitokoto"
+        authorPath: "/data/from"
     - name: "hitokoto.cn"
       url: "https://v1.hitokoto.cn/"
-      parserType: "hitokoto"
+      parser:
+        textPath: "hitokoto"
+        authorPath: "creator"
     - name: "api.xygeng.cn"
       url: "https://api.xygeng.cn/one"
-      parserType: "xygeng"
+      parser:
+        textPath: "/data/name"
+        authorPath: "/data/origin"
     - name: "uapis.cn"
       url: "https://uapis.cn/api/say"
-      parserType: "text_only"
+      parser:
+        textPath: "text"
     - name: "oddfar.com"
       url: "https://api.oddfar.com/yl/q.php"
-      parserType: "plain_text"
+      parser:
+        type: "plain_text"
     - name: "iamwawa.cn-lizhi"
       url: "https://www.iamwawa.cn/home/lizhi/ajax"
-      parserType: "iamwawa"
+      parser:
+        textPath: "msg"
+        authorPath: "title"
     - name: "aa1.cn-wenan"
       url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
-      parserType: "msg_only"
+      parser:
+        textPath: "msg"
     - name: "wudada.online"
       url: "http://www.wudada.online/Api/MrYy"
-      parserType: "data_text_only"
+      parser:
+        textPath: "/data/text"
     - name: "mu-jie.cc-stray-birds"
       url: "https://api.mu-jie.cc/stray-birds/range?type=json"
-      parserType: "stray_birds"
+      parser:
+        textPath: "/0/zw"
+        authorPath: "/0/source"
     - name: "songzixian.com"
       url: "https://api.songzixian.com/api/daily-word?dataSource=LOCAL_DAILY_WORD"
-      parserType: "content_author"
+      parser:
+        textPath: "content"
+        authorPath: "author"
     - name: "treason.cn"
       url: "http://api.treason.cn/API/yiyan.php"
-      parserType: "text_only"
+      parser:
+        textPath: "text"
     - name: "apihz.cn"
       url: "https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888"
-      parserType: "plain_text"
+      parser:
+        type: "plain_text"
     - name: "aa1.cn-pyq"
       url: "https://v.api.aa1.cn/api/pyq/index.php?aa1=json"
-      parserType: "msg_only"
+      parser:
+        textPath: "msg"
     - name: "iamwawa.cn-shici"
       url: "https://www.iamwawa.cn/home/shici/ajax"
-      parserType: "iamwawa"
+      parser:
+        textPath: "msg"
+        authorPath: "title"
     - name: "nnxv.cn"
       url: "http://api.nnxv.cn/api/yiFyan.php"
-      parserType: "plain_text"
+      parser:
+        type: "plain_text"
     - name: "jinrishici.com"
       url: "https://v1.jinrishici.com/all"
-      parserType: "content_origin"
+      parser:
+        textPath: "content"
+        authorPath: "origin"
     - name: "7585.net.cn"
       url: "https://api.7585.net.cn/yan/api.php"
-      parserType: "plain_text"
+      parser:
+        type: "plain_text"
     - name: "dwo.cc"
       url: "https://api.dwo.cc/api/yi?api=yan"
-      parserType: "result_only"
+      parser:
+        textPath: "Result"
     - name: "api-m.com-renjian"
       url: "https://v2.api-m.com/api/renjian"
-      parserType: "data_only"
+      parser:
+        textPath: "data"
     - name: "api-m.com-hitokoto"
       url: "https://v2.api-m.com/api/yiyan?type=hitokoto"
-      parserType: "data_only"
+      parser:
+        textPath: "data"
     - name: "api-m.com-poetry"
       url: "https://v2.api-m.com/api/yiyan?type=poetry"
-      parserType: "data_only"
+      parser:
+        textPath: "data"
     - name: "hhlqilongzhu.cn"
       url: "https://www.hhlqilongzhu.cn/api/yiyan.php"
-      parserType: "plain_text"
+      parser:
+        type: "plain_text"
 
 # 日志配置
 logging:
