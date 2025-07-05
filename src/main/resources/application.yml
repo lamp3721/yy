@@ -8,6 +8,30 @@ spring:
     name: Yiyan-Desktop
   main:
     banner-mode: "off" # 关闭启动时的 Banner
+# 调度器配置
+scheduler:
+  min-delay-seconds: 10 # 最小随机延迟（秒）
+  max-delay-seconds: 30 # 最大随机延迟（秒）
+
+# 日志配置
+logging:
+  level:
+    # 设置根日志级别为 info
+    root: info
+    # 您可以为特定的包设置不同的级别，例如：
+    # com.yiyan: debug
+  pattern:
+    # 控制台输出格式
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+    # 文件输出格式
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
+  file:
+    # 日志文件路径和名称
+    name: logs/app.log
+    # 保留归档日志文件的最大数量
+    max-history: 30
+    #单个日志文件的最大大小，默认为10MB
+    max-size: 10MB
 
 # 一言 API 端点配置
 yiyan:
@@ -101,22 +125,3 @@ yiyan:
       parser:
         type: "plain_text"
 
-# 日志配置
-logging:
-  level:
-    # 设置根日志级别为 info
-    root: info
-    # 您可以为特定的包设置不同的级别，例如：
-    # com.yiyan: debug
-  pattern:
-    # 控制台输出格式
-    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
-    # 文件输出格式
-    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
-  file:
-    # 日志文件路径和名称
-    name: logs/app.log
-    # 保留归档日志文件的最大数量
-    max-history: 30
-    #单个日志文件的最大大小，默认为10MB
-    max-size: 10MB 

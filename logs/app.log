@@ -1,109 +1,122 @@
-2025-07-05 23:04:58 INFO  [main] org.example.event.YEventPublisher - 事件监听器已注册完成
-2025-07-05 23:18:09 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 24336 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:18:09 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:18:10 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
-2025-07-05 23:18:10 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [International Quotations] 获取数据，URL: https://international.v1.hitokoto.cn/
-2025-07-05 23:18:10 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.283 seconds (JVM running for 1.78)
-2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '若我们并肩作战，你要照顾好自己哦？' — 飞小RAN
-2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '若我们并肩作战，你要照顾好自己哦？' — 飞小RAN
-2025-07-05 23:18:11 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 26 分钟后。
-2025-07-05 23:18:12 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:24:04 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 35804 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:24:04 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:24:04 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
-2025-07-05 23:24:04 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [wudada.online] 获取数据，URL: http://www.wudada.online/Api/MrYy
-2025-07-05 23:24:05 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.334 seconds (JVM running for 1.813)
-2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '' — 未知来源
-2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '' — 未知来源
-2025-07-05 23:24:05 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 20 分钟后。
-2025-07-05 23:24:06 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:26:48 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 16728 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:26:48 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:26:49 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
-2025-07-05 23:26:49 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [tenapi.cn] 获取数据，URL: https://tenapi.cn/v2/yiyan?format=json
-2025-07-05 23:26:49 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.11 seconds (JVM running for 1.542)
-2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '' — 未知来源
-2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '' — 未知来源
-2025-07-05 23:26:51 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 5 分钟后。
-2025-07-05 23:26:51 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:28:14 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 37868 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:28:14 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:28:14 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始获取新的一言...
-2025-07-05 23:28:14 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [hhlqilongzhu.cn] 获取数据，URL: https://www.hhlqilongzhu.cn/api/yiyan.php
-2025-07-05 23:28:15 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.234 seconds (JVM running for 1.637)
-2025-07-05 23:28:15 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '敢坐上来你就是宝宝' — 未知来源
-2025-07-05 23:28:15 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '敢坐上来你就是宝宝' — 未知来源
-2025-07-05 23:28:15 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 6 分钟后。
-2025-07-05 23:28:15 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:34:21 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 29148 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:34:21 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:34:22 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:34:22 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api.xygeng.cn] 获取数据，URL: https://api.xygeng.cn/one
-2025-07-05 23:34:22 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.23 seconds (JVM running for 1.639)
-2025-07-05 23:34:22 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '佚名' — 网络
-2025-07-05 23:34:22 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '佚名' — 网络
-2025-07-05 23:34:22 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 17 分钟后。
-2025-07-05 23:34:23 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:38:45 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 17884 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:38:45 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:38:45 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:38:45 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [oddfar.com] 获取数据...
-2025-07-05 23:38:46 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.317 seconds (JVM running for 1.721)
-2025-07-05 23:38:48 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '没有什么背叛，只不过是忠诚过期了而已。' — 未知来源
-2025-07-05 23:38:48 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '没有什么背叛，只不过是忠诚过期了而已。' — 未知来源
-2025-07-05 23:38:48 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 29 分钟后。
-2025-07-05 23:38:48 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:45:44 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 37784 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:45:44 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:45:45 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:45:45 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [hitokoto.cn] 获取数据...
-2025-07-05 23:45:45 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.133 seconds (JVM running for 1.609)
-2025-07-05 23:45:48 ERROR [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 执行一言获取任务时发生错误: Invalid input: JSON Pointer expression must start with '/': "hitokoto"
-2025-07-05 23:45:48 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 27 分钟后。
-2025-07-05 23:47:15 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 33000 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:47:15 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:47:16 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:47:16 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [songzixian.com] 获取数据...
-2025-07-05 23:47:16 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.146 seconds (JVM running for 1.492)
-2025-07-05 23:47:16 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [songzixian.com] 请求失败 (第 1 次): HTTP状态码: 404
-2025-07-05 23:47:16 WARN  [yiyan-scheduler-1] c.y.a.service.SentenceService - 本次未能获取到有效的一言数据。
-2025-07-05 23:47:16 ERROR [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 执行一言获取任务时发生错误: 未能从任何数据源获取到有效的一言。
-2025-07-05 23:47:16 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 7 分钟后。
-2025-07-05 23:47:24 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 4260 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:47:24 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:47:24 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:47:24 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [songzixian.com] 获取数据...
-2025-07-05 23:47:25 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.132 seconds (JVM running for 1.506)
-2025-07-05 23:47:25 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [songzixian.com] 请求失败 (第 1 次): HTTP状态码: 404
-2025-07-05 23:47:25 WARN  [yiyan-scheduler-1] c.y.a.service.SentenceService - 本次未能获取到有效的一言数据。
-2025-07-05 23:47:25 ERROR [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 执行一言获取任务时发生错误: 未能从任何数据源获取到有效的一言。
-2025-07-05 23:47:25 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 25 分钟后。
-2025-07-05 23:48:53 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 10348 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:48:53 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:48:53 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:48:53 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [apihz.cn] 获取数据 (尝试 1/3)
-2025-07-05 23:48:54 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.146 seconds (JVM running for 1.501)
-2025-07-05 23:48:55 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '{"code":200,"msg":"道德确实不是指导人们如何使自己幸福的教条，而是指导人们如何配享有幸福的学说。"}' — 未知来源
-2025-07-05 23:48:55 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '{"code":200,"msg":"道德确实不是指导人们如何使自己幸福的教条，而是指导人们如何配享有幸福的学说。"}' — 未知来源
-2025-07-05 23:48:55 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 20 分钟后。
-2025-07-05 23:48:56 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:53:50 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 4488 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:53:50 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:53:51 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:53:51 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [songzixian.com] 获取数据 (尝试 1/3)
-2025-07-05 23:53:51 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.158 seconds (JVM running for 1.506)
-2025-07-05 23:53:53 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [songzixian.com] 请求失败 (第 1 次): HTTP状态码: 404
-2025-07-05 23:53:53 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [apihz.cn] 获取数据 (尝试 2/3)
-2025-07-05 23:53:56 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: '{"code":200,"msg":"水的清澈，并非因为它不含杂质，而是在于懂得沉淀；心的通透，不是因为没有杂念，而是在于明白取舍。"}' — 未知来源
-2025-07-05 23:53:56 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 接收到新的一言，准备记录到文件: '{"code":200,"msg":"水的清澈，并非因为它不含杂质，而是在于懂得沉淀；心的通透，不是因为没有杂念，而是在于明白取舍。"}' — 未知来源
-2025-07-05 23:53:56 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 11 分钟后。
-2025-07-05 23:53:56 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
-2025-07-05 23:58:23 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 on LEGION with PID 29284 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
-2025-07-05 23:58:23 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
-2025-07-05 23:58:24 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
-2025-07-05 23:58:24 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [hitokoto.cn] 获取数据 (尝试 1/3)
-2025-07-05 23:58:24 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.224 seconds (JVM running for 1.598)
-2025-07-05 23:58:24 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 无论发生什么，都请不要后悔与我的相遇……
-2025-07-05 23:58:24 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-05 23:58:24] 无论发生什么，都请不要后悔与我的相遇……
-2025-07-05 23:58:24 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 8 分钟后。
-2025-07-05 23:58:25 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:05:03 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 6092 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-06 00:05:03 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 00:05:04 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:05:04 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [dwo.cc] 获取数据 (尝试 1/3)
+2025-07-06 00:05:04 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.468 seconds (process running for 1.872)
+2025-07-06 00:05:05 ERROR [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 解析响应体失败: Unrecognized token '大家的意思': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"大家的意思,不是像团子一样的一团,而是像米饭那样,一粒一粒稀稀拉拉的,却总是凑在一起"; line: 1, column: 6]
+2025-07-06 00:05:05 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [jinrishici.com] 获取数据 (尝试 2/3)
+2025-07-06 00:05:07 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 耿斜河、疏星淡月，断云微度。
+2025-07-06 00:05:07 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:05:07] 耿斜河、疏星淡月，断云微度。
+2025-07-06 00:05:07 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 11 分钟后。
+2025-07-06 00:05:08 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:16:16 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:16:16 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [iamwawa.cn-lizhi] 获取数据 (尝试 1/3)
+2025-07-06 00:16:16 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [iamwawa.cn-lizhi] 请求失败 (第 1 次): HTTP状态码: 403
+2025-07-06 00:16:16 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [7585.net.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:16:26 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [7585.net.cn] 请求失败 (第 1 次): 网络错误: Connect timed out
+2025-07-06 00:16:26 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api-m.com-renjian] 获取数据 (尝试 3/3)
+2025-07-06 00:16:27 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 说实话，我现在越来越害怕，怕买不起房，怕买不起车，怕结不起婚，怕照顾不了家庭，怕父母生病，更怕一辈子这么平庸！ ——选自散文集《我在人间凑数的日子》
+2025-07-06 00:16:27 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:16:27] 说实话，我现在越来越害怕，怕买不起房，怕买不起车，怕结不起婚，怕照顾不了家庭，怕父母生病，更怕一辈子这么平庸！ ——选自散文集《我在人间凑数的日子》
+2025-07-06 00:16:27 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 22 分钟后。
+2025-07-06 00:16:27 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:18:50 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 7564 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-06 00:18:50 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 00:18:51 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:18:51 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [mu-jie.cc-stray-birds] 获取数据 (尝试 1/3)
+2025-07-06 00:18:51 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.315 seconds (process running for 1.699)
+2025-07-06 00:18:52 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [iamwawa.cn-shici] 获取数据 (尝试 2/3)
+2025-07-06 00:18:52 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [iamwawa.cn-shici] 请求失败 (第 1 次): HTTP状态码: 403
+2025-07-06 00:18:52 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [oddfar.com] 获取数据 (尝试 3/3)
+2025-07-06 00:18:54 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 如果结果不如你所愿，就在尘埃落定前奋力一搏。
+2025-07-06 00:18:54 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:18:54] 如果结果不如你所愿，就在尘埃落定前奋力一搏。
+2025-07-06 00:18:54 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 20 秒后。
+2025-07-06 00:18:55 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:19:15 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:19:15 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [aa1.cn-wenan] 获取数据 (尝试 1/3)
+2025-07-06 00:19:17 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 你必须只有内心丰富，才能摆脱这些生活表面的相似。
+2025-07-06 00:19:17 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:19:17] 你必须只有内心丰富，才能摆脱这些生活表面的相似。
+2025-07-06 00:19:17 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 22 秒后。
+2025-07-06 00:19:18 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [treason.cn] 获取数据 (尝试 1/3)
+2025-07-06 00:19:40 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [treason.cn] 请求失败 (第 1 次): 网络错误: 不知道这样的主机。 (api.treason.cn)
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api-m.com-hitokoto] 获取数据 (尝试 2/3)
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 生活总有些纠结难以散去，既干扰了心地氛围，又让生活受了那些无明的伤。生命的意义在于体会生命当中那些积极的责任，去凝聚那些生命的力量，让生活更有方向，构建生活豁达希望的状态。
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:19:40] 生活总有些纠结难以散去，既干扰了心地氛围，又让生活受了那些无明的伤。生命的意义在于体会生命当中那些积极的责任，去凝聚那些生命的力量，让生活更有方向，构建生活豁达希望的状态。
+2025-07-06 00:19:40 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 18 秒后。
+2025-07-06 00:19:41 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:19:59 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:19:59 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [dwo.cc] 获取数据 (尝试 1/3)
+2025-07-06 00:19:59 ERROR [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 解析响应体失败: Unrecognized token '虽然说强扭的瓜不甜': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"虽然说强扭的瓜不甜，但有时候我并不在乎它甜不甜，我只想把它扭下来，扭下来我就高兴了"; line: 1, column: 10]
+2025-07-06 00:19:59 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [hhlqilongzhu.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:20:00 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceService - 成功获取到新的一言: 你不喜欢我没关系，来日方长，总有一天我也不会喜欢你。
+2025-07-06 00:20:00 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:20:00] 你不喜欢我没关系，来日方长，总有一天我也不会喜欢你。
+2025-07-06 00:20:00 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 21 秒后。
+2025-07-06 00:20:00 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:20:21 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:20:21 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [iamwawa.cn-shici] 获取数据 (尝试 1/3)
+2025-07-06 00:20:21 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [iamwawa.cn-shici] 请求失败 (第 2 次): HTTP状态码: 403
+2025-07-06 00:20:21 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [7585.net.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:20:31 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [7585.net.cn] 请求失败 (第 1 次): 网络错误: Connect timed out
+2025-07-06 00:20:31 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api-m.com-poetry] 获取数据 (尝试 3/3)
+2025-07-06 00:20:32 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 曾把芳心深相许。故梦劳诗苦 ——史达祖《留春令·咏梅花》
+2025-07-06 00:20:32 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:20:32] 曾把芳心深相许。故梦劳诗苦 ——史达祖《留春令·咏梅花》
+2025-07-06 00:20:32 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 17 秒后。
+2025-07-06 00:20:32 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:20:49 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:20:49 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [oddfar.com] 获取数据 (尝试 1/3)
+2025-07-06 00:20:54 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 我不借助别人的力量就没办法跟仰慕的人聊天吗？
+2025-07-06 00:20:54 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:20:54] 我不借助别人的力量就没办法跟仰慕的人聊天吗？
+2025-07-06 00:20:54 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 21 秒后。
+2025-07-06 00:20:55 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:21:15 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:21:15 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [apihz.cn] 获取数据 (尝试 1/3)
+2025-07-06 00:21:18 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: {"code":200,"msg":"晚上在一家五星级酒店猛吃了一顿，结账时我说没带钱。经理叫来保安威胁我，叫我在酒店当服务员还钱。我问经理：“那刚才应聘为什么不要我”"}
+2025-07-06 00:21:18 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:21:18] {"code":200,"msg":"晚上在一家五星级酒店猛吃了一顿，结账时我说没带钱。经理叫来保安威胁我，叫我在酒店当服务员还钱。我问经理：“那刚才应聘为什么不要我”"}
+2025-07-06 00:21:18 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 20 秒后。
+2025-07-06 00:21:20 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 41880 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-06 00:21:20 INFO  [main] com.yiyan.Launcher - No active profile set, falling back to 1 default profile: "default"
+2025-07-06 00:21:21 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:21:21 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [songzixian.com] 获取数据 (尝试 1/3)
+2025-07-06 00:21:21 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.168 seconds (process running for 1.588)
+2025-07-06 00:21:21 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - API [songzixian.com] 请求失败 (第 1 次): HTTP状态码: 404
+2025-07-06 00:21:21 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [tenapi.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:21:24 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [mu-jie.cc-stray-birds] 获取数据 (尝试 3/3)
+2025-07-06 00:21:25 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 在当前任务周期内尝试了 3 个API后，仍未能获取到有效的一言。
+2025-07-06 00:21:25 WARN  [yiyan-scheduler-1] c.y.a.service.SentenceService - 本次未能获取到有效的一言数据。
+2025-07-06 00:21:25 ERROR [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 执行一言获取任务时发生错误: 未能从任何数据源获取到有效的一言。
+2025-07-06 00:21:25 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 21 秒后。
+2025-07-06 00:21:47 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:21:47 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api.xygeng.cn] 获取数据 (尝试 1/3)
+2025-07-06 00:21:47 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 佚名
+2025-07-06 00:21:47 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:21:47] 佚名
+2025-07-06 00:21:47 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 13 秒后。
+2025-07-06 00:21:48 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:22:00 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:22:00 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [uapis.cn] 获取数据 (尝试 1/3)
+2025-07-06 00:22:01 ERROR [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 解析响应体失败: Unrecognized token '慕君之心': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"慕君之心，至死方休。"; line: 1, column: 5]
+2025-07-06 00:22:01 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [tenapi.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:22:01 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - 尝试从API [hitokoto.cn] 获取数据 (尝试 3/3)
+2025-07-06 00:22:02 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 成功获取到新的一言: 最折磨人的或许不是一场惨烈战争，而是烦琐的日常生活。
+2025-07-06 00:22:02 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:22:02] 最折磨人的或许不是一场惨烈战争，而是烦琐的日常生活。
+2025-07-06 00:22:02 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 18 秒后。
+2025-07-06 00:22:02 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-06 00:22:20 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:22:20 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [songzixian.com] 获取数据 (尝试 1/3)
+2025-07-06 00:22:20 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - API [songzixian.com] 请求失败 (第 2 次): HTTP状态码: 404
+2025-07-06 00:22:20 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [treason.cn] 获取数据 (尝试 2/3)
+2025-07-06 00:22:21 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - API [treason.cn] 请求失败 (第 1 次): 网络错误: 不知道这样的主机。 (api.treason.cn)
+2025-07-06 00:22:21 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [tenapi.cn] 获取数据 (尝试 3/3)
+2025-07-06 00:22:21 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 在当前任务周期内尝试了 3 个API后，仍未能获取到有效的一言。
+2025-07-06 00:22:21 WARN  [yiyan-scheduler-2] c.y.a.service.SentenceService - 本次未能获取到有效的一言数据。
+2025-07-06 00:22:21 ERROR [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 执行一言获取任务时发生错误: 未能从任何数据源获取到有效的一言。
+2025-07-06 00:22:21 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 16 秒后。
+2025-07-06 00:22:37 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceService - 开始尝试获取新的一言...
+2025-07-06 00:22:37 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - 尝试从API [api.xygeng.cn] 获取数据 (尝试 1/3)
+2025-07-06 00:22:37 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceService - 成功获取到新的一言: 佚名
+2025-07-06 00:22:37 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 记录新的一言到文件: [2025-07-06 00:22:37] 佚名
+2025-07-06 00:22:37 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 任务完成，下一次执行将在 23 秒后。
+2025-07-06 00:22:38 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。

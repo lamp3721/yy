@@ -1,14 +1,25 @@
 package com.yiyan;
 
+import com.yiyan.infrastructure.config.ApiProperties;
+import com.yiyan.infrastructure.config.HttpClientConfig;
+import com.yiyan.launcher.config.SchedulerProperties;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * 应用主入口（启动器）。
+ * Spring Boot 应用程序主入口。
+ * <p>
+ * 使用 @SpringBootApplication 注解，这是一个集成了 @Configuration, @EnableAutoConfiguration, 和 @ComponentScan 的便捷注解。
+ * 使用 @EnableConfigurationProperties 来显式地启用对特定配置属性类的支持。
+ * 使用 @Import 来导入额外的配置类。
  */
 @SpringBootApplication
 @EnableScheduling
+@EnableConfigurationProperties({ApiProperties.class, SchedulerProperties.class})
+@Import(HttpClientConfig.class)
 public class Launcher {
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package com.yiyan.infrastructure.scheduling;
 
 import com.yiyan.application.service.SentenceService;
+import com.yiyan.launcher.config.SchedulerProperties;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,10 +22,7 @@ public class DynamicScheduler {
 
     private final TaskScheduler taskScheduler;
     private final SentenceService sentenceService;
-
-    // 随机延迟范围
-    private static final Duration MIN_DELAY = Duration.ofMinutes(5);
-    private static final Duration MAX_DELAY = Duration.ofMinutes(30);
+    private final SchedulerProperties schedulerProperties;
 
     /**
      * Spring Bean 初始化后，立即执行第一次任务。
@@ -55,12 +53,21 @@ public class DynamicScheduler {
      * 计算下一次执行的随机延迟并安排任务。
      */
     private void scheduleNext() {
+        Duration minDelay = Duration.ofSeconds(schedulerProperties.getMinDelaySeconds());
+        Duration maxDelay = Duration.ofSeconds(schedulerProperties.getMaxDelaySeconds());
+
+        // 确保minDelay不大于maxDelay，避免负数异常
+        if (minDelay.compareTo(maxDelay) > 0) {
+            log.warn("配置错误：最小延迟时间大于最大延迟时间。将使用最小延迟作为固定延迟。");
+            maxDelay = minDelay;
+        }
+
         long delayMillis = ThreadLocalRandom.current().nextLong(
-                MIN_DELAY.toMillis(), MAX_DELAY.toMillis()
+                minDelay.toMillis(), maxDelay.toMillis() + 1 // +1 使其包含上限
         );
         Instant nextExecutionTime = Instant.now().plusMillis(delayMillis);
 
-        log.info("任务完成，下一次执行将在 {} 分钟后。", Duration.ofMillis(delayMillis).toMinutes());
+        log.info("任务完成，下一次执行将在 {} 秒后。", Duration.ofMillis(delayMillis).getSeconds());
 
         taskScheduler.schedule(this::runAndReschedule, nextExecutionTime);
     }
