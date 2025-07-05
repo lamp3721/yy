@@ -1,12 +1,12 @@
 package com.yiyan.infrastructure.scheduling;
 
 import com.yiyan.application.service.SentenceService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;

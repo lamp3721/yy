@@ -1,9 +1,9 @@
 package com.yiyan.infrastructure.ui;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
