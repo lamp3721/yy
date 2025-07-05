@@ -16,17 +16,14 @@ yiyan:
       url: "https://tenapi.cn/v2/yiyan?format=json"
       parser:
         textPath: "/data/hitokoto"
-        authorPath: "/data/from"
     - name: "hitokoto.cn"
       url: "https://v1.hitokoto.cn/"
       parser:
         textPath: "hitokoto"
-        authorPath: "creator"
     - name: "api.xygeng.cn"
       url: "https://api.xygeng.cn/one"
       parser:
         textPath: "/data/name"
-        authorPath: "/data/origin"
     - name: "uapis.cn"
       url: "https://uapis.cn/api/say"
       parser:
@@ -39,7 +36,6 @@ yiyan:
       url: "https://www.iamwawa.cn/home/lizhi/ajax"
       parser:
         textPath: "msg"
-        authorPath: "title"
     - name: "aa1.cn-wenan"
       url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
       parser:
@@ -52,12 +48,10 @@ yiyan:
       url: "https://api.mu-jie.cc/stray-birds/range?type=json"
       parser:
         textPath: "/0/zw"
-        authorPath: "/0/source"
     - name: "songzixian.com"
       url: "https://api.songzixian.com/api/daily-word?dataSource=LOCAL_DAILY_WORD"
       parser:
         textPath: "content"
-        authorPath: "author"
     - name: "treason.cn"
       url: "http://api.treason.cn/API/yiyan.php"
       parser:
@@ -74,7 +68,6 @@ yiyan:
       url: "https://www.iamwawa.cn/home/shici/ajax"
       parser:
         textPath: "msg"
-        authorPath: "title"
     - name: "nnxv.cn"
       url: "http://api.nnxv.cn/api/yiFyan.php"
       parser:
@@ -83,7 +76,6 @@ yiyan:
       url: "https://v1.jinrishici.com/all"
       parser:
         textPath: "content"
-        authorPath: "origin"
     - name: "7585.net.cn"
       url: "https://api.7585.net.cn/yan/api.php"
       parser:

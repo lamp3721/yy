@@ -129,10 +129,10 @@ public class HttpSentenceRepository implements SentenceRepository {
             if ("json".equalsIgnoreCase(parserConfig.getType())) {
                 JsonNode root = objectMapper.readTree(responseBody);
                 String text = getNodeText(root, parserConfig.getTextPath());
-                String author = getNodeText(root, parserConfig.getAuthorPath());
 
                 if (StringUtils.hasText(text)) {
-                    return Optional.of(Sentence.of(text, author));
+                    // 只使用文本创建Sentence，忽略作者
+                    return Optional.of(Sentence.of(text));
                 }
             }
         } catch (IOException e) {

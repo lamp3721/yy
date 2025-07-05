@@ -117,10 +117,5 @@ public class ApiProperties {
          * "一言"文本的JSON路径 (可以是简单key或JSON Pointer)
          */
         private String textPath;
-
-        /**
-         * 作者的JSON路径 (可选)
-         */
-        private String authorPath;
     }
 } 
