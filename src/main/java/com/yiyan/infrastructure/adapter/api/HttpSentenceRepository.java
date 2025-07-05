@@ -158,12 +158,13 @@ public class HttpSentenceRepository implements SentenceRepository {
      */
     private void handleFailure(ApiProperties.ApiEndpoint endpoint, String reason) {
         endpoint.recordFailure();
-        log.warn("API [{}] 请求失败 (第 {} 次): {}", endpoint.getName(), endpoint.getFailureCount(), reason);
+        log.warn("API [{}] 请求失败 (URL: {}), 失败次数: {}, 原因: {}",
+                endpoint.getName(), endpoint.getUrl(), endpoint.getFailureCount(), reason);
 
         if (endpoint.getFailureCount() >= FAILURE_THRESHOLD) {
             endpoint.setDisabledUntil(Instant.now().plus(DISABLED_DURATION));
-            log.error("API [{}] 已连续失败 {} 次，将被禁用 {} 分钟。",
-                    endpoint.getName(), FAILURE_THRESHOLD, DISABLED_DURATION.toMinutes());
+            log.error("API [{}] (URL: {}) 已连续失败 {} 次，将被禁用 {} 分钟。",
+                    endpoint.getName(), endpoint.getUrl(), FAILURE_THRESHOLD, DISABLED_DURATION.toMinutes());
         }
     }
 } 
