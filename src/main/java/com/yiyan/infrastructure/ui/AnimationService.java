@@ -14,78 +14,81 @@ public class AnimationService {
     private static final int FADE_INTERVAL_MS = 25; // 动画定时器间隔
     private static final float FADE_STEP = 0.05f;   // 透明度变化步长
 
-    private Timer fadeInTimer;
-    private Timer fadeOutTimer;
-    private float currentAlpha = 0.0f; // 当前透明度
-
     /**
      * 执行一个完整的淡出后淡入的动画序列。
      *
-     * @param label           要应用动画的JLabel。
-     * @param textUpdateAction 在淡出完成、淡入开始之前执行的操作，通常用于更新文本。
+     * @param container         要应用动画的容器 (e.g., JFrame, JPanel)。
+     * @param updateAction 在淡出完成、淡入开始之前执行的操作，通常用于更新文本。
      */
-    public void runFadeSequence(JLabel label, Runnable textUpdateAction) {
-        // 停止任何正在进行的动画
-        stopTimers();
-
-        // 基础颜色
-        Color baseColor = label.getForeground();
-
+    public void runFadeSequence(Container container, Runnable updateAction) {
         // 创建淡出定时器
-        fadeOutTimer = new Timer(FADE_INTERVAL_MS, e -> {
-            currentAlpha = Math.max(0.0f, currentAlpha - FADE_STEP);
-            updateLabelColor(label, baseColor, currentAlpha);
+        Timer fadeOutTimer = new Timer(FADE_INTERVAL_MS, e -> {
+            float newAlpha = getAlpha(container) - FADE_STEP;
+            setAlpha(container, newAlpha);
 
-            if (currentAlpha <= 0.0f) {
-                fadeOutTimer.stop();
+            if (newAlpha <= 0.0f) {
+                ((Timer) e.getSource()).stop();
                 // 淡出完成后，更新文本内容，然后开始淡入
-                textUpdateAction.run();
-                runFadeIn(label, baseColor);
+                if (updateAction != null) {
+                    updateAction.run();
+                }
+                runFadeIn(container);
             }
         });
-
-        // 开始淡出
-        currentAlpha = 1.0f;
+        fadeOutTimer.setInitialDelay(0);
         fadeOutTimer.start();
     }
 
     /**
      * 执行淡入动画。
-     * @param label     应用动画的JLabel。
-     * @param baseColor 文本的基础颜色。
+     * @param container     应用动画的容器。
      */
-    private void runFadeIn(JLabel label, Color baseColor) {
+    private void runFadeIn(Container container) {
         // 创建淡入定时器
-        fadeInTimer = new Timer(FADE_INTERVAL_MS, e -> {
-            currentAlpha = Math.min(1.0f, currentAlpha + FADE_STEP);
-            updateLabelColor(label, baseColor, currentAlpha);
+        Timer fadeInTimer = new Timer(FADE_INTERVAL_MS, e -> {
+            float newAlpha = getAlpha(container) + FADE_STEP;
+            setAlpha(container, newAlpha);
 
-            if (currentAlpha >= 1.0f) {
-                fadeInTimer.stop();
+            if (newAlpha >= 1.0f) {
+                ((Timer) e.getSource()).stop();
             }
         });
-        
-        // 开始淡入
+        fadeInTimer.setInitialDelay(0);
         fadeInTimer.start();
     }
 
     /**
-     * 更新标签的颜色和透明度。
+     * 递归地为容器及其所有子组件设置透明度。
      */
-    private void updateLabelColor(JLabel label, Color baseColor, float alpha) {
-        int alphaValue = (int) (alpha * 255);
-        label.setForeground(new Color(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue(), alphaValue));
+    private void setAlpha(Container container, float alpha) {
+        alpha = Math.max(0.0f, Math.min(1.0f, alpha));
+        
+        // JFrames need special handling for transparency
+        if (container instanceof JFrame) {
+             ((JFrame) container).setOpacity(alpha);
+        }
+
+        for (Component comp : container.getComponents()) {
+            if (comp.isLightweight()) { // only for swing components
+                Color color = comp.getForeground();
+                if (color != null) {
+                    comp.setForeground(new Color(color.getRed(), color.getGreen(), color.getBlue(), (int) (alpha * 255)));
+                }
+            }
+            if (comp instanceof Container) {
+                setAlpha((Container) comp, alpha);
+            }
+        }
     }
 
     /**
-     * 停止所有动画定时器。
+     * 获取容器的透明度 (以JFrame的为准)。
      */
-    private void stopTimers() {
-        if (fadeInTimer != null && fadeInTimer.isRunning()) {
-            fadeInTimer.stop();
+    private float getAlpha(Container container) {
+        if (container instanceof JFrame) {
+            return ((JFrame) container).getOpacity();
         }
-        if (fadeOutTimer != null && fadeOutTimer.isRunning()) {
-            fadeOutTimer.stop();
-        }
+        // Fallback for other containers, might not be accurate
+        return container.getForeground() != null ? container.getForeground().getAlpha() / 255.0f : 1.0f;
     }
 } 

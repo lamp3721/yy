@@ -73,3 +73,224 @@
 
 [2025-07-06 00:28:14] {"code":400,"msg":"调用频次过快，请间隔一分钟再试，或购买钻石会员！如果使用的是公共ID与KEY请登录接口盒子使用自己的ID与KEY，独享频次，登录接口盒子www.apihz.cn后台可查看详细调用统计，方便你的业务规划。"}
 [2025-07-06 00:28:35] 金钱和女人，是人生犯错的根源。
+[2025-07-06 00:29:02] 努力不会背叛自己，虽然有时会背叛梦想
+[2025-07-06 00:29:25] 山不在高 有仙则灵，水不在深 有龙则灵，斯是陋室 三万一平。
+[2025-07-06 00:29:53] 西风酒旗市，细雨菊花天。
+[2025-07-06 00:30:17] 人都有宽容和苛责的一面，遗憾的是，很多人把苛责留给了最亲的人。
+[2025-07-06 00:30:38] 有情芍药含春泪，无力蔷薇卧晓枝。
+[2025-07-06 00:30:53] 无论你在哪里，就算我看不见你，我也会一直注视着你。
+[2025-07-06 00:31:25] 这不是玩笑，不要吃掉梦想啊。
+[2025-07-06 00:31:50] 让他们来吧，这片土地将是他们的坟墓。
+[2025-07-06 00:32:14] 不要对无视你的人心软，更不要向不疼你的人求可怜。
+[2025-07-06 00:32:39] <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe 
+        src="https://c.weimobwmc.com/ol-6NoTV/e64464a9a06e478ebb586eefa6eae538.mp4" 
+        allowfullscreen 
+        mozallowfullscreen 
+        msallowfullscreen 
+        oallowfullscreen 
+        webkitallowfullscreen>
+    </iframe>
+</body>
+
+</html>
+
+
+[2025-07-06 00:32:55] {"code":200,"msg":"白白的得来，也要白白的舍去。"}
+[2025-07-06 00:33:15] 这个月圣诞，下个月元旦，下下月完蛋。
+[2025-07-06 00:33:59] 五点了，再不睡觉容易猝死——选自文集《我在人间凑数的日子》
+[2025-07-06 00:34:09] 佚名
+[2025-07-06 00:34:40] 遇到事情不能坐以待毙！
+[2025-07-06 00:35:05] {"code":200,"msg":"52没事哦我的男孩子可以不用顶天立地也可以撒娇耍小脾气可以哭唧唧我抱抱你"}
+[2025-07-06 00:35:36] <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe 
+        src="https://c.weimobwmc.com/ol-6NoTV/e64464a9a06e478ebb586eefa6eae538.mp4" 
+        allowfullscreen 
+        mozallowfullscreen 
+        msallowfullscreen 
+        oallowfullscreen 
+        webkitallowfullscreen>
+    </iframe>
+</body>
+
+</html>
+
+
+[2025-07-06 00:36:00] 夏天在室外的人们都在跟太阳玩捉迷藏游戏。
+[2025-07-06 00:36:11] 夜阑卧听风吹雨，铁马冰河入梦来。《十一月四日风雨大作》 — 陆游
+[2025-07-06 00:36:24] 衣带渐宽终不悔,为伊消得人憔悴.
+[2025-07-06 00:36:54] 追寻只是因为无法抓获，想要触碰，只是因为知道自己触碰不到。
+[2025-07-06 00:37:15] 我们没有永恒的朋友，也没有永恒的敌人，只有永恒的利益。
+[2025-07-06 00:38:00] 我没去过你的城市，但我刷过你那儿的题。
+[2025-07-06 00:38:48] 如果有一天我们绝交了翻脸了，你出门跟全世界骂我，我也不会把你哭着笑着在深夜只分享给我秘密告诉别人。一个人把能让自己身败名裂，遭人耻笑的事告诉你的一瞬间，一定是把你当作最亲近的人。朋友也好，前任也罢，人生诸事很难长情，我愿始终记得你把心掏给我的瞬间，并守护它。
+[2025-07-06 00:39:24] {"code":400,"msg":"调用频次过快，请间隔一分钟再试，或购买钻石会员！如果使用的是公共ID与KEY请登录接口盒子使用自己的ID与KEY，独享频次，登录接口盒子www.apihz.cn后台可查看详细调用统计，方便你的业务规划。"}
+[2025-07-06 00:39:50] 当你想做一件事，却无能为力的时候，是最痛苦的。
+[2025-07-06 00:40:31] 遇事三宝：面对、处理、放下；处世三宝：谦虚、礼貌、赞叹；教养三宝：安静、慈祥、沉稳；说话三宝：请、谢谢、对不起；家庭三宝：喜欢、幽默、体贴；饮食三宝：均衡、节制、感恩；健康三宝：步行、少欲、气和；学习三宝：谛听、信受、奉行；交友三宝：诚信、正直、谦卑；人心三宝：真实、善良、宽容。
+[2025-07-06 00:40:59] 用一颗美好之心，看世界风景；用一颗快乐之心，对生活琐碎；用一颗感恩之心，感谢经历给我们的成长；用一颗宽阔之心，包容人事对我们的伤害；用一颗平常之心，看人生得失成败。
+[2025-07-06 00:41:20] 井放辘轳闲浸酒，笼开鹦鹉报煎茶。
+[2025-07-06 00:41:41] 杖剑对尊酒，耻为游子颜。《别离》 — 陆龟蒙
+[2025-07-06 00:42:43] 人生海海，敢死不叫勇气，活着才需要勇气。
+[2025-07-06 00:43:12] <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe 
+        src="https://c.weimobwmc.com/ol-6NoTV/e64464a9a06e478ebb586eefa6eae538.mp4" 
+        allowfullscreen 
+        mozallowfullscreen 
+        msallowfullscreen 
+        oallowfullscreen 
+        webkitallowfullscreen>
+    </iframe>
+</body>
+
+</html>
+
+
+[2025-07-06 00:43:48] <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe 
+        src="https://c.weimobwmc.com/ol-6NoTV/e64464a9a06e478ebb586eefa6eae538.mp4" 
+        allowfullscreen 
+        mozallowfullscreen 
+        msallowfullscreen 
+        oallowfullscreen 
+        webkitallowfullscreen>
+    </iframe>
+</body>
+
+</html>
+
+
+[2025-07-06 00:44:04] 留连戏蝶时时舞，自在娇莺恰恰啼 ——杜甫《江畔独步寻花·其六》
+[2025-07-06 00:45:49] 我除了投三分，就什么都没有了… —— 灌篮高手
+[2025-07-06 00:47:26] <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe 
+        src="https://c.weimobwmc.com/ol-6NoTV/e64464a9a06e478ebb586eefa6eae538.mp4" 
+        allowfullscreen 
+        mozallowfullscreen 
+        msallowfullscreen 
+        oallowfullscreen 
+        webkitallowfullscreen>
+    </iframe>
+</body>
+
+</html>
+
+

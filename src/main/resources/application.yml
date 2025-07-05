@@ -39,19 +39,26 @@ yiyan:
     - name: "tenapi.cn"
       url: "https://tenapi.cn/v2/yiyan?format=json"
       parser:
-        textPath: "/data/hitokoto"
+        mappings:
+          text: "/data/hitokoto"
+          author: "/data/from"
     - name: "hitokoto.cn"
       url: "https://v1.hitokoto.cn/"
       parser:
-        textPath: "hitokoto"
+        mappings:
+          text: "hitokoto"
+          author: "from"
     - name: "api.xygeng.cn"
       url: "https://api.xygeng.cn/one"
       parser:
-        textPath: "/data/name"
+        mappings:
+          text: "/data/name"
+          author: "/data/origin"
     - name: "uapis.cn"
       url: "https://uapis.cn/api/say"
       parser:
-        textPath: "text"
+        mappings:
+          text: "text" # 这个API可能没有作者字段
     - name: "oddfar.com"
       url: "https://api.oddfar.com/yl/q.php"
       parser:
@@ -59,23 +66,30 @@ yiyan:
     - name: "iamwawa.cn-lizhi"
       url: "https://www.iamwawa.cn/home/lizhi/ajax"
       parser:
-        textPath: "msg"
+        mappings:
+          text: "msg"
     - name: "aa1.cn-wenan"
       url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
       parser:
-        textPath: "msg"
+        mappings:
+          text: "msg"
     - name: "wudada.online"
       url: "http://www.wudada.online/Api/MrYy"
       parser:
-        textPath: "/data/text"
+        mappings:
+          text: "/data/text"
     - name: "mu-jie.cc-stray-birds"
       url: "https://api.mu-jie.cc/stray-birds/range?type=json"
       parser:
-        textPath: "/0/zw"
+        mappings:
+          text: "/0/zw"
+          author: "/0/en" # 假设英文是作者
     - name: "songzixian.com"
       url: "https://api.songzixian.com/api/daily-word?dataSource=LOCAL_DAILY_WORD"
       parser:
-        textPath: "content"
+        mappings:
+          text: "content"
+          author: "author"
     - name: "treason.cn"
       url: "http://api.treason.cn/API/yiyan.php"
       parser:
@@ -107,19 +121,23 @@ yiyan:
     - name: "dwo.cc"
       url: "https://api.dwo.cc/api/yi?api=yan"
       parser:
-        textPath: "Result"
+        mappings:
+          text: "Result"
     - name: "api-m.com-renjian"
       url: "https://v2.api-m.com/api/renjian"
       parser:
-        textPath: "data"
+        mappings:
+          text: "data"
     - name: "api-m.com-hitokoto"
       url: "https://v2.api-m.com/api/yiyan?type=hitokoto"
       parser:
-        textPath: "data"
+        mappings:
+          text: "data"
     - name: "api-m.com-poetry"
       url: "https://v2.api-m.com/api/yiyan?type=poetry"
       parser:
-        textPath: "data"
+        mappings:
+          text: "data"
     - name: "hhlqilongzhu.cn"
       url: "https://www.hhlqilongzhu.cn/api/yiyan.php"
       parser:

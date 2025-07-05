@@ -39,16 +39,16 @@ public class UiController {
      */
     private void updateUiWithAnimation(Sentence sentence) {
         // 定义文本更新操作
-        Runnable textUpdateAction = () -> {
+        Runnable updateAction = () -> {
             // 将窗口置于底层
             desktopManager.sendToBottom(mainFrame);
-            // 更新文本内容
-            mainFrame.updateText(sentence.getText());
+            // 更新文本内容和作者
+            mainFrame.updateSentence(sentence);
             // 水平居中，但保持Y轴位置不变
             mainFrame.centerOnScreen();
         };
 
         // 执行淡出后淡入的动画序列
-        animationService.runFadeSequence(mainFrame.getSentenceLabel(), textUpdateAction);
+        animationService.runFadeSequence(mainFrame, updateAction);
     }
 } 

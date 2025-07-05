@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.HashMap;
 
 /**
  * API端点配置类，通过 @ConfigurationProperties 从 application.yml/properties 文件中加载配置。
@@ -111,11 +113,37 @@ public class ApiProperties {
         /**
          * 解析类型, "json" 或 "plain_text"
          */
-        private String type = "json"; // 默认为 json
+        private String type = "json"; // 默认为json解析
 
         /**
-         * "一言"文本的JSON路径 (可以是简单key或JSON Pointer)
+         * 字段映射关系。
+         * Key 是领域对象的字段名 (如 "text", "author")。
+         * Value 是在JSON响应中的路径 (如 "hitokoto", "/data/content")。
          */
-        private String textPath;
+        private Map<String, String> mappings = new HashMap<>();
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public Map<String, String> getMappings() {
+            return mappings;
+        }
+
+        public void setMappings(Map<String, String> mappings) {
+            this.mappings = mappings;
+        }
+
+        @Deprecated
+        public void setTextPath(String textPath) {
+            // 保持向后兼容，如果旧的textPath存在，则自动转换为新的mappings格式
+            if (StringUtils.hasText(textPath)) {
+                this.mappings.put("text", textPath);
+            }
+        }
     }
 } 

@@ -1,8 +1,10 @@
 package com.yiyan.infrastructure.ui;
 
+import com.yiyan.core.domain.Sentence;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
+
+import org.springframework.util.StringUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,12 +15,14 @@ import java.io.InputStream;
 /**
  * UI主窗口 (JFrame)，负责创建和管理应用的基本窗口框架。
  */
-@Component
+@org.springframework.stereotype.Component
 @Getter
 public class MainFrame extends JFrame {
 
     private final JLabel sentenceLabel;
+    private final JLabel authorLabel;
     private Font customFont;
+    private Font authorFont;
 
     public MainFrame() {
         // 初始化窗口基本属性
@@ -34,10 +38,26 @@ public class MainFrame extends JFrame {
         // 创建用于显示文本的 JLabel
         sentenceLabel = new JLabel("正在获取一言...", SwingConstants.CENTER);
         sentenceLabel.setFont(customFont);
-        sentenceLabel.setForeground(new Color(0, 255, 191)); // 默认文本颜色
+        sentenceLabel.setForeground(new Color(0, 255, 191));
+        sentenceLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // 将标签添加到窗口
-        add(sentenceLabel, BorderLayout.CENTER);
+        // 创建用于显示作者的 JLabel
+        authorLabel = new JLabel("", SwingConstants.CENTER);
+        authorLabel.setFont(authorFont);
+        authorLabel.setForeground(new Color(200, 200, 200));
+        authorLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        authorLabel.setVisible(false); // 默认隐藏
+
+        // 使用一个垂直的BoxLayout来布局主内容面板
+        JPanel contentPanel = new JPanel();
+        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        contentPanel.setOpaque(false);
+        contentPanel.add(sentenceLabel);
+        contentPanel.add(Box.createRigidArea(new Dimension(0, 5))); // 添加一点间距
+        contentPanel.add(authorLabel);
+
+        // 将内容面板添加到窗口
+        add(contentPanel, BorderLayout.CENTER);
 
         // 添加鼠标拖动功能
         setupMouseListener();
@@ -55,10 +75,17 @@ public class MainFrame extends JFrame {
 
     /**
      * 设置窗口的文本内容，并自动调整大小。
-     * @param text 要显示的文本。
+     * @param sentence 要显示的“一言”对象。
      */
-    public void updateText(String text) {
-        sentenceLabel.setText(" " + text + " ");
+    public void updateSentence(Sentence sentence) {
+        sentenceLabel.setText(" " + sentence.getText() + " ");
+
+        if (StringUtils.hasText(sentence.getAuthor())) {
+            authorLabel.setText("—— " + sentence.getAuthor());
+            authorLabel.setVisible(true);
+        } else {
+            authorLabel.setVisible(false);
+        }
         pack(); // 重新计算窗口大小
     }
 
@@ -90,9 +117,11 @@ public class MainFrame extends JFrame {
             }
             Font createdFont = Font.createFont(Font.TRUETYPE_FONT, is);
             this.customFont = createdFont.deriveFont(Font.PLAIN, 24f);
+            this.authorFont = createdFont.deriveFont(Font.PLAIN, 16f); // 作者字体稍小
         } catch (Exception e) {
             // 如果自定义字体加载失败，则使用默认字体
             this.customFont = new Font("SansSerif", Font.PLAIN, 24);
+            this.authorFont = new Font("SansSerif", Font.PLAIN, 16);
             System.err.println("加载自定义字体失败，将使用默认字体: " + e.getMessage());
         }
     }

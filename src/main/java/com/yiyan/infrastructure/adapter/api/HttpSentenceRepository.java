@@ -18,6 +18,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -77,6 +78,7 @@ public class HttpSentenceRepository implements SentenceRepository {
             try {
                 Optional<Sentence> sentence = attemptFetch(endpoint);
                 if (sentence.isPresent()) {
+                    log.info("成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
                     return sentence; // 成功获取，立即返回
                 }
                 // 如果返回空Optional，意味着本次尝试失败，循环将继续尝试下一个端点
@@ -111,7 +113,7 @@ public class HttpSentenceRepository implements SentenceRepository {
             
             endpoint.recordSuccess(); // 请求成功，重置失败计数器
 
-            return parseSentence(responseBody, endpoint.getParser());
+            return parseSentence(responseBody, endpoint);
 
         } catch (IOException e) {
             handleFailure(endpoint, "网络错误: " + e.getMessage());
@@ -120,23 +122,43 @@ public class HttpSentenceRepository implements SentenceRepository {
         }
     }
 
-    private Optional<Sentence> parseSentence(String responseBody, ApiProperties.ParserConfig parserConfig) {
+    private Optional<Sentence> parseSentence(String responseBody, ApiProperties.ApiEndpoint endpoint) {
+        ApiProperties.ParserConfig parserConfig = endpoint.getParser();
         try {
             if ("plain_text".equalsIgnoreCase(parserConfig.getType())) {
+                if (responseBody.length() > 2000) {
+                    log.warn("API [{}] 返回的纯文本响应过长 ({} chars)，可能非预期内容。", endpoint.getName(), responseBody.length());
+                }
                 return Optional.of(Sentence.of(responseBody));
             }
 
             if ("json".equalsIgnoreCase(parserConfig.getType())) {
                 JsonNode root = objectMapper.readTree(responseBody);
-                String text = getNodeText(root, parserConfig.getTextPath());
+                Map<String, String> mappings = parserConfig.getMappings();
 
-                if (StringUtils.hasText(text)) {
-                    // 只使用文本创建Sentence，忽略作者
-                    return Optional.of(Sentence.of(text));
+                // "text" 字段是必需的
+                String textPath = mappings.get("text");
+                if (!StringUtils.hasText(textPath)) {
+                    log.error("API [{}] 的解析器配置缺少必需的 'text' 字段映射。", endpoint.getName());
+                    return Optional.empty();
                 }
+
+                String text = getNodeText(root, textPath);
+                if (!StringUtils.hasText(text)) {
+                    log.warn("API [{}] 的JSON响应中, 路径 '{}' 未找到或内容为空. Body: {}",
+                            endpoint.getName(), textPath, getBodySnippet(responseBody));
+                    return Optional.empty();
+                }
+
+                // "author" 字段是可选的
+                String authorPath = mappings.get("author");
+                String author = StringUtils.hasText(authorPath) ? getNodeText(root, authorPath) : null;
+
+                return Optional.of(Sentence.of(text, author));
             }
-        } catch (IOException e) {
-            log.error("解析响应体失败: {}", e.getMessage());
+        } catch (IOException e) { // 包括 JsonProcessingException
+            log.error("API [{}] 的响应无法解析为JSON. Body: {}. 错误: {}",
+                    endpoint.getName(), getBodySnippet(responseBody), e.getMessage());
         }
         return Optional.empty();
     }
@@ -145,10 +167,20 @@ public class HttpSentenceRepository implements SentenceRepository {
         if (root == null || !StringUtils.hasText(path)) {
             return null;
         }
-        // 如果路径以'/'开头，则使用JSON Pointer的at()方法；否则，使用常规的path()方法。
-        // 这使得解析器能同时支持 "key" 和 "/pointer/to/key" 两种格式。
         JsonNode node = path.startsWith("/") ? root.at(path) : root.path(path);
-        return node.isMissingNode() ? null : node.asText();
+        // 使用 .textValue() 代替 .asText()。
+        // .textValue() 只在节点是真实文本时返回值，对于JSON null、对象、数组等均返回null。
+        // 这能有效避免将 "null" 字符串或 "{...}" 作为一言内容。
+        return node.isMissingNode() ? null : node.textValue();
+    }
+
+    /**
+     * 获取响应体内容的片段，用于日志记录。
+     * @param body 响应体字符串
+     * @return 最多前300个字符的片段
+     */
+    private String getBodySnippet(String body) {
+        return body.substring(0, Math.min(body.length(), 300));
     }
 
     /**
