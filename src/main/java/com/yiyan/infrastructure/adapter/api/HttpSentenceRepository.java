@@ -89,45 +89,37 @@ public class HttpSentenceRepository implements SentenceRepository {
             }
         }
 
-        // 注意：此处不再需要手动过滤 e.isDisabled()，因为熔断器会自动处理
-        List<ApiProperties.ApiEndpoint> availableEndpoints = new ArrayList<>(apiProperties.getEndpoints());
-
+        List<ApiProperties.ApiEndpoint> availableEndpoints = apiProperties.getEndpoints();
         if (availableEndpoints.isEmpty()) {
             log.warn("🤷‍ API列表为空，无法获取数据。");
             return Optional.empty();
         }
 
-        Collections.shuffle(availableEndpoints);
+        // 2. 随机选择一个API进行尝试
+        ApiProperties.ApiEndpoint endpoint = availableEndpoints.get(ThreadLocalRandom.current().nextInt(availableEndpoints.size()));
 
-        // 2. 遍历所有可用的API，直到成功或全部失败
-        for (ApiProperties.ApiEndpoint endpoint : availableEndpoints) {
-            log.info("⏳ 尝试从API [{}] 获取数据...", endpoint.getName());
-            try {
-                // 将 skipValidation 参数传递给 attemptFetch
-                Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
-                if (sentence.isPresent()) {
-                    log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
-                    return sentence; // 成功获取，立即返回
-                }
-                // 如果返回 Optional.empty()，说明是"数据"或"逻辑"错误，非网络问题，循环将继续尝试下一个API
-            } catch (io.github.resilience4j.circuitbreaker.CallNotPermittedException e) {
-                // 熔断器处于打开状态，直接跳过此API
-                log.warn(" CIRCUIT_BREAKER is OPEN for API [{}]. Skipping.", endpoint.getName());
-            } catch (IOException e) {
-                // 3. 如果是网络问题，则进入冷却期并中断本次所有尝试
-                log.warn("🚨 检测到网络连接问题 (API: {}). 将暂停获取 {} 秒。", endpoint.getName(), NETWORK_COOLDOWN_DURATION_MS / 1000);
-                this.networkErrorCooldown = true;
-                this.networkErrorCooldownEndTimestamp = System.currentTimeMillis() + NETWORK_COOLDOWN_DURATION_MS;
-                break; // 中断 for 循环，不再尝试其他API
-            } catch (Exception e) {
-                // 捕获其他意料之外的异常，以防循环中断
-                log.error("处理API [{}] 时发生意外错误: {}", endpoint.getName(), e.getMessage());
+        log.info("⏳ 尝试从随机选择的API [{}] 获取数据...", endpoint.getName());
+        try {
+            Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
+            if (sentence.isPresent()) {
+                log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
+                return sentence; // 成功获取，立即返回
             }
+        } catch (io.github.resilience4j.circuitbreaker.CallNotPermittedException e) {
+            // 熔断器处于打开状态，直接跳过此API
+            log.warn(" CIRCUIT_BREAKER is OPEN for API [{}]. Skipping.", endpoint.getName());
+        } catch (IOException e) {
+            // 3. 如果是网络问题，则进入冷却期
+            log.warn("🚨 检测到网络连接问题 (API: {}). 将暂停获取 {} 秒。", endpoint.getName(), NETWORK_COOLDOWN_DURATION_MS / 1000);
+            this.networkErrorCooldown = true;
+            this.networkErrorCooldownEndTimestamp = System.currentTimeMillis() + NETWORK_COOLDOWN_DURATION_MS;
+        } catch (Exception e) {
+            // 捕获其他意料之外的异常
+            log.error("处理API [{}] 时发生意外错误: {}", endpoint.getName(), e.getMessage(), e);
         }
 
-        if (!networkErrorCooldown) {
-            log.warn("🤷 尝试了所有可用API后，仍未能获取到有效的一言。");
-        }
+        // 如果执行到这里，说明尝试失败
+        log.warn("🤷 本次尝试未能从API [{}] 获取到有效的一言。", endpoint.getName());
         return Optional.empty();
     }
 
