@@ -24,15 +24,23 @@ public class AnimationService {
         // 创建淡出定时器
         Timer fadeOutTimer = new Timer(FADE_INTERVAL_MS, e -> {
             float newAlpha = getAlpha(container) - FADE_STEP;
+            // 确保透明度不会低于0
+            if (newAlpha < 0.0f) {
+                newAlpha = 0.0f;
+            }
             setAlpha(container, newAlpha);
 
-            if (newAlpha <= 0.0f) {
+            if (newAlpha == 0.0f) {
                 ((Timer) e.getSource()).stop();
-                // 淡出完成后，更新文本内容，然后开始淡入
+                
+                // 关键修复：将更新操作放入EDT队列末尾，而不是立即执行。
+                // 这可以防止更新操作（特别是本地调用）阻塞后续的淡入动画。
                 if (updateAction != null) {
-                    updateAction.run();
+                    SwingUtilities.invokeLater(updateAction);
                 }
-                runFadeIn(container);
+                
+                // 同样使用invokeLater来确保淡入动画在前一个事件处理完成后再开始
+                SwingUtilities.invokeLater(() -> runFadeIn(container));
             }
         });
         fadeOutTimer.setInitialDelay(0);
@@ -44,12 +52,20 @@ public class AnimationService {
      * @param container     应用动画的容器。
      */
     private void runFadeIn(Container container) {
+        // 先确保组件是可见的，以防万一
+        if (!container.isVisible()) {
+            container.setVisible(true);
+        }
         // 创建淡入定时器
         Timer fadeInTimer = new Timer(FADE_INTERVAL_MS, e -> {
             float newAlpha = getAlpha(container) + FADE_STEP;
+            // 确保透明度不会超过1
+            if (newAlpha > 1.0f) {
+                newAlpha = 1.0f;
+            }
             setAlpha(container, newAlpha);
 
-            if (newAlpha >= 1.0f) {
+            if (newAlpha == 1.0f) {
                 ((Timer) e.getSource()).stop();
             }
         });
