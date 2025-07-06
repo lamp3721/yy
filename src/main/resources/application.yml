@@ -35,6 +35,7 @@ logging:
 
 # 一言 API 端点配置
 yiyan:
+  default-user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
   max-text-length: 60 # "一言"文本的最大长度，超过则丢弃
   endpoints:
     - name: "hitokoto.cn"

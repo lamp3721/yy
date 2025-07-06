@@ -30,6 +30,12 @@ public class ApiProperties {
     private int maxTextLength = 60;
 
     /**
+     * 用于模拟浏览器的默认 User-Agent。
+     * 如果单个端点没有指定自己的headers，则会使用此值。
+     */
+    private String defaultUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";
+
+    /**
      * 存储所有API端点配置的列表
      */
     private List<ApiEndpoint> endpoints = new ArrayList<>();
