@@ -42,19 +42,17 @@ public class MainFrame extends JFrame {
         sentenceLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // 创建用于显示作者的 JLabel
-        authorLabel = new JLabel("", SwingConstants.CENTER);
+        authorLabel = new JLabel("", SwingConstants.RIGHT);
         authorLabel.setFont(authorFont);
         authorLabel.setForeground(new Color(200, 200, 200));
-        authorLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         authorLabel.setVisible(false); // 默认隐藏
 
         // 使用一个垂直的BoxLayout来布局主内容面板
-        JPanel contentPanel = new JPanel();
-        contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+        JPanel contentPanel = new JPanel(new BorderLayout());
         contentPanel.setOpaque(false);
-        contentPanel.add(sentenceLabel);
-        contentPanel.add(Box.createRigidArea(new Dimension(0, 5))); // 添加一点间距
-        contentPanel.add(authorLabel);
+        contentPanel.add(sentenceLabel, BorderLayout.CENTER);
+        contentPanel.add(authorLabel, BorderLayout.SOUTH);
+        sentenceLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 
         // 将内容面板添加到窗口
         add(contentPanel, BorderLayout.CENTER);
@@ -75,7 +73,7 @@ public class MainFrame extends JFrame {
 
     /**
      * 设置窗口的文本内容，并自动调整大小。
-     * @param sentence 要显示的“一言”对象。
+     * @param sentence 要显示的"一言"对象。
      */
     public void updateSentence(Sentence sentence) {
         sentenceLabel.setText(" " + sentence.getText() + " ");
