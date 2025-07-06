@@ -1,0 +1,3 @@
+scheduler:
+  min-delay-seconds: 10 # 开发环境使用10秒
+  max-delay-seconds: 30 # 开发环境使用30秒 

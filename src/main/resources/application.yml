@@ -6,12 +6,15 @@ server:
 spring:
   application:
     name: Yiyan-Desktop
+  profiles:
+    active: prod # dev prod
   main:
     banner-mode: "off" # 关闭启动时的 Banner
+
 # 调度器配置
-scheduler:
-  min-delay-seconds: 10 # 最小随机延迟（秒）
-  max-delay-seconds: 30 # 最大随机延迟（秒）
+# scheduler:
+#  min-delay-seconds: 10 # 最小随机延迟（秒）
+#  max-delay-seconds: 30 # 最大随机延迟（秒）
 
 # 日志配置
 logging:
