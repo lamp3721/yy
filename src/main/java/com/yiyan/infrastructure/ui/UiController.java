@@ -57,6 +57,7 @@ public class UiController implements ViewCallback {
      */
     @EventListener
     public void onSentenceFetched(SentenceFetchedEvent event) {
+        // 使用 SwingUtilities.invokeLater() 方法，确保更新UI操作在EDT线程中执行
         SwingUtilities.invokeLater(() -> updateViewWithAnimation(event.getSentence()));
     }
 
@@ -64,6 +65,7 @@ public class UiController implements ViewCallback {
      * 使用动画更新视图。
      */
     private void updateViewWithAnimation(Sentence sentence) {
+        // 创建一个Runnable对象，用于更新UI
         Runnable updateAction = () -> {
             view.sendToBottom();
             view.setSentenceText(" " + sentence.getText() + " ");

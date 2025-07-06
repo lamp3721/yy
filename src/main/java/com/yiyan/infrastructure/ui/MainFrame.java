@@ -68,7 +68,7 @@ public class MainFrame extends JFrame implements SentenceView {
     }
 
     private void configureWindow() {
-        setTitle("一言");
+        setTitle("qq:2932349894");
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0)); // 全透明背景
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -193,6 +193,7 @@ public class MainFrame extends JFrame implements SentenceView {
     public void setSentenceText(String text) {
         String html = buildHtmlWithFallback(text, customFont, fallbackFont, sentenceLabel.getForeground());
         this.sentenceLabel.setText(html);
+        //重新计算窗口大小
         pack();
     }
 
