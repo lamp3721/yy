@@ -14,6 +14,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PlainTextSentenceParser implements SentenceParser {
 
+    /**
+     * API配置属性，用于获取如最大文本长度等全局配置
+     */
     private final ApiProperties apiProperties;
 
     @Override

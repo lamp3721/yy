@@ -17,6 +17,9 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class ApiSelfCheckRunner implements ApplicationListener<ApplicationReadyEvent> {
 
+    /**
+     * "一言"的HTTP数据仓库，自检程序将调用其API检查方法
+     */
     private final HttpSentenceRepository sentenceRepository;
 
     @Override

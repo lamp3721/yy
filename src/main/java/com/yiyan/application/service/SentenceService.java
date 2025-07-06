@@ -19,7 +19,13 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class SentenceService implements ManualRequestService {
 
+    /**
+     * "一言"数据仓库，负责从不同来源获取"一言"
+     */
     private final SentenceRepository sentenceRepository;
+    /**
+     * Spring应用事件发布器，用于在获取到新的"一言"后通知其他组件
+     */
     private final ApplicationEventPublisher eventPublisher;
 
     @Override

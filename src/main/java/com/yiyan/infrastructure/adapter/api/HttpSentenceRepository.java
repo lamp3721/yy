@@ -41,8 +41,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HttpSentenceRepository implements SentenceRepository {
 
+    /**
+     * API配置属性，包含了所有API端点的信息和全局设置
+     */
     private final ApiProperties apiProperties;
+    /**
+     * OkHttp客户端，用于执行HTTP请求
+     */
     private final OkHttpClient httpClient;
+    /**
+     * 解析器工厂，根据API配置动态提供合适的解析器实例
+     */
     private final SentenceParserFactory parserFactory;
 
     // 网络错误冷却状态

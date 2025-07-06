@@ -23,8 +23,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @RequiredArgsConstructor
 public class ApiConfigLoader implements CommandLineRunner {
 
+    /**
+     * API配置属性，用于存储从配置文件加载的API端点列表
+     */
     private final ApiProperties apiProperties;
+    /**
+     * Spring资源加载器，用于根据路径加载文件
+     */
     private final ResourceLoader resourceLoader;
+    /**
+     * Jackson的ObjectMapper，用于将JSON文件内容反序列化为Java对象
+     */
     private final ObjectMapper objectMapper;
     private final AtomicBoolean ready = new AtomicBoolean(false);
 

@@ -20,8 +20,14 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class JsonSentenceParser implements SentenceParser {
 
+    /**
+     * Jackson的核心，用于将JSON字符串转换为JsonNode对象
+     */
     private final ObjectMapper objectMapper;
-    private final ApiProperties apiProperties; // 注入ApiProperties以获取maxTextLength等全局配置
+    /**
+     * API配置属性，用于获取如最大文本长度等全局配置
+     */
+    private final ApiProperties apiProperties;
 
     @Override
     public Optional<Sentence> parse(String responseBody, ApiProperties.ApiEndpoint endpoint, boolean skipValidation) {

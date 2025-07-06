@@ -21,12 +21,22 @@ import javax.swing.*;
 @RequiredArgsConstructor
 public class UiController implements ViewCallback {
 
-    // --- 模型层依赖 ---
+    /**
+     * 手动请求服务，用于触发异步获取新的"一言"
+     */
     private final ManualRequestService manualRequestService;
 
-    // --- 视图层依赖 ---
+    /**
+     * "一言"视图，UI控制器通过此接口更新界面
+     */
     private final SentenceView view; // 依赖接口而非实现
+    /**
+     * 桌面管理器，用于处理窗口在桌面上的位置和行为
+     */
     private final DesktopManager desktopManager;
+    /**
+     * 动画服务，提供UI元素的动画效果
+     */
     private final AnimationService animationService;
 
     // --- UI状态 ---

@@ -23,9 +23,17 @@ public class MainFrame extends JFrame implements SentenceView {
     private final JLabel sentenceLabel;
     private final JLabel authorLabel;
 
-    // --- 依赖 ---
+    /**
+     * 动画服务，用于实现窗口的淡入淡出效果
+     */
     private final AnimationService animationService;
+    /**
+     * 桌面管理器，处理窗口在桌面上的层级关系
+     */
     private final DesktopManager desktopManager;
+    /**
+     * 右键弹出菜单工厂，用于创建自定义的上下文菜单
+     */
     private final PopupMenuFactory popupMenuFactory;
 
     // --- MVP ---

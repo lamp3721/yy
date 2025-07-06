@@ -14,6 +14,11 @@ import java.util.Optional;
 @Slf4j
 public class SentenceParserFactory {
 
+    /**
+     * 存储所有已注册的解析器Bean的Map，
+     * Spring通过构造函数自动注入所有SentenceParser接口的实现。
+     * Key是Bean的名称(例如 "json"), Value是对应的解析器实例。
+     */
     private final Map<String, SentenceParser> parsers;
 
     /**

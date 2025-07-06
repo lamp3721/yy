@@ -23,9 +23,21 @@ import java.util.concurrent.ThreadLocalRandom;
 @Slf4j
 public class DynamicScheduler {
 
+    /**
+     * Spring的任务调度器，用于安排和执行定时任务
+     */
     private final TaskScheduler taskScheduler;
+    /**
+     * "一言"应用服务，负责核心的业务逻辑
+     */
     private final SentenceService sentenceService;
+    /**
+     * 调度器配置属性，包含最小/最大延迟等
+     */
     private final SchedulerProperties schedulerProperties;
+    /**
+     * API配置加载器，调度器需要等待其加载完成后再开始
+     */
     private final ApiConfigLoader apiConfigLoader;
 
     /**
