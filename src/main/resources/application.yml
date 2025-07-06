@@ -64,6 +64,9 @@ yiyan:
 
     - name: "iamwawa.cn-lizhi"
       url: "https://www.iamwawa.cn/home/lizhi/ajax"
+      headers:
+        Referer: "https://www.iamwawa.cn/home/lizhi"
+        X-Requested-With: "XMLHttpRequest"
       parser:
         mappings:
           text: "data"
@@ -101,6 +104,9 @@ yiyan:
 
     - name: "iamwawa.cn-shici"
       url: "https://www.iamwawa.cn/home/shici/ajax"
+      headers:
+        Referer: "https://www.iamwawa.cn/home/shici"
+        X-Requested-With: "XMLHttpRequest"
       parser:
         mappings:
           text: "/data/content"

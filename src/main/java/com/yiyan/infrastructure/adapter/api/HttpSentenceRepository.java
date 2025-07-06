@@ -114,9 +114,12 @@ public class HttpSentenceRepository implements SentenceRepository {
     }
 
     private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint) throws IOException {
+        // 准备请求头，并应用默认的 User-Agent
+        okhttp3.Headers headers = buildHeaders(endpoint);
+
         Request request = new Request.Builder()
                 .url(endpoint.getUrl())
-                .headers(okhttp3.Headers.of(endpoint.getHeaders() != null ? endpoint.getHeaders() : new java.util.HashMap<>()))
+                .headers(headers)
                 .build();
 
         // IOException 将从此向上抛出，由 findRandomSentence 捕获
@@ -144,6 +147,31 @@ public class HttpSentenceRepository implements SentenceRepository {
 
             return parseSentence(responseBody, contentType, endpoint);
         }
+    }
+
+    /**
+     * 构建请求头。
+     * 如果端点配置中没有提供User-Agent，则使用默认的User-Agent。
+     * @param endpoint API端点配置
+     * @return OkHttp的Headers对象
+     */
+    private okhttp3.Headers buildHeaders(ApiProperties.ApiEndpoint endpoint) {
+        Map<String, String> endpointHeaders = new java.util.HashMap<>();
+
+        // 1. 复制端点自定义的头信息
+        if (endpoint.getHeaders() != null) {
+            endpointHeaders.putAll(endpoint.getHeaders());
+        }
+
+        // 2. 检查是否存在User-Agent（不区分大小写），如果不存在，则添加默认值
+        boolean hasUserAgent = endpointHeaders.keySet().stream()
+                .anyMatch(key -> key.equalsIgnoreCase("User-Agent"));
+
+        if (!hasUserAgent && StringUtils.hasText(apiProperties.getDefaultUserAgent())) {
+            endpointHeaders.put("User-Agent", apiProperties.getDefaultUserAgent());
+        }
+
+        return okhttp3.Headers.of(endpointHeaders);
     }
 
     private Optional<Sentence> parseSentence(String responseBody, String contentType, ApiProperties.ApiEndpoint endpoint) {
