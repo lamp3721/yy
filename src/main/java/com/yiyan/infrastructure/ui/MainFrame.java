@@ -159,19 +159,20 @@ public class MainFrame extends JFrame {
                 if (SwingUtilities.isLeftMouseButton(e)) {
                     offset = e.getPoint();
                 }
+                // 检查是否需要弹出菜单（在某些系统上，按下鼠标时触发）
+                showPopupMenuIfNeeded(e);
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    // 在释放鼠标时（在macOS和某些Linux上）显示弹出菜单
-                    showPopupMenu(e);
-                }
+                // 检查是否需要弹出菜单（在另一些系统上，释放鼠标时触发）
+                showPopupMenuIfNeeded(e);
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                if (isPositionLocked || !SwingUtilities.isLeftMouseButton(e)) {
+                // 防御性编程：如果拖拽事件来自窗口外部，offset可能为null
+                if (offset == null || isPositionLocked || !SwingUtilities.isLeftMouseButton(e)) {
                     return;
                 }
                 // 根据鼠标拖动更新窗口位置（只允许Y轴移动）
@@ -184,9 +185,10 @@ public class MainFrame extends JFrame {
                 centerOnScreen(); // 拖动时也强制水平居中
             }
 
-            private void showPopupMenu(MouseEvent e) {
-                // 在事件发生的位置显示菜单
-                createPopupMenu().show(e.getComponent(), e.getX(), e.getY());
+            private void showPopupMenuIfNeeded(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    createPopupMenu().show(e.getComponent(), e.getX(), e.getY());
+                }
             }
         };
         addMouseListener(adapter);
