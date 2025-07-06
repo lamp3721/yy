@@ -129,9 +129,9 @@ public class HttpSentenceRepository implements SentenceRepository {
         try {
             // --- JSON Parser Logic ---
             if ("json".equalsIgnoreCase(parserConfig.getType())) {
-                // 1. Content-Type validation for JSON
-                if (contentType == null || !contentType.toLowerCase().contains("application/json")) {
-                    log.warn("⚠️ API [{}] 期望JSON(application/json)但收到了'{}'类型, 将丢弃. Body: {}",
+                // 1. Content-Type validation for JSON. Allow both 'application/json' and 'text/json'.
+                if (contentType == null || !contentType.toLowerCase().contains("json")) {
+                    log.warn("⚠️ API [{}] 期望JSON类型但收到了'{}'类型(不含'json'), 将丢弃. Body: {}",
                             endpoint.getName(), contentType, getBodySnippet(responseBody));
                     return Optional.empty();
                 }
