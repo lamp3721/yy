@@ -42,7 +42,7 @@ yiyan:
       parser:
         mappings:
           text: "/hitokoto"
-          author: "/from"
+          author: "from"
 
     - name: "api.xygeng.cn"
       url: "https://api.xygeng.cn/one"
@@ -54,8 +54,7 @@ yiyan:
     - name: "uapis.cn"
       url: "https://uapis.cn/api/say"
       parser:
-        mappings:
-          text: "/text" # 这个API可能没有作者字段
+        type: "plain_text"
 
     - name: "oddfar.com"
       url: "https://api.oddfar.com/yl/q.php"
@@ -66,13 +65,13 @@ yiyan:
       url: "https://www.iamwawa.cn/home/lizhi/ajax"
       parser:
         mappings:
-          text: "/data"
+          text: "data"
 
     - name: "aa1.cn-wenan"
       url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
       parser:
         mappings:
-          text: "/msg"
+          text: "msg"
 
     - name: "wudada.online"
       url: "http://www.wudada.online/Api/MrYy"
@@ -85,19 +84,19 @@ yiyan:
       url: "https://api.mu-jie.cc/stray-birds/range?type=json"
       parser:
         mappings:
-          text: "/cn"
+          text: "cn"
 
     - name: "apihz.cn"
       url: "https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888"
       parser:
         mappings:
-          text: "/msg"
+          text: "msg"
 
     - name: "aa1.cn-pyq"
       url: "https://v.api.aa1.cn/api/pyq/index.php?aa1=json"
       parser:
         mappings:
-          text: "/pyq"
+          text: "pyq"
 
     - name: "iamwawa.cn-shici"
       url: "https://www.iamwawa.cn/home/shici/ajax"
@@ -117,8 +116,8 @@ yiyan:
       url: "https://v1.jinrishici.com/all"
       parser:
         mappings:
-          text: "/content"
-          author: "/author"
+          text: "content"
+          author: "author"
 
     - name: "dwo.cc"
       url: "https://api.dwo.cc/api/yi?api=yan"
@@ -135,13 +134,13 @@ yiyan:
       url: "https://v2.api-m.com/api/yiyan?type=hitokoto"
       parser:
         mappings:
-          text: "/data"
+          text: "data"
 
     - name: "api-m.com-poetry"
       url: "https://v2.api-m.com/api/yiyan?type=poetry"
       parser:
         mappings:
-          text: "/data"
+          text: "data"
 
     - name: "hhlqilongzhu.cn"
       url: "https://www.hhlqilongzhu.cn/api/yiyan.php"
