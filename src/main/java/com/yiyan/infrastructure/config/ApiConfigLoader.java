@@ -52,6 +52,7 @@ public class ApiConfigLoader implements CommandLineRunner {
         try {
             Resource resource = resourceLoader.getResource(path);
             try (InputStream inputStream = resource.getInputStream()) {
+                // 使用ObjectMapper将JSON文件内容反序列化为List<ApiEndpoint>
                 List<ApiProperties.ApiEndpoint> loadedEndpoints = objectMapper.readValue(inputStream, new TypeReference<>() {});
                 apiProperties.setEndpoints(loadedEndpoints);
                 log.info("✅ 成功加载了 {} 个API端点。", loadedEndpoints.size());

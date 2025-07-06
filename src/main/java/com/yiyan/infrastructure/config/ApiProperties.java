@@ -89,41 +89,5 @@ public class ApiProperties {
          * Value 是在JSON响应中的路径 (如 "hitokoto", "/data/content")。
          */
         private Map<String, String> mappings = new HashMap<>();
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public Map<String, String> getMappings() {
-            return mappings;
-        }
-
-        public void setMappings(Map<String, String> mappings) {
-            this.mappings = mappings;
-        }
-
-        @Deprecated
-        public void setTextPath(String textPath) {
-            // 保持向后兼容，如果旧的textPath存在，则自动转换为新的mappings格式
-            if (StringUtils.hasText(textPath)) {
-                this.mappings.put("text", textPath);
-            }
-        }
-    }
-
-    public int getMaxTextLength() {
-        return maxTextLength;
-    }
-
-    public void setMaxTextLength(int maxTextLength) {
-        this.maxTextLength = maxTextLength;
-    }
-
-    public List<ApiEndpoint> getEndpoints() {
-        return endpoints;
     }
 } 
