@@ -109,8 +109,8 @@ yiyan:
       url: "https://api.nnxv.cn/api/yiyan.php"
       parser:
         mappings:
-          text: "/content"
-          author: "/data/from"
+          text: "content"
+          author: "from"
 
     - name: "jinrishici.com"
       url: "https://v1.jinrishici.com/all"

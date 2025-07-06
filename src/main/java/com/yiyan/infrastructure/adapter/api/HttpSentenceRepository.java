@@ -151,6 +151,12 @@ public class HttpSentenceRepository implements SentenceRepository {
         try {
             // --- JSON Parser Logic ---
             if ("json".equalsIgnoreCase(parserConfig.getType())) {
+                // 增加HTML内容嗅探
+                if (responseBody.trim().toLowerCase().matches("(?s)^<(!doctype|html).*")) {
+                    log.error("❌ API [{}] 配置为JSON类型, 但返回了HTML页面, 请检查API有效性或更换. Body: {}", endpoint.getName(), getBodySnippet(responseBody));
+                    return Optional.empty();
+                }
+
                 // 1. Content-Type validation for JSON. Allow both 'application/json' and 'text/json'.
                 if (contentType == null || !contentType.toLowerCase().contains("json")) {
                     log.warn("⚠️ API [{}] 期望JSON类型但收到了'{}'类型(不含'json'), 将丢弃. Body: {}",
