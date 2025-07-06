@@ -6,68 +6,94 @@ import com.yiyan.core.domain.Sentence;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
-import org.springframework.stereotype.Controller;
-
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import javax.swing.*;
 
 /**
- * UI控制器，负责监听应用事件并协调UI组件的更新。
+ * UI的展示器（Presenter），负责连接模型（应用服务）和视图（SentenceView）。
  * <p>
- * 这是连接应用层（事件）和基础设施层（UI视图）的桥梁。
+ * 它实现了 ViewCallback 接口来接收来自视图的用户操作，
+ * 并通过持有 SentenceView 接口来命令视图更新。
  */
-@Controller
+@Component
 @RequiredArgsConstructor
-public class UiController {
+public class UiController implements ViewCallback {
 
-    private final MainFrame mainFrame;
-    private final AnimationService animationService;
-    private final DesktopManager desktopManager;
+    // --- 模型层依赖 ---
     private final ManualRequestService manualRequestService;
 
+    // --- 视图层依赖 ---
+    private final SentenceView view; // 依赖接口而非实现
+    private final DesktopManager desktopManager;
+    private final AnimationService animationService;
+
+    // --- UI状态 ---
+    private boolean isPositionLocked = false;
+    private boolean isAuthorVisible = false;
+
     /**
-     * 初始化UI控制器，将自身注入到MainFrame中，以便进行回调。
+     * 初始化Presenter，将自身作为回调注入到View中。
      */
     @PostConstruct
     public void initialize() {
-        mainFrame.setUiController(this);
+        view.setCallback(this);
+        // 回调设置完毕后，立即命令View根据初始状态构建其UI组件
+        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
     }
 
     /**
      * 监听"一言"获取成功事件。
-     *
-     * @param event 包含新"一言"数据的事件。
      */
     @EventListener
     public void onSentenceFetched(SentenceFetchedEvent event) {
-        // 确保UI更新在Swing的事件调度线程上执行
-        SwingUtilities.invokeLater(() -> updateUiWithAnimation(event.getSentence()));
+        SwingUtilities.invokeLater(() -> updateViewWithAnimation(event.getSentence()));
     }
 
     /**
-     * 处理手动刷新请求。
+     * 使用动画更新视图。
      */
-    public void handleManualRefresh() {
+    private void updateViewWithAnimation(Sentence sentence) {
+        Runnable updateAction = () -> {
+            view.sendToBottom();
+            view.setSentenceText(" " + sentence.getText() + " ");
+            view.setAuthorText(
+                    StringUtils.hasText(sentence.getAuthor()) ? "—— " + sentence.getAuthor() : null,
+                    isAuthorVisible
+            );
+            if (!isPositionLocked) {
+                view.centerOnScreen();
+            }
+        };
+        view.runDisplayAnimation(updateAction);
+    }
+
+    // --- ViewCallback 接口实现 ---
+
+    @Override
+    public void onRefreshRequested() {
         manualRequestService.requestNewSentenceAsync();
     }
 
-    /**
-     * 使用动画更新UI。
-     *
-     * @param sentence 最新的"一言"数据。
-     */
-    private void updateUiWithAnimation(Sentence sentence) {
-        // 定义文本更新操作
-        Runnable updateAction = () -> {
-            // 将窗口置于底层
-            desktopManager.sendToBottom(mainFrame);
-            // 更新文本内容和作者
-            mainFrame.updateSentence(sentence);
-            // 水平居中，但保持Y轴位置不变
-            mainFrame.centerOnScreen();
-        };
+    @Override
+    public void onLockStateChanged(boolean isLocked) {
+        this.isPositionLocked = isLocked;
+        // 状态变更后，命令View重建UI以反映新状态
+        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
+    }
 
-        // 执行淡出后淡入的动画序列
-        animationService.runFadeSequence(mainFrame, updateAction);
+    @Override
+    public void onAuthorVisibilityChanged(boolean isVisible) {
+        this.isAuthorVisible = isVisible;
+        // 状态变更后，命令View重建UI以反映新状态
+        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
+        // 手动刷新一次以应用作者可见性变更
+        manualRequestService.requestNewSentenceAsync();
+    }
+
+    @Override
+    public void onExitRequested() {
+        System.exit(0);
     }
 } 

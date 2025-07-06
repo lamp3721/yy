@@ -5,8 +5,11 @@ import com.sun.jna.Pointer;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.awt.*;
 
 import static com.sun.jna.platform.win32.WinUser.SWP_NOMOVE;
@@ -22,6 +25,7 @@ import static com.sun.jna.platform.win32.WinUser.SWP_NOSIZE;
 public class DesktopManager {
 
     private static final boolean IS_WINDOWS = System.getProperty("os.name").toLowerCase().startsWith("windows");
+    private static final Logger LOGGER = LoggerFactory.getLogger(DesktopManager.class);
 
     /**
      * 将指定的窗口置于桌面底层。
@@ -33,6 +37,12 @@ public class DesktopManager {
     public void sendToBottom(Window window) {
         if (!IS_WINDOWS) {
             log.warn("当前非 Windows 系统，无法执行窗口置底操作。");
+            return;
+        }
+
+        // 防御性检查：确保组件已在屏幕上显示，拥有可用的本地窗口句柄。
+        if (!window.isDisplayable()) {
+            LOGGER.warn("无法将窗口置底，因为它当前不可显示。将跳过此操作。");
             return;
         }
 

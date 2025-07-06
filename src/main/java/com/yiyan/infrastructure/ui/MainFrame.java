@@ -2,8 +2,7 @@ package com.yiyan.infrastructure.ui;
 
 import com.yiyan.core.domain.Sentence;
 import jakarta.annotation.PostConstruct;
-import lombok.Getter;
-
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.swing.*;
@@ -11,271 +10,174 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.InputStream;
-import java.awt.datatransfer.StringSelection;
+import java.util.Objects;
 
 /**
- * UI主窗口 (JFrame)，负责创建和管理应用的基本窗口框架。
+ * 应用程序的主窗口（JFrame），实现了 SentenceView 接口。
+ * <p>
+ * 它作为MVP模式中的"视图（View）"，负责所有Swing组件的渲染和布局，
+ * 并将用户交互事件通过 ViewCallback 接口委托给Presenter（UiController）处理。
  */
-@org.springframework.stereotype.Component
-@Getter
-public class MainFrame extends JFrame {
-
+@Component
+public class MainFrame extends JFrame implements SentenceView {
     private final JLabel sentenceLabel;
     private final JLabel authorLabel;
-    private Font customFont;
-    private Font authorFont;
-    private UiController uiController; // 回调到UI控制器
-    private boolean isPositionLocked = false; // 窗口位置锁定状态
-    private boolean isAuthorVisible = false; // 是否显示作者，默认为false
 
-    public MainFrame() {
-        // 初始化窗口基本属性
+    // --- 依赖 ---
+    private final AnimationService animationService;
+    private final DesktopManager desktopManager;
+    private final PopupMenuFactory popupMenuFactory;
+
+    // --- MVP ---
+    private ViewCallback callback;
+
+    // --- 状态 ---
+    private boolean isPositionLocked = false;
+    private boolean isAuthorVisible = false;
+    private JPopupMenu popupMenu;
+
+    // --- 拖拽 ---
+    private Point initialClick;
+
+    public MainFrame(AnimationService animationService, DesktopManager desktopManager, PopupMenuFactory popupMenuFactory) {
+        this.animationService = animationService;
+        this.desktopManager = desktopManager;
+        this.popupMenuFactory = popupMenuFactory;
+        this.sentenceLabel = new JLabel();
+        this.authorLabel = new JLabel();
+        configureWindow();
+        createLayoutAndLabels();
+        addMouseListeners();
+    }
+    
+    @Override
+    public void setCallback(ViewCallback callback) {
+        this.callback = callback;
+    }
+
+    private void configureWindow() {
         setTitle("一言");
-        setType(JFrame.Type.UTILITY); // 不在任务栏显示图标
-        setUndecorated(true); // 无边框
-        setBackground(new Color(0, 0, 0, 0)); // 背景透明
-        setAlwaysOnTop(true); // 初始时总在最前
+        setUndecorated(true);
+        setBackground(new Color(0, 0, 0, 0)); // 全透明背景
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setType(Type.UTILITY); // 任务栏不可见
+    }
 
-        // 加载自定义字体
-        loadCustomFont();
+    private void createLayoutAndLabels() {
+        setLayout(new BorderLayout());
 
-        // 创建用于显示文本的 JLabel
-        sentenceLabel = new JLabel("正在获取一言...", SwingConstants.CENTER);
-        sentenceLabel.setFont(customFont);
-        sentenceLabel.setForeground(new Color(0, 255, 191));
-        sentenceLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // 主标签
+        sentenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        sentenceLabel.setVerticalAlignment(SwingConstants.CENTER);
+        sentenceLabel.setForeground(new Color(0, 255, 191)); // 恢复原来的颜色
+        sentenceLabel.setFont(loadCustomFont());
+        sentenceLabel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        add(sentenceLabel, BorderLayout.CENTER);
 
-        // 创建用于显示作者的 JLabel
-        authorLabel = new JLabel("", SwingConstants.RIGHT);
-        authorLabel.setFont(authorFont);
-        authorLabel.setForeground(new Color(200, 200, 200));
+        // 作者标签
+        authorLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+        authorLabel.setVerticalAlignment(SwingConstants.CENTER);
+        authorLabel.setForeground(new Color(200, 200, 200)); // 稍暗的颜色
+        authorLabel.setFont(sentenceLabel.getFont().deriveFont(Font.PLAIN, 16f));
+        authorLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 25));
         authorLabel.setVisible(false); // 默认隐藏
-
-        // 使用一个垂直的BoxLayout来布局主内容面板
-        JPanel contentPanel = new JPanel(new BorderLayout());
-        contentPanel.setOpaque(false);
-        contentPanel.add(sentenceLabel, BorderLayout.CENTER);
-        contentPanel.add(authorLabel, BorderLayout.SOUTH);
-        sentenceLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
-
-        // 将内容面板添加到窗口
-        add(contentPanel, BorderLayout.CENTER);
-
-        // 添加鼠标拖动功能
-        setupMouseListener();
-
-        // 创建右键弹出菜单
-        createPopupMenu();
+        add(authorLabel, BorderLayout.SOUTH);
     }
 
-    /**
-     * 在Bean初始化后执行，完成窗口的最终设置并显示。
-     */
-    @PostConstruct
-    private void init() {
-        pack(); // 根据内容调整窗口大小
-        setLocationRelativeTo(null); // 初始居中
-        setVisible(true);
-    }
-
-    /**
-     * 设置UI控制器，由UiController在初始化时调用。
-     */
-    public void setUiController(UiController uiController) {
-        this.uiController = uiController;
-    }
-
-    /**
-     * 设置窗口的文本内容，并自动调整大小。
-     * @param sentence 要显示的"一言"对象。
-     */
-    public void updateSentence(Sentence sentence) {
-        sentenceLabel.setText(" " + sentence.getText() + " ");
-
-        // 根据isAuthorVisible状态和作者是否存在，共同决定是否显示authorLabel
-        if (isAuthorVisible && StringUtils.hasText(sentence.getAuthor())) {
-            authorLabel.setText("—— " + sentence.getAuthor());
-            authorLabel.setVisible(true);
-        } else {
-            authorLabel.setVisible(false);
-        }
-
-        // 如果位置被锁定，则只重新计算大小，不移动位置
-        if (isPositionLocked) {
-            pack();
-        } else {
-            pack(); // 重新计算窗口大小
-            centerOnScreen(); // 然后水平居中
-        }
-    }
-
-    /**
-     * 将窗口在屏幕上水平居中，除非位置被锁定。
-     */
-    public void centerOnScreen() {
-        if (isPositionLocked) {
-            return; // 如果位置锁定，则不执行任何操作
-        }
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int newX = (screenSize.width - getWidth()) / 2;
-        setLocation(newX, getY());
-    }
-
-    /**
-     * 将窗口定位到屏幕垂直方向的三分之一处。
-     */
-    public void positionOnThirdOfScreen() {
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int newY = (screenSize.height - getHeight()) / 3;
-        setLocation(getX(), newY);
-    }
-
-    /**
-     * 加载自定义字体文件。
-     */
-    private void loadCustomFont() {
-        try (InputStream is = MainFrame.class.getResourceAsStream("/fonts/最深的夜里最温柔.ttf")) {
-            if (is == null) {
-                throw new IllegalStateException("字体文件 /fonts/最深的夜里最温柔.ttf 未找到！");
-            }
-            Font createdFont = Font.createFont(Font.TRUETYPE_FONT, is);
-            this.customFont = createdFont.deriveFont(Font.PLAIN, 24f);
-            this.authorFont = createdFont.deriveFont(Font.PLAIN, 16f); // 作者字体稍小
+    private Font loadCustomFont() {
+        try (InputStream is = getClass().getResourceAsStream("/fonts/最深的夜里最温柔.ttf")) {
+            return Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(is)).deriveFont(Font.PLAIN, 24f); // 恢复原来的字体大小
         } catch (Exception e) {
-            // 如果自定义字体加载失败，则使用默认字体
-            this.customFont = new Font("SansSerif", Font.PLAIN, 24);
-            this.authorFont = new Font("SansSerif", Font.PLAIN, 16);
-            System.err.println("加载自定义字体失败，将使用默认字体: " + e.getMessage());
+            System.err.println("字体加载失败，使用默认字体。错误: " + e.getMessage());
+            return new Font("Serif", Font.PLAIN, 24);
         }
     }
 
-    /**
-     * 设置鼠标监听器以实现窗口拖动。
-     */
-    private void setupMouseListener() {
+    private void addMouseListeners() {
         MouseAdapter adapter = new MouseAdapter() {
-            private Point offset;
-
             @Override
             public void mousePressed(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e)) {
-                    offset = e.getPoint();
+                if (SwingUtilities.isLeftMouseButton(e) && !isPositionLocked) {
+                    initialClick = e.getPoint();
                 }
-                // 检查是否需要弹出菜单（在某些系统上，按下鼠标时触发）
-                showPopupMenuIfNeeded(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                // 检查是否需要弹出菜单（在另一些系统上，释放鼠标时触发）
-                showPopupMenuIfNeeded(e);
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                // 防御性编程：如果拖拽事件来自窗口外部，offset可能为null
-                if (offset == null || isPositionLocked || !SwingUtilities.isLeftMouseButton(e)) {
-                    return;
+                if (SwingUtilities.isLeftMouseButton(e) && !isPositionLocked && initialClick != null) {
+                    // 新的拖动逻辑：只改变Y轴位置
+                    Point currentLocationOnScreen = e.getLocationOnScreen();
+                    int newY = currentLocationOnScreen.y - initialClick.y;
+                    setLocation(getLocation().x, newY); // X轴位置保持不变
                 }
-                // 根据鼠标拖动更新窗口位置（只允许Y轴移动）
-                Point newPoint = e.getLocationOnScreen();
-                int newY = newPoint.y - offset.y;
-
-                // 保持X轴始终居中
-                int currentX = getX();
-                setLocation(currentX, newY);
-                centerOnScreen(); // 拖动时也强制水平居中
             }
 
-            private void showPopupMenuIfNeeded(MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    createPopupMenu().show(e.getComponent(), e.getX(), e.getY());
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger() && popupMenu != null) {
+                    popupMenu.show(e.getComponent(), e.getX(), e.getY());
                 }
+                initialClick = null;
             }
         };
         addMouseListener(adapter);
         addMouseMotionListener(adapter);
     }
 
-    /**
-     * 创建并组装右键弹出菜单。
-     * @return 配置好的JPopupMenu实例。
-     */
     private JPopupMenu createPopupMenu() {
-        JPopupMenu popupMenu = new JPopupMenu();
-
-        popupMenu.add(createRefreshMenuItem());
-        popupMenu.add(createCopyMenuItem());
-        popupMenu.addSeparator();
-        popupMenu.add(createLockPositionMenuItem());
-        popupMenu.add(createShowAuthorMenuItem());
-        popupMenu.addSeparator();
-        popupMenu.add(createExitMenuItem());
-
-        return popupMenu;
+        return popupMenuFactory.create(
+                callback,
+                new PopupMenuFactory.MenuInitialState(isPositionLocked, isAuthorVisible),
+                () -> sentenceLabel.getText() + " " + authorLabel.getText()
+        );
     }
 
-    /**
-     * 创建"刷新"菜单项。
-     */
-    private JMenuItem createRefreshMenuItem() {
-        JMenuItem refreshItem = new JMenuItem("刷新");
-        refreshItem.addActionListener(e -> {
-            if (uiController != null) {
-                uiController.handleManualRefresh();
-            }
-        });
-        return refreshItem;
+
+    // --- SentenceView 接口实现 ---
+
+    @Override
+    public void setSentenceText(String text) {
+        this.sentenceLabel.setText(text);
+        pack(); // 根据新内容调整窗口大小
     }
 
-    /**
-     * 创建"复制"菜单项。
-     */
-    private JMenuItem createCopyMenuItem() {
-        JMenuItem copyItem = new JMenuItem("复制");
-        copyItem.addActionListener(e -> {
-            String textToCopy = sentenceLabel.getText().trim();
-            if (authorLabel.isVisible()) {
-                textToCopy += " " + authorLabel.getText();
-            }
-            StringSelection selection = new StringSelection(textToCopy);
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
-        });
-        return copyItem;
+    @Override
+    public void setAuthorText(String author, boolean visible) {
+        this.isAuthorVisible = visible; // 更新本地状态
+        if (StringUtils.hasText(author) && visible) {
+            this.authorLabel.setText(author);
+            this.authorLabel.setVisible(true);
+        } else {
+            this.authorLabel.setVisible(false);
+        }
+        pack();
     }
 
-    /**
-     * 创建"锁定位置"菜单项。
-     */
-    private JCheckBoxMenuItem createLockPositionMenuItem() {
-        JCheckBoxMenuItem lockPositionItem = new JCheckBoxMenuItem("锁定位置");
-        lockPositionItem.setState(isPositionLocked);
-        lockPositionItem.addActionListener(e -> isPositionLocked = lockPositionItem.getState());
-        return lockPositionItem;
+    @Override
+    public void runDisplayAnimation(Runnable updateAction) {
+        animationService.runFadeSequence(this, updateAction);
     }
 
-    /**
-     * 创建"显示作者"菜单项。
-     */
-    private JCheckBoxMenuItem createShowAuthorMenuItem() {
-        JCheckBoxMenuItem showAuthorItem = new JCheckBoxMenuItem("显示作者");
-        showAuthorItem.setState(isAuthorVisible);
-        showAuthorItem.addActionListener(e -> {
-            isAuthorVisible = showAuthorItem.getState();
-            // 立即触发一次UI更新以应用更改
-            if (uiController != null) {
-                uiController.handleManualRefresh(); // 请求新数据以刷新显示
-            }
-        });
-        return showAuthorItem;
+    @Override
+    public void sendToBottom() {
+        desktopManager.sendToBottom(this);
     }
 
-    /**
-     * 创建"退出"菜单项。
-     */
-    private JMenuItem createExitMenuItem() {
-        JMenuItem exitItem = new JMenuItem("退出");
-        exitItem.addActionListener(e -> System.exit(0));
-        return exitItem;
+    @Override
+    public void centerOnScreen() {
+        if (isPositionLocked) return;
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (screenSize.width - this.getWidth()) / 2;
+        setLocation(x, getLocation().y);
+    }
+
+    @Override
+    public void rebuildUiForNewState(boolean isLocked, boolean isAuthorVisible) {
+        this.isPositionLocked = isLocked;
+        this.isAuthorVisible = isAuthorVisible;
+        // 此方法由Presenter在设置完回调后调用，因此callback不为null
+        this.popupMenu = createPopupMenu();
     }
 } 
