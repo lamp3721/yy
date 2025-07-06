@@ -53,6 +53,8 @@ public class SentenceService implements ManualRequestService {
      */
     public void fetchNewSentence(boolean skipValidation) {
         log.info("🚀 开始尝试获取新的一言 (跳过校验: {})...", skipValidation);
+
+        // 调用数据仓库层获取"一言"
         Optional<Sentence> sentenceOpt = sentenceRepository.fetchRandomSentence(skipValidation);
 
         if (sentenceOpt.isPresent()) {
