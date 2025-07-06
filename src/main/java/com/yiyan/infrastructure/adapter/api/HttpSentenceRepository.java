@@ -40,7 +40,11 @@ public class HttpSentenceRepository implements SentenceRepository {
     // 熔断机制参数
     private static final int FAILURE_THRESHOLD = 3; // 失败3次后熔断
     private static final Duration DISABLED_DURATION = Duration.ofMinutes(15); // 熔断15分钟
-    private static final int FIND_ATTEMPTS_PER_CYCLE = 3; // 在单个任务周期内，最多尝试3个不同的API
+
+    // 网络错误冷却状态
+    private volatile boolean networkErrorCooldown = false;
+    private volatile long networkErrorCooldownEndTimestamp = 0;
+    private static final long NETWORK_COOLDOWN_DURATION_MS = 10_000; // 10秒冷却
 
     // 通过构造函数注入依赖
     public HttpSentenceRepository(ApiProperties apiProperties, OkHttpClient httpClient) {
@@ -54,10 +58,20 @@ public class HttpSentenceRepository implements SentenceRepository {
      *
      * @return 返回一个包含Sentence的可选值。
      * @throws IllegalStateException 如果API端点列表为空。
-     * @throws IOException           如果网络请求失败。
      */
     @Override
     public Optional<Sentence> findRandomSentence() {
+        // 1. 检查是否处于网络错误冷却状态
+        if (networkErrorCooldown) {
+            if (System.currentTimeMillis() < networkErrorCooldownEndTimestamp) {
+                log.info("⏰ 网络错误冷却中，跳过本次获取任务。");
+                return Optional.empty();
+            } else {
+                log.info("🟢 网络冷却期结束，恢复正常获取。");
+                networkErrorCooldown = false; // 冷却期结束
+            }
+        }
+
         List<ApiProperties.ApiEndpoint> availableEndpoints = apiProperties.getEndpoints().stream()
                 .filter(e -> !e.isDisabled())
                 .collect(Collectors.toList());
@@ -69,22 +83,33 @@ public class HttpSentenceRepository implements SentenceRepository {
 
         Collections.shuffle(availableEndpoints);
 
-        for (int i = 0; i < Math.min(FIND_ATTEMPTS_PER_CYCLE, availableEndpoints.size()); i++) {
-            ApiProperties.ApiEndpoint endpoint = availableEndpoints.get(i);
-            log.info("⏳ 尝试从API [{}] 获取数据 (尝试 {}/{})", endpoint.getName(), i + 1, FIND_ATTEMPTS_PER_CYCLE);
-
+        // 2. 遍历所有可用的API，直到成功或全部失败
+        for (ApiProperties.ApiEndpoint endpoint : availableEndpoints) {
+            log.info("⏳ 尝试从API [{}] 获取数据...", endpoint.getName());
             try {
+                // attemptFetch 现在会抛出 IOException
                 Optional<Sentence> sentence = attemptFetch(endpoint);
                 if (sentence.isPresent()) {
                     log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
-                    return sentence;
+                    return sentence; // 成功获取，直接返回
                 }
+                // 如果返回 Optional.empty()，说明是"数据"或"逻辑"错误，非网络问题，循环将继续尝试下一个API
+            } catch (IOException e) {
+                // 3. 如果是网络问题，则进入冷却期并中断本次所有尝试
+                handleFailure(endpoint, "网络错误: " + e.getMessage());
+                log.warn("🚨 检测到网络连接问题 (API: {}). 将暂停获取 {} 秒。", endpoint.getName(), NETWORK_COOLDOWN_DURATION_MS / 1000);
+                this.networkErrorCooldown = true;
+                this.networkErrorCooldownEndTimestamp = System.currentTimeMillis() + NETWORK_COOLDOWN_DURATION_MS;
+                break; // 中断 for 循环，不再尝试其他API
             } catch (Exception e) {
-                handleFailure(endpoint, "执行请求或解析时发生意外错误: " + e.getMessage());
+                // 捕获其他意料之外的异常，以防循环中断
+                handleFailure(endpoint, "处理时发生意外错误: " + e.getMessage());
             }
         }
 
-        log.warn("🤷 在当前任务周期内尝试了 {} 个API后，仍未能获取到有效的一言。", FIND_ATTEMPTS_PER_CYCLE);
+        if (!networkErrorCooldown) {
+            log.warn("🤷 尝试了所有可用API后，仍未能获取到有效的一言。");
+        }
         return Optional.empty();
     }
 
@@ -94,6 +119,7 @@ public class HttpSentenceRepository implements SentenceRepository {
                 .headers(okhttp3.Headers.of(endpoint.getHeaders() != null ? endpoint.getHeaders() : new java.util.HashMap<>()))
                 .build();
 
+        // IOException 将从此向上抛出，由 findRandomSentence 捕获
         try (Response response = httpClient.newCall(request).execute()) {
             if (!response.isSuccessful()) {
                 handleFailure(endpoint, "HTTP状态码: " + response.code());
@@ -107,7 +133,7 @@ public class HttpSentenceRepository implements SentenceRepository {
             }
 
             String contentType = response.header("Content-Type", ""); // Default to empty string if null
-            String responseBody = body.string();
+            String responseBody = body.string(); // 此处也可能抛出IOException
 
             if (responseBody.trim().isEmpty()) {
                 handleFailure(endpoint, "响应体为空白");
@@ -117,10 +143,6 @@ public class HttpSentenceRepository implements SentenceRepository {
             endpoint.recordSuccess();
 
             return parseSentence(responseBody, contentType, endpoint);
-
-        } catch (IOException e) {
-            handleFailure(endpoint, "网络错误: " + e.getMessage());
-            return Optional.empty();
         }
     }
 
