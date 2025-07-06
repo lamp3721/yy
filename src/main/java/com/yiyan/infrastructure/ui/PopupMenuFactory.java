@@ -36,12 +36,6 @@ public class PopupMenuFactory {
 
         popupMenu.addSeparator();
 
-        // 锁定位置
-        JCheckBoxMenuItem lockPositionItem = new JCheckBoxMenuItem("锁定位置");
-        lockPositionItem.setState(initialState.isPositionLocked());
-        lockPositionItem.addActionListener(e -> callback.onLockStateChanged(lockPositionItem.getState()));
-        popupMenu.add(lockPositionItem);
-
         // 显示作者
         JCheckBoxMenuItem showAuthorItem = new JCheckBoxMenuItem("显示作者");
         showAuthorItem.setState(initialState.isAuthorVisible());
@@ -69,5 +63,5 @@ public class PopupMenuFactory {
     /**
      * 用于传递菜单项初始状态的记录类。
      */
-    public record MenuInitialState(boolean isPositionLocked, boolean isAuthorVisible) {}
+    public record MenuInitialState(boolean isAuthorVisible) {}
 } 

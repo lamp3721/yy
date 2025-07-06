@@ -30,7 +30,6 @@ public class UiController implements ViewCallback {
     private final AnimationService animationService;
 
     // --- UI状态 ---
-    private boolean isPositionLocked = false;
     private boolean isAuthorVisible = false;
 
     /**
@@ -40,7 +39,7 @@ public class UiController implements ViewCallback {
     public void initialize() {
         view.setCallback(this);
         // 回调设置完毕后，立即命令View根据初始状态构建其UI组件
-        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
+        view.rebuildUiForNewState(this.isAuthorVisible);
     }
 
     /**
@@ -62,9 +61,7 @@ public class UiController implements ViewCallback {
                     StringUtils.hasText(sentence.getAuthor()) ? "—— " + sentence.getAuthor() : null,
                     isAuthorVisible
             );
-            if (!isPositionLocked) {
-                view.centerOnScreen();
-            }
+            view.centerOnScreen();
         };
         view.runDisplayAnimation(updateAction);
     }
@@ -77,17 +74,10 @@ public class UiController implements ViewCallback {
     }
 
     @Override
-    public void onLockStateChanged(boolean isLocked) {
-        this.isPositionLocked = isLocked;
-        // 状态变更后，命令View重建UI以反映新状态
-        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
-    }
-
-    @Override
     public void onAuthorVisibilityChanged(boolean isVisible) {
         this.isAuthorVisible = isVisible;
         // 状态变更后，命令View重建UI以反映新状态
-        view.rebuildUiForNewState(this.isPositionLocked, this.isAuthorVisible);
+        view.rebuildUiForNewState(this.isAuthorVisible);
         // 手动刷新一次以应用作者可见性变更
         manualRequestService.requestNewSentenceAsync();
     }

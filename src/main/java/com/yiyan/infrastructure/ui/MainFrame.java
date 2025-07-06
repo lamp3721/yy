@@ -32,7 +32,6 @@ public class MainFrame extends JFrame implements SentenceView {
     private ViewCallback callback;
 
     // --- 状态 ---
-    private boolean isPositionLocked = false;
     private boolean isAuthorVisible = false;
     private JPopupMenu popupMenu;
 
@@ -98,14 +97,14 @@ public class MainFrame extends JFrame implements SentenceView {
         MouseAdapter adapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e) && !isPositionLocked) {
+                if (SwingUtilities.isLeftMouseButton(e)) {
                     initialClick = e.getPoint();
                 }
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
-                if (SwingUtilities.isLeftMouseButton(e) && !isPositionLocked && initialClick != null) {
+                if (SwingUtilities.isLeftMouseButton(e) && initialClick != null) {
                     // 新的拖动逻辑：只改变Y轴位置
                     Point currentLocationOnScreen = e.getLocationOnScreen();
                     int newY = currentLocationOnScreen.y - initialClick.y;
@@ -128,7 +127,7 @@ public class MainFrame extends JFrame implements SentenceView {
     private JPopupMenu createPopupMenu() {
         return popupMenuFactory.create(
                 callback,
-                new PopupMenuFactory.MenuInitialState(isPositionLocked, isAuthorVisible),
+                new PopupMenuFactory.MenuInitialState(isAuthorVisible),
                 () -> sentenceLabel.getText() + " " + authorLabel.getText()
         );
     }
@@ -166,16 +165,13 @@ public class MainFrame extends JFrame implements SentenceView {
 
     @Override
     public void centerOnScreen() {
-        if (isPositionLocked) return;
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screenSize.width - this.getWidth()) / 2;
         setLocation(x, getLocation().y);
     }
 
     @Override
-    public void rebuildUiForNewState(boolean isLocked, boolean isAuthorVisible) {
-        this.isPositionLocked = isLocked;
+    public void rebuildUiForNewState(boolean isAuthorVisible) {
         this.isAuthorVisible = isAuthorVisible;
         // 此方法由Presenter在设置完回调后调用，因此callback不为null
         this.popupMenu = createPopupMenu();

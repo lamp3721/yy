@@ -48,8 +48,7 @@ public interface SentenceView {
      * 根据新的状态重新构建UI中的组件，例如菜单。
      * 这确保了UI元素（如复选框）能够反映最新的状态。
      *
-     * @param isLocked        位置是否锁定。
      * @param isAuthorVisible 作者是否可见。
      */
-    void rebuildUiForNewState(boolean isLocked, boolean isAuthorVisible);
+    void rebuildUiForNewState(boolean isAuthorVisible);
 } 

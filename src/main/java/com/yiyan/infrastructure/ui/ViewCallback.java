@@ -12,12 +12,6 @@ public interface ViewCallback {
     void onRefreshRequested();
 
     /**
-     * 当用户改变"锁定位置"状态时调用。
-     * @param isLocked 最新的锁定状态。
-     */
-    void onLockStateChanged(boolean isLocked);
-
-    /**
      * 当用户改变"显示作者"状态时调用。
      * @param isVisible 最新的可见状态。
      */
