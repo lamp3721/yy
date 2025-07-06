@@ -1,0 +1,170 @@
+[
+  {
+    "name": "hitokoto.cn",
+    "url": "https://v1.hitokoto.cn/",
+    "parser": {
+      "mappings": {
+        "text": "/hitokoto",
+        "author": "from"
+      }
+    }
+  },
+  {
+    "name": "api.xygeng.cn",
+    "url": "https://api.xygeng.cn/one",
+    "parser": {
+      "mappings": {
+        "text": "/data/content",
+        "author": "/data/name"
+      }
+    }
+  },
+  {
+    "name": "uapis.cn",
+    "url": "https://uapis.cn/api/say",
+    "parser": {
+      "type": "plain_text"
+    }
+  },
+  {
+    "name": "oddfar.com",
+    "url": "https://api.oddfar.com/yl/q.php",
+    "parser": {
+      "type": "plain_text"
+    }
+  },
+  {
+    "name": "iamwawa.cn-lizhi",
+    "url": "https://www.iamwawa.cn/home/lizhi/ajax",
+    "headers": {
+      "Referer": "https://www.iamwawa.cn/home/lizhi",
+      "X-Requested-With": "XMLHttpRequest"
+    },
+    "parser": {
+      "mappings": {
+        "text": "data"
+      }
+    }
+  },
+  {
+    "name": "aa1.cn-wenan",
+    "url": "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json",
+    "parser": {
+      "mappings": {
+        "text": "msg"
+      }
+    }
+  },
+  {
+    "name": "wudada.online",
+    "url": "http://www.wudada.online/Api/MrYy",
+    "parser": {
+      "mappings": {
+        "text": "/data/hitokoto",
+        "author": "/data/from"
+      }
+    }
+  },
+  {
+    "name": "mu-jie.cc-stray-birds",
+    "url": "https://api.mu-jie.cc/stray-birds/range?type=json",
+    "parser": {
+      "mappings": {
+        "text": "cn"
+      }
+    }
+  },
+  {
+    "name": "apihz.cn",
+    "url": "https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888",
+    "parser": {
+      "mappings": {
+        "text": "msg"
+      }
+    }
+  },
+  {
+    "name": "aa1.cn-pyq",
+    "url": "https://v.api.aa1.cn/api/pyq/index.php?aa1=json",
+    "parser": {
+      "mappings": {
+        "text": "pyq"
+      }
+    }
+  },
+  {
+    "name": "iamwawa.cn-shici",
+    "url": "https://www.iamwawa.cn/home/shici/ajax",
+    "headers": {
+      "Referer": "https://www.iamwawa.cn/home/shici",
+      "X-Requested-With": "XMLHttpRequest"
+    },
+    "parser": {
+      "mappings": {
+        "text": "/data/content",
+        "author": "/data/author"
+      }
+    }
+  },
+  {
+    "name": "nnxv.cn",
+    "url": "https://api.nnxv.cn/api/yiyan.php",
+    "parser": {
+      "mappings": {
+        "text": "content",
+        "author": "from"
+      }
+    }
+  },
+  {
+    "name": "jinrishici.com",
+    "url": "https://v1.jinrishici.com/all",
+    "parser": {
+      "mappings": {
+        "text": "content",
+        "author": "author"
+      }
+    }
+  },
+  {
+    "name": "dwo.cc",
+    "url": "https://api.dwo.cc/api/yi?api=yan",
+    "parser": {
+      "type": "plain_text"
+    }
+  },
+  {
+    "name": "api-m.com-renjian",
+    "url": "https://v2.api-m.com/api/renjian",
+    "parser": {
+      "mappings": {
+        "text": "data"
+      }
+    }
+  },
+  {
+    "name": "api-m.com-hitokoto",
+    "url": "https://v2.api-m.com/api/yiyan?type=hitokoto",
+    "parser": {
+      "mappings": {
+        "text": "data"
+      }
+    }
+  },
+  {
+    "name": "api-m.com-poetry",
+    "url": "https://v2.api-m.com/api/yiyan?type=poetry",
+    "parser": {
+      "mappings": {
+        "text": "data"
+      }
+    }
+  },
+  {
+    "name": "hhlqilongzhu.cn",
+    "url": "https://www.hhlqilongzhu.cn/api/yiyan.php",
+    "parser": {
+      "type": "plain_text"
+    }
+  }
+] 

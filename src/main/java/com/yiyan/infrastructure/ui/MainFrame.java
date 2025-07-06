@@ -11,6 +11,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.InputStream;
+import java.awt.datatransfer.StringSelection;
 
 /**
  * UI主窗口 (JFrame)，负责创建和管理应用的基本窗口框架。
@@ -23,6 +24,8 @@ public class MainFrame extends JFrame {
     private final JLabel authorLabel;
     private Font customFont;
     private Font authorFont;
+    private UiController uiController; // 回调到UI控制器
+    private boolean isPositionLocked = false; // 窗口位置锁定状态
 
     public MainFrame() {
         // 初始化窗口基本属性
@@ -59,6 +62,9 @@ public class MainFrame extends JFrame {
 
         // 添加鼠标拖动功能
         setupMouseListener();
+
+        // 创建右键弹出菜单
+        createPopupMenu();
     }
 
     /**
@@ -69,6 +75,13 @@ public class MainFrame extends JFrame {
         pack(); // 根据内容调整窗口大小
         setLocationRelativeTo(null); // 初始居中
         setVisible(true);
+    }
+
+    /**
+     * 设置UI控制器，由UiController在初始化时调用。
+     */
+    public void setUiController(UiController uiController) {
+        this.uiController = uiController;
     }
 
     /**
@@ -84,13 +97,23 @@ public class MainFrame extends JFrame {
         } else {
             authorLabel.setVisible(false);
         }
-        pack(); // 重新计算窗口大小
+
+        // 如果位置被锁定，则只重新计算大小，不移动位置
+        if (isPositionLocked) {
+            pack();
+        } else {
+            pack(); // 重新计算窗口大小
+            centerOnScreen(); // 然后水平居中
+        }
     }
 
     /**
-     * 将窗口在屏幕上水平居中。
+     * 将窗口在屏幕上水平居中，除非位置被锁定。
      */
     public void centerOnScreen() {
+        if (isPositionLocked) {
+            return; // 如果位置锁定，则不执行任何操作
+        }
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int newX = (screenSize.width - getWidth()) / 2;
         setLocation(newX, getY());
@@ -133,11 +156,24 @@ public class MainFrame extends JFrame {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                offset = e.getPoint();
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    offset = e.getPoint();
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (e.isPopupTrigger()) {
+                    // 在释放鼠标时（在macOS和某些Linux上）显示弹出菜单
+                    showPopupMenu(e);
+                }
             }
 
             @Override
             public void mouseDragged(MouseEvent e) {
+                if (isPositionLocked || !SwingUtilities.isLeftMouseButton(e)) {
+                    return;
+                }
                 // 根据鼠标拖动更新窗口位置（只允许Y轴移动）
                 Point newPoint = e.getLocationOnScreen();
                 int newY = newPoint.y - offset.y;
@@ -147,8 +183,59 @@ public class MainFrame extends JFrame {
                 setLocation(currentX, newY);
                 centerOnScreen(); // 拖动时也强制水平居中
             }
+
+            private void showPopupMenu(MouseEvent e) {
+                // 在事件发生的位置显示菜单
+                createPopupMenu().show(e.getComponent(), e.getX(), e.getY());
+            }
         };
         addMouseListener(adapter);
         addMouseMotionListener(adapter);
+    }
+
+    /**
+     * 创建并配置右键弹出菜单。
+     */
+    private JPopupMenu createPopupMenu() {
+        JPopupMenu popupMenu = new JPopupMenu();
+
+        // 1. 刷新菜单项
+        JMenuItem refreshItem = new JMenuItem("刷新");
+        refreshItem.addActionListener(e -> {
+            if (uiController != null) {
+                uiController.handleManualRefresh();
+            }
+        });
+        popupMenu.add(refreshItem);
+
+        // 2. 复制菜单项
+        JMenuItem copyItem = new JMenuItem("复制");
+        copyItem.addActionListener(e -> {
+            String textToCopy = sentenceLabel.getText().trim();
+            if (authorLabel.isVisible()) {
+                textToCopy += " " + authorLabel.getText();
+            }
+            StringSelection selection = new StringSelection(textToCopy);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+        });
+        popupMenu.add(copyItem);
+
+        popupMenu.addSeparator();
+
+        // 3. 锁定/解锁位置菜单项
+        JCheckBoxMenuItem lockPositionItem = new JCheckBoxMenuItem("锁定位置");
+        lockPositionItem.setState(isPositionLocked);
+        lockPositionItem.addActionListener(e -> {
+            isPositionLocked = lockPositionItem.getState();
+            // 可以在此处添加视觉提示，例如更改边框颜色
+        });
+        popupMenu.add(lockPositionItem);
+
+        // 4. 退出菜单项
+        JMenuItem exitItem = new JMenuItem("退出");
+        exitItem.addActionListener(e -> System.exit(0));
+        popupMenu.add(exitItem);
+
+        return popupMenu;
     }
 } 

@@ -1,10 +1,12 @@
 package com.yiyan.infrastructure.scheduling;
 
 import com.yiyan.application.service.SentenceService;
+import com.yiyan.infrastructure.config.ApiConfigLoader;
 import com.yiyan.launcher.config.SchedulerProperties;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 动态任务调度器，负责以随机间隔执行"一言"获取任务。
  */
 @Service
+@DependsOn("apiConfigLoader")
 @RequiredArgsConstructor
 @Slf4j
 public class DynamicScheduler {
@@ -23,14 +26,30 @@ public class DynamicScheduler {
     private final TaskScheduler taskScheduler;
     private final SentenceService sentenceService;
     private final SchedulerProperties schedulerProperties;
+    private final ApiConfigLoader apiConfigLoader;
 
     /**
      * Spring Bean 初始化后，立即执行第一次任务。
      */
     @PostConstruct
     public void start() {
-        // 立即执行一次，然后开始调度
-        taskScheduler.schedule(this::runAndReschedule, Instant.now());
+        // 使用一个新的线程来等待并启动调度器，避免阻塞Spring主启动线程
+        new Thread(() -> {
+            // 等待API列表加载完成
+            while (!apiConfigLoader.isReady()) {
+                try {
+                    log.debug("等待API配置加载...");
+                    Thread.sleep(100); // 短暂休眠，避免CPU空转
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    log.error("调度器启动等待线程被中断。", e);
+                    return;
+                }
+            }
+            log.info("API配置已加载，调度器启动。");
+            // 立即执行一次，然后开始调度
+            taskScheduler.schedule(this::runAndReschedule, Instant.now());
+        }).start();
     }
 
     /**

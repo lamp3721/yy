@@ -1,5 +1,6 @@
 package com.yiyan.infrastructure.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.OkHttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,5 +28,16 @@ public class HttpClientConfig {
                 .readTimeout(Duration.ofSeconds(10))    // 读取超时
                 .writeTimeout(Duration.ofSeconds(10))   // 写入超时
                 .build();
+    }
+
+    /**
+     * 创建一个全局共享的 ObjectMapper Bean。
+     * <p>
+     * 用于JSON的序列化和反序列化，例如在 ApiConfigLoader 中加载外部API列表。
+     * @return ObjectMapper 实例。
+     */
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 } 

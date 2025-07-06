@@ -1,10 +1,13 @@
 package com.yiyan.infrastructure.ui;
 
 import com.yiyan.application.event.SentenceFetchedEvent;
+import com.yiyan.application.service.ManualRequestService;
 import com.yiyan.core.domain.Sentence;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
+
 
 import javax.swing.*;
 
@@ -20,6 +23,15 @@ public class UiController {
     private final MainFrame mainFrame;
     private final AnimationService animationService;
     private final DesktopManager desktopManager;
+    private final ManualRequestService manualRequestService;
+
+    /**
+     * 初始化UI控制器，将自身注入到MainFrame中，以便进行回调。
+     */
+    @PostConstruct
+    public void initialize() {
+        mainFrame.setUiController(this);
+    }
 
     /**
      * 监听"一言"获取成功事件。
@@ -30,6 +42,13 @@ public class UiController {
     public void onSentenceFetched(SentenceFetchedEvent event) {
         // 确保UI更新在Swing的事件调度线程上执行
         SwingUtilities.invokeLater(() -> updateUiWithAnimation(event.getSentence()));
+    }
+
+    /**
+     * 处理手动刷新请求。
+     */
+    public void handleManualRefresh() {
+        manualRequestService.requestNewSentenceAsync();
     }
 
     /**

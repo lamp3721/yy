@@ -36,7 +36,14 @@ public class ApiProperties {
     private String defaultUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";
 
     /**
-     * 存储所有API端点配置的列表
+     * 外部API列表文件的路径。
+     * 支持 "classpath:" 和 "file:" 前缀。
+     */
+    private String apiListPath;
+
+    /**
+     * 存储所有API端点配置的列表。
+     * 这个列表现在由 ApiConfigLoader 在应用启动时动态填充。
      */
     private List<ApiEndpoint> endpoints = new ArrayList<>();
 
@@ -64,57 +71,6 @@ public class ApiProperties {
          * 请求头，用于模拟浏览器或其他客户端
          */
         private Map<String, String> headers;
-
-        // --- 熔断机制所需的状态字段 ---
-        /**
-         * 瞬态的失败计数器，不从配置文件读取。
-         */
-        private transient int failureCount = 0;
-
-        /**
-         * 瞬态的禁用截止时间，不从配置文件读取。
-         */
-        private transient Instant disabledUntil = Instant.EPOCH;
-
-        /**
-         * 判断此端点当前是否处于禁用（熔断）状态。
-         *
-         * @return 如果当前时间晚于禁用截止时间，则返回 false（可用）。
-         */
-        public boolean isDisabled() {
-            return Instant.now().isBefore(disabledUntil);
-        }
-
-        /**
-         * 记录一次失败。
-         * 如果达到失败阈值，则设置禁用时间。
-         */
-        public void recordFailure() {
-            this.failureCount++;
-        }
-
-        /**
-         * 记录一次成功，重置失败计数器。
-         */
-        public void recordSuccess() {
-            this.failureCount = 0;
-            this.disabledUntil = Instant.EPOCH; // 如果之前被禁用了，则解除
-        }
-
-        /**
-         * 获取当前失败次数。
-         */
-        public int getFailureCount() {
-            return failureCount;
-        }
-
-        /**
-         * 设置此端点的禁用截止时间。
-         * @param disabledUntil 禁用到的时刻。
-         */
-        public void setDisabledUntil(Instant disabledUntil) {
-            this.disabledUntil = disabledUntil;
-        }
     }
 
     /**

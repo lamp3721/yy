@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * 应用服务（用例实现），负责处理获取"一言"的核心业务逻辑。
@@ -16,10 +17,22 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class SentenceService {
+public class SentenceService implements ManualRequestService {
 
     private final SentenceRepository sentenceRepository;
     private final ApplicationEventPublisher eventPublisher;
+
+    @Override
+    public CompletableFuture<Void> requestNewSentenceAsync() {
+        return CompletableFuture.runAsync(() -> {
+            try {
+                fetchNewSentence();
+            } catch (Exception e) {
+                log.error("手动刷新失败: {}", e.getMessage());
+                // 在这里可以考虑发布一个失败事件，让UI给出提示
+            }
+        });
+    }
 
     /**
      * 执行获取新"一言"并发布的任务。

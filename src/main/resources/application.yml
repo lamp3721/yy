@@ -33,124 +33,28 @@ logging:
     #单个日志文件的最大大小，默认为10MB
     max-size: 10MB
 
+# Resilience4j 熔断器配置
+resilience4j:
+  circuitbreaker:
+    instances:
+      # 定义一个可供所有API共享的熔断器实例
+      shared-api-breaker:
+        register-health-indicator: true # 在 /actuator/health 中显示熔断器状态
+        sliding-window-type: count-based # 基于计数的滑动窗口
+        sliding-window-size: 10 # 窗口大小为最近10次调用
+        failure-rate-threshold: 50 # 失败率阈值：当失败率达到50%时打开断路器
+        minimum-number-of-calls: 5 # 最小调用次数：在计算失败率之前，至少需要5次调用
+        automatic-transition-from-open-to-half-open-enabled: true # 自动从open过渡到half-open
+        wait-duration-in-open-state: 1m # 断路器打开状态持续时间：1分钟
+        permitted-number-of-calls-in-half-open-state: 3 # half-open状态下允许的尝试次数
+        record-exceptions: # 将这些异常视为失败
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+        ignore-exceptions: [] # 忽略这些异常，不计为失败
+
 # 一言 API 端点配置
 yiyan:
   default-user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
   max-text-length: 60 # "一言"文本的最大长度，超过则丢弃
-  endpoints:
-    - name: "hitokoto.cn"
-      url: "https://v1.hitokoto.cn/"
-      parser:
-        mappings:
-          text: "/hitokoto"
-          author: "from"
-
-    - name: "api.xygeng.cn"
-      url: "https://api.xygeng.cn/one"
-      parser:
-        mappings:
-          text: "/data/content"
-          author: "/data/name"
-
-    - name: "uapis.cn"
-      url: "https://uapis.cn/api/say"
-      parser:
-        type: "plain_text"
-
-    - name: "oddfar.com"
-      url: "https://api.oddfar.com/yl/q.php"
-      parser:
-        type: "plain_text"
-
-    - name: "iamwawa.cn-lizhi"
-      url: "https://www.iamwawa.cn/home/lizhi/ajax"
-      headers:
-        Referer: "https://www.iamwawa.cn/home/lizhi"
-        X-Requested-With: "XMLHttpRequest"
-      parser:
-        mappings:
-          text: "data"
-
-    - name: "aa1.cn-wenan"
-      url: "http://zj.v.api.aa1.cn/api/wenan-wm/?type=json"
-      parser:
-        mappings:
-          text: "msg"
-
-    - name: "wudada.online"
-      url: "http://www.wudada.online/Api/MrYy"
-      parser:
-        mappings:
-          text: "/data/hitokoto"
-          author: "/data/from"
-
-    - name: "mu-jie.cc-stray-birds"
-      url: "https://api.mu-jie.cc/stray-birds/range?type=json"
-      parser:
-        mappings:
-          text: "cn"
-
-    - name: "apihz.cn"
-      url: "https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888"
-      parser:
-        mappings:
-          text: "msg"
-
-    - name: "aa1.cn-pyq"
-      url: "https://v.api.aa1.cn/api/pyq/index.php?aa1=json"
-      parser:
-        mappings:
-          text: "pyq"
-
-    - name: "iamwawa.cn-shici"
-      url: "https://www.iamwawa.cn/home/shici/ajax"
-      headers:
-        Referer: "https://www.iamwawa.cn/home/shici"
-        X-Requested-With: "XMLHttpRequest"
-      parser:
-        mappings:
-          text: "/data/content"
-          author: "/data/author"
-
-    - name: "nnxv.cn"
-      url: "https://api.nnxv.cn/api/yiyan.php"
-      parser:
-        mappings:
-          text: "content"
-          author: "from"
-
-    - name: "jinrishici.com"
-      url: "https://v1.jinrishici.com/all"
-      parser:
-        mappings:
-          text: "content"
-          author: "author"
-
-    - name: "dwo.cc"
-      url: "https://api.dwo.cc/api/yi?api=yan"
-      parser:
-        type: "plain_text"
-
-    - name: "api-m.com-renjian"
-      url: "https://v2.api-m.com/api/renjian"
-      parser:
-        mappings:
-          text: "data"
-
-    - name: "api-m.com-hitokoto"
-      url: "https://v2.api-m.com/api/yiyan?type=hitokoto"
-      parser:
-        mappings:
-          text: "data"
-
-    - name: "api-m.com-poetry"
-      url: "https://v2.api-m.com/api/yiyan?type=poetry"
-      parser:
-        mappings:
-          text: "data"
-
-    - name: "hhlqilongzhu.cn"
-      url: "https://www.hhlqilongzhu.cn/api/yiyan.php"
-      parser:
-        type: "plain_text"
+  api-list-path: "classpath:api-list.json" # 从独立的JSON文件加载API列表
 
