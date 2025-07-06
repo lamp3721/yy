@@ -26,7 +26,8 @@ public class SentenceService implements ManualRequestService {
     public CompletableFuture<Void> requestNewSentenceAsync() {
         return CompletableFuture.runAsync(() -> {
             try {
-                fetchNewSentence();
+                // 手动刷新时，强制执行校验
+                fetchNewSentence(false);
             } catch (Exception e) {
                 log.error("手动刷新失败: {}", e.getMessage());
                 // 在这里可以考虑发布一个失败事件，让UI给出提示
@@ -41,11 +42,12 @@ public class SentenceService implements ManualRequestService {
      * 如果失败（例如，由于网络问题或API返回错误），它会向上抛出异常，
      * 由调用方（如调度器）来处理重试逻辑。
      *
+     * @param skipValidation 如果为 true，则在获取过程中跳过所有业务逻辑校验（如长度限制）。
      * @throws RuntimeException 如果获取"一言"时发生任何错误。
      */
-    public void fetchNewSentence() {
-        log.info("🚀 开始尝试获取新的一言...");
-        Optional<Sentence> sentenceOpt = sentenceRepository.findRandomSentence();
+    public void fetchNewSentence(boolean skipValidation) {
+        log.info("🚀 开始尝试获取新的一言 (跳过校验: {})...", skipValidation);
+        Optional<Sentence> sentenceOpt = sentenceRepository.fetchRandomSentence(skipValidation);
 
         if (sentenceOpt.isPresent()) {
             Sentence sentence = sentenceOpt.get();

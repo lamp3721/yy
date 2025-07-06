@@ -24,7 +24,7 @@ public class JsonSentenceParser implements SentenceParser {
     private final ApiProperties apiProperties; // 注入ApiProperties以获取maxTextLength等全局配置
 
     @Override
-    public Optional<Sentence> parse(String responseBody, ApiProperties.ApiEndpoint endpoint) {
+    public Optional<Sentence> parse(String responseBody, ApiProperties.ApiEndpoint endpoint, boolean skipValidation) {
         // HTML内容嗅探
         if (responseBody.trim().toLowerCase().matches("(?s)^<(!doctype|html).*")) {
             log.warn("⚠️ API [{}] (JSON Parser) 返回了HTML页面, 将丢弃.", endpoint.getName());
@@ -47,7 +47,7 @@ public class JsonSentenceParser implements SentenceParser {
                 return Optional.empty();
             }
 
-            if (text.length() > apiProperties.getMaxTextLength()) {
+            if (!skipValidation && text.length() > apiProperties.getMaxTextLength()) {
                 log.warn("⚠️ API [{}] 返回的文本过长 ({} > {}), 将被丢弃.", endpoint.getName(), text.length(), apiProperties.getMaxTextLength());
                 return Optional.empty();
             }

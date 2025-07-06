@@ -57,8 +57,8 @@ public class DynamicScheduler {
      */
     private void runAndReschedule() {
         try {
-            // 执行核心业务逻辑
-            sentenceService.fetchNewSentence();
+            // 执行核心业务逻辑，定时任务需要执行校验
+            sentenceService.fetchNewSentence(false);
         } catch (Exception e) {
             // 捕获所有异常，记录错误，但确保不中断调度循环
             log.error("❌ 任务周期执行失败: {}", e.getMessage());

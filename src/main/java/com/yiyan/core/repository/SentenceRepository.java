@@ -14,7 +14,8 @@ public interface SentenceRepository {
     /**
      * 从任意可用数据源随机获取一个"一言"实例。
      *
+     * @param skipValidation 如果为 true，则在获取过程中跳过所有业务逻辑校验（如长度限制）。
      * @return 返回一个包含Sentence的可选值。如果无法获取，则返回空的Optional。
      */
-    Optional<Sentence> findRandomSentence();
+    Optional<Sentence> fetchRandomSentence(boolean skipValidation);
 } 

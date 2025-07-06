@@ -17,7 +17,7 @@ public class PlainTextSentenceParser implements SentenceParser {
     private final ApiProperties apiProperties;
 
     @Override
-    public Optional<Sentence> parse(String responseBody, ApiProperties.ApiEndpoint endpoint) {
+    public Optional<Sentence> parse(String responseBody, ApiProperties.ApiEndpoint endpoint, boolean skipValidation) {
         String trimmedBody = responseBody.trim();
 
         // HTML内容嗅探
@@ -27,7 +27,7 @@ public class PlainTextSentenceParser implements SentenceParser {
         }
 
         // 长度校验
-        if (trimmedBody.length() > apiProperties.getMaxTextLength()) {
+        if (!skipValidation && trimmedBody.length() > apiProperties.getMaxTextLength()) {
             log.warn("⚠️ API [{}] 返回的纯文本过长 ({} > {}), 将被丢弃.", endpoint.getName(), trimmedBody.length(), apiProperties.getMaxTextLength());
             return Optional.empty();
         }

@@ -63,11 +63,12 @@ public class HttpSentenceRepository implements SentenceRepository {
     /**
      * 实现从配置的API列表中随机获取一个"一言"的逻辑。
      *
+     * @param skipValidation 如果为 true，则跳过业务逻辑校验。
      * @return 返回一个包含Sentence的可选值。
      * @throws IllegalStateException 如果API端点列表为空。
      */
     @Override
-    public Optional<Sentence> findRandomSentence() {
+    public Optional<Sentence> fetchRandomSentence(boolean skipValidation) {
         // 1. 检查是否处于网络错误冷却状态
         if (networkErrorCooldown) {
             if (System.currentTimeMillis() < networkErrorCooldownEndTimestamp) {
@@ -93,11 +94,11 @@ public class HttpSentenceRepository implements SentenceRepository {
         for (ApiProperties.ApiEndpoint endpoint : availableEndpoints) {
             log.info("⏳ 尝试从API [{}] 获取数据...", endpoint.getName());
             try {
-                // attemptFetch 现在会抛出 IOException 和 CallNotPermittedException
-                Optional<Sentence> sentence = attemptFetch(endpoint);
+                // 将 skipValidation 参数传递给 attemptFetch
+                Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
                 if (sentence.isPresent()) {
                     log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
-                    return sentence; // 成功获取，直接返回
+                    return sentence; // 成功获取，立即返回
                 }
                 // 如果返回 Optional.empty()，说明是"数据"或"逻辑"错误，非网络问题，循环将继续尝试下一个API
             } catch (io.github.resilience4j.circuitbreaker.CallNotPermittedException e) {
@@ -138,8 +139,8 @@ public class HttpSentenceRepository implements SentenceRepository {
             String status;
             String reason = "";
             try {
-                // 执行一次尝试性获取
-                Optional<Sentence> sentenceOpt = attemptFetch(endpoint);
+                // 执行一次尝试性获取，并跳过校验
+                Optional<Sentence> sentenceOpt = attemptFetch(endpoint, true);
                 if (sentenceOpt.isPresent()) {
                     status = "✅ OK";
                     // 将获取到的内容附加到原因中，用于日志输出
@@ -172,7 +173,7 @@ public class HttpSentenceRepository implements SentenceRepository {
     }
 
     @CircuitBreaker(name = "shared-api-breaker")
-    private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint) throws IOException {
+    private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint, boolean skipValidation) throws IOException {
         // 准备请求头，并应用默认的 User-Agent
         okhttp3.Headers headers = buildHeaders(endpoint);
 
@@ -183,28 +184,16 @@ public class HttpSentenceRepository implements SentenceRepository {
 
         // IOException 将从此向上抛出，由 findRandomSentence 捕获
         try (Response response = httpClient.newCall(request).execute()) {
-            if (!response.isSuccessful()) {
-                // 对于非成功状态码，抛出IOException，这会被熔断器计为失败
-                throw new IOException("HTTP状态码: " + response.code());
-            }
-
             ResponseBody body = response.body();
-            if (body == null) {
-                // 响应体为空，同样视为网络层或服务器的严重错误
-                throw new IOException("响应体为 null");
+            if (!response.isSuccessful() || body == null) {
+                // 对于不成功的HTTP状态码，抛出逻辑异常，避免触发熔断
+                throw new LogicalException(String.format("API [%s] 请求失败, HTTP状态码: %d", endpoint.getName(), response.code()));
             }
 
-            String contentType = response.header("Content-Type", ""); // Default to empty string if null
-            String responseBody = body.string(); // 此处也可能抛出IOException
-
-            if (responseBody.trim().isEmpty()) {
-                throw new IOException("响应体为空白");
-            }
-
-            // 通过工厂获取解析器并执行解析
-            String parserType = endpoint.getParser().getType();
-            return parserFactory.getParser(parserType)
-                    .flatMap(parser -> parser.parse(responseBody, endpoint));
+            String responseBody = body.string();
+            // 将 skipValidation 参数传递给解析器工厂
+            return parserFactory.getParser(endpoint.getParser().getType())
+                    .flatMap(parser -> parser.parse(responseBody, endpoint, skipValidation));
         }
     }
 
