@@ -198,21 +198,40 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * 创建并配置右键弹出菜单。
+     * 创建并组装右键弹出菜单。
+     * @return 配置好的JPopupMenu实例。
      */
     private JPopupMenu createPopupMenu() {
         JPopupMenu popupMenu = new JPopupMenu();
 
-        // 1. 刷新菜单项
+        popupMenu.add(createRefreshMenuItem());
+        popupMenu.add(createCopyMenuItem());
+        popupMenu.addSeparator();
+        popupMenu.add(createLockPositionMenuItem());
+        popupMenu.add(createShowAuthorMenuItem());
+        popupMenu.addSeparator();
+        popupMenu.add(createExitMenuItem());
+
+        return popupMenu;
+    }
+
+    /**
+     * 创建"刷新"菜单项。
+     */
+    private JMenuItem createRefreshMenuItem() {
         JMenuItem refreshItem = new JMenuItem("刷新");
         refreshItem.addActionListener(e -> {
             if (uiController != null) {
                 uiController.handleManualRefresh();
             }
         });
-        popupMenu.add(refreshItem);
+        return refreshItem;
+    }
 
-        // 2. 复制菜单项
+    /**
+     * 创建"复制"菜单项。
+     */
+    private JMenuItem createCopyMenuItem() {
         JMenuItem copyItem = new JMenuItem("复制");
         copyItem.addActionListener(e -> {
             String textToCopy = sentenceLabel.getText().trim();
@@ -222,19 +241,23 @@ public class MainFrame extends JFrame {
             StringSelection selection = new StringSelection(textToCopy);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
         });
-        popupMenu.add(copyItem);
+        return copyItem;
+    }
 
-        popupMenu.addSeparator();
-
-        // 3. 锁定/解锁位置菜单项
+    /**
+     * 创建"锁定位置"菜单项。
+     */
+    private JCheckBoxMenuItem createLockPositionMenuItem() {
         JCheckBoxMenuItem lockPositionItem = new JCheckBoxMenuItem("锁定位置");
         lockPositionItem.setState(isPositionLocked);
-        lockPositionItem.addActionListener(e -> {
-            isPositionLocked = lockPositionItem.getState();
-        });
-        popupMenu.add(lockPositionItem);
+        lockPositionItem.addActionListener(e -> isPositionLocked = lockPositionItem.getState());
+        return lockPositionItem;
+    }
 
-        // 新增：显示/隐藏作者菜单项
+    /**
+     * 创建"显示作者"菜单项。
+     */
+    private JCheckBoxMenuItem createShowAuthorMenuItem() {
         JCheckBoxMenuItem showAuthorItem = new JCheckBoxMenuItem("显示作者");
         showAuthorItem.setState(isAuthorVisible);
         showAuthorItem.addActionListener(e -> {
@@ -244,13 +267,15 @@ public class MainFrame extends JFrame {
                 uiController.handleManualRefresh(); // 请求新数据以刷新显示
             }
         });
-        popupMenu.add(showAuthorItem);
+        return showAuthorItem;
+    }
 
-        // 4. 退出菜单项
+    /**
+     * 创建"退出"菜单项。
+     */
+    private JMenuItem createExitMenuItem() {
         JMenuItem exitItem = new JMenuItem("退出");
         exitItem.addActionListener(e -> System.exit(0));
-        popupMenu.add(exitItem);
-
-        return popupMenu;
+        return exitItem;
     }
 } 
