@@ -26,6 +26,7 @@ public class MainFrame extends JFrame {
     private Font authorFont;
     private UiController uiController; // 回调到UI控制器
     private boolean isPositionLocked = false; // 窗口位置锁定状态
+    private boolean isAuthorVisible = false; // 是否显示作者，默认为false
 
     public MainFrame() {
         // 初始化窗口基本属性
@@ -91,7 +92,8 @@ public class MainFrame extends JFrame {
     public void updateSentence(Sentence sentence) {
         sentenceLabel.setText(" " + sentence.getText() + " ");
 
-        if (StringUtils.hasText(sentence.getAuthor())) {
+        // 根据isAuthorVisible状态和作者是否存在，共同决定是否显示authorLabel
+        if (isAuthorVisible && StringUtils.hasText(sentence.getAuthor())) {
             authorLabel.setText("—— " + sentence.getAuthor());
             authorLabel.setVisible(true);
         } else {
@@ -229,9 +231,20 @@ public class MainFrame extends JFrame {
         lockPositionItem.setState(isPositionLocked);
         lockPositionItem.addActionListener(e -> {
             isPositionLocked = lockPositionItem.getState();
-            // 可以在此处添加视觉提示，例如更改边框颜色
         });
         popupMenu.add(lockPositionItem);
+
+        // 新增：显示/隐藏作者菜单项
+        JCheckBoxMenuItem showAuthorItem = new JCheckBoxMenuItem("显示作者");
+        showAuthorItem.setState(isAuthorVisible);
+        showAuthorItem.addActionListener(e -> {
+            isAuthorVisible = showAuthorItem.getState();
+            // 立即触发一次UI更新以应用更改
+            if (uiController != null) {
+                uiController.handleManualRefresh(); // 请求新数据以刷新显示
+            }
+        });
+        popupMenu.add(showAuthorItem);
 
         // 4. 退出菜单项
         JMenuItem exitItem = new JMenuItem("退出");
