@@ -1,5 +1,6 @@
 package com.yiyan.launcher.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * 从 application.yml 文件中读取以 'scheduler' 为前缀的配置项。
  */
 @ConfigurationProperties(prefix = "scheduler")
+@Data
 public class SchedulerProperties {
 
     /**
@@ -19,20 +21,4 @@ public class SchedulerProperties {
      * 随机调度的最大延迟时间（秒）。
      */
     private long maxDelaySeconds = 15;
-
-    public long getMinDelaySeconds() {
-        return minDelaySeconds;
-    }
-
-    public void setMinDelaySeconds(long minDelaySeconds) {
-        this.minDelaySeconds = minDelaySeconds;
-    }
-
-    public long getMaxDelaySeconds() {
-        return maxDelaySeconds;
-    }
-
-    public void setMaxDelaySeconds(long maxDelaySeconds) {
-        this.maxDelaySeconds = maxDelaySeconds;
-    }
 } 

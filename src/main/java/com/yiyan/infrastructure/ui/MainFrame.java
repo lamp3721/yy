@@ -31,6 +31,10 @@ public class MainFrame extends JFrame implements SentenceView {
     // --- MVP ---
     private ViewCallback callback;
 
+    // --- 字体 ---
+    private Font customFont;
+    private Font fallbackFont;
+
     // --- 状态 ---
     private boolean isAuthorVisible = false;
     private JPopupMenu popupMenu;
@@ -45,6 +49,7 @@ public class MainFrame extends JFrame implements SentenceView {
         this.sentenceLabel = new JLabel();
         this.authorLabel = new JLabel();
         configureWindow();
+        loadFonts(); // 先加载字体
         createLayoutAndLabels();
         addMouseListeners();
     }
@@ -69,28 +74,69 @@ public class MainFrame extends JFrame implements SentenceView {
         // 主标签
         sentenceLabel.setHorizontalAlignment(SwingConstants.CENTER);
         sentenceLabel.setVerticalAlignment(SwingConstants.CENTER);
-        sentenceLabel.setForeground(new Color(0, 255, 191)); // 恢复原来的颜色
-        sentenceLabel.setFont(loadCustomFont());
+        sentenceLabel.setForeground(new Color(0, 255, 191));
+        sentenceLabel.setFont(customFont);
         sentenceLabel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         add(sentenceLabel, BorderLayout.CENTER);
 
         // 作者标签
         authorLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         authorLabel.setVerticalAlignment(SwingConstants.CENTER);
-        authorLabel.setForeground(new Color(200, 200, 200)); // 稍暗的颜色
-        authorLabel.setFont(sentenceLabel.getFont().deriveFont(Font.PLAIN, 16f));
+        authorLabel.setForeground(new Color(200, 200, 200));
+        authorLabel.setFont(customFont.deriveFont(Font.PLAIN, 16f));
         authorLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 25));
-        authorLabel.setVisible(false); // 默认隐藏
+        authorLabel.setVisible(false);
         add(authorLabel, BorderLayout.SOUTH);
     }
 
-    private Font loadCustomFont() {
+    private void loadFonts() {
+        fallbackFont = new Font("SansSerif", Font.PLAIN, 24); // 定义备用字体
         try (InputStream is = getClass().getResourceAsStream("/fonts/最深的夜里最温柔.ttf")) {
-            return Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(is)).deriveFont(Font.PLAIN, 24f); // 恢复原来的字体大小
+            customFont = Font.createFont(Font.TRUETYPE_FONT, Objects.requireNonNull(is)).deriveFont(Font.PLAIN, 24f);
         } catch (Exception e) {
-            System.err.println("字体加载失败，使用默认字体。错误: " + e.getMessage());
-            return new Font("Serif", Font.PLAIN, 24);
+            System.err.println("自定义字体加载失败，将仅使用默认字体。错误: " + e.getMessage());
+            customFont = fallbackFont; // 如果加载失败，则将自定义字体设置为备用字体
         }
+    }
+
+    /**
+     * 构建带有字体回退机制的HTML字符串。
+     * 利用CSS的font-family属性，实现自定义字体和系统备用字体的混合渲染。
+     *
+     * @param text         要显示的原始文本。
+     * @param primaryFont  首选字体（通常是自定义字体）。
+     * @param fallbackFont 当首选字体不支持某些字符时使用的备用字体。
+     * @param color        文本的颜色。
+     * @return             一个包含CSS和文本内容的HTML字符串，可直接用于JLabel。
+     */
+    private String buildHtmlWithFallback(String text, Font primaryFont, Font fallbackFont, Color color) {
+        if (!StringUtils.hasText(text)) {
+            return "<html></html>";
+        }
+
+        String primaryFamily = primaryFont.getFamily();
+        String fallbackFamily = fallbackFont.getFamily();
+        int size = primaryFont.getSize();
+
+        // 简单的HTML转义
+        String escapedText = text.replace("&", "&amp;")
+                                 .replace("<", "&lt;")
+                                 .replace(">", "&gt;");
+
+        // 颜色通过参数传入
+        return String.format(
+                "<html><head><style>" +
+                        "body { font-family: '%s', '%s'; font-size: %dpt; color: rgb(%d, %d, %d); }" +
+                        "</style></head>" +
+                        "<body>%s</body></html>",
+                primaryFamily,
+                fallbackFamily,
+                size,
+                color.getRed(),
+                color.getGreen(),
+                color.getBlue(),
+                escapedText
+        );
     }
 
     private void addMouseListeners() {
@@ -137,15 +183,19 @@ public class MainFrame extends JFrame implements SentenceView {
 
     @Override
     public void setSentenceText(String text) {
-        this.sentenceLabel.setText(text);
-        pack(); // 根据新内容调整窗口大小
+        String html = buildHtmlWithFallback(text, customFont, fallbackFont, sentenceLabel.getForeground());
+        this.sentenceLabel.setText(html);
+        pack();
     }
 
     @Override
     public void setAuthorText(String author, boolean visible) {
-        this.isAuthorVisible = visible; // 更新本地状态
+        this.isAuthorVisible = visible;
         if (StringUtils.hasText(author) && visible) {
-            this.authorLabel.setText(author);
+            Font authorPrimaryFont = customFont.deriveFont(Font.PLAIN, 16f);
+            Font authorFallbackFont = fallbackFont.deriveFont(Font.PLAIN, 16f);
+            String html = buildHtmlWithFallback(author, authorPrimaryFont, authorFallbackFont, authorLabel.getForeground());
+            this.authorLabel.setText(html);
             this.authorLabel.setVisible(true);
         } else {
             this.authorLabel.setVisible(false);
