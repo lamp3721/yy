@@ -22,6 +22,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.concurrent.CompletableFuture;
+import org.springframework.scheduling.annotation.Async;
 
 /**
  * SentenceRepository 的HTTP实现，负责从外部API获取"一言"数据。
@@ -111,6 +113,50 @@ public class HttpSentenceRepository implements SentenceRepository {
             log.warn("🤷 尝试了所有可用API后，仍未能获取到有效的一言。");
         }
         return Optional.empty();
+    }
+
+    /**
+     * 异步执行所有API端点的健康检查。
+     * <p>
+     * 此方法在单独的线程中运行，不会阻塞主应用启动。
+     * 它会测试每个端点，并记录其状态。
+     */
+    @Async
+    public void checkAllApisAsync() {
+        log.info("--- 开始API自检 ---");
+        List<ApiProperties.ApiEndpoint> allEndpoints = apiProperties.getEndpoints();
+        long successCount = 0;
+
+        for (int i = 0; i < allEndpoints.size(); i++) {
+            ApiProperties.ApiEndpoint endpoint = allEndpoints.get(i);
+            String status;
+            String reason = "";
+            try {
+                // 执行一次尝试性获取
+                Optional<Sentence> sentenceOpt = attemptFetch(endpoint);
+                if (sentenceOpt.isPresent()) {
+                    status = "✅ OK";
+                    // 将获取到的内容附加到原因中，用于日志输出
+                    reason = "-> " + sentenceOpt.get().toString();
+                    successCount++;
+                } else {
+                    // attemptFetch 内部处理了非200状态码等逻辑错误，并返回empty
+                    status = "❌ FAILED";
+                    reason = "返回数据无效或解析失败";
+                }
+            } catch (IOException e) {
+                // 网络层面的异常
+                status = "❌ FAILED";
+                reason = "网络错误: " + e.getMessage();
+            } catch (Exception e) {
+                // 其他未知异常
+                status = "❌ FAILED";
+                reason = "未知错误: " + e.getMessage();
+            }
+            log.info("[{}/{}] [{}] -> {}{}", i + 1, allEndpoints.size(), endpoint.getName(), status, reason.isEmpty() ? "" : " (" + reason + ")");
+        }
+
+        log.info("--- API自检完成: {}/{} 个API可用 ---", successCount, allEndpoints.size());
     }
 
     private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint) throws IOException {
