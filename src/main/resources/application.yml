@@ -7,7 +7,7 @@ spring:
   application:
     name: Yiyan-Desktop
   profiles:
-    active: prod # dev prod
+    active: dev # dev prod
   main:
     banner-mode: "off" # 关闭启动时的 Banner
 

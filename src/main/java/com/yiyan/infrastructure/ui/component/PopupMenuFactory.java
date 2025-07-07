@@ -1,9 +1,12 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.component;
 
+import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
+import com.yiyan.infrastructure.ui.presenter.ViewCallback;
 import org.springframework.stereotype.Component;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
+import java.util.Map;
 
 /**
  * 负责创建和配置UI中的弹出菜单。
@@ -42,6 +45,42 @@ public class PopupMenuFactory {
         showAuthorItem.addActionListener(e -> callback.onAuthorVisibilityChanged(showAuthorItem.getState()));
         popupMenu.add(showAuthorItem);
 
+        // 允许左右拖动
+        JCheckBoxMenuItem horizontalDragItem = new JCheckBoxMenuItem("允许左右拖动");
+        horizontalDragItem.setState(initialState.isHorizontalDragEnabled());
+        horizontalDragItem.addActionListener(e -> callback.onHorizontalDragToggled(horizontalDragItem.getState()));
+        popupMenu.add(horizontalDragItem);
+
+        // 对齐方式子菜单
+        JMenu alignmentMenu = new JMenu("对齐方式");
+        ButtonGroup alignmentGroup = new ButtonGroup();
+        Map<HorizontalAlignment, String> alignmentLabels = Map.of(
+                HorizontalAlignment.LEFT, "左对齐",
+                HorizontalAlignment.CENTER, "居中",
+                HorizontalAlignment.RIGHT, "右对齐"
+        );
+
+        alignmentLabels.forEach((alignment, label) -> {
+            JRadioButtonMenuItem item = new JRadioButtonMenuItem(label);
+            item.setSelected(initialState.alignment() == alignment);
+            item.addActionListener(e -> callback.onAlignmentChanged(alignment));
+            alignmentGroup.add(item);
+            alignmentMenu.add(item);
+        });
+        popupMenu.add(alignmentMenu);
+
+        // 锁定位置
+        JCheckBoxMenuItem lockPositionItem = new JCheckBoxMenuItem("锁定位置");
+        lockPositionItem.setState(initialState.isLocked());
+        lockPositionItem.addActionListener(e -> callback.onLockPositionToggled(lockPositionItem.getState()));
+        popupMenu.add(lockPositionItem);
+
+        // 根据锁定状态禁用相关菜单
+        if (initialState.isLocked()) {
+            horizontalDragItem.setEnabled(false);
+            alignmentMenu.setEnabled(false);
+        }
+
         popupMenu.addSeparator();
 
         // 退出
@@ -63,5 +102,5 @@ public class PopupMenuFactory {
     /**
      * 用于传递菜单项初始状态的记录类。
      */
-    public record MenuInitialState(boolean isAuthorVisible) {}
+    public record MenuInitialState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked) {}
 } 

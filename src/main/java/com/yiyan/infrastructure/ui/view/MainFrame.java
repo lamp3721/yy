@@ -1,7 +1,11 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.view;
 
 import com.yiyan.core.domain.Sentence;
-import jakarta.annotation.PostConstruct;
+import com.yiyan.infrastructure.ui.component.PopupMenuFactory;
+import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
+import com.yiyan.infrastructure.ui.presenter.ViewCallback;
+import com.yiyan.infrastructure.ui.service.AnimationService;
+import com.yiyan.infrastructure.ui.service.DesktopManager;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -46,6 +50,9 @@ public class MainFrame extends JFrame implements SentenceView {
     // --- 状态 ---
     private boolean isAuthorVisible = false;
     private JPopupMenu popupMenu;
+    private boolean isHorizontalDragEnabled = false;
+    private HorizontalAlignment alignment = HorizontalAlignment.CENTER;
+    private boolean isLocked = false;
 
     // --- 拖拽 ---
     private Point initialClick;
@@ -158,11 +165,18 @@ public class MainFrame extends JFrame implements SentenceView {
 
             @Override
             public void mouseDragged(MouseEvent e) {
+                if (isLocked) return; // 如果锁定，则禁止拖动
+
                 if (SwingUtilities.isLeftMouseButton(e) && initialClick != null) {
-                    // 新的拖动逻辑：只改变Y轴位置
                     Point currentLocationOnScreen = e.getLocationOnScreen();
                     int newY = currentLocationOnScreen.y - initialClick.y;
-                    setLocation(getLocation().x, newY); // X轴位置保持不变
+                    int newX = getLocation().x; // 默认X坐标不变
+
+                    if (isHorizontalDragEnabled) {
+                        newX = currentLocationOnScreen.x - initialClick.x;
+                    }
+
+                    setLocation(newX, newY);
                 }
             }
 
@@ -181,7 +195,7 @@ public class MainFrame extends JFrame implements SentenceView {
     private JPopupMenu createPopupMenu() {
         return popupMenuFactory.create(
                 callback,
-                new PopupMenuFactory.MenuInitialState(isAuthorVisible),
+                new PopupMenuFactory.MenuInitialState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked),
                 () -> sentenceLabel.getText() + " " + authorLabel.getText()
         );
     }
@@ -223,16 +237,40 @@ public class MainFrame extends JFrame implements SentenceView {
     }
 
     @Override
-    public void centerOnScreen() {
+    public void alignOnScreen(HorizontalAlignment alignment) {
+        if (isLocked) return; // 如果锁定，则禁止对齐
+        this.alignment = alignment; // 同步状态
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (screenSize.width - this.getWidth()) / 2;
-        setLocation(x, getLocation().y);
+        int y = getLocation().y; // 保持当前的Y坐标
+        int x;
+
+        switch (alignment) {
+            case LEFT -> x = 0;
+            case RIGHT -> x = screenSize.width - getWidth();
+            case CENTER -> x = (screenSize.width - getWidth()) / 2;
+            default -> x = getLocation().x; // 保持不变以防意外
+        }
+
+        setLocation(x, y);
     }
 
     @Override
-    public void rebuildUiForNewState(boolean isAuthorVisible) {
+    public void setLocked(boolean locked) {
+        this.isLocked = locked;
+    }
+
+    @Override
+    public void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked) {
         this.isAuthorVisible = isAuthorVisible;
+        this.isHorizontalDragEnabled = isHorizontalDragEnabled;
+        this.alignment = alignment;
+        this.isLocked = isLocked;
         // 此方法由Presenter在设置完回调后调用，因此callback不为null
         this.popupMenu = createPopupMenu();
+    }
+
+    @Override
+    public void setHorizontalDragEnabled(boolean enabled) {
+        this.isHorizontalDragEnabled = enabled;
     }
 } 

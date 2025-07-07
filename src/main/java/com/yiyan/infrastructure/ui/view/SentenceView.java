@@ -1,6 +1,8 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.view;
 
 import com.yiyan.core.domain.Sentence;
+import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
+import com.yiyan.infrastructure.ui.presenter.ViewCallback;
 
 /**
  * 定义了UI视图（View）必须实现的契约。
@@ -29,6 +31,12 @@ public interface SentenceView {
     void setCallback(ViewCallback callback);
 
     /**
+     * 设置窗口是否启用水平拖动。
+     * @param enabled 如果为true，则窗口可水平拖动；否则不可。
+     */
+    void setHorizontalDragEnabled(boolean enabled);
+
+    /**
      * 执行窗口出现/更新时的动画序列。
      * @param updateAction 在动画过程中执行的更新操作。
      */
@@ -40,15 +48,25 @@ public interface SentenceView {
     void sendToBottom();
 
     /**
-     * 使窗口在屏幕上水平居中。
+     * 根据指定的对齐方式在屏幕上定位窗口。
+     * @param alignment 水平对齐方式。
      */
-    void centerOnScreen();
+    void alignOnScreen(HorizontalAlignment alignment);
+
+    /**
+     * 设置窗口的锁定状态。
+     * @param locked 如果为true，则窗口被锁定，无法移动。
+     */
+    void setLocked(boolean locked);
 
     /**
      * 根据新的状态重新构建UI中的组件，例如菜单。
      * 这确保了UI元素（如复选框）能够反映最新的状态。
      *
-     * @param isAuthorVisible 作者是否可见。
+     * @param isAuthorVisible        作者是否可见。
+     * @param isHorizontalDragEnabled 窗口当前是否启用了水平拖动。
+     * @param alignment              当前的对齐方式。
+     * @param isLocked               窗口当前是否被锁定。
      */
-    void rebuildUiForNewState(boolean isAuthorVisible);
+    void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked);
 } 

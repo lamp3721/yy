@@ -1,8 +1,12 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.presenter;
 
 import com.yiyan.application.event.SentenceFetchedEvent;
 import com.yiyan.application.service.ManualRequestService;
 import com.yiyan.core.domain.Sentence;
+import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
+import com.yiyan.infrastructure.ui.service.AnimationService;
+import com.yiyan.infrastructure.ui.service.DesktopManager;
+import com.yiyan.infrastructure.ui.view.SentenceView;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
@@ -41,6 +45,9 @@ public class UiController implements ViewCallback {
 
     // --- UI状态 ---
     private boolean isAuthorVisible = false;
+    private boolean isHorizontalDragEnabled = false;
+    private HorizontalAlignment alignment = HorizontalAlignment.CENTER;
+    private boolean isLocked = false;
 
     /**
      * 初始化Presenter，将自身作为回调注入到View中。
@@ -49,7 +56,7 @@ public class UiController implements ViewCallback {
     public void initialize() {
         view.setCallback(this);
         // 回调设置完毕后，立即命令View根据初始状态构建其UI组件
-        view.rebuildUiForNewState(this.isAuthorVisible);
+        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked);
     }
 
     /**
@@ -73,7 +80,7 @@ public class UiController implements ViewCallback {
                     StringUtils.hasText(sentence.getAuthor()) ? "—— " + sentence.getAuthor() : null,
                     isAuthorVisible
             );
-            view.centerOnScreen();
+            view.alignOnScreen(this.alignment);
         };
         view.runDisplayAnimation(updateAction);
     }
@@ -89,9 +96,33 @@ public class UiController implements ViewCallback {
     public void onAuthorVisibilityChanged(boolean isVisible) {
         this.isAuthorVisible = isVisible;
         // 状态变更后，命令View重建UI以反映新状态
-        view.rebuildUiForNewState(this.isAuthorVisible);
+        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked);
         // 手动刷新一次以应用作者可见性变更
         manualRequestService.requestNewSentenceAsync();
+    }
+
+    @Override
+    public void onHorizontalDragToggled(boolean isEnabled) {
+        if (isLocked) return; // 如果已锁定，则不处理
+        this.isHorizontalDragEnabled = isEnabled;
+        view.setHorizontalDragEnabled(this.isHorizontalDragEnabled);
+        // 重建UI以更新菜单状态
+        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked);
+    }
+
+    @Override
+    public void onAlignmentChanged(HorizontalAlignment alignment) {
+        if (isLocked) return; // 如果已锁定，则不处理
+        this.alignment = alignment;
+        view.alignOnScreen(this.alignment);
+    }
+
+    @Override
+    public void onLockPositionToggled(boolean isLocked) {
+        this.isLocked = isLocked;
+        view.setLocked(this.isLocked);
+        // 锁定状态改变后，需要立即重建UI以更新菜单项的启用/禁用状态
+        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, this.isLocked);
     }
 
     @Override

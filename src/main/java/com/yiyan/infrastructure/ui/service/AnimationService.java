@@ -1,4 +1,4 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.service;
 
 import org.springframework.stereotype.Service;
 

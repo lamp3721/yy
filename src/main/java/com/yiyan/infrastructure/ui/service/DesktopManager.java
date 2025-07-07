@@ -1,4 +1,4 @@
-package com.yiyan.infrastructure.ui;
+package com.yiyan.infrastructure.ui.service;
 
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
