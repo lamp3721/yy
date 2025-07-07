@@ -83,6 +83,14 @@ public class PopupMenuFactory {
 
         popupMenu.addSeparator();
 
+        // 新消息置顶
+        JCheckBoxMenuItem temporaryTopItem = new JCheckBoxMenuItem("新消息置顶 (5秒)");
+        temporaryTopItem.setState(initialState.isTemporaryTopEnabled());
+        temporaryTopItem.addActionListener(e -> callback.onTemporaryTopToggled(temporaryTopItem.getState()));
+        popupMenu.add(temporaryTopItem);
+
+        popupMenu.addSeparator();
+
         // 退出
         JMenuItem exitItem = new JMenuItem("退出");
         exitItem.addActionListener(e -> callback.onExitRequested());
@@ -102,5 +110,5 @@ public class PopupMenuFactory {
     /**
      * 用于传递菜单项初始状态的记录类。
      */
-    public record MenuInitialState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked) {}
+    public record MenuInitialState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked, boolean isTemporaryTopEnabled) {}
 } 

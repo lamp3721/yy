@@ -60,6 +60,12 @@ public interface SentenceView {
     void setLocked(boolean locked);
 
     /**
+     * 将窗口临时置顶，并在指定延迟后沉到底部。
+     * @param delayInSeconds 延迟时间（秒）。
+     */
+    void bringToTopAndSendToBottomAfterDelay(int delayInSeconds);
+
+    /**
      * 根据新的状态重新构建UI中的组件，例如菜单。
      * 这确保了UI元素（如复选框）能够反映最新的状态。
      *
@@ -67,6 +73,7 @@ public interface SentenceView {
      * @param isHorizontalDragEnabled 窗口当前是否启用了水平拖动。
      * @param alignment              当前的对齐方式。
      * @param isLocked               窗口当前是否被锁定。
+     * @param isTemporaryTopEnabled  是否启用了临时置顶功能。
      */
-    void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked);
+    void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked, boolean isTemporaryTopEnabled);
 } 

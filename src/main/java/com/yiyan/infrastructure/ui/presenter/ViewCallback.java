@@ -38,6 +38,12 @@ public interface ViewCallback {
     void onLockPositionToggled(boolean isLocked);
 
     /**
+     * 当用户切换"临时置顶"状态时调用。
+     * @param isEnabled 是否启用新消息临时置顶功能。
+     */
+    void onTemporaryTopToggled(boolean isEnabled);
+
+    /**
      * 当用户请求退出应用时调用。
      */
     void onExitRequested();

@@ -53,9 +53,11 @@ public class MainFrame extends JFrame implements SentenceView {
     private boolean isHorizontalDragEnabled = false;
     private HorizontalAlignment alignment = HorizontalAlignment.CENTER;
     private boolean isLocked = false;
+    private boolean isTemporaryTopEnabled = true;
 
     // --- 拖拽 ---
     private Point initialClick;
+    private Timer temporaryTopTimer;
 
     public MainFrame(AnimationService animationService, DesktopManager desktopManager, PopupMenuFactory popupMenuFactory) {
         this.animationService = animationService;
@@ -195,7 +197,7 @@ public class MainFrame extends JFrame implements SentenceView {
     private JPopupMenu createPopupMenu() {
         return popupMenuFactory.create(
                 callback,
-                new PopupMenuFactory.MenuInitialState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked),
+                new PopupMenuFactory.MenuInitialState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked, isTemporaryTopEnabled),
                 () -> sentenceLabel.getText() + " " + authorLabel.getText()
         );
     }
@@ -255,16 +257,37 @@ public class MainFrame extends JFrame implements SentenceView {
     }
 
     @Override
+    public void bringToTopAndSendToBottomAfterDelay(int delayInSeconds) {
+        // 如果当前有正在运行的计时器，先停止它，以重置计时
+        if (temporaryTopTimer != null && temporaryTopTimer.isRunning()) {
+            temporaryTopTimer.stop();
+        }
+
+        // 立即置顶
+        setAlwaysOnTop(true);
+
+        // 创建一个一次性的计时器
+        temporaryTopTimer = new Timer(delayInSeconds * 1000, e -> {
+            // 5秒后执行：取消置顶并沉到底部
+            setAlwaysOnTop(false);
+            desktopManager.sendToBottom(this);
+        });
+        temporaryTopTimer.setRepeats(false);
+        temporaryTopTimer.start();
+    }
+
+    @Override
     public void setLocked(boolean locked) {
         this.isLocked = locked;
     }
 
     @Override
-    public void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked) {
+    public void rebuildUiForNewState(boolean isAuthorVisible, boolean isHorizontalDragEnabled, HorizontalAlignment alignment, boolean isLocked, boolean isTemporaryTopEnabled) {
         this.isAuthorVisible = isAuthorVisible;
         this.isHorizontalDragEnabled = isHorizontalDragEnabled;
         this.alignment = alignment;
         this.isLocked = isLocked;
+        this.isTemporaryTopEnabled = isTemporaryTopEnabled;
         // 此方法由Presenter在设置完回调后调用，因此callback不为null
         this.popupMenu = createPopupMenu();
     }

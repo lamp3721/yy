@@ -9,6 +9,7 @@ import com.yiyan.infrastructure.ui.service.DesktopManager;
 import com.yiyan.infrastructure.ui.view.SentenceView;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -23,6 +24,7 @@ import javax.swing.*;
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class UiController implements ViewCallback {
 
     /**
@@ -48,6 +50,7 @@ public class UiController implements ViewCallback {
     private boolean isHorizontalDragEnabled = false;
     private HorizontalAlignment alignment = HorizontalAlignment.CENTER;
     private boolean isLocked = false;
+    private boolean isTemporaryTopEnabled = true;
 
     /**
      * 初始化Presenter，将自身作为回调注入到View中。
@@ -56,7 +59,7 @@ public class UiController implements ViewCallback {
     public void initialize() {
         view.setCallback(this);
         // 回调设置完毕后，立即命令View根据初始状态构建其UI组件
-        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked);
+        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked, this.isTemporaryTopEnabled);
     }
 
     /**
@@ -72,15 +75,24 @@ public class UiController implements ViewCallback {
      * 使用动画更新视图。
      */
     private void updateViewWithAnimation(Sentence sentence) {
+        log.info("准备更新视图，当前\"临时置顶\"状态为：{}", this.isTemporaryTopEnabled);
         // 创建一个Runnable对象，用于更新UI
         Runnable updateAction = () -> {
-            view.sendToBottom();
+            if (!isTemporaryTopEnabled) {
+                log.info("-> \"临时置顶\"已禁用，执行沉底操作。");
+                view.sendToBottom();
+            }
             view.setSentenceText(" " + sentence.getText() + " ");
             view.setAuthorText(
                     StringUtils.hasText(sentence.getAuthor()) ? "—— " + sentence.getAuthor() : null,
                     isAuthorVisible
             );
             view.alignOnScreen(this.alignment);
+
+            if (isTemporaryTopEnabled) {
+                log.info("-> \"临时置顶\"已启用，执行置顶5秒后沉底的操作。");
+                view.bringToTopAndSendToBottomAfterDelay(5);
+            }
         };
         view.runDisplayAnimation(updateAction);
     }
@@ -96,7 +108,7 @@ public class UiController implements ViewCallback {
     public void onAuthorVisibilityChanged(boolean isVisible) {
         this.isAuthorVisible = isVisible;
         // 状态变更后，命令View重建UI以反映新状态
-        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked);
+        view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked, this.isTemporaryTopEnabled);
         // 手动刷新一次以应用作者可见性变更
         manualRequestService.requestNewSentenceAsync();
     }
@@ -107,7 +119,7 @@ public class UiController implements ViewCallback {
         this.isHorizontalDragEnabled = isEnabled;
         view.setHorizontalDragEnabled(this.isHorizontalDragEnabled);
         // 重建UI以更新菜单状态
-        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked);
+        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked, isTemporaryTopEnabled);
     }
 
     @Override
@@ -122,7 +134,15 @@ public class UiController implements ViewCallback {
         this.isLocked = isLocked;
         view.setLocked(this.isLocked);
         // 锁定状态改变后，需要立即重建UI以更新菜单项的启用/禁用状态
-        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, this.isLocked);
+        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, this.isLocked, isTemporaryTopEnabled);
+    }
+
+    @Override
+    public void onTemporaryTopToggled(boolean isEnabled) {
+        log.info("接收到\"临时置顶\"状态切换事件，新状态为：{}", isEnabled);
+        this.isTemporaryTopEnabled = isEnabled;
+        // 重建UI以更新菜单状态
+        view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked, this.isTemporaryTopEnabled);
     }
 
     @Override
