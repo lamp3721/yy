@@ -78,10 +78,11 @@ public class UiController implements ViewCallback {
         log.info("准备更新视图，当前\"临时置顶\"状态为：{}", this.isTemporaryTopEnabled);
         // 创建一个Runnable对象，用于更新UI
         Runnable updateAction = () -> {
-            if (!isTemporaryTopEnabled) {
-                log.info("-> \"临时置顶\"已禁用，执行沉底操作。");
-                view.sendToBottom();
-            }
+            // BUG修复：当功能禁用时，不应主动将窗口沉底，应保持其当前层级。
+            // if (!isTemporaryTopEnabled) {
+            //     log.info("-> \"临时置顶\"已禁用，执行沉底操作。");
+            //     view.sendToBottom();
+            // }
             view.setSentenceText(" " + sentence.getText() + " ");
             view.setAuthorText(
                     StringUtils.hasText(sentence.getAuthor()) ? "—— " + sentence.getAuthor() : null,
@@ -141,6 +142,12 @@ public class UiController implements ViewCallback {
     public void onTemporaryTopToggled(boolean isEnabled) {
         log.info("接收到\"临时置顶\"状态切换事件，新状态为：{}", isEnabled);
         this.isTemporaryTopEnabled = isEnabled;
+
+        // 如果功能被禁用，立即取消任何正在运行的定时器
+        if (!isEnabled) {
+            view.cancelTemporaryTopTimer();
+        }
+
         // 重建UI以更新菜单状态
         view.rebuildUiForNewState(isAuthorVisible, isHorizontalDragEnabled, alignment, isLocked, this.isTemporaryTopEnabled);
     }

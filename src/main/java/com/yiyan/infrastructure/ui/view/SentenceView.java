@@ -66,6 +66,11 @@ public interface SentenceView {
     void bringToTopAndSendToBottomAfterDelay(int delayInSeconds);
 
     /**
+     * 取消任何正在进行的临时置顶计时器。
+     */
+    void cancelTemporaryTopTimer();
+
+    /**
      * 根据新的状态重新构建UI中的组件，例如菜单。
      * 这确保了UI元素（如复选框）能够反映最新的状态。
      *

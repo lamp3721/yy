@@ -277,6 +277,17 @@ public class MainFrame extends JFrame implements SentenceView {
     }
 
     @Override
+    public void cancelTemporaryTopTimer() {
+        if (temporaryTopTimer != null && temporaryTopTimer.isRunning()) {
+            temporaryTopTimer.stop();
+        }
+        // 确保在取消时，窗口的置顶状态也被重置
+        if (isAlwaysOnTop()) {
+            setAlwaysOnTop(false);
+        }
+    }
+
+    @Override
     public void setLocked(boolean locked) {
         this.isLocked = locked;
     }
