@@ -30,12 +30,12 @@ public class PopupMenuFactory {
         popupMenu.add(refreshItem);
 
         // 复制
-        JMenuItem copyItem = new JMenuItem("复制");
-        copyItem.addActionListener(e -> {
-            StringSelection selection = new StringSelection(textProvider.getText());
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
-        });
-        popupMenu.add(copyItem);
+        // JMenuItem copyItem = new JMenuItem("复制");
+        // copyItem.addActionListener(e -> {
+        //     StringSelection selection = new StringSelection(textProvider.getText());
+        //     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+        // });
+        // popupMenu.add(copyItem);
 
         popupMenu.addSeparator();
 
