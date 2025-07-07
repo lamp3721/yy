@@ -79,48 +79,74 @@ public class HttpSentenceRepository implements SentenceRepository {
     @Override
     public Optional<Sentence> fetchRandomSentence(boolean skipValidation) {
         // 1. 检查是否处于网络错误冷却状态
-        if (networkErrorCooldown) {
-            if (System.currentTimeMillis() < networkErrorCooldownEndTimestamp) {
-                log.info("⏰ 网络错误冷却中，跳过本次获取任务。");
-                return Optional.empty();
-            } else {
-                log.info("🟢 网络冷却期结束，恢复正常获取。");
-                networkErrorCooldown = false; // 冷却期结束
-            }
+        if (isDuringCooldown()) {
+            return Optional.empty();
         }
 
-        List<ApiProperties.ApiEndpoint> availableEndpoints = apiProperties.getEndpoints();
+        List<ApiProperties.ApiEndpoint> availableEndpoints = new ArrayList<>(apiProperties.getEndpoints());
         if (availableEndpoints.isEmpty()) {
             log.warn("🤷‍ API列表为空，无法获取数据。");
             return Optional.empty();
         }
 
-        // 2. 随机选择一个API进行尝试
-        ApiProperties.ApiEndpoint endpoint = availableEndpoints.get(ThreadLocalRandom.current().nextInt(availableEndpoints.size()));
+        // 打乱列表以实现随机化，并逐一尝试
+        Collections.shuffle(availableEndpoints);
 
-        log.info("⏳ 尝试从随机选择的API [{}] 获取数据...", endpoint.getName());
-        try {
-            Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
-            if (sentence.isPresent()) {
-                log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
-                return sentence; // 成功获取，立即返回
+        for (ApiProperties.ApiEndpoint endpoint : availableEndpoints) {
+            try {
+                log.info("⏳ 尝试从API [{}] 获取数据...", endpoint.getName());
+                Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
+                if (sentence.isPresent()) {
+                    log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
+                    return sentence; // 成功获取，立即返回
+                }
+                // 如果返回Optional.empty()，说明是逻辑失败（例如，解析后发现内容无效），记录并继续尝试下一个
+                log.warn("⚠️ 从API [{}] 获取成功，但内容解析后无效，尝试下一个。", endpoint.getName());
+            } catch (io.github.resilience4j.circuitbreaker.CallNotPermittedException e) {
+                // 熔断器处于打开状态，直接跳过此API
+                log.warn(" CIRCUIT_BREAKER is OPEN for API [{}]. Skipping.", endpoint.getName());
+            } catch (LogicalException e) {
+                // 逻辑失败（如HTTP 404/500），记录并继续尝试下一个
+                log.warn("❌ API [{}] 出现逻辑失败: {}。尝试下一个...", endpoint.getName(), e.getMessage());
+            } catch (IOException e) {
+                // 网络问题是全局性的，触发冷却并终止本次所有尝试
+                log.warn("🚨 检测到网络连接问题 (API: {}). 将暂停获取 {} 秒。", endpoint.getName(), NETWORK_COOLDOWN_DURATION_MS / 1000);
+                startCooldown();
+                return Optional.empty(); // 网络故障，立即停止并进入冷却
+            } catch (Exception e) {
+                // 捕获其他意料之外的异常，记录并继续尝试下一个
+                log.error("处理API [{}] 时发生意外错误: {}。尝试下一个...", endpoint.getName(), e.getMessage(), e);
             }
-        } catch (io.github.resilience4j.circuitbreaker.CallNotPermittedException e) {
-            // 熔断器处于打开状态，直接跳过此API
-            log.warn(" CIRCUIT_BREAKER is OPEN for API [{}]. Skipping.", endpoint.getName());
-        } catch (IOException e) {
-            // 3. 如果是网络问题，则进入冷却期
-            log.warn("🚨 检测到网络连接问题 (API: {}). 将暂停获取 {} 秒。", endpoint.getName(), NETWORK_COOLDOWN_DURATION_MS / 1000);
-            this.networkErrorCooldown = true;
-            this.networkErrorCooldownEndTimestamp = System.currentTimeMillis() + NETWORK_COOLDOWN_DURATION_MS;
-        } catch (Exception e) {
-            // 捕获其他意料之外的异常
-            log.error("处理API [{}] 时发生意外错误: {}", endpoint.getName(), e.getMessage(), e);
         }
 
-        // 如果执行到这里，说明尝试失败
-        log.warn("🤷 本次尝试未能从API [{}] 获取到有效的一言。", endpoint.getName());
+        // 如果所有API都尝试失败
+        log.warn("🤷‍ 已尝试所有可用API，但均未能获取到有效的一言。");
         return Optional.empty();
+    }
+
+    /**
+     * 检查当前是否处于网络错误冷却期。
+     * @return 如果在冷却期内，返回true。
+     */
+    private boolean isDuringCooldown() {
+        if (networkErrorCooldown) {
+            if (System.currentTimeMillis() < networkErrorCooldownEndTimestamp) {
+                log.info("⏰ 网络错误冷却中，跳过本次获取任务。");
+                return true;
+            } else {
+                log.info("🟢 网络冷却期结束，恢复正常获取。");
+                networkErrorCooldown = false; // 冷却期结束
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 启动网络错误冷却。
+     */
+    private void startCooldown() {
+        this.networkErrorCooldown = true;
+        this.networkErrorCooldownEndTimestamp = System.currentTimeMillis() + NETWORK_COOLDOWN_DURATION_MS;
     }
 
     /**
