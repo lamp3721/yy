@@ -6,7 +6,8 @@
       "mappings": {
         "text": "/hitokoto",
         "author": "from"
-      }
+      },
+      // "type": "json"  默认不用写
     }
   },
   {
@@ -124,13 +125,6 @@
         "text": "content",
         "author": "author"
       }
-    }
-  },
-  {
-    "name": "dwo.cc",
-    "url": "https://api.dwo.cc/api/yi?api=yan",
-    "parser": {
-      "type": "plain_text"
     }
   },
   {

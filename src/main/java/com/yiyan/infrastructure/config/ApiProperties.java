@@ -18,6 +18,9 @@ import java.util.ArrayList;
  * API端点配置类，通过 @ConfigurationProperties 从 application.yml/properties 文件中加载配置。
  * <p>
  * 这种方式将API配置与代码分离，实现了高度的可配置性。
+ * <p>
+ * 就是一个定义配置类，用于加载外部API的配置信息。
+ * 负责存储，但是需要外部逻辑 ApiConfigLoader 存入
  */
 @Data
 @Configuration

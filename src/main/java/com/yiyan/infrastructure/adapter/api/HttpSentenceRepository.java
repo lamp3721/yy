@@ -2,6 +2,7 @@ package com.yiyan.infrastructure.adapter.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yiyan.application.service.SentenceParser;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.core.repository.SentenceRepository;
 import com.yiyan.infrastructure.config.ApiProperties;
@@ -95,7 +96,7 @@ public class HttpSentenceRepository implements SentenceRepository {
         for (ApiProperties.ApiEndpoint endpoint : availableEndpoints) {
             try {
                 log.info("⏳ 尝试从API [{}] 获取数据...", endpoint.getName());
-                Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);
+                Optional<Sentence> sentence = attemptFetch(endpoint, skipValidation);  // 尝试获取数据
                 if (sentence.isPresent()) {
                     log.info("✅ 成功从 API [{}] 获取数据, URL: {}", endpoint.getName(), endpoint.getUrl());
                     return sentence; // 成功获取，立即返回
@@ -199,6 +200,13 @@ public class HttpSentenceRepository implements SentenceRepository {
         log.info("--- API自检完成: {}/{} 个API可用 ---", successCount, allEndpoints.size());
     }
 
+    /**
+     * 尝试从指定API端点获取数据。
+     * @param endpoint API端点
+     * @param skipValidation 是否跳过数据校验
+     * @return
+     * @throws IOException
+     */
     @CircuitBreaker(name = "shared-api-breaker")
     private Optional<Sentence> attemptFetch(ApiProperties.ApiEndpoint endpoint, boolean skipValidation) throws IOException {
         // 准备请求头，并应用默认的 User-Agent
@@ -219,8 +227,9 @@ public class HttpSentenceRepository implements SentenceRepository {
 
             String responseBody = body.string();
             // 将 skipValidation 参数传递给解析器工厂
-            return parserFactory.getParser(endpoint.getParser().getType())
-                    .flatMap(parser -> parser.parse(responseBody, endpoint, skipValidation));
+            Optional<SentenceParser> parser = parserFactory.getParser(endpoint.getParser().getType());  // 获取解析器工厂
+            Optional<Sentence> sentence = parser.flatMap(p -> p.parse(responseBody, endpoint, skipValidation)); // 使用解析器
+            return sentence;
         }
     }
 
