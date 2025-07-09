@@ -661,3 +661,346 @@
 2025-07-07 08:24:38 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-07 08:24:38] 何时何地，你都要明白，你是活给自己看的，别把别人的评价看得太重，凡事只要于心无愧，就不必计较太多。
 2025-07-07 08:24:38 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 10 秒后。
 2025-07-07 08:24:39 INFO  [AWT-EventQueue-0] c.y.infrastructure.ui.DesktopManager - 窗口已成功置于底层。
+2025-07-09 21:28:56 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 4212 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-09 21:28:56 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-09 21:28:57 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-09 21:28:57 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.927 seconds (process running for 2.358)
+2025-07-09 21:28:57 INFO  [main] c.y.i.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-09 21:28:58 ERROR [main] c.y.i.config.ApiConfigLoader - ❌ 加载API列表文件 'classpath:api-list.json' 失败。请检查文件是否存在、路径是否正确以及JSON格式是否规范。
+com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8] (through reference chain: java.util.ArrayList[0]->com.yiyan.infrastructure.adapter.api.config.ApiProperties$ApiEndpoint["parser"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1863)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:359)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:244)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:28)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3817)
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:56)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at com.yiyan.Launcher.main(Launcher.java:31)
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:674)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipComment(UTF8StreamJsonParser.java:3274)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWS2(UTF8StreamJsonParser.java:3073)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWS(UTF8StreamJsonParser.java:3049)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextFieldName(UTF8StreamJsonParser.java:1064)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:321)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	... 27 common frames omitted
+2025-07-09 21:28:58 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-09 21:28:58 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: 无法加载API配置文件: classpath:api-list.json
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:65)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at com.yiyan.Launcher.main(Launcher.java:31)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8] (through reference chain: java.util.ArrayList[0]->com.yiyan.infrastructure.adapter.api.config.ApiProperties$ApiEndpoint["parser"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1863)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:359)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:244)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:28)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3817)
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:56)
+	... 19 common frames omitted
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:674)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipComment(UTF8StreamJsonParser.java:3274)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWS2(UTF8StreamJsonParser.java:3073)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWS(UTF8StreamJsonParser.java:3049)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextFieldName(UTF8StreamJsonParser.java:1064)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:321)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	... 27 common frames omitted
+2025-07-09 21:28:58 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-09 21:29:34 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 12832 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-09 21:29:34 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-09 21:29:35 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-09 21:29:36 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.985 seconds (process running for 2.558)
+2025-07-09 21:29:36 INFO  [main] c.y.i.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-09 21:29:36 ERROR [main] c.y.i.config.ApiConfigLoader - ❌ 加载API列表文件 'classpath:api-list.json' 失败。请检查文件是否存在、路径是否正确以及JSON格式是否规范。
+com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8] (through reference chain: java.util.ArrayList[0]->com.yiyan.infrastructure.adapter.api.config.ApiProperties$ApiEndpoint["parser"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1863)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:359)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:244)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:28)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3817)
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:56)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at com.yiyan.Launcher.main(Launcher.java:31)
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:674)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipComment(UTF8StreamJsonParser.java:3274)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWSOrEnd2(UTF8StreamJsonParser.java:3154)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWSOrEnd(UTF8StreamJsonParser.java:3130)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextFieldName(UTF8StreamJsonParser.java:1040)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:321)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	... 27 common frames omitted
+2025-07-09 21:29:36 INFO  [main] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-07-09 21:29:36 ERROR [main] o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: 无法加载API配置文件: classpath:api-list.json
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:65)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$5(SpringApplication.java:790)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:798)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:789)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:774)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:774)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.builder.SpringApplicationBuilder.run(SpringApplicationBuilder.java:149)
+	at com.yiyan.Launcher.main(Launcher.java:31)
+Caused by: com.fasterxml.jackson.databind.JsonMappingException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8] (through reference chain: java.util.ArrayList[0]->com.yiyan.infrastructure.adapter.api.config.ApiProperties$ApiEndpoint["parser"])
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:402)
+	at com.fasterxml.jackson.databind.JsonMappingException.wrapWithPath(JsonMappingException.java:361)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.wrapAndThrow(BeanDeserializerBase.java:1863)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:359)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:244)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:28)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4825)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3817)
+	at com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader.run(ApiConfigLoader.java:56)
+	... 19 common frames omitted
+Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character ('/' (code 47)): maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)
+ at [Source: (BufferedInputStream); line: 10, column: 8]
+	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:2477)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportError(ParserMinimalBase.java:750)
+	at com.fasterxml.jackson.core.base.ParserMinimalBase._reportUnexpectedChar(ParserMinimalBase.java:674)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipComment(UTF8StreamJsonParser.java:3274)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWSOrEnd2(UTF8StreamJsonParser.java:3154)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser._skipWSOrEnd(UTF8StreamJsonParser.java:3130)
+	at com.fasterxml.jackson.core.json.UTF8StreamJsonParser.nextFieldName(UTF8StreamJsonParser.java:1040)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:321)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	... 27 common frames omitted
+2025-07-09 21:29:36 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-09 21:30:44 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 38308 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-09 21:30:44 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-09 21:30:44 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-09 21:30:45 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.801 seconds (process running for 2.208)
+2025-07-09 21:30:45 INFO  [main] c.y.i.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-09 21:30:45 INFO  [main] c.y.i.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-09 21:30:45 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-09 21:30:45 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-09 21:30:45 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-09 21:30:45 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-09 21:30:45 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-renjian] 获取数据...
+2025-07-09 21:30:45 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 当眼泪流下来，才知道，分开也是另一种明白。 —— 网络)
+2025-07-09 21:30:46 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 我知道你的名字，却不能爱你；我知道你的面貌，却不能爱你；我知道你的所在，却不能爱你；我知道你的喜好，却不能爱你；我这么爱你，却，不能爱你[皱眉]你，你，你还好吗？他，对你好吗？「神奇」 —— 佚名)
+2025-07-09 21:30:46 WARN  [yiyan-scheduler-1] c.y.i.a.a.parser.JsonSentenceParser - ⚠️ API [api-m.com-renjian] 返回的文本过长 (90 > 60), 将被丢弃.
+2025-07-09 21:30:46 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-renjian] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-09 21:30:46 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hitokoto.cn] 获取数据...
+2025-07-09 21:30:46 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hitokoto.cn] 获取数据, URL: https://v1.hitokoto.cn/
+2025-07-09 21:30:46 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - ✨ 成功获取到封装后的一言对象: 跨越光年，归来任是你。 —— 臆影
+2025-07-09 21:30:46 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-09 21:30:46] 跨越光年，归来任是你。 —— 臆影
+2025-07-09 21:30:46 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 20 秒后。
+2025-07-09 21:30:46 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-09 21:30:46 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-09 21:30:47 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 我可以接受失败，但绝对不能接受未奋斗过的自己。)
+2025-07-09 21:30:48 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 心，可是很重的。)
+2025-07-09 21:30:48 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> 没有一颗珍珠的闪光，是靠别人涂抹上去的。)
+2025-07-09 21:30:49 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 你用谎言去验证诺言得到的一定是欺骗，别为不值得的人做不值得的事。)
+2025-07-09 21:30:49 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 这个世界有很多置他人与不幸，并幸灾乐祸的人。 —— 梦幻花)
+2025-07-09 21:30:50 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> 压迫着我的，到底是我的想要外出的灵魂呢，还是那世界的灵魂，敲着我心的门想要进来呢？)
+2025-07-09 21:30:50 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 调用频次过快，请间隔一分钟再试，或购买钻石会员！如果使用的是公共ID与KEY请登录接口盒子使用自己的ID与KEY，独享频次，登录接口盒子www.apihz.cn后台可查看详细调用统计，方便你的业务规划。)
+2025-07-09 21:30:51 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 有一些人，不是不想忘，而是忘不了;总有一些情，不是不想放，而是放不下。)
+2025-07-09 21:30:51 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 无言独上西楼，月如钩。寂寞梧桐深院锁清秋。 —— 李煜)
+2025-07-09 21:30:51 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-09 21:30:52 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> 心似双丝网，中有千千结。 —— 千秋岁·数声鶗鴂)
+2025-07-09 21:30:52 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 月有盈亏花有开谢，想人生最苦离别。 —— 张鸣善)
+2025-07-09 21:30:53 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 我已经错过了一个她，不能没有你呀，你给我的感觉就是如真似幻，害怕失去，却又不敢拥有，原谅我是一个逞强的胆小鬼——《我在人间凑数的日子》)
+2025-07-09 21:30:53 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 人生路上，首须看远，人无远虑，近忧必扰。看远不是舍近，不是目空一切，而是紧盯远方，走好脚下，知道取舍，拒绝诱惑，笃意前行；次是看透，不被乱象迷惑，不为浮言困袭，修炼洞世之慧眼，识人之秀心，凡事由表及里，入木三分；然后看淡，花开自然落，云卷有时舒，郁郁寡欢使人累，耿耿于怀心易碎。)
+2025-07-09 21:30:53 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 驿路侵斜月，溪桥度晓霜。《南歌子·驿路侵斜月》 — 吕本中)
+2025-07-09 21:30:53 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 今天你最后遇见的那个人有在微笑吗？)
+2025-07-09 21:30:53 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---
+2025-07-09 21:32:26 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 40008 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-09 21:32:26 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-09 21:32:27 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-09 21:32:28 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.866 seconds (process running for 2.326)
+2025-07-09 21:32:28 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-09 21:32:28 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-09 21:32:28 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-09 21:32:28 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-09 21:32:28 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [iamwawa.cn-shici] 获取数据...
+2025-07-09 21:32:28 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 失去故土的花朵，回不去，却也离不开。 —— 长歌行)
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [iamwawa.cn-shici] 获取数据, URL: https://www.iamwawa.cn/home/shici/ajax
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - ✨ 成功获取到封装后的一言对象: 可羡瑶池碧桃树，碧桃红颊一千年。 —— 李商隐
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-09 21:32:28] 可羡瑶池碧桃树，碧桃红颊一千年。 —— 李商隐
+2025-07-09 21:32:28 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 13 秒后。
+2025-07-09 21:32:28 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-09 21:32:28 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-09 21:32:28 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 早安，我有一个旧铁盒，里面装满了所有的机票和火车票，你那边还好吗？我在广州。 —— 佚名)
+2025-07-09 21:32:30 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 没有值得不值得，只有愿意不愿意。)
+2025-07-09 21:32:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 只要是活着的东西，就算是神我也会杀给你看。)
+2025-07-09 21:32:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> 态度决定高度。)
+2025-07-09 21:32:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 如果有人伤害了你，可以原谅他，但不要再轻易相信他。原谅是放过自己，而盲目信任却只会给他再伤害你的机会。)
+2025-07-09 21:32:32 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 真正可爱的人不会刻意让自己显得可爱。聪明、虚荣不也是这样吗？ —— Life)
+2025-07-09 21:32:32 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> “真实”的含义被误解、轻重被倒置，那就成了“不真实”。)
+2025-07-09 21:32:32 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 调用频次过快，请间隔一分钟再试，或购买钻石会员！如果使用的是公共ID与KEY请登录接口盒子使用自己的ID与KEY，独享频次，登录接口盒子www.apihz.cn后台可查看详细调用统计，方便你的业务规划。)
+2025-07-09 21:32:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 我总徘徊在吃饱和吃撑之间。)
+2025-07-09 21:32:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 再三追往事，离魂乱、愁肠锁。 —— 柳永)
+2025-07-09 21:32:34 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> 如果你喜欢，就把这一切当做是荣耀，而不是炫耀。 —— 全职高手)
+2025-07-09 21:32:35 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 报答春光知有处，应须美酒送生涯。 —— 杜甫)
+2025-07-09 21:32:35 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 我不知道凌晨五点该说晚安还是早安，也不知道这个年龄是该说爱还是喜欢。 ——选自散文集《我在人间凑数的日子》)
+2025-07-09 21:32:35 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 远离喧嚣，脱离红尘，过与世无争的淡然素净生活。与世无争，与人无愧，恬静悠然如菊。若能遇一知己，雪天围炉煮酒，更是人生之摩达幸事。若无知己，清水煮茶，却也悠然。日子若能过得如水般清净无波，也算是幸福人生了吧！)
+2025-07-09 21:32:36 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 明月楼高休独倚。酒入愁肠，化作相思泪。《苏幕遮·怀旧》 — 范仲淹)
+2025-07-09 21:32:36 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 装逼觉得自己像只孔雀，其实在别人眼里，就是只乱蹦的野鸡。)
+2025-07-09 21:32:36 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---
+2025-07-09 21:32:57 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 31764 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-09 21:32:57 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-09 21:32:58 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-09 21:32:59 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.892 seconds (process running for 2.304)
+2025-07-09 21:32:59 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-09 21:32:59 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-09 21:32:59 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-09 21:32:59 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-09 21:32:59 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-09 21:32:59 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-09 21:32:59 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-renjian] 获取数据...
+2025-07-09 21:32:59 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 我只是不想再失去他——哪怕是仅存在一瞬的幻影！ —— 加油大魔王)
+2025-07-09 21:32:59 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 永远相信美好的事情即将发生 —— 佚名)
+2025-07-09 21:33:01 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-renjian] 获取数据, URL: https://v2.api-m.com/api/renjian
+2025-07-09 21:33:01 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceService - ✨ 成功获取到封装后的一言对象: "故事不长，也不难讲"相识一场，脸红相遇，眼红而离去，或是爱而不得.- ——选自散文集《我在人间凑数的日子》
+2025-07-09 21:33:01 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-09 21:33:01] "故事不长，也不难讲"相识一场，脸红相遇，眼红而离去，或是爱而不得.- ——选自散文集《我在人间凑数的日子》
+2025-07-09 21:33:01 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 26 秒后。
+2025-07-09 21:33:01 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-09 21:33:01 ERROR [yiyan-scheduler-1] o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+org.springframework.core.task.TaskRejectedException: ExecutorService in shutdown state did not accept task: com.yiyan.infrastructure.scheduling.DynamicScheduler$$Lambda$822/0x0000018401503440@10640de
+	at org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler.schedule(ThreadPoolTaskScheduler.java:405)
+	at com.yiyan.infrastructure.scheduling.DynamicScheduler.scheduleNext(DynamicScheduler.java:103)
+	at com.yiyan.infrastructure.scheduling.DynamicScheduler.runAndReschedule(DynamicScheduler.java:79)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@51fe1b1b[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@6164a51e[Wrapped task = DelegatingErrorHandlingRunnable for com.yiyan.infrastructure.scheduling.DynamicScheduler$$Lambda$822/0x0000018401503440@10640de]] rejected from org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler$1@1815646f[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2065)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(ScheduledThreadPoolExecutor.java:340)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.schedule(ScheduledThreadPoolExecutor.java:562)
+	at org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler.schedule(ThreadPoolTaskScheduler.java:402)
+	... 9 common frames omitted
+2025-07-09 21:33:02 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 就算只有一周的记忆，我也永远不会忘记你)
+2025-07-09 21:33:03 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 温柔正确的人总是难以生存，因为这世界既不温柔，也不正确。)
+2025-07-09 21:33:03 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> 如果你想攀登高峰，切莫把彩虹当作梯子。)
+2025-07-09 21:33:04 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 如果有人伤害了你，不要去感谢那些伤害你的人，他们根本没做什么让你成长，让你成长的是你的反思和坚强。所以感谢自己和陪伴在你身边的人就好。)
+2025-07-09 21:33:05 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 教条是一种提醒，并且要你去寻求智慧。 —— 刺客信条)
+2025-07-09 21:33:05 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> 不要从你自己的袋里掏出勋绩借给你的朋友，这是污辱他的。)
+2025-07-09 21:33:06 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 楼主：征集骂人最狠且不露脏字的一句话。)
+2025-07-09 21:33:06 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 今天是个假笑女孩。)
+2025-07-09 21:33:07 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 行行天未晓，携酒踏明月。 —— 韩愈)
+2025-07-09 21:33:07 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> 儿童散学归来早，忙趁东风放纸鸢。 —— 村居)
+2025-07-09 21:33:07 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 当时父母念，今日尔应知。 —— 白居易)
+2025-07-09 21:33:08 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 我就这么坐着生活给我什么我就接着拿走什么我就看着他说。——选自散文集…《我在人间凑数的日子》)
+2025-07-09 21:33:08 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 如果痛苦是杯苦酒，你要不动声色地把它喝下去；如果痛苦是道伤疤，你要让它成为脸上的微笑。有些话，适合烂在心里，有些痛苦，适合无声无息的忘记。当经历过，心中的痛苦消弭于无形，你成长了，自己知道就好。很多改变，不需要你自己说，别人会看得到。)
+2025-07-09 21:33:08 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 芳草年年惹恨幽。想前事悠悠。《燕归梁·春愁》 — 石延年)
+2025-07-09 21:33:09 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 2019年是不是感觉白过了？没关系，明年可能也是。)
+2025-07-09 21:33:09 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---

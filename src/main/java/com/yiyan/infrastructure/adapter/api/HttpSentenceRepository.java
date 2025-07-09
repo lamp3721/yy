@@ -1,11 +1,9 @@
 package com.yiyan.infrastructure.adapter.api;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yiyan.application.service.SentenceParser;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.core.repository.SentenceRepository;
-import com.yiyan.infrastructure.config.ApiProperties;
+import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import com.yiyan.infrastructure.adapter.api.parser.SentenceParserFactory;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.slf4j.Slf4j;
@@ -17,15 +15,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
-import java.util.concurrent.CompletableFuture;
+
 import org.springframework.scheduling.annotation.Async;
 
 import java.util.ArrayList;

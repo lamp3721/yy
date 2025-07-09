@@ -1,4 +1,4 @@
-package com.yiyan.infrastructure.config;
+package com.yiyan.infrastructure.adapter.api.config;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

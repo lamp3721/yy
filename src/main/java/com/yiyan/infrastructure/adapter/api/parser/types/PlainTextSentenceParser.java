@@ -1,8 +1,8 @@
-package com.yiyan.infrastructure.adapter.api.parser;
+package com.yiyan.infrastructure.adapter.api.parser.types;
 
 import com.yiyan.application.service.SentenceParser;
 import com.yiyan.core.domain.Sentence;
-import com.yiyan.infrastructure.config.ApiProperties;
+import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

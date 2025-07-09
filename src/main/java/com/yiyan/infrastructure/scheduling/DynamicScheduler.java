@@ -1,8 +1,8 @@
 package com.yiyan.infrastructure.scheduling;
 
 import com.yiyan.application.service.SentenceService;
-import com.yiyan.infrastructure.config.ApiConfigLoader;
-import com.yiyan.launcher.config.SchedulerProperties;
+import com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader;
+import com.yiyan.config.SchedulerProperties;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

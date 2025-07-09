@@ -1,7 +1,7 @@
 package com.yiyan.application.service;
 
 import com.yiyan.core.domain.Sentence;
-import com.yiyan.infrastructure.config.ApiProperties;
+import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 
 import java.util.Optional;
 

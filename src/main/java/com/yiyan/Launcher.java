@@ -1,8 +1,8 @@
 package com.yiyan;
 
-import com.yiyan.infrastructure.config.ApiProperties;
+import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import com.yiyan.infrastructure.config.HttpClientConfig;
-import com.yiyan.launcher.config.SchedulerProperties;
+import com.yiyan.config.SchedulerProperties;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -6,8 +6,7 @@
       "mappings": {
         "text": "/hitokoto",
         "author": "from"
-      },
-      // "type": "json"  默认不用写
+      }
     }
   },
   {

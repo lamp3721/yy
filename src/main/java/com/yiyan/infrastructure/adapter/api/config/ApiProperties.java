@@ -1,16 +1,11 @@
-package com.yiyan.infrastructure.config;
+package com.yiyan.infrastructure.adapter.api.config;
 
-import com.yiyan.core.domain.Sentence;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.StringUtils;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.HashMap;
 import java.util.ArrayList;
 

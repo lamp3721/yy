@@ -1,4 +1,4 @@
-package com.yiyan.launcher.config;
+package com.yiyan.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
