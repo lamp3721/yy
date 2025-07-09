@@ -1,6 +1,6 @@
 package com.yiyan.infrastructure.adapter.api;
 
-import com.yiyan.application.service.SentenceParser;
+import com.yiyan.infrastructure.adapter.api.parser.SentenceParser;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.core.repository.SentenceRepository;
 import com.yiyan.infrastructure.adapter.api.config.ApiProperties;

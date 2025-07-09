@@ -1,6 +1,6 @@
-package com.yiyan.infrastructure.adapter.api.parser.types;
+package com.yiyan.infrastructure.adapter.api.parser.impl;
 
-import com.yiyan.application.service.SentenceParser;
+import com.yiyan.infrastructure.adapter.api.parser.SentenceParser;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.yiyan.infrastructure.adapter.api.parser;
 
-import com.yiyan.application.service.SentenceParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
