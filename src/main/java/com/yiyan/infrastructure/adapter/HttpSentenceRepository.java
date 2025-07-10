@@ -1,4 +1,4 @@
-package com.yiyan.infrastructure.adapter.api;
+package com.yiyan.infrastructure.adapter;
 
 import com.yiyan.infrastructure.adapter.api.parser.SentenceParser;
 import com.yiyan.domain.Sentence;

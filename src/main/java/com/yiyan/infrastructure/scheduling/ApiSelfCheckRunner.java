@@ -1,7 +1,6 @@
 package com.yiyan.infrastructure.scheduling;
 
-import com.yiyan.infrastructure.adapter.api.HttpSentenceRepository;
-import com.yiyan.infrastructure.adapter.api.SentenceRepository;
+import com.yiyan.infrastructure.adapter.SentenceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

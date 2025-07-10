@@ -2,7 +2,7 @@ package com.yiyan.application.service;
 
 import com.yiyan.application.event.SentenceFetchedEvent;
 import com.yiyan.domain.Sentence;
-import com.yiyan.infrastructure.adapter.api.SentenceRepository;
+import com.yiyan.infrastructure.adapter.SentenceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
