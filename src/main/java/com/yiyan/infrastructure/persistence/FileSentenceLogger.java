@@ -1,6 +1,6 @@
-package com.yiyan.infrastructure.adapter.persistence;
+package com.yiyan.infrastructure.persistence;
 
-import com.yiyan.application.event.SentenceFetchedEvent;
+import com.yiyan.event.SentenceFetchedEvent;
 import com.yiyan.domain.Sentence;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;

@@ -1,7 +1,6 @@
 package com.yiyan.infrastructure.scheduling;
 
-import com.yiyan.application.service.SentenceService;
-import com.yiyan.application.service.SentenceServiceImpl;
+import com.yiyan.service.SentenceService;
 import com.yiyan.infrastructure.adapter.api.config.ApiConfigLoader;
 import com.yiyan.config.SchedulerProperties;
 import jakarta.annotation.PostConstruct;

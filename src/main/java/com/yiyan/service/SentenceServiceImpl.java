@@ -1,6 +1,6 @@
-package com.yiyan.application.service;
+package com.yiyan.service;
 
-import com.yiyan.application.event.SentenceFetchedEvent;
+import com.yiyan.event.SentenceFetchedEvent;
 import com.yiyan.domain.Sentence;
 import com.yiyan.infrastructure.adapter.SentenceRepository;
 import lombok.RequiredArgsConstructor;

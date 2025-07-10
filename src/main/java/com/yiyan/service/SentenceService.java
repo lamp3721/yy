@@ -1,4 +1,4 @@
-package com.yiyan.application.service;
+package com.yiyan.service;
 
 import java.util.concurrent.CompletableFuture;
 

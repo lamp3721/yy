@@ -1,7 +1,7 @@
 package com.yiyan.infrastructure.ui.presenter;
 
-import com.yiyan.application.event.SentenceFetchedEvent;
-import com.yiyan.application.service.SentenceService;
+import com.yiyan.event.SentenceFetchedEvent;
+import com.yiyan.service.SentenceService;
 import com.yiyan.domain.Sentence;
 import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
 import com.yiyan.infrastructure.ui.service.AnimationService;

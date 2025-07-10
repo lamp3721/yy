@@ -1,4 +1,4 @@
-package com.yiyan.application.event;
+package com.yiyan.event;
 
 import com.yiyan.domain.Sentence;
 import lombok.Getter;
