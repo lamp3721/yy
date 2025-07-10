@@ -1,6 +1,6 @@
-package com.yiyan.core.repository;
+package com.yiyan.infrastructure.adapter.api;
 
-import com.yiyan.core.domain.Sentence;
+import com.yiyan.domain.Sentence;
 
 import java.util.Optional;
 
@@ -18,4 +18,10 @@ public interface SentenceRepository {
      * @return 返回一个包含Sentence的可选值。如果无法获取，则返回空的Optional。
      */
     Optional<Sentence> fetchRandomSentence(boolean skipValidation);
+
+
+    /**
+     * 步执行所有API端点的健康检查。
+     */
+    void checkAllApisAsync();
 } 

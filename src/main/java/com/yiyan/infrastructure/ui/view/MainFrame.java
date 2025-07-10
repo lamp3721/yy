@@ -1,6 +1,5 @@
 package com.yiyan.infrastructure.ui.view;
 
-import com.yiyan.core.domain.Sentence;
 import com.yiyan.infrastructure.ui.component.PopupMenuFactory;
 import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
 import com.yiyan.infrastructure.ui.presenter.ViewCallback;

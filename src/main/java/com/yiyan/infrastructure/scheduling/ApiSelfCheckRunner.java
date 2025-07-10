@@ -1,6 +1,7 @@
 package com.yiyan.infrastructure.scheduling;
 
 import com.yiyan.infrastructure.adapter.api.HttpSentenceRepository;
+import com.yiyan.infrastructure.adapter.api.SentenceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -20,7 +21,7 @@ public class ApiSelfCheckRunner implements ApplicationListener<ApplicationReadyE
     /**
      * "一言"的HTTP数据仓库，自检程序将调用其API检查方法
      */
-    private final HttpSentenceRepository sentenceRepository;
+    private final SentenceRepository sentenceRepository;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {

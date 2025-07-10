@@ -1,7 +1,7 @@
 package com.yiyan.infrastructure.adapter.api.parser.impl;
 
 import com.yiyan.infrastructure.adapter.api.parser.SentenceParser;
-import com.yiyan.core.domain.Sentence;
+import com.yiyan.domain.Sentence;
 import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

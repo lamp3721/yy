@@ -289,3 +289,461 @@
 2025-07-10 21:43:57 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
 2025-07-10 21:43:58 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
 2025-07-10 21:44:03 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:44:07 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 27772 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-10 21:44:07 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-10 21:44:08 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-10 21:44:08 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.765 seconds (process running for 2.128)
+2025-07-10 21:44:08 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-10 21:44:08 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-10 21:44:08 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-10 21:44:08 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-10 21:44:08 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-10 21:44:08 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:44:08 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [nnxv.cn] 获取数据...
+2025-07-10 21:44:09 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 爱欲于人，犹如执炬，逆风而行，必有烧手之患。 —— 四十二章经)
+2025-07-10 21:44:09 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 一生中会遇上很多人，真正能停留驻足的又有几个，生命是终将荒芜的渡口，连我们自己都是过客。 —— 佚名)
+2025-07-10 21:44:09 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [nnxv.cn] 获取数据, URL: https://api.nnxv.cn/api/yiyan.php
+2025-07-10 21:44:09 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 这是你所不能理解的，人类感情的极致，比希望更热烈，比绝望更深邃——爱！ —— 魔法少女小圆新篇
+2025-07-10 21:44:09 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:44:09] 这是你所不能理解的，人类感情的极致，比希望更热烈，比绝望更深邃——爱！ —— 魔法少女小圆新篇
+2025-07-10 21:44:09 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 13 秒后。
+2025-07-10 21:44:09 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:44:09 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:44:10 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 已经发生的事情与其每天叹息，还不如从容面对。)
+2025-07-10 21:44:11 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 努力不会背叛自己，虽然有时会背叛梦想)
+2025-07-10 21:44:11 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> 将一付好牌打好没有什么了不起能将一付坏牌打好的人才值得钦佩。)
+2025-07-10 21:44:11 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 别人稍微一注意你，你就敞开心扉，你觉得这是坦率，其实这是孤独。)
+2025-07-10 21:44:12 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 从来没有人质疑日升日落，也没有人质疑万物生长。 —— 明日方舟)
+2025-07-10 21:44:12 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> 夜的序曲是开始于夕阳西下的音乐，开始于它的向难以形容的黑暗的庄严的赞歌。)
+2025-07-10 21:44:12 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 脸是用来养眼的，眼是用来看脸的。)
+2025-07-10 21:44:13 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 以前丑，不好意思发自拍，现在不一样了，现在脸皮厚了。)
+2025-07-10 21:44:13 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 恰似春风相欺得，夜来吹折数枝花。 —— 杜甫)
+2025-07-10 21:44:14 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> やり遂げたよ、最後まで。 —— ラブライブ)
+2025-07-10 21:44:14 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 红莲相倚浑如醉，白鸟无言定自愁。 —— 辛弃疾)
+2025-07-10 21:44:14 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:44:15 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 何为孤独，听到喜欢的歌，遇到喜欢的事，看了喜欢的电影，见到喜欢的风景，你迫不及待想找个人分享，却发现身边空无一人，这时候，最先赶来的，就是孤独。 ——选自散文集《我在人间凑数的日子》)
+2025-07-10 21:44:15 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 两个相爱的人，一方提出分手，另一方痛苦是肯定了。但是，不管有多痛，分手时，你都不要和曾经爱你的人和你爱的说狠话。你好好想想，这个世界上，能伤害到你的人，一定是你爱的人；能让你受伤的人，一定是爱你的人。)
+2025-07-10 21:44:16 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 青梅如豆柳如眉，日长蝴蝶飞。《阮郎归·南园春半踏青时》 — 欧阳修)
+2025-07-10 21:44:16 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 心想事成的诀窍是，只想能成的事。)
+2025-07-10 21:44:16 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [aa1.cn-wenan] 获取数据...
+2025-07-10 21:44:23 WARN  [yiyan-scheduler-1] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [aa1.cn-wenan] 返回的文本过长 (111 > 60), 将被丢弃.
+2025-07-10 21:44:23 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [aa1.cn-wenan] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 天将暮，雪乱舞，半梅花半飘柳絮。《寿阳曲·江天暮雪》 — 马致远
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:44:23] 天将暮，雪乱舞，半梅花半飘柳絮。《寿阳曲·江天暮雪》 — 马致远
+2025-07-10 21:44:23 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 29 秒后。
+2025-07-10 21:44:23 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:44:24 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:44:29 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:44:52 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:44:52 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:44:53 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:44:53 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 还作江南会，翻疑梦里逢。《客夜与故人偶集 / 江乡故人偶集客舍》 — 戴叔伦
+2025-07-10 21:44:53 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:44:53] 还作江南会，翻疑梦里逢。《客夜与故人偶集 / 江乡故人偶集客舍》 — 戴叔伦
+2025-07-10 21:44:53 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 21 秒后。
+2025-07-10 21:44:53 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:44:53 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:44:58 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [iamwawa.cn-lizhi] 获取数据...
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [iamwawa.cn-lizhi] 获取数据, URL: https://www.iamwawa.cn/home/lizhi/ajax
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 也许上帝让你在遇见那个合适的人之前遇见很多错误的人，所以，当这一切发生的时候，你应该心存感激。
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:45:14] 也许上帝让你在遇见那个合适的人之前遇见很多错误的人，所以，当这一切发生的时候，你应该心存感激。
+2025-07-10 21:45:14 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 14 秒后。
+2025-07-10 21:45:14 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:45:15 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:45:20 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [jinrishici.com] 获取数据...
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [jinrishici.com] 获取数据, URL: https://v1.jinrishici.com/all
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 春草如有情，山中尚含绿。 —— 李白
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:45:29] 春草如有情，山中尚含绿。 —— 李白
+2025-07-10 21:45:29 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 19 秒后。
+2025-07-10 21:45:29 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:45:29 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:45:34 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api.xygeng.cn] 获取数据...
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api.xygeng.cn] 获取数据, URL: https://api.xygeng.cn/one
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 王佐之才，满腹才华，盼家国一统，心有戚戚。
+一身正气，忠骨一生，择良木而栖，莫道愚忠！ —— 佚名
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:45:49] 王佐之才，满腹才华，盼家国一统，心有戚戚。
+一身正气，忠骨一生，择良木而栖，莫道愚忠！ —— 佚名
+2025-07-10 21:45:49 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 29 秒后。
+2025-07-10 21:45:49 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:45:50 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:45:55 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:46:18 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:46:18 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hhlqilongzhu.cn] 获取数据...
+2025-07-10 21:46:19 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hhlqilongzhu.cn] 获取数据, URL: https://www.hhlqilongzhu.cn/api/yiyan.php
+2025-07-10 21:46:19 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 努力是不会背叛自己的，虽然梦想有时会背叛自己。
+2025-07-10 21:46:19 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:46:19] 努力是不会背叛自己的，虽然梦想有时会背叛自己。
+2025-07-10 21:46:19 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 19 秒后。
+2025-07-10 21:46:19 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:46:19 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:46:24 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [mu-jie.cc-stray-birds] 获取数据...
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [mu-jie.cc-stray-birds] 获取数据, URL: https://api.mu-jie.cc/stray-birds/range?type=json
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 真理仿佛带了它的结论而来；而那结论却产生了它的第二个。
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:46:38] 真理仿佛带了它的结论而来；而那结论却产生了它的第二个。
+2025-07-10 21:46:38 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 20 秒后。
+2025-07-10 21:46:38 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:46:38 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:46:43 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:46:58 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:46:58 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:46:59 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:46:59 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 满罗衫是酒，香痕凝处，唾碧啼红相半。《陌上花·有怀》 — 张翥
+2025-07-10 21:46:59 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:46:59] 满罗衫是酒，香痕凝处，唾碧啼红相半。《陌上花·有怀》 — 张翥
+2025-07-10 21:46:59 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:46:59 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 23 秒后。
+2025-07-10 21:46:59 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:47:04 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:47:23 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:47:23 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-hitokoto] 获取数据...
+2025-07-10 21:47:23 WARN  [yiyan-scheduler-2] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [api-m.com-hitokoto] 返回的文本过长 (114 > 60), 将被丢弃.
+2025-07-10 21:47:23 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-hitokoto] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:47:23 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [apihz.cn] 获取数据...
+2025-07-10 21:47:23 WARN  [yiyan-scheduler-2] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [apihz.cn] 返回的文本过长 (101 > 60), 将被丢弃.
+2025-07-10 21:47:23 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [apihz.cn] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:47:23 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [nnxv.cn] 获取数据...
+2025-07-10 21:47:24 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [nnxv.cn] 获取数据, URL: https://api.nnxv.cn/api/yiyan.php
+2025-07-10 21:47:24 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 每一次匆忙的路过，都是一次永久的离别。 —— 咸鱼君ps
+2025-07-10 21:47:24 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:47:24] 每一次匆忙的路过，都是一次永久的离别。 —— 咸鱼君ps
+2025-07-10 21:47:24 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 11 秒后。
+2025-07-10 21:47:24 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:47:25 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:47:30 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-renjian] 获取数据...
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-renjian] 获取数据, URL: https://v2.api-m.com/api/renjian
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 有些人25岁就死了，直到75岁才埋 ——选自散文集《我在人间凑数的日子》
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:47:36] 有些人25岁就死了，直到75岁才埋 ——选自散文集《我在人间凑数的日子》
+2025-07-10 21:47:36 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:47:36 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 20 秒后。
+2025-07-10 21:47:36 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:47:41 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-renjian] 获取数据...
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-renjian] 获取数据, URL: https://v2.api-m.com/api/renjian
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 生活就是一边选择 ，一边放弃 ——选自散文集《我在人间凑数的日子》
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:47:57] 生活就是一边选择 ，一边放弃 ——选自散文集《我在人间凑数的日子》
+2025-07-10 21:47:57 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 12 秒后。
+2025-07-10 21:47:57 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:47:57 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:48:02 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:48:09 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:48:09 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api.xygeng.cn] 获取数据...
+2025-07-10 21:48:10 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api.xygeng.cn] 获取数据, URL: https://api.xygeng.cn/one
+2025-07-10 21:48:10 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 漫天星光沿途散播，长路尽处有灯火。 —— 佚名
+2025-07-10 21:48:10 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:48:10] 漫天星光沿途散播，长路尽处有灯火。 —— 佚名
+2025-07-10 21:48:10 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 10 秒后。
+2025-07-10 21:48:10 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:48:10 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:48:15 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [iamwawa.cn-lizhi] 获取数据...
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [iamwawa.cn-lizhi] 获取数据, URL: https://www.iamwawa.cn/home/lizhi/ajax
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 一个人只有亲眼看到自己伤疤的时候才知道什么是痛，什么是对与错。
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:48:20] 一个人只有亲眼看到自己伤疤的时候才知道什么是痛，什么是对与错。
+2025-07-10 21:48:20 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 28 秒后。
+2025-07-10 21:48:20 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:48:20 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:48:25 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:48:49 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:48:49 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [uapis.cn] 获取数据...
+2025-07-10 21:48:50 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [uapis.cn] 获取数据, URL: https://uapis.cn/api/say
+2025-07-10 21:48:50 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 思想，语言是会束缚人的东西，不但自己的会束缚自己，别人的也会束缚自己。
+2025-07-10 21:48:50 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:48:50] 思想，语言是会束缚人的东西，不但自己的会束缚自己，别人的也会束缚自己。
+2025-07-10 21:48:50 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 19 秒后。
+2025-07-10 21:48:50 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:48:50 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:48:55 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:49:09 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:49:09 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:49:10 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:49:10 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 弟妹萧条各何在，干戈衰谢两相催！《九日五首·其一》 — 杜甫
+2025-07-10 21:49:10 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:49:10] 弟妹萧条各何在，干戈衰谢两相催！《九日五首·其一》 — 杜甫
+2025-07-10 21:49:10 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 27 秒后。
+2025-07-10 21:49:10 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:49:10 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:49:15 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:49:38 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:49:38 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [aa1.cn-wenan] 获取数据...
+2025-07-10 21:49:38 WARN  [yiyan-scheduler-1] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [aa1.cn-wenan] 返回的文本过长 (120 > 60), 将被丢弃.
+2025-07-10 21:49:38 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [aa1.cn-wenan] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:49:38 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [uapis.cn] 获取数据...
+2025-07-10 21:49:42 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [uapis.cn] 获取数据, URL: https://uapis.cn/api/say
+2025-07-10 21:49:42 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 妹妹哟，我们总是把世界看做是游戏，这次终于出bug了。
+2025-07-10 21:49:42 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:49:42] 妹妹哟，我们总是把世界看做是游戏，这次终于出bug了。
+2025-07-10 21:49:42 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 20 秒后。
+2025-07-10 21:49:42 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:49:42 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:49:47 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:50:02 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:50:02 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hitokoto.cn] 获取数据...
+2025-07-10 21:50:03 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hitokoto.cn] 获取数据, URL: https://v1.hitokoto.cn/
+2025-07-10 21:50:03 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 欲买桂花同载酒，荒泷天下第一斗。 —— 原神
+2025-07-10 21:50:03 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:50:03] 欲买桂花同载酒，荒泷天下第一斗。 —— 原神
+2025-07-10 21:50:03 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 28 秒后。
+2025-07-10 21:50:03 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:50:03 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:50:08 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:50:31 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:50:31 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-hitokoto] 获取数据...
+2025-07-10 21:50:32 WARN  [yiyan-scheduler-2] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [api-m.com-hitokoto] 返回的文本过长 (79 > 60), 将被丢弃.
+2025-07-10 21:50:32 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-hitokoto] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:50:32 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [oddfar.com] 获取数据...
+2025-07-10 21:50:32 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [oddfar.com] 获取数据, URL: https://api.oddfar.com/yl/q.php
+2025-07-10 21:50:32 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 做不到的事没必要勉强去做，不也挺好吗？
+2025-07-10 21:50:32 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:50:32] 做不到的事没必要勉强去做，不也挺好吗？
+2025-07-10 21:50:32 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 21 秒后。
+2025-07-10 21:50:32 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:50:33 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:50:38 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:50:54 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:50:54 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-hitokoto] 获取数据...
+2025-07-10 21:50:54 WARN  [yiyan-scheduler-2] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [api-m.com-hitokoto] 返回的文本过长 (90 > 60), 将被丢弃.
+2025-07-10 21:50:54 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-hitokoto] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:50:54 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [wudada.online] 获取数据...
+2025-07-10 21:50:55 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [wudada.online] 获取数据, URL: http://www.wudada.online/Api/MrYy
+2025-07-10 21:50:55 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 就像那句狠话：有一天，我一定会后悔的。 —— 网易云
+2025-07-10 21:50:55 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:50:55] 就像那句狠话：有一天，我一定会后悔的。 —— 网易云
+2025-07-10 21:50:55 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 19 秒后。
+2025-07-10 21:50:55 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:50:55 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:51:00 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [nnxv.cn] 获取数据...
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [nnxv.cn] 获取数据, URL: https://api.nnxv.cn/api/yiyan.php
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: Yesterday you said tomorrow. —— NIKE广告
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:51:15] Yesterday you said tomorrow. —— NIKE广告
+2025-07-10 21:51:15 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:51:15 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 21 秒后。
+2025-07-10 21:51:16 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:51:21 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hhlqilongzhu.cn] 获取数据...
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hhlqilongzhu.cn] 获取数据, URL: https://www.hhlqilongzhu.cn/api/yiyan.php
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 古有一人得道鸡犬升天，今有一人得病全家成仙。
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:51:37] 古有一人得道鸡犬升天，今有一人得病全家成仙。
+2025-07-10 21:51:37 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 15 秒后。
+2025-07-10 21:51:37 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:51:38 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:51:43 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:51:53 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:51:53 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [aa1.cn-pyq] 获取数据...
+2025-07-10 21:51:54 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [aa1.cn-pyq] 获取数据, URL: https://v.api.aa1.cn/api/pyq/index.php?aa1=json
+2025-07-10 21:51:54 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 最深的爱、最痛的恨、最甜蜜的希望、最苍凉的失望，从来不是对别人，而是自己对自己的。我们与之周旋一生的，原来是自己。
+2025-07-10 21:51:54 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:51:54] 最深的爱、最痛的恨、最甜蜜的希望、最苍凉的失望，从来不是对别人，而是自己对自己的。我们与之周旋一生的，原来是自己。
+2025-07-10 21:51:54 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 12 秒后。
+2025-07-10 21:51:54 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:51:54 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:51:59 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [mu-jie.cc-stray-birds] 获取数据...
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [mu-jie.cc-stray-birds] 获取数据, URL: https://api.mu-jie.cc/stray-birds/range?type=json
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 月儿把她的光明遍照在天上，却留着她的黑斑给她自己。
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:52:06] 月儿把她的光明遍照在天上，却留着她的黑斑给她自己。
+2025-07-10 21:52:06 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:52:06 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 27 秒后。
+2025-07-10 21:52:07 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:52:12 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:52:33 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:52:33 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [aa1.cn-wenan] 获取数据...
+2025-07-10 21:52:34 WARN  [yiyan-scheduler-1] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [aa1.cn-wenan] 返回的文本过长 (64 > 60), 将被丢弃.
+2025-07-10 21:52:34 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [aa1.cn-wenan] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:52:34 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:52:34 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:52:34 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 叩枻长歌，嫦娥欲下，万里挥冰雪。《大江东去·用东坡先生韵》 — 赵秉文
+2025-07-10 21:52:34 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:52:34] 叩枻长歌，嫦娥欲下，万里挥冰雪。《大江东去·用东坡先生韵》 — 赵秉文
+2025-07-10 21:52:34 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 26 秒后。
+2025-07-10 21:52:34 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:52:35 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:52:40 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [jinrishici.com] 获取数据...
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [jinrishici.com] 获取数据, URL: https://v1.jinrishici.com/all
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 父兮生我，母兮鞠我。 —— 佚名
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:53:01] 父兮生我，母兮鞠我。 —— 佚名
+2025-07-10 21:53:01 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 28 秒后。
+2025-07-10 21:53:01 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:53:02 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:53:07 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hhlqilongzhu.cn] 获取数据...
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hhlqilongzhu.cn] 获取数据, URL: https://www.hhlqilongzhu.cn/api/yiyan.php
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 超越自我
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:53:30] 超越自我
+2025-07-10 21:53:30 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 22 秒后。
+2025-07-10 21:53:30 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:53:31 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:53:36 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:53:53 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:53:53 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [apihz.cn] 获取数据...
+2025-07-10 21:53:54 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [apihz.cn] 获取数据, URL: https://cn.apihz.cn/api/yiyan/api.php?id=88888888&key=88888888
+2025-07-10 21:53:54 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 喜欢你的人很多，不缺我一个，我喜欢的人很少，除了你就没了。
+2025-07-10 21:53:54 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:53:54] 喜欢你的人很多，不缺我一个，我喜欢的人很少，除了你就没了。
+2025-07-10 21:53:54 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 24 秒后。
+2025-07-10 21:53:54 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:53:54 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:53:59 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [wudada.online] 获取数据...
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [wudada.online] 获取数据, URL: http://www.wudada.online/Api/MrYy
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 不要轻易的口出狂言，那样只会透露出你的软弱。 —— BLEACH
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:54:18] 不要轻易的口出狂言，那样只会透露出你的软弱。 —— BLEACH
+2025-07-10 21:54:18 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 28 秒后。
+2025-07-10 21:54:18 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:54:19 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:54:24 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [jinrishici.com] 获取数据...
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [jinrishici.com] 获取数据, URL: https://v1.jinrishici.com/all
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 王孙莫把比蓬蒿，九日枝枝近鬓毛。 —— 郑谷
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:54:47] 王孙莫把比蓬蒿，九日枝枝近鬓毛。 —— 郑谷
+2025-07-10 21:54:47 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 25 秒后。
+2025-07-10 21:54:47 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:54:47 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:54:52 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hitokoto.cn] 获取数据...
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hitokoto.cn] 获取数据, URL: https://v1.hitokoto.cn/
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 最初的鸟儿是不会飞翔的，飞翔是他们勇敢跃入峡谷的奖励。 —— 原神
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:55:12] 最初的鸟儿是不会飞翔的，飞翔是他们勇敢跃入峡谷的奖励。 —— 原神
+2025-07-10 21:55:12 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:55:12 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 12 秒后。
+2025-07-10 21:55:13 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:55:18 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-hitokoto] 获取数据...
+2025-07-10 21:55:25 WARN  [yiyan-scheduler-2] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [api-m.com-hitokoto] 返回的文本过长 (117 > 60), 将被丢弃.
+2025-07-10 21:55:25 WARN  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-hitokoto] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-poetry] 获取数据...
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [api-m.com-poetry] 获取数据, URL: https://v2.api-m.com/api/yiyan?type=poetry
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 子规夜半犹啼血，不信东风唤不回。《送春》 — 王令
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:55:25] 子规夜半犹啼血，不信东风唤不回。《送春》 — 王令
+2025-07-10 21:55:25 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 10 秒后。
+2025-07-10 21:55:25 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:55:26 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:55:31 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [aa1.cn-pyq] 获取数据...
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [aa1.cn-pyq] 获取数据, URL: https://v.api.aa1.cn/api/pyq/index.php?aa1=json
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 别问我缺什么，我现在就缺个对象。
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:55:36] 别问我缺什么，我现在就缺个对象。
+2025-07-10 21:55:36 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 26 秒后。
+2025-07-10 21:55:36 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:55:36 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:55:41 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [iamwawa.cn-shici] 获取数据...
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [iamwawa.cn-shici] 获取数据, URL: https://www.iamwawa.cn/home/shici/ajax
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 西园夜饮鸣笳。 —— 秦观
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:56:02] 西园夜饮鸣笳。 —— 秦观
+2025-07-10 21:56:02 INFO  [yiyan-scheduler-2] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 26 秒后。
+2025-07-10 21:56:02 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:56:03 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:56:08 INFO  [AWT-EventQueue-0] c.y.i.ui.service.DesktopManager - 窗口已成功置于底层。
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [hitokoto.cn] 获取数据...
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [hitokoto.cn] 获取数据, URL: https://v1.hitokoto.cn/
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 方向比速度重要。 —— 巴菲特演讲
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:56:29] 方向比速度重要。 —— 巴菲特演讲
+2025-07-10 21:56:29 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 23 秒后。
+2025-07-10 21:56:29 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:56:29 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 21:56:35 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 41304 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-10 21:56:35 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-10 21:56:36 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-10 21:56:37 INFO  [main] com.yiyan.Launcher - Started Launcher in 1.718 seconds (process running for 2.139)
+2025-07-10 21:56:37 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-10 21:56:37 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-10 21:56:37 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-10 21:56:37 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-10 21:56:37 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-10 21:56:37 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 21:56:37 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [api-m.com-hitokoto] 获取数据...
+2025-07-10 21:56:37 WARN  [yiyan-scheduler-1] c.y.i.a.a.p.impl.JsonSentenceParser - ⚠️ API [api-m.com-hitokoto] 返回的文本过长 (135 > 60), 将被丢弃.
+2025-07-10 21:56:37 WARN  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⚠️ 从API [api-m.com-hitokoto] 获取成功，但内容解析后无效，尝试下一个。
+2025-07-10 21:56:37 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [uapis.cn] 获取数据...
+2025-07-10 21:56:37 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 且视他人之疑目如盏盏鬼火，大胆地去你的夜路。 —— 病隙碎笔)
+2025-07-10 21:56:38 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 鲁鲁修，你知道雪花为什么是白色的吗？因为已经忘记自己本来是什么颜色啊。 —— 佚名)
+2025-07-10 21:56:39 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 与其被自己的本性牵着走而痛苦，倒不如试着改变自己。)
+2025-07-10 21:56:39 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [uapis.cn] 获取数据, URL: https://uapis.cn/api/say
+2025-07-10 21:56:39 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 我们大概像两只嗅到同类气味的小动物，用最粗糙的方式靠近，用最笨拙的方式疗伤。
+2025-07-10 21:56:39 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 21:56:39] 我们大概像两只嗅到同类气味的小动物，用最粗糙的方式靠近，用最笨拙的方式疗伤。
+2025-07-10 21:56:39 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 11 秒后。
+2025-07-10 21:56:39 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 21:56:39 ERROR [yiyan-scheduler-1] o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+org.springframework.core.task.TaskRejectedException: ExecutorService in shutdown state did not accept task: com.yiyan.infrastructure.scheduling.DynamicScheduler$$Lambda$822/0x000001932150a3d0@4786ffc7
+	at org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler.schedule(ThreadPoolTaskScheduler.java:405)
+	at com.yiyan.infrastructure.scheduling.DynamicScheduler.scheduleNext(DynamicScheduler.java:104)
+	at com.yiyan.infrastructure.scheduling.DynamicScheduler.runAndReschedule(DynamicScheduler.java:80)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask@60affea0[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@75e603c9[Wrapped task = DelegatingErrorHandlingRunnable for com.yiyan.infrastructure.scheduling.DynamicScheduler$$Lambda$822/0x000001932150a3d0@4786ffc7]] rejected from org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler$1@48432b21[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2065)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(ScheduledThreadPoolExecutor.java:340)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor.schedule(ScheduledThreadPoolExecutor.java:562)
+	at org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler.schedule(ThreadPoolTaskScheduler.java:402)
+	... 9 common frames omitted
+2025-07-10 21:56:39 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 一定要保护自己的梦想，即使牺牲一切。)
+2025-07-10 21:56:40 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> “稳妥”之船从未能从岸边走远。)
+2025-07-10 21:56:41 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 有时候不是不懂，只是不想懂；有时候不是不知道，只是不想说出来；有时候不是不明白，而是明白了也不知道该怎么做，于是就保持了沉默。)
+2025-07-10 21:56:41 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 实变函数学十遍，泛函学完心泛寒。 —— 数学系名言)
+2025-07-10 21:56:42 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> 在我的一生里，也有贫乏和沉默的地域。它们是我忙碌的日子得到日光与空气的几片空旷之地。)
+2025-07-10 21:56:42 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 调用频次过快，请间隔一分钟再试，或购买钻石会员！如果使用的是公共ID与KEY请登录接口盒子使用自己的ID与KEY，独享频次，登录接口盒子www.apihz.cn后台可查看详细调用统计，方便你的业务规划。)
+2025-07-10 21:56:42 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 还有三个月我就过生日了，现在吃个蛋糕不过分吧。)
+2025-07-10 21:56:43 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 【离亭宴煞】蛩吟罢一觉才宁贴，鸡鸣时万事无休歇。 —— 马致远)
+2025-07-10 21:56:43 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> 路过的熟悉，如同有你，已无转身的距离。 —— 原创)
+2025-07-10 21:56:44 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 万物迎春送残腊，一年结局在今宵。 —— 戴复古)
+2025-07-10 21:56:44 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 我把能给的都给了你，而你却说你还是不够喜欢我。 ——选自散文集《我在人间凑数的日子》)
+2025-07-10 21:56:44 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 一样东西，如果你太想要，就会把它看得很大，甚至大到成了整个世界，占据了你的全部心思。我的劝告是，最后无论你是否如愿以偿，都要及时从中跳出来，如实地看清它在整个世界中的真实位置，即它在无限时空中的微不足道。)
+2025-07-10 21:56:44 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 别离滋味浓于酒。著人瘦。此情不及墙东柳。春色年年如旧。《秋蕊香·帘幕疏疏风透》 — 张耒)
+2025-07-10 21:56:45 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 我的青春不值钱，以前是个反问句，现在是个陈述句。)
+2025-07-10 21:56:45 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---
+2025-07-10 22:01:25 INFO  [main] com.yiyan.Launcher - Starting Launcher using Java 17.0.14 with PID 8340 (E:\real项目\一言\YYan\target\classes started by 29323 in E:\real项目\一言\YYan)
+2025-07-10 22:01:25 INFO  [main] com.yiyan.Launcher - The following 1 profile is active: "dev"
+2025-07-10 22:01:26 INFO  [main] c.y.i.a.a.p.SentenceParserFactory - 加载的解析器: [json, plain_text]
+2025-07-10 22:01:26 INFO  [main] com.yiyan.Launcher - Started Launcher in 2.053 seconds (process running for 2.526)
+2025-07-10 22:01:26 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - 🔍 正在从路径 'classpath:api-list.json' 加载API列表...
+2025-07-10 22:01:26 INFO  [main] c.y.i.a.api.config.ApiConfigLoader - ✅ 成功加载了 17 个API端点。
+2025-07-10 22:01:26 INFO  [main] c.y.i.scheduling.ApiSelfCheckRunner - 🚀 应用已就绪，开始在后台执行API自检...
+2025-07-10 22:01:26 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- 开始API自检 ---
+2025-07-10 22:01:26 INFO  [Thread-1] c.y.i.scheduling.DynamicScheduler - API配置已加载，调度器启动。
+2025-07-10 22:01:26 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - 🚀 开始尝试获取新的一言 (跳过校验: false)...
+2025-07-10 22:01:26 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ⏳ 尝试从API [oddfar.com] 获取数据...
+2025-07-10 22:01:27 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [1/17] [hitokoto.cn] -> ✅ OK (-> 你指尖跃动的电光，是我此生不变的信仰，唯我超电磁炮永世长存。 —— 某科学的超电磁炮)
+2025-07-10 22:01:27 INFO  [yiyan-scheduler-1] c.y.i.a.api.HttpSentenceRepository - ✅ 成功从 API [oddfar.com] 获取数据, URL: https://api.oddfar.com/yl/q.php
+2025-07-10 22:01:27 INFO  [yiyan-scheduler-1] c.y.a.service.SentenceServiceImpl - ✨ 成功获取到封装后的一言对象: 与其被自己的本性牵着走而痛苦，倒不如试着改变自己。
+2025-07-10 22:01:27 INFO  [yiyan-scheduler-1] c.y.i.a.p.FileSentenceLogger - 📝 记录新的一言到文件: [2025-07-10 22:01:27] 与其被自己的本性牵着走而痛苦，倒不如试着改变自己。
+2025-07-10 22:01:27 INFO  [yiyan-scheduler-1] c.y.i.scheduling.DynamicScheduler - 🕒 任务周期结束，下一次执行将在 10 秒后。
+2025-07-10 22:01:27 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - 准备更新视图，当前"临时置顶"状态为：true
+2025-07-10 22:01:27 INFO  [AWT-EventQueue-0] c.y.i.ui.presenter.UiController - -> "临时置顶"已启用，执行置顶5秒后沉底的操作。
+2025-07-10 22:01:27 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [2/17] [api.xygeng.cn] -> ✅ OK (-> 忘羡一曲远，曲终人不散 —— 佚名)
+2025-07-10 22:01:29 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [3/17] [uapis.cn] -> ✅ OK (-> 能够教你读书。可爱的学妹和生硬的父亲。还有……这片星空。我现在拥有的东西，只有这样。我能够给阿良良木你的，只有这些。这些就是，全部。)
+2025-07-10 22:01:29 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [4/17] [oddfar.com] -> ✅ OK (-> 用我的左手将你那个不可理喻的幻想粉碎掉！)
+2025-07-10 22:01:29 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [5/17] [iamwawa.cn-lizhi] -> ✅ OK (-> 有智者立长志，无志者长立志。)
+2025-07-10 22:01:29 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [6/17] [aa1.cn-wenan] -> ✅ OK (-> 有时候你放不下一个人，不是因为那个人无可替代，而是因为你在那个人身上花费了太多的时间精力，一旦分开，就好像自己用时间和青春细心堆砌的城堡轰然倒塌。)
+2025-07-10 22:01:30 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [7/17] [wudada.online] -> ✅ OK (-> 我也想杀死伤痛，让那恩怨有始有终。 —— 县城)
+2025-07-10 22:01:30 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [8/17] [mu-jie.cc-stray-birds] -> ✅ OK (-> 压迫着我的，到底是我的想要外出的灵魂呢，还是那世界的灵魂，敲着我心的门想要进来呢？)
+2025-07-10 22:01:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [9/17] [apihz.cn] -> ✅ OK (-> 抓住机会，全心付出，不留遗憾的离开。)
+2025-07-10 22:01:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [10/17] [aa1.cn-pyq] -> ✅ OK (-> 生活中，有些事，有些人，看的太重，便成了累赘。人生，总需要继续，继续轻装前行。心若放宽，天高云淡路好走；事若看淡，心胸坦荡也安然。)
+2025-07-10 22:01:31 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [11/17] [iamwawa.cn-shici] -> ✅ OK (-> 椒专佞以慢慆兮，樧又欲充夫佩帏。 —— 屈原)
+2025-07-10 22:01:32 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [12/17] [nnxv.cn] -> ✅ OK (-> 总有一个人一直住在心底，却又告别在生活里。 —— 网易云)
+2025-07-10 22:01:32 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [13/17] [jinrishici.com] -> ✅ OK (-> 愿天上人间，占得欢娱，年年今夜。 —— 柳永)
+2025-07-10 22:01:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [14/17] [api-m.com-renjian] -> ✅ OK (-> 望着你远去的背影，那一刻我知道我得一个人生活了.- ——选自散文集《我在人间凑数的日子》)
+2025-07-10 22:01:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [15/17] [api-m.com-hitokoto] -> ✅ OK (-> 生活本身是乏味的，日出而作，日落而归，有的人为了名利、金钱、地位，忙得身心疲惫，正是有了这样的纷扰，生活才会五彩缤纷，然而，平平淡淡才是真，美好和快乐在平淡中，平淡才是生活中最美好的时刻。)
+2025-07-10 22:01:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [16/17] [api-m.com-poetry] -> ✅ OK (-> 梧桐叶上，点点露珠零。《临江仙·深秋寒夜银河静》 — 尹鹗)
+2025-07-10 22:01:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - [17/17] [hhlqilongzhu.cn] -> ✅ OK (-> 因为我是拆迁户，所以才敢在奋斗的年纪，选择安逸。)
+2025-07-10 22:01:33 INFO  [task-1] c.y.i.a.api.HttpSentenceRepository - --- API自检完成: 17/17 个API可用 ---

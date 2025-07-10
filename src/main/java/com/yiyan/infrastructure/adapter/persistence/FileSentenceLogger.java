@@ -1,7 +1,7 @@
 package com.yiyan.infrastructure.adapter.persistence;
 
 import com.yiyan.application.event.SentenceFetchedEvent;
-import com.yiyan.core.domain.Sentence;
+import com.yiyan.domain.Sentence;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;

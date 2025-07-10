@@ -1,8 +1,7 @@
 package com.yiyan.infrastructure.adapter.api;
 
 import com.yiyan.infrastructure.adapter.api.parser.SentenceParser;
-import com.yiyan.core.domain.Sentence;
-import com.yiyan.core.repository.SentenceRepository;
+import com.yiyan.domain.Sentence;
 import com.yiyan.infrastructure.adapter.api.config.ApiProperties;
 import com.yiyan.infrastructure.adapter.api.parser.SentenceParserFactory;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -151,6 +150,7 @@ public class HttpSentenceRepository implements SentenceRepository {
      * 它会测试每个端点，并记录其状态。
      */
     @Async
+    @Override
     public void checkAllApisAsync() {
         log.info("--- 开始API自检 ---");
         List<ApiProperties.ApiEndpoint> allEndpoints = apiProperties.getEndpoints();

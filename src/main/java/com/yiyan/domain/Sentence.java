@@ -1,4 +1,4 @@
-package com.yiyan.core.domain;
+package com.yiyan.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

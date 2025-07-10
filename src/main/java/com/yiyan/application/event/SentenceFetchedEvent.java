@@ -1,6 +1,6 @@
 package com.yiyan.application.event;
 
-import com.yiyan.core.domain.Sentence;
+import com.yiyan.domain.Sentence;
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
