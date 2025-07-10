@@ -2,6 +2,7 @@ package com.yiyan.infrastructure.ui.presenter;
 
 import com.yiyan.application.event.SentenceFetchedEvent;
 import com.yiyan.application.service.ManualRequestService;
+import com.yiyan.application.service.SentenceService;
 import com.yiyan.core.domain.Sentence;
 import com.yiyan.infrastructure.ui.dto.HorizontalAlignment;
 import com.yiyan.infrastructure.ui.service.AnimationService;
@@ -30,7 +31,7 @@ public class UiController implements ViewCallback {
     /**
      * 手动请求服务，用于触发异步获取新的"一言"
      */
-    private final ManualRequestService manualRequestService;
+    private final SentenceService sentenceService;
 
     /**
      * "一言"视图，UI控制器通过此接口更新界面
@@ -102,7 +103,7 @@ public class UiController implements ViewCallback {
 
     @Override
     public void onRefreshRequested() {
-        manualRequestService.requestNewSentenceAsync();
+        sentenceService.requestNewSentenceAsync();
     }
 
     @Override
@@ -111,7 +112,7 @@ public class UiController implements ViewCallback {
         // 状态变更后，命令View重建UI以反映新状态
         view.rebuildUiForNewState(this.isAuthorVisible, this.isHorizontalDragEnabled, this.alignment, this.isLocked, this.isTemporaryTopEnabled);
         // 手动刷新一次以应用作者可见性变更
-        manualRequestService.requestNewSentenceAsync();
+        sentenceService.requestNewSentenceAsync();
     }
 
     @Override
